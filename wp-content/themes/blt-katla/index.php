@@ -21,11 +21,14 @@
 
                 <hr>
 
-                <h2>DERNIERS ARTICLES</h2>
+                <div class="row">
 
-                <p>Marketing, art, innovation, CM...</p>
+                    <div class="col-md-12 title-section">
+                        <h3>DERNIERS ARTICLES</h3>
+                        <p>Marketing, art, innovation, CM...<br>Toutes les idées & concepts créatifs, amusants & inspirants du moment</p>
+                    </div>
 
-                <p>Toutes les idées & concepts créatifs, amusants & inspirants du moment</p>
+                </div>
 
                 <div class="row">
 
