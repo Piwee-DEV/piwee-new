@@ -1,3 +1,11 @@
+body {
+    font-family: 'Open Sans', sans-serif !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Open Sans', sans-serif !important;
+}
+
 li {
     list-style-type: none;
 }
@@ -51,4 +59,27 @@ li {
 
 .item-menu-header:hover .opened-menu-container {
     display: block;
+}
+
+.article-vignette {
+    height: 270px;
+}
+
+.article-vignette-inside-image {
+    background-size: 100%;
+    background-repeat: no-repeat;
+    height: 170px;
+}
+
+.article-vignette-inside-text {
+    background-color: white;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 0 0 10px 10px;
+    height: 80px;
+}
+
+.article-vignette-inside-text h4 {
+    font-weight: 600 !important;
 }

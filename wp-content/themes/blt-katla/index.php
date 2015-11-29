@@ -1,59 +1,60 @@
 <?php get_header(); ?>
 
+<?php $recent_posts = wp_get_recent_posts(array('post_status' => 'publish')); ?>
 
-<div id="site-content" class="clearfix">
-	
-	<?php
+    <div id="site-content" class="clearfix">
 
-		// Front Page - Top of container
-		if(is_front_page() and is_active_sidebar('front-top_of_container')){
-			dynamic_sidebar('front-top_of_container');
-		}
+        <div class="row">
 
-	?>
-	<div id="site-content-column"><?php
+            <div class="col-md-8">
 
-		if(is_archive()){
-			blt_get_title();		
-		}
+                <div class="article-mega-featured">
 
+                    <a href="<?php echo get_permalink($recent_posts[0]["post_id"]) ?>">
+                        <div class="article-mega-featured-img-container">
+                            <?php echo get_the_post_thumbnail($recent_posts[0]["post_id"], "attachment-large") ?>
+                            <h2><?php echo $recent_posts[0]["post_title"]; ?></h2>
+                        </div>
+                    </a>
 
-		if(have_posts()){ 
-			
-			echo '<div class="row">';
-			include(get_template_directory().'/loop.php');
-			echo '</div>';
+                </div>
 
-			
-			// Previous/next page navigation.
-			if(!blt_get_option('enable_infinite_scrolling')){
+                <hr>
 
-				the_posts_pagination(array(
-					'prev_text'          => '<i class="fa fa-chevron-left"></i>',
-					'next_text'          => '<i class="fa fa-chevron-right"></i>',
-					'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'bluthemes' ) . ' </span>',
-				));
+                <h2>DERNIERS ARTICLES</h2>
 
-			}			
+                <p>Marketing, art, innovation, CM...</p>
 
-		}else{ 
-			
-			get_template_part( 'inc/template-parts/content', 'none' );
-		
-		} ?> 
-		
-	</div><?php
+                <p>Toutes les idées & concepts créatifs, amusants & inspirants du moment</p>
 
-	# 	
-	# 	SIDEBAR
-	# 	========================================================================================
-	#   Load the sidebar if needed
-	# 	========================================================================================
-	# 		
-	if(in_array(blt_get_option('sidebar_layout', 'right'), array('left', 'right'), true)){
-		get_sidebar();
-	} ?>
+                <div class="row">
 
-</div>
+                    <?php foreach ($recent_posts as $post): ?>
+
+                        <?php $image = wp_get_attachment_image_src(get_post_thumbnail_id($post['ID']), 'single-post-thumbnail'); ?>
+
+                        <div class="col-md-6 article-vignette">
+                            <div class="article-vignette-inside-image"
+                                 style="background-image: url('<?php echo $image[0]; ?>')">
+
+                            </div>
+                            <div class="article-vignette-inside-text">
+                                <h4><?php echo $post["post_title"]; ?></h4>
+                            </div>
+                        </div>
+
+                    <?php endforeach ?>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+
+            </div>
+
+        </div>
+
+    </div>
 
 <?php get_footer(); ?>
