@@ -39,7 +39,7 @@ li {
 }
 
 .opened-menu-container {
-    display: none;
+    display: block;
     background-color: white;
     position: absolute;
     left: 0;
@@ -104,4 +104,28 @@ li {
 .article-mega-featured-img h2 {
     color: white;
     font-size: 1.5em;
+}
+
+.title-menu-section {
+    font-size: 1.3em;
+    color: #d5ac3c;
+}
+
+.opened-menu-container {
+    padding: 10px;
+}
+
+.opened-menu-container hr {
+    padding: 0;
+    margin: 0;
+}
+
+.opened-menu-container p {
+    padding: 0;
+    margin: 0;
+    font-weight: normal;
+}
+
+.opened-menu-container h4 {
+    margin-top: 20px;
 }

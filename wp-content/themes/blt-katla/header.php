@@ -213,7 +213,10 @@
                                             <div class="row">
 
                                                 <div class="col-md-12">
-                                                    <h3>CATEGORIES</h3>
+
+                                                    <h3 class="title-menu-section">CATEGORIES</h3>
+                                                    <hr>
+
                                                 </div>
 
                                             </div>
@@ -280,7 +283,10 @@
                                         <div class="col-md-2">
 
                                             <div class="row">
-                                                <h3>ARTICLES</h3>
+
+                                                <h3 class="title-menu-section">ARTICLES</h3>
+                                                <hr>
+
                                                 <a href="/genie">
                                                     Génie
                                                 </a>
@@ -297,7 +303,10 @@
                                         <div class="col-md-2">
 
                                             <div class="row">
-                                                <h3>PIWEE</h3>
+
+                                                <h3 class="title-menu-section">PIWEE</h3>
+                                                <hr>
+
                                                 <p><a href="/la-vie-du-blog">LA VIE DU BLOG</a></p>
                                                 <p><a href="/julienfabro">ABOUT</a></p>
                                                 <p><a href="/partenaires">PARTENAIRES</a></p>
