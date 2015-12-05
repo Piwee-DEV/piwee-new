@@ -39,7 +39,7 @@ li {
 }
 
 .opened-menu-container {
-    display: block;
+    display: none;
     background-color: white;
     position: absolute;
     left: 0;
@@ -128,4 +128,19 @@ li {
 
 .opened-menu-container h4 {
     margin-top: 20px;
+}
+
+.btn-piwee {
+    display: block !important;
+    margin-top: 10px;
+    width: 80%;
+}
+
+.piwee-title-menu-col3 {
+    margin-top: 10px !important;
+    font-weight: bold !important;
+}
+
+.more-margin {
+    margin-top: 10px;
 }

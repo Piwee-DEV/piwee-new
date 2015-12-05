@@ -287,14 +287,14 @@
                                                 <h3 class="title-menu-section">ARTICLES</h3>
                                                 <hr>
 
-                                                <a href="/genie">
-                                                    Génie
+                                                <a class="btn btn-default btn-piwee" href="/genie">
+                                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span> Génie
                                                 </a>
-                                                <a href="/creatif">
-                                                    Créatif
+                                                <a  class="btn btn-default btn-piwee"href="/creatif">
+                                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span> Créatif
                                                 </a>
-                                                <a href="/deja-vu">
-                                                    Déjà vu
+                                                <a class="btn btn-default btn-piwee" href="/deja-vu">
+                                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span> Déjà vu
                                                 </a>
                                             </div>
 
@@ -307,9 +307,9 @@
                                                 <h3 class="title-menu-section">PIWEE</h3>
                                                 <hr>
 
-                                                <p><a href="/la-vie-du-blog">LA VIE DU BLOG</a></p>
-                                                <p><a href="/julienfabro">ABOUT</a></p>
-                                                <p><a href="/partenaires">PARTENAIRES</a></p>
+                                                <p class="piwee-title-menu-col3"><a href="/la-vie-du-blog">LA VIE DU BLOG</a></p>
+                                                <p class="piwee-title-menu-col3"><a href="/julienfabro">ABOUT</a></p>
+                                                <p class="piwee-title-menu-col3"><a href="/partenaires">PARTENAIRES</a></p>
                                             </div>
 
                                         </div>
