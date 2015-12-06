@@ -57,7 +57,7 @@
                                         <div class="fb-like" data-href="<?php echo get_permalink($post->ID); ?>"
                                              data-layout="button" data-action="like" data-show-faces="false"
                                              data-share="false"></div>
-                                        <a href="https://twitter.com/share" class="twitter-share-button" {count}>Tweet</a>
+                                        <a href="http://twitter.com/share" class="twitter-share-button" {count}>Tweet</a>
                                     </div>
                                 </div>
                             </div>
@@ -134,7 +134,7 @@
                                         <div class="fb-like" data-href="<?php echo get_permalink($post->ID); ?>"
                                              data-layout="button" data-action="like" data-show-faces="false"
                                              data-share="false"></div>
-                                        <a href="https://twitter.com/share" class="twitter-share-button" {count}>Tweet</a>
+                                        <a href="http://twitter.com/share" class="twitter-share-button" {count}>Tweet</a>
                                     </div>
                                 </div>
                             </div>
@@ -181,7 +181,7 @@
                                         <div class="fb-like" data-href="<?php echo get_permalink($post->ID); ?>"
                                              data-layout="button" data-action="like" data-show-faces="false"
                                              data-share="false"></div>
-                                        <a href="https://twitter.com/share" class="twitter-share-button" {count}>Tweet</a>
+                                        <a href="http://twitter.com/share" class="twitter-share-button" {count}>Tweet</a>
                                     </div>
                                 </div>
                             </div>
