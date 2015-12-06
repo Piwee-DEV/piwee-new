@@ -3,6 +3,7 @@
 <?php $recent_posts = wp_get_recent_posts(array('post_status' => 'publish')); ?>
 <?php $marketing_posts = query_posts(array('category__in' => array(211), 'posts_per_page' => 4, 'orderby' => 'date', 'order' => 'DESC', 'post_status' => 'publish')); ?>
 <?php $infographie_posts = query_posts(array('category__in' => array(678), 'posts_per_page' => 4, 'orderby' => 'date', 'order' => 'DESC', 'post_status' => 'publish')); ?>
+<?php $citations_posts = query_posts(array('category__in' => array(1158), 'posts_per_page' => 4, 'orderby' => 'date', 'order' => 'DESC', 'post_status' => 'publish')); ?>
 
     <div id="site-content" class="clearfix">
 
@@ -43,17 +44,57 @@
 
                         <?php $image = wp_get_attachment_image_src(get_post_thumbnail_id($post['ID']), 'single-post-thumbnail'); ?>
 
-                        <a href="<?php echo get_permalink($post['ID']); ?>">
-                            <div class="col-md-6 article-vignette">
+                        <div class="col-md-6 article-vignette">
+                            <a href="<?php echo get_permalink($post['ID']); ?>">
                                 <div class="article-vignette-inside-image"
                                      style="background-image: url('<?php echo $image[0]; ?>')">
-
+                                    <div class="sharing-interactive" id="sharing-interactive-<?php echo $post['ID']; ?>"
+                                         onmouseover="openSharePanelForID('<?php echo $post['ID']; ?>')"
+                                         onmouseout="hideSharePanelForID('<?php echo $post['ID']; ?>');">
+                                        <?php if (function_exists("social_shares_button")) social_shares_button("normal", $post['ID']); ?>
+                                        <div id="post-share-box-<?php echo $post['ID']; ?>" class="post-share-article">
+                                            <div class="fb-like" data-href="<?php echo get_permalink($post['ID']); ?>"
+                                                 data-layout="button" data-action="like" data-show-faces="false"
+                                                 data-share="false"></div>
+                                            <a href="https://twitter.com/share" class="twitter-share-button" {count}
+                                               data-via="alex_zhixin">Tweet</a>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="article-vignette-inside-text">
                                     <h4><?php echo $post["post_title"]; ?></h4>
                                 </div>
-                            </div>
-                        </a>
+                            </a>
+                        </div>
+
+                    <?php endforeach ?>
+
+                </div>
+
+                <hr>
+
+                <div class="row">
+
+                    <div class="col-md-12 title-section">
+                        <h3>PENSÉES ET PETITES PHRASES</h3>
+
+                        <p>Tous les matins, une petite phrase pour vous inspirer et vous faire attaquer la journée avec
+                            le sourire</p>
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <?php foreach ($citations_posts as $post): ?>
+
+                        <?php $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'single-post-thumbnail'); ?>
+
+                        <div class="col-md-4">
+                            <a href="<?php echo get_permalink($post->ID); ?>">
+                                <img src="<?php echo $image[0]; ?>">
+                            </a>
+                        </div>
 
                     <?php endforeach ?>
 
@@ -78,17 +119,28 @@
 
                         <?php $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'single-post-thumbnail'); ?>
 
-                        <a href="<?php echo get_permalink($post->ID); ?>">
-                            <div class="col-md-6 article-vignette">
+                        <div class="col-md-6 article-vignette">
+                            <a href="<?php echo get_permalink($post->ID); ?>">
                                 <div class="article-vignette-inside-image"
                                      style="background-image: url('<?php echo $image[0]; ?>')">
-
+                                    <div class="sharing-interactive" id="sharing-interactive-<?php echo $post->ID; ?>"
+                                         onmouseover="openSharePanelForID('<?php echo $post->ID; ?>')"
+                                         onmouseout="hideSharePanelForID('<?php echo $post->ID; ?>');">
+                                        <?php if (function_exists("social_shares_button")) social_shares_button("normal", $post->ID); ?>
+                                        <div id="post-share-box-<?php echo $post->ID; ?>" class="post-share-article">
+                                            <div class="fb-like" data-href="<?php echo get_permalink($post->ID); ?>"
+                                                 data-layout="button" data-action="like" data-show-faces="false"
+                                                 data-share="false"></div>
+                                            <a href="https://twitter.com/share" class="twitter-share-button" {count}
+                                               data-via="alex_zhixin">Tweet</a>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="article-vignette-inside-text">
                                     <h4><?php echo $post->post_title; ?></h4>
                                 </div>
-                            </div>
-                        </a>
+                            </a>
+                        </div>
 
                     <?php endforeach ?>
 
@@ -112,17 +164,28 @@
 
                         <?php $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'single-post-thumbnail'); ?>
 
-                        <a href="<?php echo get_permalink($post->ID); ?>">
-                            <div class="col-md-6 article-vignette">
+                        <div class="col-md-6 article-vignette">
+                            <a href="<?php echo get_permalink($post->ID); ?>">
                                 <div class="article-vignette-inside-image"
                                      style="background-image: url('<?php echo $image[0]; ?>')">
-
+                                    <div class="sharing-interactive" id="sharing-interactive-<?php echo $post->ID; ?>"
+                                         onmouseover="openSharePanelForID('<?php echo $post->ID; ?>')"
+                                         onmouseout="hideSharePanelForID('<?php echo $post->ID; ?>');">
+                                        <?php if (function_exists("social_shares_button")) social_shares_button("normal", $post->ID); ?>
+                                        <div id="post-share-box-<?php echo $post->ID; ?>" class="post-share-article">
+                                            <div class="fb-like" data-href="<?php echo get_permalink($post->ID); ?>"
+                                                 data-layout="button" data-action="like" data-show-faces="false"
+                                                 data-share="false"></div>
+                                            <a href="https://twitter.com/share" class="twitter-share-button" {count}
+                                               data-via="alex_zhixin">Tweet</a>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="article-vignette-inside-text">
                                     <h4><?php echo $post->post_title; ?></h4>
                                 </div>
-                            </div>
-                        </a>
+                            </a>
+                        </div>
 
                     <?php endforeach ?>
 

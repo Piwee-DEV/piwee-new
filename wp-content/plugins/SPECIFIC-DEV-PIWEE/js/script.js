@@ -60,21 +60,11 @@ jQuery.sharedCount = function(url, fn) {
 };
 
 function openSharePanelForID(post_id) {
-
 	jQuery("#post-share-box-" + post_id).show();
-    jQuery(".btn-total-share-" + post_id).hide();
-
-    jQuery("#post-share-box-" + post_id).css("width", "190px");
-    jQuery("#btn-categ-show-" + post_id).hide();
 }
 
 function hideSharePanelForID(post_id) {
-
     jQuery("#post-share-box-" + post_id).hide();
-    jQuery(".btn-total-share-" + post_id).show();
-
-    jQuery("#post-share-box-" + post_id).css("width", "120px");
-    jQuery("#btn-categ-show-" + post_id).show();
 }
 
 function updateShareCountForPost(post_id, share_count) {
