@@ -18,7 +18,7 @@ li {
 
 .menu-header {
     margin-left: 0;
-    margin-left: -67px;
+    margin-left: -55px;
 }
 
 .item-menu-header {
@@ -91,20 +91,34 @@ li {
     font-size: 1.4em;
 }
 
+.article-mega-featured.smaller.secondary {
+    margin-top: 15px;
+}
+
 .article-mega-featured-img-container {
     position: relative;
 }
 
-.article-mega-featured-img {
+.article-mega-featured-title {
     position: absolute;
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.6);
-    padding: 10px 25px;
+    padding: 15px 25px !important;
+    width: 100%;
 }
 
-.article-mega-featured-img h2 {
+.article-mega-featured-title h2 {
     color: white;
     font-size: 1.5em;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.smaller .article-mega-featured-title h2 {
+    color: white;
+    font-size: 1.2em;
+    padding: 0 !important;
+    margin: 0 !important;
 }
 
 .title-menu-section {

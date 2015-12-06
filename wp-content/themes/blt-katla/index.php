@@ -1,24 +1,24 @@
 <?php get_header(); ?>
 
-<?php $recent_posts = wp_get_recent_posts(array('post_status' => 'publish')); ?>
+<?php $recent_posts = query_posts(array('posts_per_page' => 8, 'orderby' => 'date', 'order' => 'DESC', 'post_status' => 'publish')); ?>
 <?php $marketing_posts = query_posts(array('category__in' => array(211), 'posts_per_page' => 4, 'orderby' => 'date', 'order' => 'DESC', 'post_status' => 'publish')); ?>
 <?php $infographie_posts = query_posts(array('category__in' => array(678), 'posts_per_page' => 4, 'orderby' => 'date', 'order' => 'DESC', 'post_status' => 'publish')); ?>
 <?php $citations_posts = query_posts(array('category__in' => array(1158), 'posts_per_page' => 4, 'orderby' => 'date', 'order' => 'DESC', 'post_status' => 'publish')); ?>
 
-    <div id="site-content" class="clearfix">
+    <div class="container">
 
         <div class="row">
 
-            <div class="col-md-8">
+            <div class="col-sm-12 col-md-8 col-lg-8">
 
                 <div class="article-mega-featured">
 
-                    <a href="<?php echo get_permalink($recent_posts[0]["post_id"]) ?>">
+                    <a href="<?php echo get_permalink($recent_posts[0]->ID) ?>">
 
                         <div class="article-mega-featured-img-container">
-                            <?php echo get_the_post_thumbnail($recent_posts[0]["post_id"], "attachment-large") ?>
-                            <div class="article-mega-featured-img">
-                                <h2><?php echo $recent_posts[0]["post_title"]; ?></h2>
+                            <?php echo get_the_post_thumbnail($recent_posts[0]->ID, "attachment-large") ?>
+                            <div class="article-mega-featured-title">
+                                <h2><?php echo $recent_posts[0]->post_title; ?></h2>
                             </div>
                         </div>
                     </a>
@@ -42,18 +42,18 @@
 
                     <?php foreach ($recent_posts as $post): ?>
 
-                        <?php $image = wp_get_attachment_image_src(get_post_thumbnail_id($post['ID']), 'single-post-thumbnail'); ?>
+                        <?php $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'single-post-thumbnail'); ?>
 
                         <div class="col-md-6 article-vignette">
-                            <a href="<?php echo get_permalink($post['ID']); ?>">
+                            <a href="<?php echo get_permalink($post->ID); ?>">
                                 <div class="article-vignette-inside-image"
                                      style="background-image: url('<?php echo $image[0]; ?>')">
-                                    <div class="sharing-interactive" id="sharing-interactive-<?php echo $post['ID']; ?>"
-                                         onmouseover="openSharePanelForID('<?php echo $post['ID']; ?>')"
-                                         onmouseout="hideSharePanelForID('<?php echo $post['ID']; ?>');">
-                                        <?php if (function_exists("social_shares_button")) social_shares_button("normal", $post['ID']); ?>
-                                        <div id="post-share-box-<?php echo $post['ID']; ?>" class="post-share-article">
-                                            <div class="fb-like" data-href="<?php echo get_permalink($post['ID']); ?>"
+                                    <div class="sharing-interactive" id="sharing-interactive-<?php echo $post->ID; ?>"
+                                         onmouseover="openSharePanelForID('<?php echo $post->ID; ?>')"
+                                         onmouseout="hideSharePanelForID('<?php echo $post->ID; ?>');">
+                                        <?php if (function_exists("social_shares_button")) social_shares_button("normal", $post->ID); ?>
+                                        <div id="post-share-box-<?php echo $post->ID; ?>" class="post-share-article">
+                                            <div class="fb-like" data-href="<?php echo get_permalink($post->ID); ?>"
                                                  data-layout="button" data-action="like" data-show-faces="false"
                                                  data-share="false"></div>
                                             <a href="https://twitter.com/share" class="twitter-share-button" {count}
@@ -62,7 +62,7 @@
                                     </div>
                                 </div>
                                 <div class="article-vignette-inside-text">
-                                    <h4><?php echo $post["post_title"]; ?></h4>
+                                    <h4><?php echo $post->post_title; ?></h4>
                                 </div>
                             </a>
                         </div>
@@ -193,8 +193,34 @@
 
             </div>
 
-            <div class="col-md-4">
+            <div class="col-sm-12 col-md-4 col-lg-4">
+                <div class="article-mega-featured smaller">
 
+                    <a href="<?php echo get_permalink($recent_posts[1]->ID) ?>">
+
+                        <div class="article-mega-featured-img-container">
+                            <?php echo get_the_post_thumbnail($recent_posts[1]->ID, "attachment-large") ?>
+                            <div class="article-mega-featured-title">
+                                <h2><?php echo $recent_posts[1]->post_title; ?></h2>
+                            </div>
+                        </div>
+                    </a>
+
+                </div>
+
+                <div class="article-mega-featured smaller secondary">
+
+                    <a href="<?php echo get_permalink($recent_posts[2]->ID) ?>">
+
+                        <div class="article-mega-featured-img-container">
+                            <?php echo get_the_post_thumbnail($recent_posts[2]->ID, "attachment-large") ?>
+                            <div class="article-mega-featured-title">
+                                <h2><?php echo $recent_posts[2]->post_title; ?></h2>
+                            </div>
+                        </div>
+                    </a>
+
+                </div>
             </div>
 
         </div>

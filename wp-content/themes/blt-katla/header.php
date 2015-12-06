@@ -194,7 +194,7 @@
         } ?>
     </header>
 
-    <div class="secondary-menu">
+    <div class="secondary-menu hidden-sm hidden-xs">
         <div class="container">
             <div class="row">
 
