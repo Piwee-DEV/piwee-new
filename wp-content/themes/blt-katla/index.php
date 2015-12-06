@@ -9,7 +9,7 @@
 
         <div class="row">
 
-            <div class="col-sm-12 col-md-8 col-lg-8">
+            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
 
                 <div class="article-mega-featured">
 
@@ -43,7 +43,7 @@
 
                         <?php $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'single-post-thumbnail'); ?>
 
-                        <div class="col-md-6 article-vignette">
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 article-vignette">
                             <div class="article-vignette-inside-image"
                                  style="background-image: url('<?php echo $image[0]; ?>')">
                                 <a href="<?php echo get_permalink($post->ID); ?>" class="home-article-background-link">
@@ -91,7 +91,7 @@
 
                         <?php $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'single-post-thumbnail'); ?>
 
-                        <div class="col-md-4">
+                        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                             <a href="<?php echo get_permalink($post->ID); ?>">
                                 <img src="<?php echo $image[0]; ?>">
                             </a>
@@ -120,7 +120,7 @@
 
                         <?php $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'single-post-thumbnail'); ?>
 
-                        <div class="col-md-6 article-vignette">
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 article-vignette">
                             <div class="article-vignette-inside-image"
                                  style="background-image: url('<?php echo $image[0]; ?>')">
                                 <a href="<?php echo get_permalink($post->ID); ?>" class="home-article-background-link">
@@ -167,7 +167,7 @@
 
                         <?php $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'single-post-thumbnail'); ?>
 
-                        <div class="col-md-6 article-vignette">
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 article-vignette">
                             <div class="article-vignette-inside-image"
                                  style="background-image: url('<?php echo $image[0]; ?>')">
                                 <a href="<?php echo get_permalink($post->ID); ?>" class="home-article-background-link">
@@ -198,7 +198,7 @@
 
             </div>
 
-            <div class="col-sm-12 col-md-4 col-lg-4">
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                 <div class="article-mega-featured smaller">
 
                     <a href="<?php echo get_permalink($recent_posts[1]->ID) ?>">
