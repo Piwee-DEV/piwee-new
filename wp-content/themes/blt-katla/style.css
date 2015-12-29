@@ -695,10 +695,9 @@ License URI:
 			.sidebar-left #site-content-sidebar{
 				left: 0;
 				right: auto;
-			}	
+			}
 			#site-content-sidebar{
-				width: 340px;
-				margin-left: 20px;
+
 			}
 			
 		}
@@ -708,8 +707,6 @@ License URI:
 			#site-content-sidebar{
 				float: left;
 				position: static;
-				width: 340px;
-				margin-left: 20px;
 			}
 		}
 
