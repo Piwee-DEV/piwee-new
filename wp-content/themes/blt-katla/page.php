@@ -6,12 +6,12 @@
 	<?php
 
 		// Front Page - Top of container
-		if(is_front_page() and is_active_sidebar('home-top_of_container')){ 
+		if(is_front_page() and is_active_sidebar('home-top_of_container')){
 			dynamic_sidebar('home-top_of_container');
 		}
 
 		// Page - Top of container
-		if(is_active_sidebar('page-top_of_container')){ 
+		if(is_active_sidebar('page-top_of_container')){
 			dynamic_sidebar('page-top_of_container');
 		}
 
@@ -19,7 +19,7 @@
 
 	<div id="site-content-column"><?php
 
-		if(have_posts()){ 
+		if(have_posts()){
 
 			while(have_posts()){
 
@@ -27,19 +27,19 @@
 
 				get_template_part( 'inc/template-parts/page', get_post_format() );
 
-			}				
-		
-		 } ?> 
-		 
+			}
+
+		 } ?>
+
 	</div><?php
 
-	# 	
+	#
 	# 	SIDEBAR
 	# 	========================================================================================
 	#   Load the sidebar if needed
 	# 	========================================================================================
-	# 		
-	if(in_array(blt_get_option('sidebar_layout', 'right'), array('left', 'right'), true) or in_array(get_field('blt_sidebar'), array('left', 'right'), true)){	
+	#
+	if(in_array(blt_get_option('sidebar_layout', 'right'), array('left', 'right'), true) or in_array(get_field('blt_sidebar'), array('left', 'right'), true)){
 		get_sidebar();
 	} ?>
 
