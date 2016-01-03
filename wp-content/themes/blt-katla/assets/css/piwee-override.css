@@ -18,6 +18,76 @@ li {
     list-style-type: none;
 }
 
+.post-container {
+    background-color: white;
+    padding-top: 20px;
+    border-radius: 2px;
+}
+
+.single-title {
+    font-weight: bold !important;
+    font-size: 2.5em !important;
+    margin-bottom: 0 !important;
+}
+
+.author-container {
+    margin-top: 20px;
+}
+
+.author-container img {
+    float: left;
+    max-width: 50px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.share-container {
+    clear: both;
+    margin-top: 20px;
+    width: 100%;
+    background-color: #efefef;
+    padding: 7px;
+    margin-bottom: 20px;
+    line-height: 1.3em;
+}
+
+.share-count {
+    color: #d5ac3c;
+}
+
+.share-count-views {
+    color: #d5ac3c;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.share-percent {
+    color: #000000;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.share-container .share-count {
+    float: left;
+    text-align: center;
+}
+
+.share-container .share-share {
+    float: left;
+    margin-left: 10px;
+    padding-top: 3px;
+}
+
+.share-container .share-postvote {
+    float: right;
+    text-align: center;
+    color: #b1b0b0;
+}
+
+.share-container .share-share img {
+    max-width: 35px;
+}
+
 .piwee-logo {
     width: 300px;
     margin-left: auto;
