@@ -43,14 +43,26 @@
     <header>
         <div class="container desktop-header hidden-sm hidden-xs">
             <div class="navbar-inner row">
-                <div class="col-md-12">
-
+                <div class="col-md-3">
+                    <div class="articles-headband">
+                        <img src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/options-icon.png">
+                        <span>LES ARTICLES</span>
+                    </div>
+                </div>
+                <div class="col-md-6">
                     <div class="piwee-logo">
                         <a href="<?php echo get_home_url() ?>">
                             <img src="<?php echo get_template_directory_uri() ?>/assets/img/logo-piwee.png">
                         </a>
                     </div>
-
+                </div>
+                <div class="col-md-3">
+                    <div class="social-network-headband">
+                        <img src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icon-fb-gold.png">
+                        <img src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icon-twitter-gold.png">
+                        <img src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icon-instagram-gold.png">
+                        <img src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icon-rss-gold.png">
+                    </div>
                 </div>
             </div>
         </div>

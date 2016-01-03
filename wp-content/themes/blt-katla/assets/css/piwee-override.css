@@ -18,6 +18,32 @@ li {
     list-style-type: none;
 }
 
+.articles-headband {
+    padding-top: 29px;
+}
+
+.articles-headband img {
+    max-width: 30px;
+    float: left;
+    margin-right: 10px;
+}
+
+.articles-headband span {
+    color: white;
+    margin-top: 5px;
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+.social-network-headband {
+    float: right;
+    padding-top: 25px;
+}
+
+.social-network-headband img {
+    max-width: 30px;
+}
+
 .post-container {
     background-color: white;
     padding-top: 20px;
@@ -104,7 +130,7 @@ li {
 }
 
 .item-menu-header {
-    color: white;
+    color: #dddddd;
     list-style-type: none;
     font-size: 1.1em;
     font-weight: bold;
@@ -113,11 +139,13 @@ li {
 }
 
 .item-menu-header a {
-    color: white;
+    color: #dddddd;
 }
 
 .secondary-menu {
     margin-bottom: 20px !important;
+    background-color: white !important;
+    border-bottom: 2px solid #dddddd;
 }
 
 .opened-menu-container {
@@ -280,6 +308,10 @@ li {
     display: block;
     width: 100%;
     height: 100%;
+}
+
+header {
+    background-color: #DEB84B;
 }
 
 .desktop-header {
