@@ -14,18 +14,14 @@ jQuery(document).ready(function () {
 
         jQuery(".header-article").scrollToFixed({
             preFixed: function () {
-
-                jQuery(".secondary-header").show();
+                jQuery(".secondary-header").animate({top: "0px"}, 200);
                 jQuery(".header-article").css('visibility', 'hidden');
                 jQuery("#wpadminbar").hide();
-
             },
             postFixed: function () {
-
-                jQuery(".secondary-header").hide();
+                jQuery(".secondary-header").animate({top: "-70px"}, 200);
                 jQuery(".header-article").css("visibility", 'visible');
                 jQuery("#wpadminbar").show();
-
             },
             zIndex: 999999
         });
