@@ -1,34 +1,43 @@
-var GlobalSpecific = { };
+var GlobalSpecific = {};
 
-jQuery(document).ready(function() {
+jQuery(document).ready(function () {
 
     responsiveControl();
 
-    jQuery(window).resize(function() {
+    jQuery(window).resize(function () {
 
         responsiveControl();
 
     });
 
-    jQuery(".header-article").scrollToFixed({
-        preFixed: function() {
-            jQuery(".secondary-header").show();
-            jQuery(".header-article").css('visibility', 'hidden');
-            jQuery("#wpadminbar").hide();
-        },
-        postFixed: function() {
-            jQuery(".secondary-header").hide();
-            jQuery(".header-article").css("visibility", 'visible');
-            jQuery("#wpadminbar").show();
-        },
-        zIndex: 999999
-    });
+    if (jQuery(window).width() > 650) {
+
+        jQuery(".header-article").scrollToFixed({
+            preFixed: function () {
+
+                jQuery(".secondary-header").show();
+                jQuery(".header-article").css('visibility', 'hidden');
+                jQuery("#wpadminbar").hide();
+
+            },
+            postFixed: function () {
+
+                jQuery(".secondary-header").hide();
+                jQuery(".header-article").css("visibility", 'visible');
+                jQuery("#wpadminbar").show();
+
+            },
+            zIndex: 999999
+        });
+
+    }
+
 
     jQuery(".img-pub-right").scrollToFixed({
-        preFixed: function() {
+        preFixed: function () {
 
         },
-        postFixed: function() {
+        postFixed: function () {
 
         },
         zIndex: 999999
@@ -36,14 +45,16 @@ jQuery(document).ready(function() {
 
 });
 
-jQuery.sharedCount = function(url, fn) {
+jQuery.sharedCount = function (url, fn) {
     url = encodeURIComponent(url || location.href);
-    var domain = "//free.sharedcount.com/"; /* SET DOMAIN */
-    var apikey = "479dfb502221d2b4c4a0433c600e16ba5dc0df4e" /*API KEY HERE*/
+    var domain = "//free.sharedcount.com/";
+    /* SET DOMAIN */
+    var apikey = "479dfb502221d2b4c4a0433c600e16ba5dc0df4e"
+    /*API KEY HERE*/
     var arg = {
         data: {
-            url : url,
-            apikey : apikey
+            url: url,
+            apikey: apikey
         },
         url: domain,
         cache: true,
@@ -62,7 +73,7 @@ jQuery.sharedCount = function(url, fn) {
 };
 
 function openSharePanelForID(post_id) {
-	jQuery("#post-share-box-" + post_id).show();
+    jQuery("#post-share-box-" + post_id).show();
 }
 
 function hideSharePanelForID(post_id) {
@@ -75,11 +86,11 @@ function updateShareCountForPost(post_id, share_count) {
         url: "/wp-admin/admin-ajax.php",
         type: "POST",
         data: {
-                action : 'update_share_count',
-                post_id : post_id,
-                share_count : share_count
-              },
-        success: function(result) {
+            action: 'update_share_count',
+            post_id: post_id,
+            share_count: share_count
+        },
+        success: function (result) {
 
         }
     });
@@ -87,7 +98,7 @@ function updateShareCountForPost(post_id, share_count) {
 
 function responsiveControl() {
 
-    if(jQuery(window).width() < 650) {
+    if (jQuery(window).width() < 650) {
         jQuery(".total-share-span-single").hide();
         jQuery(".share-single-pinterest").hide();
         jQuery(".share-single-linkedin").hide();
