@@ -428,6 +428,7 @@ section.content {
     background-color: white;
     opacity: 0.95;
     z-index: 9999999;
+    display: none;
 }
 
 .secondary-header-share-container {
