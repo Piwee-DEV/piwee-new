@@ -282,7 +282,7 @@
         <div class="container">
 
             <div class="row">
-                <div class="col-md-3 secondary-header-share-container">
+                <div class="col-md-4 secondary-header-share-container">
                     <span class="secondary-header-share-text">Partagez cet article</span>
                     <div class="secondary-header-shareimg-container">
                         <img src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/FB_icon_piwee.png">
@@ -291,10 +291,10 @@
                         <img src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/mail_icon_piwee.png">
                     </div>
                 </div>
-                <div class="col-md-6 secondary-header-logo-container">
+                <div class="col-md-4 secondary-header-logo-container">
                     <img src="<?php echo get_template_directory_uri() ?>/assets/img/logo-piwee-white-header.png">
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
 
                     <div class="secondary-header-post-type-container">
 
