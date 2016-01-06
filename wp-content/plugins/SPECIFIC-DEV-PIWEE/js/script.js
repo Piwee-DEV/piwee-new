@@ -12,11 +12,13 @@ jQuery(document).ready(function() {
 
     jQuery(".header-article").scrollToFixed({
         preFixed: function() {
-            jQuery(".header-article").css('border-bottom', '3px solid #d5ac3c');
+            jQuery(".secondary-header").show();
+            jQuery(".header-article").css('visibility', 'hidden');
             jQuery("#wpadminbar").hide();
         },
         postFixed: function() {
-            jQuery(".header-article").css('border-bottom', '3px solid #d5ac3c');
+            jQuery(".secondary-header").hide();
+            jQuery(".header-article").css("visibility", 'visible');
             jQuery("#wpadminbar").show();
         },
         zIndex: 999999

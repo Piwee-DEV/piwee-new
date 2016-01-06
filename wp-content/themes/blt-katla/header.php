@@ -277,4 +277,42 @@
         </div>
     </div>
 
+    <div class="secondary-header">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-3 secondary-header-share-container">
+                    <span class="secondary-header-share-text">Partagez cet article</span>
+                    <div class="secondary-header-shareimg-container">
+                        <img src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/FB_icon_piwee.png">
+                        <img src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/twitter_icon_piwee.png">
+                        <img src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/inta_icon_piwee.png">
+                        <img src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/mail_icon_piwee.png">
+                    </div>
+                </div>
+                <div class="col-md-6 secondary-header-logo-container">
+                    <img src="<?php echo get_template_directory_uri() ?>/assets/img/logo-piwee-white-header.png">
+                </div>
+                <div class="col-md-3">
+
+                    <div class="secondary-header-post-type-container">
+
+                        <img src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icon-genie.png">
+                        <div>
+                            <span class="percent">70%</span>
+                            <br>
+                            <span class="description">Génie</span>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
     <div id="site-body">

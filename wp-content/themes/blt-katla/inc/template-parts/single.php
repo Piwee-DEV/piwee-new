@@ -19,7 +19,7 @@
 
     </div>
 
-    <div class="share-container">
+    <div class="share-container header-article">
 
         <div class="share-count">
             <span class="share-count-views">11K</span>
