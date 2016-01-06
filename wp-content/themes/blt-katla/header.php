@@ -277,7 +277,7 @@
         </div>
     </div>
 
-    <div class="secondary-header">
+    <div class="secondary-header hidden-sm hidden-xs">
 
         <div class="container">
 
