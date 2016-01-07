@@ -1,12 +1,15 @@
 @media (max-width: 990px) {
     body {
-        padding-top: 80px;
+
     }
 }
 
 @media (max-width: 990px) {
     #site-content {
         overflow: hidden !important;
+    }
+    #site-body {
+        padding-top: 80px !important;
     }
 }
 
@@ -16,6 +19,10 @@ body, h1, h2, h3, h4, h5, h6 {
 
 li {
     list-style-type: none;
+}
+
+.post-container {
+    overflow: hidden;
 }
 
 .articles-headband {
@@ -56,6 +63,12 @@ li {
     margin-bottom: 0 !important;
 }
 
+@media(max-width: 990px) {
+    .single-title {
+        font-size: 1.9em !important;
+    }
+}
+
 .author-container {
     margin-top: 20px;
 }
@@ -75,6 +88,7 @@ li {
     padding: 7px;
     margin-bottom: 20px;
     line-height: 1.3em;
+    position: relative;
 }
 
 .share-count {
@@ -104,14 +118,38 @@ li {
     padding-top: 3px;
 }
 
+@media(max-width: 990px) {
+    .share-container .share-share {
+        padding-top: 6px;
+    }
+}
+
 .share-container .share-postvote {
     float: right;
     text-align: center;
     color: #b1b0b0;
 }
 
+.share-container .share-postvote .percent-container {
+    margin-right: 55px;
+    text-align: center;
+}
+
+.share-container .share-postvote img {
+    max-height: 80px;
+    position: absolute;
+    top: -15px;
+    right: -3px;
+}
+
 .share-container .share-share img {
     max-width: 35px;
+}
+
+@media (max-width: 990px) {
+    .share-container .share-share img {
+        max-width: 25px;
+    }
 }
 
 .piwee-logo {
@@ -339,6 +377,65 @@ header {
     z-index: 1000;
 }
 
+.mobile-header-col-1 {
+    float: left;
+}
+
+.mobile-header-col-2 {
+    float: right;
+}
+
+.mobile-header .mobile-header-vote-item {
+    float: left;
+    margin-right: 12px;
+    margin-left: 3px;
+    position: relative;
+}
+
+.mobile-header .mobile-header-vote-item img {
+    max-width: 35px;
+    float: left;
+}
+
+.mobile-header .mobile-header-vote-item span {
+    text-align: center;
+    position: absolute;
+    top: 10px;
+    right: -13px;
+    background-color: #CCDDFF;
+    display: block;
+    color: slategray;
+    width: 15px;
+    height: 25px;
+    float: left;
+    padding: 3px 3px 3px 3px;
+    border-radius: 0 3px 3px 0;
+    font-weight: bold;
+}
+
+@media (max-width : 374px) {
+
+    .mobile-header .mobile-header-vote-item {
+        margin-top: 5px;
+    }
+
+
+    .mobile-header .mobile-header-vote-item img {
+        max-width: 26px;
+        float: left;
+    }
+
+    .mobile-header .mobile-header-vote-item span {
+        top: 5px;
+        height: 25px;
+    }
+}
+
+.piwee-burger-icon {
+    max-height: 15px;
+    margin-bottom: 3px;
+}
+
 .burger-button {
     font-size: 2.0em;
 }
@@ -348,6 +445,12 @@ header {
 }
 
 .piwee-mobile-icon {
+    width: 95px;
+    margin-top: 5px;
+}
+
+.mobile-header-vote-container {
+    float: right;
 }
 
 .pushmenu { /*this is the nav*/

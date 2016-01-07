@@ -33,10 +33,13 @@
             <img src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/linkedin.png">
             <img src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/pinterest.png">
         </div>
-        <div class="share-postvote">
-            <span class="share-percent">60%</span>
-            <br>
-            Génie
+        <div class="share-postvote hidden-sm hidden-xs">
+            <div class="percent-container">
+                <span class="share-percent">60%</span>
+                <br>
+                Génie
+                <img src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icon-genie.png">
+            </div>
         </div>
 
         <div style="clear:both"></div>

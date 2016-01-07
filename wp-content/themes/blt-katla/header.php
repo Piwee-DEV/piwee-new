@@ -215,8 +215,10 @@
                 <div class="col-md-3">
                     <div class="social-network-headband">
                         <img src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icon-fb-gold.png">
-                        <img src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icon-twitter-gold.png">
-                        <img src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icon-instagram-gold.png">
+                        <img
+                            src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icon-twitter-gold.png">
+                        <img
+                            src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icon-instagram-gold.png">
                         <img src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icon-rss-gold.png">
                     </div>
                 </div>
@@ -224,22 +226,37 @@
         </div>
 
         <div class="container mobile-header hidden-lg hidden-md">
-            <div class="row">
-                <div class="col-xs-2 col-sm-2">
-                    <div class="burger-button">
-                        <a href="#" id="burger-button-lnk">
-                            <i class="fa fa-bars"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-xs-8 col-sm-8 text-center">
+            <div class="mobile-header-col-1">
+                <div class="burger-button">
+                    <a href="#" id="burger-button-lnk">
+                        <img
+                            src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/options-icon-gold.png"
+                            class="piwee-burger-icon">
+                    </a>
                     <a href="<?php echo get_home_url() ?>">
                         <img src="<?php echo get_template_directory_uri() ?>/assets/img/logo-piwee-mobile.png"
                              class="piwee-mobile-icon">
                     </a>
                 </div>
-                <div class="col-xs-2 col-sm-2">
-
+            </div>
+            <div class="mobile-header-col-2">
+                <div class="mobile-header-vote-container">
+                    <div class="mobile-header-vote-item">
+                        <img src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icon-genie.png">
+                        <span>0</span>
+                    </div>
+                    <div class="mobile-header-vote-item">
+                        <img src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icon-creatif.png">
+                        <span>0</span>
+                    </div>
+                    <div class="mobile-header-vote-item">
+                        <img src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icon-dejavu.png">
+                        <span>0</span>
+                    </div>
+                    <div class="mobile-header-vote-item">
+                        <img src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icon-fun.png">
+                        <span>0</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -259,7 +276,8 @@
                             <li class="item-menu-header"><a href="/category/fait-maison">INNOVATION</a></li>
                             <li class="item-menu-header"><a href="/category/fait-maison">INFOGRAPHIES</a></li>
                             <li class="item-menu-header"><a href="/category/fait-maison">TOPS</a></li>
-                            <li class="item-menu-header"><a href="/category/fait-maison">WE <i class="fa fa-heart"></i> TWITTER</a></li>
+                            <li class="item-menu-header"><a href="/category/fait-maison">WE <i class="fa fa-heart"></i>
+                                    TWITTER</a></li>
                             <li class="item-menu-header"><a href="/category/petites-pensees">PENSEES</a></li>
                             <li class="item-menu-header"><a href="/random">RANDOM</a></li>
                             <li class="item-menu-header"><a href="/top10">TOP 10</a></li>
@@ -284,9 +302,11 @@
             <div class="row">
                 <div class="col-md-4 secondary-header-share-container">
                     <span class="secondary-header-share-text">Partagez cet article</span>
+
                     <div class="secondary-header-shareimg-container">
                         <img src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/FB_icon_piwee.png">
-                        <img src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/twitter_icon_piwee.png">
+                        <img
+                            src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/twitter_icon_piwee.png">
                         <img src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/inta_icon_piwee.png">
                         <img src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/mail_icon_piwee.png">
                     </div>
@@ -299,6 +319,7 @@
                     <div class="secondary-header-post-type-container">
 
                         <img src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icon-genie.png">
+
                         <div>
                             <span class="percent">70%</span>
                             <br>
