@@ -375,6 +375,7 @@ header {
     top: 0;
     left: 0;
     z-index: 1000;
+    opacity: 0.95;
 }
 
 .mobile-header .mobile-header-col {
