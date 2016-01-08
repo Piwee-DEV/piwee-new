@@ -226,36 +226,34 @@
         </div>
 
         <div class="container mobile-header hidden-lg hidden-md">
-            <div class="mobile-header-col-1">
-                <div class="burger-button">
-                    <a href="#" id="burger-button-lnk">
-                        <img
-                            src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/options-icon-gold.png"
-                            class="piwee-burger-icon">
-                    </a>
+            <div clas="row">
+                <div class="col-xs-3 mobile-header-col">
+                    <div class="burger-button">
+                        <a href="#" id="burger-button-lnk">
+                            <img
+                                src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/options-icon-gold.png"
+                                class="piwee-burger-icon">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-xs-6 mobile-header-col-2 mobile-header-col">
                     <a href="<?php echo get_home_url() ?>">
                         <img src="<?php echo get_template_directory_uri() ?>/assets/img/logo-piwee-mobile.png"
                              class="piwee-mobile-icon">
                     </a>
                 </div>
-            </div>
-            <div class="mobile-header-col-2">
-                <div class="mobile-header-vote-container">
-                    <div class="mobile-header-vote-item">
-                        <img src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icon-genie.png">
-                        <span>0</span>
-                    </div>
-                    <div class="mobile-header-vote-item">
-                        <img src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icon-creatif.png">
-                        <span>0</span>
-                    </div>
-                    <div class="mobile-header-vote-item">
-                        <img src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icon-dejavu.png">
-                        <span>0</span>
-                    </div>
-                    <div class="mobile-header-vote-item">
-                        <img src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icon-fun.png">
-                        <span>0</span>
+                <div class="col-xs-3 mobile-header-col">
+                    <div class="mobile-header-post-type-container">
+
+                        <div class="open-menu-post-type">
+                            <div class="menu-post-type-text">
+                                <span class="percent">70%</span>
+                                <br>
+                                <span class="description">Génie</span>
+                            </div>
+                            <img src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icon-genie.png">
+                        </div>
+
                     </div>
                 </div>
             </div>

@@ -377,19 +377,17 @@ header {
     z-index: 1000;
 }
 
-.mobile-header-col-1 {
-    float: left;
+.mobile-header .mobile-header-col {
+    padding: 0 !important;
+    margin: 0 !important;
 }
 
 .mobile-header-col-2 {
-    float: right;
+    text-align: center;
 }
 
 .mobile-header .mobile-header-vote-item {
-    float: left;
-    margin-right: 12px;
-    margin-left: 3px;
-    position: relative;
+
 }
 
 .mobile-header .mobile-header-vote-item img {
@@ -445,8 +443,9 @@ header {
 }
 
 .piwee-mobile-icon {
-    width: 95px;
+    max-height: 40px;
     margin-top: 5px;
+    margin-left: 30px;
 }
 
 .mobile-header-vote-container {
@@ -588,4 +587,33 @@ section.content {
 
 .secondary-header-post-type-container div .description {
     color: #b1b0b0;
+}
+
+.open-menu-post-type {
+    float: right;
+}
+
+.mobile-header-post-type-container img {
+    float: left;
+    max-height: 45px;
+    margin-top: -3px;
+}
+
+.mobile-header-post-type-container .menu-post-type-text {
+    float: left;
+    text-align: center;
+}
+
+.mobile-header-post-type-container .menu-post-type-text {
+    line-height: 15px !important;
+    margin-top: 5px;
+}
+
+.mobile-header-post-type-container .menu-post-type-text .percent {
+    font-weight: bold;
+}
+
+.mobile-header-post-type-container .menu-post-type-text .description {
+    font-size: 0.7em;
+    color: slategray;
 }
