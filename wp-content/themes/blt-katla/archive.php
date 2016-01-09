@@ -1,74 +1,72 @@
 <?php get_header(); ?>
 
-<header class="site-content-header">
-	
-	<div class="container"><?php
+<?php
+    $category = get_the_category();
+    $posts = query_posts(array('category__in' => array($category[0]->cat_ID), 'posts_per_page' => 10, 'orderby' => 'date', 'order' => 'DESC', 'post_status' => 'publish'));
+?>
 
-		echo blt_archive_title( '<h1 class="header-title">', '</h1>' );
-		the_archive_description( '<div class="taxonomy-description">', '</div>' ); ?>
-	
-	</div>
+    <div class="container">
 
-</header><!-- .page-header -->
+        <div class="row">
 
-<div id="site-content" class="clearfix">
+            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
 
-	<div id="site-content-column"><?php
+                <div class="row">
 
-		if(is_archive()){
-			blt_archive_title( '<h1 class="page-title">', '</h1>' );		
-		}
+                    <div class="col-md-12 title-section">
+                        <h3><?php echo $category[0]->name ?></h3>
+                    </div>
 
+                </div>
 
-		if(have_posts()){ 
+                <div class="row">
 
-			echo '<div class="row">';
-			include(get_template_directory().'/loop.php');
-			echo '</div>';
+                    <?php foreach ($posts as $post): ?>
 
+                        <?php $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'single-post-thumbnail'); ?>
 
-			// Previous/next page navigation.
-			the_posts_pagination(array(
-				'prev_text'          => __( 'Previous page', 'bluthemes' ),
-				'next_text'          => __( 'Next page', 'bluthemes' ),
-				'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'bluthemes' ) . ' </span>',
-			));
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 article-vignette">
+                            <div class="article-vignette-inside-image"
+                                 style="background-image: url('<?php echo $image[0]; ?>')">
+                                <a href="<?php echo get_permalink($post->ID); ?>" class="home-article-background-link">
+                                </a>
 
-		}else{ 
+                                <div class="sharing-interactive" id="sharing-interactive-<?php echo $post->ID; ?>"
+                                     onmouseover="openSharePanelForID('<?php echo $post->ID; ?>')"
+                                     onmouseout="hideSharePanelForID('<?php echo $post->ID; ?>');">
+                                    <?php if (function_exists("social_shares_button")) social_shares_button("normal", $post->ID); ?>
+                                    <div id="post-share-box-<?php echo $post->ID; ?>" class="post-share-article">
+                                        <div class="fb-like" data-href="<?php echo get_permalink($post->ID); ?>"
+                                             data-layout="button" data-action="like" data-show-faces="false"
+                                             data-share="false"></div>
+                                        <a href="http://twitter.com/share" class="twitter-share-button"
+                                           {count}>Tweet</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="<?php echo get_permalink($post->ID); ?>">
+                                <div class="article-vignette-inside-text">
+                                    <h4><?php echo $post->post_title; ?></h4>
+                                </div>
+                            </a>
+                        </div>
 
-			get_template_part( 'inc/template-parts/content', 'none' );
-		}
+                    <?php endforeach ?>
 
+                </div>
 
-		?> 
-	</div><?php
+            </div>
 
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 hidden-xs hidden-sm">
 
-	# 	
-	# 	SIDEBAR
-	# 	========================================================================================
-	#   Load the sidebar if needed
-	# 	========================================================================================
-	#
-	if(is_category()){
+                <div id="primary-sidebar" class="primary-sidebar widget-area" role="complementary">
+                    <?php get_sidebar('categoryy'); ?>
+                </div>
 
-		$sidebar_layout = 'category_sidebar_layout';
-	}
-	elseif(is_author()){
-		$sidebar_layout = 'author_sidebar_layout';
-	}
-	elseif(is_archive()){
-		$sidebar_layout = 'archive_sidebar_layout';
-	}
-	else{
-		$sidebar_layout = 'sidebar_layout';
-	}
+            </div>
 
-	if(in_array(blt_get_option( $sidebar_layout, 'right'), array('left', 'right'), true)){
-		get_sidebar();
-	} ?>
+        </div>
 
-
-</div>
+    </div>
 
 <?php get_footer(); ?>
