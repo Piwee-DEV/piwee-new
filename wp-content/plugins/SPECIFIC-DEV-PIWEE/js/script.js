@@ -33,7 +33,7 @@ jQuery(document).ready(function () {
         e.preventDefault();
         openMobilePostType();
     });
-    
+
     responsiveControl();
 
     jQuery(window).resize(function () {

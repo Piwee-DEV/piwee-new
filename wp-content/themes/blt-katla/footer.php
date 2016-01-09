@@ -4,19 +4,42 @@
 
     <div class="container">
         <div class="row">
-            <?php dynamic_sidebar('footer-sidebar'); ?>
+            <div class="col-md-4">
+                <img src="<?php echo get_template_directory_uri() ?>/assets/img/logo-piwee-white-header.png" class="logo-footer">
+            </div>
+            <div class="col-md-2">
+                <strong>EN SAVOIR PLUS</strong>
+                <ul>
+                    <li>A propos</li>
+                    <li>L'équipe</li>
+                    <li>Devenez rédacteur</li>
+                    <li>Nous contacter</li>
+                </ul>
+            </div>
+            <div class="col-md-2">
+                <strong>PUBLICITE</strong>
+                <ul>
+                    <li>Annoncez chez Piwee</li>
+                    <li>Les Chiffres</li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <strong>SUIVEZ NOUS SUR LES RESEAUX SOCIAUX</strong>
+                <div class="clear"></div>
+                <div class="social-network-headband">
+                    <img src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/FB_icon_piwee.png">
+                    <img
+                        src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/twitter_icon_piwee.png">
+                    <img
+                        src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/inta_icon_piwee.png">
+                    <img src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/mail_icon_piwee.png">
+                </div>
+            </div>
         </div>
-    </div><?php
-
-    $footer_text = blt_get_option('footer_text', 'Copyright &copy; {year} &middot; Theme design by Bluthemes &middot; <a href="http://www.bluthemes.com" rel="nofollow">www.bluthemes.com</a>');
-
-    if (!empty($footer_text)) { ?>
-        <div class="footer-text">
-        <div class="container">
-            <p><?php echo html_entity_decode(str_replace("{year}", date('Y'), $footer_text)); ?></p>
+        <div class="footer-copyright">
+            Designé par Julien Fabro - Codé par Alexandre Nguyen
         </div>
-        </div><?php
-    } ?>
+    </div>
 
 </footer>
 

@@ -672,4 +672,31 @@ section.content {
     padding: 0 !important;
 }
 
+#site-footer {
+    padding-bottom: 30px !important;
+}
 
+#site-footer strong {
+    font-size: 0.9em;
+}
+
+#site-footer ul {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+#site-footer .social-network-headband {
+    float: left;
+    padding-top: 10px;
+}
+
+.logo-footer {
+    max-width: 250px;
+}
+
+.footer-copyright {
+    text-align: right;
+    color: #666666;
+    font-size: 0.8em;
+    margin-top: 20px;
+}
