@@ -27,6 +27,11 @@ function openMobilePostType() {
     }, 300);
 }
 
+$('.menu-post-type-text').on('touchstart click',function (e){
+    e.preventDefault();
+    openMobilePostType();
+});
+
 jQuery(document).ready(function () {
 
     responsiveControl();

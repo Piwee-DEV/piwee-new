@@ -246,7 +246,7 @@
                     <div class="mobile-header-post-type-container">
 
                         <div class="open-menu-post-type">
-                            <div class="menu-post-type-text" onclick="openMobilePostType();">
+                            <div class="menu-post-type-text">
                                 <span class="percent">50%</span>
                                 <br>
                                 <span class="description">Génie</span>
