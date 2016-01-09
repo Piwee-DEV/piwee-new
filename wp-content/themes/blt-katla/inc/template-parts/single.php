@@ -18,7 +18,7 @@
 
                     <?php
                     echo get_avatar(get_the_author_id());
-                    echo '<a href="/' . get_the_author_link() . '">' . get_the_author() . '</a><br>';
+                    echo '<a href="#">' . get_the_author() . '</a><br>';
                     the_date();
                     ?>
 
