@@ -27,7 +27,7 @@ function openMobilePostType() {
     }, 300);
 }
 
-$('.menu-post-type-text').on('touchstart click',function (e){
+$('.open-menu-post-type').on('touchstart click',function (e){
     e.preventDefault();
     openMobilePostType();
 });
