@@ -341,12 +341,12 @@
 
                     <div class="collapse navbar-collapse" id="katla-sec-navbar">
                         <ul class="menu-header">
-                            <li class="item-menu-header"><a href="/category/fait-maison">ART</a></li>
-                            <li class="item-menu-header"><a href="/category/fait-maison">MARKETING</a></li>
-                            <li class="item-menu-header"><a href="/category/fait-maison">INNOVATION</a></li>
-                            <li class="item-menu-header"><a href="/category/fait-maison">INFOGRAPHIES</a></li>
-                            <li class="item-menu-header"><a href="/category/fait-maison">TOPS</a></li>
-                            <li class="item-menu-header"><a href="/category/fait-maison">WE <i class="fa fa-heart"></i>
+                            <li class="item-menu-header"><a href="/category/inspiration">ART</a></li>
+                            <li class="item-menu-header"><a href="/category/marketing-2">MARKETING</a></li>
+                            <li class="item-menu-header"><a href="/category/innovation">INNOVATION</a></li>
+                            <li class="item-menu-header"><a href="/category/infographie">INFOGRAPHIES</a></li>
+                            <li class="item-menu-header"><a href="/tops">TOPS</a></li>
+                            <li class="item-menu-header"><a href="/category/digital-2/twitter">WE <i class="fa fa-heart"></i>
                                     TWITTER</a></li>
                             <li class="item-menu-header"><a href="/category/petites-pensees">PENSEES</a></li>
                             <li class="item-menu-header"><a href="/random">RANDOM</a></li>
