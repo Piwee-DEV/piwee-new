@@ -201,7 +201,7 @@
 
             </div>
 
-            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 hidden-xs hidden-sm">
                 <div class="article-mega-featured smaller">
 
                     <a href="<?php echo get_permalink($recent_posts[1]->ID) ?>">

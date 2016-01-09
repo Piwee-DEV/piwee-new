@@ -243,7 +243,7 @@
                     </a>
                 </div>
                 <div class="col-xs-3 mobile-header-col">
-                    <div class="mobile-header-post-type-container">
+                    <div class="mobile-header-post-type-container <?php if(!is_single()): ?>hidden-xs hidden-sm <?php endif ?>">
 
                         <div class="open-menu-post-type">
                             <div class="menu-post-type-text">
