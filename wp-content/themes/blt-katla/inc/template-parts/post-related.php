@@ -77,7 +77,7 @@
 
             <section class="blu-related-posts">
                     
-                <h3 class="blu-related-title"><?php _e('Related Posts', 'bluthemes'); ?></h3>
+                <h3 class="blu-related-title">Voir aussi</h3>
                 <div class="row"><?php
 
                     while($query->have_posts()){ $query->the_post(); ?>

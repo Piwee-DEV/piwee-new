@@ -23,8 +23,8 @@
 
                         // Previous/next post navigation.
                         the_post_navigation(array(
-                            'next_text' => '<span class="meta-nav meta-nav-next" aria-hidden="true">' . __('Next', 'bluthemes') . '</span><span class="post-title">%title</span>',
-                            'prev_text' => '<span class="meta-nav meta-nav-prev" aria-hidden="true">' . __('Previous', 'bluthemes') . '</span><span class="post-title">%title</span>',
+                            'next_text' => '<span class="meta-nav meta-nav-next" aria-hidden="true">Suivant</span><span class="post-title">%title</span>',
+                            'prev_text' => '<span class="meta-nav meta-nav-prev" aria-hidden="true">Précédent</span><span class="post-title">%title</span>',
                         ));
 
                         // Related Posts
