@@ -27,13 +27,13 @@ function openMobilePostType() {
     }, 300);
 }
 
-$('.open-menu-post-type').on('touchstart click',function (e){
-    e.preventDefault();
-    openMobilePostType();
-});
-
 jQuery(document).ready(function () {
 
+    $('.open-menu-post-type').on('touchstart click',function (e){
+        e.preventDefault();
+        openMobilePostType();
+    });
+    
     responsiveControl();
 
     jQuery(window).resize(function () {
