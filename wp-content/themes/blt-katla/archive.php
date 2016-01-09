@@ -60,7 +60,7 @@
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 hidden-xs hidden-sm">
 
                 <div id="primary-sidebar" class="primary-sidebar widget-area" role="complementary">
-                    <?php get_sidebar('categoryy'); ?>
+                    <?php get_sidebar('home'); ?>
                 </div>
 
             </div>

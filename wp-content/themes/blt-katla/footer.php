@@ -4,10 +4,10 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-md-4">
-                <img src="<?php echo get_template_directory_uri() ?>/assets/img/logo-piwee-white-header.png" class="logo-footer">
+            <div class="col-md-4 footer-item">
+                <img src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-logo-sans-ombres.png" class="logo-footer">
             </div>
-            <div class="col-md-2">
+            <div class="col-md-2 footer-item">
                 <strong>EN SAVOIR PLUS</strong>
                 <ul>
                     <li>A propos</li>
@@ -16,14 +16,14 @@
                     <li>Nous contacter</li>
                 </ul>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-2 footer-item">
                 <strong>PUBLICITE</strong>
                 <ul>
                     <li>Annoncez chez Piwee</li>
                     <li>Les Chiffres</li>
                 </ul>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 footer-item">
                 <strong>SUIVEZ NOUS SUR LES RESEAUX SOCIAUX</strong>
                 <div class="clear"></div>
                 <div class="social-network-headband">

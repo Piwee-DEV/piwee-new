@@ -676,6 +676,16 @@ section.content {
     padding-bottom: 30px !important;
 }
 
+@media (max-width: 990px) {
+    #site-footer .footer-item {
+        margin-top: 20px;
+    }
+
+    #site-footer .footer-item:first-child {
+        margin-top: 0px;
+    }
+}
+
 #site-footer strong {
     font-size: 0.9em;
 }
@@ -691,7 +701,7 @@ section.content {
 }
 
 .logo-footer {
-    max-width: 250px;
+    max-width: 200px;
 }
 
 .footer-copyright {
