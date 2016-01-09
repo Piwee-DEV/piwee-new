@@ -60,7 +60,6 @@ jQuery(document).ready(function () {
 
     }
 
-
     jQuery(".img-pub-right").scrollToFixed({
         preFixed: function () {
 
