@@ -1,0 +1,5 @@
+{
+    "require": {
+        "dunglas/php-socialshare": "^1.0"
+    }
+}

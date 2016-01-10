@@ -22,9 +22,14 @@ License: Copyright 2014  Alexandre Nguyen  (email : alex.nr@hotmail.co.jp)
         Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
+//Load composer plugins
+require_once("vendor/autoload.php");
+
 require_once("widgets/piwee_twitter_widget.php");
 require_once("widgets/piwee_fb_widget.php");
 require_once("widgets/piwee_fb_comment_widget.php");
+require_once("widgets/piwee_most_shared_posts_widget.php");
+require_once("post_sharing/post_sharing.php");
 
 add_action('wp_enqueue_scripts', 'register_script_sharebtn_plugin', 99999);
 add_action('admin_enqueue_scripts', 'register_script_colorpicker', 99999);
@@ -112,7 +117,7 @@ function campains_page_post()
 
                 <h1>Merci, vos choix ont été enregistrés.</h1>
 
-            <?php
+                <?php
 
             } else {
 
@@ -120,7 +125,7 @@ function campains_page_post()
 
                 <h1>Sorry, but your file is not valid !</h1>
 
-            <?php
+                <?php
             }
         } else if ($_POST["action"] == "del") {
 
@@ -137,7 +142,7 @@ function campains_page_post()
 
             <h1>Vous avez supprimé la campgne publicitaire de ce post !</h1>
 
-        <?php
+            <?php
 
         }
 
@@ -239,7 +244,7 @@ function campains_page_post()
 
 <?php endif; ?>
 
-<?php
+    <?php
 }
 
 function campains_page()
@@ -303,7 +308,7 @@ function campains_page()
 
                 <h1>Merci, vos choix ont été enregistrés.</h1>
 
-            <?php
+                <?php
 
             } else {
 
@@ -311,7 +316,7 @@ function campains_page()
 
                 <h1>Sorry, but your file is not valid !</h1>
 
-            <?php
+                <?php
             }
 
         }
@@ -447,7 +452,7 @@ function campains_page()
 
     </div>
 
-<?php
+    <?php
 
 }
 
@@ -480,7 +485,7 @@ function update_span_single_count()
         });
     </script>
 
-<?php
+    <?php
 }
 
 function display_social_share_bar()
@@ -544,7 +549,7 @@ function display_social_share_bar()
         }(window, document, 'script'));
     </script>
 
-<?php
+    <?php
 }
 
 function social_shares_span_single()
@@ -579,35 +584,24 @@ function social_shares_span()
     getTotalShareCountSmall();
 }
 
-function social_shares_button($mode = "normal", $post_id)
+function social_shares_button($post_id)
 {
+
+    $share_count = get_total_share_count($post_id);
 
     ?>
 
-    <?php if ($mode == "normal"): ?>
-
-    <div class="btn-total-share btn-small btn-custom-share btn-total-share-<?php the_ID(); ?>">
-
-    </div>
-
-<?php elseif ($mode == "grid"): ?>
-
     <div class="btn-total-share btn-small btn-custom-share-grid btn-total-share-<?php the_ID(); ?>">
-
+        <strong><?php echo $share_count ?> PARTAGES</strong>
     </div>
-
-<?php endif ?>
 
     <?php
-
-    getTotalShareCount($post_id);
 
 }
 
 
 function categ_gen_button()
 {
-
     $category = get_the_category();
 
     ?>
@@ -615,72 +609,7 @@ function categ_gen_button()
     <a href="<?php echo get_category_link($category[0]->term_id) ?>" class="btn btn-small btn-readmore-addon"
        id="btn-categ-show-<?php the_ID(); ?>"><?php echo $category[0]->cat_name ?></a>
 
-<?php
-
-}
-
-function getTotalShareCountSmall()
-{
-
-    $url = get_permalink(get_the_ID());
-
-    ?>
-
-    <script type="text/javascript">
-        jQuery(document).ready(function () {
-
-            jQuery.sharedCount("<?php echo $url; ?>", function (data) {
-
-                var count = 0;
-
-                count += parseInt(data.Twitter);
-                count += parseInt(data.Facebook.total_count);
-                count += parseInt(data.GooglePlusOne);
-                count += parseInt(data.Pinterest);
-                count += parseInt(data.LinkedIn);
-
-                jQuery(".<?php echo 'span-total-share-' . get_the_ID() ?>").html("<strong>" + count + " PARTAGES</strong>");
-
-                updateShareCountForPost("<?php the_ID() ?>", count);
-
-            });
-
-        });
-    </script>
-
-<?php
-}
-
-function getTotalShareCount($post_id)
-{
-
-    $url = get_permalink($post_id);
-
-    ?>
-
-    <script type="text/javascript">
-        jQuery(document).ready(function () {
-
-            jQuery.sharedCount("<?php echo $url; ?>", function (data) {
-
-                var count = 0;
-
-                count += parseInt(data.Twitter);
-                count += parseInt(data.Facebook.total_count);
-                count += parseInt(data.GooglePlusOne);
-                count += parseInt(data.Pinterest);
-                count += parseInt(data.LinkedIn);
-
-                jQuery(".<?php echo 'btn-total-share-' . get_the_ID() ?>").html("<span class=\"btn-span-shares\">" + count + " PARTAGES" + "</span>");
-
-                updateShareCountForPost("<?php the_ID() ?>", count);
-
-            });
-
-        });
-    </script>
-
-<?php
+    <?php
 }
 
 function register_css_sharebtn_plugin()
@@ -735,6 +664,7 @@ function file_get_content_fromurl($url, $params = array(), $method = "GET")
     return $file;
 }
 
+/*
 function update_share_count()
 {
 
@@ -744,7 +674,7 @@ function update_share_count()
 }
 
 add_action('wp_ajax_nopriv_update_share_count', "update_share_count", 10, 3);
-
+*/
 
 function registerResponsiveAd()
 {
@@ -772,7 +702,7 @@ function registerResponsiveAd()
         }
     </style>
 
-<?php
+    <?php
 }
 
 add_action('wp_head', 'registerResponsiveAd');

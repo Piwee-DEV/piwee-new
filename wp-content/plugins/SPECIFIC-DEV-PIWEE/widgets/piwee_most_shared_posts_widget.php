@@ -1,18 +1,18 @@
 <?php
 
 // Creating the widget
-class piwee_fb_comment_widget extends WP_Widget {
+class most_shared_widget extends WP_Widget {
 
     function __construct() {
         parent::__construct(
-        // Base ID of your widget
-            'piwee_fb_comment_widget',
+            // Base ID of your widget
+            'most_shared_widget',
 
             // Widget name will appear in UI
-            __('Piwee Facebook Comment Widget', 'piwee_fb_comment_widget'),
+            __('Piwee most shared widget', 'most_shared_widget'),
 
             // Widget description
-            array( 'description' => __( 'Provide a facebook comment widget especially for PIWEE', 'piwee_fb_comment_widget' ), )
+            array( 'description' => __( 'Provide a widget to display the most shared post', 'most_shared_widget' ), )
         );
     }
 
@@ -26,13 +26,10 @@ class piwee_fb_comment_widget extends WP_Widget {
             echo $args['before_title'] . $title . $args['after_title'];
 
         // This is where you run the code and display the output
-        $url = (!empty($_SERVER['HTTPS'])) ? "https://" . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'] : "http://" . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
 
         ?>
 
-        <h3 class="comment-widget-title">Qu'en pensez-vous ?</h3>
-
-        <div class="fb-comments" data-href="<?php echo $url ?>" data-num-posts="4" data-width="620"></div>
+        <h3>Les plus partagés</h3>
 
         <?php
 
@@ -67,10 +64,11 @@ class piwee_fb_comment_widget extends WP_Widget {
 }
 
 // Register and load the widget
-function load_comment_fb_widget() {
-    register_widget( 'piwee_fb_comment_widget' );
+function load_most_shared_widget() {
+    register_widget( 'most_shared_widget' );
 }
 
-add_action( 'widgets_init', 'load_comment_fb_widget' );
+add_action( 'widgets_init', 'load_most_shared_widget' );
+
 
 ?>
