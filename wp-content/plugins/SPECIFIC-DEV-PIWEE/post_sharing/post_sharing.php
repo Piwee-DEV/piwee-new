@@ -35,6 +35,7 @@ function get_total_share_count($post_id) {
 
     $post = get_post($post_id);
     $permalink = get_permalink($post->ID);
+    $month = date('m.Y');
 
     $count = 0;
 
@@ -47,6 +48,23 @@ function get_total_share_count($post_id) {
     //Update in DB
     add_post_meta($post_id, 'total_share_count', $count, true)
     || update_post_meta($post_id, 'total_share_count', $count);
+
+    //Store in DB by month
+    add_post_meta($post_id, 'total_share_count_month_' . $month, $count, true)
+    || update_post_meta($post_id, 'total_share_count_month_' . $month, $count);
+
+    //A "month diff" for the current month share diff
+    $oneMonthAgo = date("m.Y", strtotime("-1 months"));
+
+    $countOneMonthAgo = get_post_meta($post_id, 'total_share_count_month_' . $oneMonthAgo, true);
+
+    if($countOneMonthAgo != null) {
+
+        $diff = $count - $countOneMonthAgo;
+
+        add_post_meta($post_id, 'share_count_month_diff_' . $month, $diff, true)
+        || update_post_meta($post_id, 'share_count_month_diff_' . $month, $diff);
+    }
 
     return $count;
 }
