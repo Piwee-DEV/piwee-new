@@ -8,7 +8,7 @@
 
     <div class="container">
 
-        <div class="row">
+        <div class="row flex-row">
 
             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
 
@@ -25,18 +25,58 @@
 
                 </div>
 
-                <hr>
+            </div>
 
-                <div class="row">
 
-                    <div class="col-md-12 title-section">
-                        <h3>DERNIERS ARTICLES</h3>
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 hidden-xs hidden-sm article-mega-featured-secondary-container">
 
-                        <p>Marketing, art, innovation, CM...<br>Toutes les idées & concepts créatifs, amusants &
-                            inspirants du moment</p>
-                    </div>
+                <div class="article-mega-featured smaller">
+
+                    <a href="<?php echo get_permalink($recent_posts[1]->ID) ?>">
+
+                        <div class="article-mega-featured-img-container">
+                            <?php echo get_the_post_thumbnail($recent_posts[1]->ID, "attachment-large") ?>
+                            <div class="article-mega-featured-title">
+                                <h2><?php echo $recent_posts[1]->post_title; ?></h2>
+                            </div>
+                        </div>
+                    </a>
 
                 </div>
+
+                <div class="article-mega-featured smaller secondary">
+
+                    <a href="<?php echo get_permalink($recent_posts[2]->ID) ?>">
+
+                        <div class="article-mega-featured-img-container">
+                            <?php echo get_the_post_thumbnail($recent_posts[2]->ID, "attachment-large") ?>
+                            <div class="article-mega-featured-title">
+                                <h2><?php echo $recent_posts[2]->post_title; ?></h2>
+                            </div>
+                        </div>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+
+                <hr>
+
+                <div class="title-section">
+
+                    <h3>DERNIERS ARTICLES</h3>
+
+                    <p>Marketing, art, innovation, CM...<br>Toutes les idées & concepts créatifs, amusants &
+                        inspirants du moment</p>
+
+                </div>
+
 
                 <div class="row">
 
@@ -203,33 +243,6 @@
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 hidden-xs hidden-sm">
-                <div class="article-mega-featured smaller">
-
-                    <a href="<?php echo get_permalink($recent_posts[1]->ID) ?>">
-
-                        <div class="article-mega-featured-img-container">
-                            <?php echo get_the_post_thumbnail($recent_posts[1]->ID, "attachment-large") ?>
-                            <div class="article-mega-featured-title">
-                                <h2><?php echo $recent_posts[1]->post_title; ?></h2>
-                            </div>
-                        </div>
-                    </a>
-
-                </div>
-
-                <div class="article-mega-featured smaller secondary">
-
-                    <a href="<?php echo get_permalink($recent_posts[2]->ID) ?>">
-
-                        <div class="article-mega-featured-img-container">
-                            <?php echo get_the_post_thumbnail($recent_posts[2]->ID, "attachment-large") ?>
-                            <div class="article-mega-featured-title">
-                                <h2><?php echo $recent_posts[2]->post_title; ?></h2>
-                            </div>
-                        </div>
-                    </a>
-
-                </div>
 
                 <hr>
 
@@ -242,5 +255,6 @@
         </div>
 
     </div>
+
 
 <?php get_footer(); ?>
