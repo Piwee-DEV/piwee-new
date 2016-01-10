@@ -22,8 +22,9 @@ License: Copyright 2014  Alexandre Nguyen  (email : alex.nr@hotmail.co.jp)
         Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-require_once("piwee_twitter_widget.php");
-require_once("piwee_fb_widget.php");
+require_once("widgets/piwee_twitter_widget.php");
+require_once("widgets/piwee_fb_widget.php");
+require_once("widgets/piwee_fb_comment_widget.php");
 
 add_action('wp_enqueue_scripts', 'register_script_sharebtn_plugin', 99999);
 add_action('admin_enqueue_scripts', 'register_script_colorpicker', 99999);

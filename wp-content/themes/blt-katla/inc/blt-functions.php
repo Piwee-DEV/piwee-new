@@ -278,11 +278,20 @@ if (!function_exists('blt_theme_setup')) {
                 'after_title' => '</h3>',
             ));
 
-
             register_sidebar(array(
                 'id' => 'katla-right-post',
                 'name' => __('Katla Right Post'),
                 'description' => __('This sidebar is located on the right side of a post page'),
+                'before_widget' => $before_widget,
+                'after_widget' => $after_widget,
+                'before_title' => '<h3 class="widget-head">',
+                'after_title' => '</h3>',
+            ));
+
+            register_sidebar(array(
+                'id' => 'katla-below-post',
+                'name' => __('Katla Below Post'),
+                'description' => __('This sidebar is located after the post content'),
                 'before_widget' => $before_widget,
                 'after_widget' => $after_widget,
                 'before_title' => '<h3 class="widget-head">',
