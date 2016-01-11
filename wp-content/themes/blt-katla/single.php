@@ -21,7 +21,7 @@
                     } ?>
                 </div>
 
-                <div class="post-below-widget-container col-xs-12 col-sm-12">
+                <div class="post-below-widget-container col-md-12 hidden-xs hidden-sm">
                     <?php
                     dynamic_sidebar('katla-below-post')
                     ?>

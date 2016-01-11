@@ -298,6 +298,16 @@ if (!function_exists('blt_theme_setup')) {
                 'after_title' => '</h3>',
             ));
 
+            register_sidebar(array(
+                'id' => 'katla-below-home',
+                'name' => __('Katla Below Home'),
+                'description' => __('This sidebar is located after the home content'),
+                'before_widget' => $before_widget,
+                'after_widget' => $after_widget,
+                'before_title' => '<h3 class="widget-head">',
+                'after_title' => '</h3>',
+            ));
+
             register_sidebar($sidebar);
         }
 

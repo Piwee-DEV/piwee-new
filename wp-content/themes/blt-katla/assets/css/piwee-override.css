@@ -725,7 +725,52 @@ section.content {
     background-color: white;
 }
 
+.home-below-widget-container {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.home-below-widget-container .single-widget {
+    width: 100%;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: white;
+}
+
 .comment-widget-title {
     color: #d5ac3c;
     font-weight: normal;
+}
+
+.most-shared-widget-row-item {
+    margin-bottom: 20px;
+}
+
+.most-shared-widget-row-item .most-shared-widget-col-item {
+    padding-left: 10px; !important;
+    padding-right: 10px; !important;
+}
+
+.most-shared-widget-row-item .column-sharecount {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.most-shared-widget-title {
+    text-align: center;
+    font-size: 1.4em;
+}
+
+.most-shared-widget-sub-title {
+    text-align: center;
+    color: #666666;
+}
+
+.most-shared-widget-month-title {
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.most-shared-widget-featured {
+    margin-top: 20px;
 }
