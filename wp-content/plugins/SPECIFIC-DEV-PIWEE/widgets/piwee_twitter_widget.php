@@ -87,6 +87,7 @@ class campain_twitter_widget extends WP_Widget {
 
 }
 
+
 // Register and load the widget
 function load_twitter_widget() {
     register_widget( 'campain_twitter_widget' );
