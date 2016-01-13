@@ -157,7 +157,7 @@ class most_shared_widget extends WP_Widget
                             <img src="<?php echo $image[0] ?>" class="column-img">
                         </div>
                         <div class="col-md-8 most-shared-widget-col-item">
-                            <span class="column-sharecount"><?php echo $share_count ?> Partages</span>
+                            <span class="column-sharecount"><?php echo $share_count['share_count_month_diff'] ?> Partages</span>
                             <br>
                             <span class="column-post-title"><?php echo $post->post_title ?></span>
                         </div>
@@ -177,7 +177,7 @@ class most_shared_widget extends WP_Widget
                             <img src="<?php echo $image[0] ?>" class="column-img">
                         </div>
                         <div class="col-md-8 most-shared-widget-col-item">
-                            <span class="column-sharecount"><?php echo $share_count ?> Partages</span>
+                            <span class="column-sharecount"><?php echo $share_count['total_share_count'] ?> Partages</span>
                             <br>
                             <span class="column-post-title"><?php echo $post->post_title ?></span>
                         </div>

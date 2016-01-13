@@ -180,6 +180,10 @@
                                         <img
                                             src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icone-piwee-vote-deja-vu.png">
                                     </a>
+                                    <a class="btn-piwee" href="/fun">
+                                        <img
+                                            src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icone-piwee-vote-fun.png">
+                                    </a>
                                 </div>
 
                             </div>

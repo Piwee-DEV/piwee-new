@@ -8,6 +8,7 @@ use SocialShare\Provider\LinkedIn;
 use SocialShare\Provider\Pinterest;
 use SocialShare\Provider\Google;
 
+
 $cache = new PhpFileCache("/tmp"); // Use sys_get_temp_dir() to get the system temporary directory, but be aware of the security risk if your website is hosted on a shared server
 $socialShare = new SocialShare($cache);
 
@@ -31,17 +32,35 @@ function social_share_shares($providerName, $url)
     return $socialShare->getShares($providerName, $url);
 }
 
-function get_total_share_count($post_id) {
-
-    $post = get_post($post_id);
-    $permalink = get_permalink($post->ID);
+function get_total_share_count($post_id)
+{
     $month = date('m.Y');
 
+    $total_share_count = get_post_meta($post_id, 'total_share_count', true);
+    $total_share_count_month = get_post_meta($post_id, 'total_share_count_month_' . $month, true);
+    $share_count_month_diff = get_post_meta($post_id, 'share_count_month_diff_' . $month, true);
+
+    $site_url = "http://" . $_SERVER['SERVER_NAME'];
+
+    shell_exec('curl --data "action=refresh_share_count_in_db&post_id=' . $post_id . '" ' . $site_url . '/wp-admin/admin-ajax.php > /dev/null 2>/dev/null &');
+
+    return array('total_share_count' => $total_share_count,
+        'total_share_count_month' => $total_share_count_month,
+        'share_count_month_diff' => $share_count_month_diff);
+}
+
+/**
+ * Called bu AJAX
+ */
+function refresh_share_count_in_db()
+{
+    $post_id = $_POST['post_id'];
     $count = 0;
-
     $networks = array("facebook", "linkedin", "google", "pinterest");
+    $permalink = get_permalink($post_id);
+    $month = date('m.Y');
 
-    foreach($networks as $network) {
+    foreach ($networks as $network) {
         $count += social_share_shares($network, $permalink);
     }
 
@@ -58,7 +77,7 @@ function get_total_share_count($post_id) {
 
     $countOneMonthAgo = get_post_meta($post_id, 'total_share_count_month_' . $oneMonthAgo, true);
 
-    if($countOneMonthAgo != null) {
+    if ($countOneMonthAgo != null) {
 
         $diff = $count - $countOneMonthAgo;
 
@@ -66,5 +85,10 @@ function get_total_share_count($post_id) {
         || update_post_meta($post_id, 'share_count_month_diff_' . $month, $diff);
     }
 
-    return $count;
+    echo $count;
+
+    die();
 }
+
+add_action('wp_ajax_refresh_share_count_in_db', 'refresh_share_count_in_db');
+add_action('wp_ajax_nopriv_refresh_share_count_in_db', 'refresh_share_count_in_db');

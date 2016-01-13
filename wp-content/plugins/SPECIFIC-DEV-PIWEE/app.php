@@ -592,7 +592,7 @@ function social_shares_button($post_id)
     ?>
 
     <div class="btn-total-share btn-small btn-custom-share-grid btn-total-share-<?php the_ID(); ?>">
-        <strong><?php echo $share_count ?> PARTAGES</strong>
+        <strong><?php echo $share_count['total_share_count'] ?> PARTAGES</strong>
     </div>
 
     <?php
@@ -663,18 +663,6 @@ function file_get_content_fromurl($url, $params = array(), $method = "GET")
 
     return $file;
 }
-
-/*
-function update_share_count()
-{
-
-    delete_post_meta($_POST["post_id"], "share_count_spe");
-    add_post_meta($_POST["post_id"], "share_count_spe", $_POST["share_count"]);
-
-}
-
-add_action('wp_ajax_nopriv_update_share_count', "update_share_count", 10, 3);
-*/
 
 function registerResponsiveAd()
 {
