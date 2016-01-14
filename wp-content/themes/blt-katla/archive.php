@@ -34,7 +34,7 @@
                                 <div class="sharing-interactive" id="sharing-interactive-<?php echo $post->ID; ?>"
                                      onmouseover="openSharePanelForID('<?php echo $post->ID; ?>')"
                                      onmouseout="hideSharePanelForID('<?php echo $post->ID; ?>');">
-                                    <?php if (function_exists("social_shares_button")) social_shares_button("normal", $post->ID); ?>
+                                    <?php if (function_exists("social_shares_button")) social_shares_button($post->ID); ?>
                                     <div id="post-share-box-<?php echo $post->ID; ?>" class="post-share-article">
                                         <div class="fb-like" data-href="<?php echo get_permalink($post->ID); ?>"
                                              data-layout="button" data-action="like" data-show-faces="false"

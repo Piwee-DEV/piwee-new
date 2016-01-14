@@ -123,12 +123,15 @@ class most_shared_widget extends WP_Widget
                        class="home-article-background-link">
                     </a>
 
-                    <div class="sharing-interactive" id="sharing-interactive-<?php echo $most_shared_post_of_the_month[0]->ID; ?>"
+                    <div class="sharing-interactive"
+                         id="sharing-interactive-<?php echo $most_shared_post_of_the_month[0]->ID; ?>"
                          onmouseover="openSharePanelForID('<?php echo $most_shared_post_of_the_month[0]->ID; ?>')"
                          onmouseout="hideSharePanelForID('<?php echo $most_shared_post_of_the_month[0]->ID; ?>');">
                         <?php if (function_exists("social_shares_button")) social_shares_button($most_shared_post_of_the_month[0]->ID); ?>
-                        <div id="post-share-box-<?php echo $most_shared_post_of_the_month[0]->ID; ?>" class="post-share-article">
-                            <div class="fb-like" data-href="<?php echo get_permalink($most_shared_post_of_the_month[0]->ID); ?>"
+                        <div id="post-share-box-<?php echo $most_shared_post_of_the_month[0]->ID; ?>"
+                             class="post-share-article">
+                            <div class="fb-like"
+                                 data-href="<?php echo get_permalink($most_shared_post_of_the_month[0]->ID); ?>"
                                  data-layout="button" data-action="like" data-show-faces="false"
                                  data-share="false"></div>
                             <a href="http://twitter.com/share" class="twitter-share-button"
@@ -149,17 +152,22 @@ class most_shared_widget extends WP_Widget
                 <?php foreach ($most_shared_post_x_next as $post): ?>
 
                     <?php $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'single-post-thumbnail'); ?>
-
                     <?php $share_count = get_total_share_count($post->ID) ?>
+                    <?php $permalink = get_permalink($post->ID) ?>
 
                     <div class="row most-shared-widget-row-item">
                         <div class="col-md-4 most-shared-widget-col-item">
-                            <img src="<?php echo $image[0] ?>" class="column-img">
+                            <a href="<?php echo $permalink ?>">
+                                <img src="<?php echo $image[0] ?>" class="column-img">
+                            </a>
                         </div>
                         <div class="col-md-8 most-shared-widget-col-item">
-                            <span class="column-sharecount"><?php echo $share_count['share_count_month_diff'] ?> Partages</span>
-                            <br>
-                            <span class="column-post-title"><?php echo $post->post_title ?></span>
+                            <a href="<?php echo $permalink ?>">
+                                <span class="column-sharecount"><?php echo $share_count['total_share_count'] ?>
+                                    Partages</span>
+                                <br>
+                                <span class="column-post-title"><?php echo $post->post_title ?></span>
+                            </a>
                         </div>
                     </div>
 
@@ -169,17 +177,22 @@ class most_shared_widget extends WP_Widget
                 <?php foreach ($most_shared_post_of_the_month_x_next as $post): ?>
 
                     <?php $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'single-post-thumbnail'); ?>
-
                     <?php $share_count = get_total_share_count($post->ID) ?>
+                    <?php $permalink = get_permalink($post->ID) ?>
 
                     <div class="row most-shared-widget-row-item">
                         <div class="col-md-4 most-shared-widget-col-item">
-                            <img src="<?php echo $image[0] ?>" class="column-img">
+                            <a href="<?php echo $permalink ?>">
+                                <img src="<?php echo $image[0] ?>" class="column-img">
+                            </a>
                         </div>
                         <div class="col-md-8 most-shared-widget-col-item">
-                            <span class="column-sharecount"><?php echo $share_count['total_share_count'] ?> Partages</span>
-                            <br>
-                            <span class="column-post-title"><?php echo $post->post_title ?></span>
+                            <a href="<?php echo $permalink ?>">
+                                <span class="column-sharecount"><?php echo $share_count['total_share_count'] ?>
+                                    Partages</span>
+                                <br>
+                                <span class="column-post-title"><?php echo $post->post_title ?></span>
+                            </a>
                         </div>
                     </div>
 

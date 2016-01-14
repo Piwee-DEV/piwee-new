@@ -774,3 +774,7 @@ section.content {
 .most-shared-widget-featured {
     margin-top: 20px;
 }
+
+.most-shared-widget-col-item a {
+    color: black;
+}
