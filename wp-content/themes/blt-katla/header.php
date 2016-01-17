@@ -386,7 +386,9 @@
                     </div>
                 </div>
                 <div class="col-md-4 secondary-header-logo-container">
-                    <img src="<?php echo get_template_directory_uri() ?>/assets/img/logo-piwee-white-header.png">
+                    <a href="<?php echo get_home_url() ?>">
+                        <img src="<?php echo get_template_directory_uri() ?>/assets/img/logo-piwee-white-header.png">
+                    </a>
                 </div>
                 <div class="col-md-4">
 

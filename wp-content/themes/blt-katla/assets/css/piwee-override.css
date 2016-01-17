@@ -635,6 +635,7 @@ section.content {
     display: none;
     padding-left: 15px;
     padding-right: 15px;
+    padding-bottom: 5px;
 }
 
 .menu-post-type-opened .bar {
