@@ -778,3 +778,34 @@ section.content {
 .most-shared-widget-col-item a {
     color: black;
 }
+
+.vote-widget-col .btn-piwee {
+    width: 100%;
+}
+
+.vote-widget-progress-bar {
+    width: 100%;
+    height: 100px;
+    overflow: hidden;
+    position: relative;
+}
+
+.vote-widget-progress-bar .inner {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    background-color: #a5dff8;
+}
+
+.vote-widget-progress-bar .inner .vote-widget-txt-percent {
+    display: block;
+    position: absolute;
+    top: -30px;
+    font-weight: bold;
+    left: 40%;
+    font-size: 1.2em;
+}
+
+.vote-widget-title {
+    text-align: center;
+}

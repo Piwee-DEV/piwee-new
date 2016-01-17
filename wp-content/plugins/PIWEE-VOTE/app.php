@@ -22,6 +22,8 @@ License: Copyright 2014  Alexandre Nguyen  (email : alex.nr@hotmail.co.jp)
         Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
+require_once "widgets/piwee_vote_horizontal_widget.php";
+
 register_activation_hook( __FILE__, 'registerTables');
 add_action( 'admin_menu', 'register_vote_page' );
 
@@ -35,13 +37,10 @@ function vote_page() {
     global $wpdb;
 
     if (isset($_POST['name'])) { //add
-        
         addVoteChoice($_POST['name']);
-
     }
 
     if (isset($_POST['choice_id'])) { //delete
-        
         deleteVoteChoice($_POST['choice_id']);
     }
 
