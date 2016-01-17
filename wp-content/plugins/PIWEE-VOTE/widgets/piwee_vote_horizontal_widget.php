@@ -42,7 +42,7 @@ class vote_horizontal_widget extends WP_Widget
             <h3 class="vote-widget-title">VOTRE AVIS</h3>
 
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-3 col-sm-3 col-xs-3">
                     <div class="vote-widget-col">
                         <div class="vote-widget-progress">
                             <div class="skill">
@@ -61,7 +61,7 @@ class vote_horizontal_widget extends WP_Widget
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3 col-sm-3 col-xs-3">
                     <div class="vote-widget-col">
                         <div class="vote-widget-progress">
                             <div class="skill">
@@ -80,7 +80,7 @@ class vote_horizontal_widget extends WP_Widget
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3 col-sm-3 col-xs-3">
                     <div class="vote-widget-col">
                         <div class="vote-widget-progress">
                             <div class="skill">
@@ -99,7 +99,7 @@ class vote_horizontal_widget extends WP_Widget
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3 col-sm-3 col-xs-3">
                     <div class="vote-widget-col">
                         <div class="vote-widget-progress">
                             <div class="skill">
@@ -123,14 +123,21 @@ class vote_horizontal_widget extends WP_Widget
 
         <script>
 
-            $(document).ready(function () {
-                $('.vote-widget .inner').each(function () {
-                    $(this).animate({
-                        height: $(this).attr("data-progress")
-                    }, 1500);
+            $(window).scroll(function() {
+                var hT = $('.vote-widget').offset().top,
+                    hH = $('.vote-widget').outerHeight(),
+                    wH = $(window).height(),
+                    wS = $(this).scrollTop();
+                if (wS > (hT+hH-wH)){
+                    $('.vote-widget .inner').each(function () {
+                        $(this).animate({
+                            height: $(this).attr("data-progress")
+                        }, 1500);
 
-                });
+                    });
+                }
             });
+
         </script>
 
         <?php

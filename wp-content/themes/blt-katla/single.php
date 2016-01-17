@@ -6,7 +6,8 @@
 
             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
 
-                <div class="post-container col-xs-12 col-sm-12">
+                <div class="post-container">
+
                     <?php
 
                     if (have_posts()) {
@@ -19,12 +20,17 @@
                         }
 
                     } ?>
+
                 </div>
 
-                <div class="post-below-widget-container col-md-12 hidden-xs hidden-sm">
-                    <?php
-                    dynamic_sidebar('katla-below-post')
-                    ?>
+                <div class="row">
+
+                    <div class="post-below-widget-container col-md-12">
+                        <?php
+                        dynamic_sidebar('katla-below-post')
+                        ?>
+                    </div>
+
                 </div>
 
             </div>

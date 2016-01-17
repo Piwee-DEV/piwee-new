@@ -240,7 +240,7 @@
 
                 </div>
 
-                <div class="home-below-widget-container col-md-12 hidden-xs hidden-sm">
+                <div class="home-below-widget-container col-md-12">
                     <?php
                     dynamic_sidebar('katla-below-home')
                     ?>

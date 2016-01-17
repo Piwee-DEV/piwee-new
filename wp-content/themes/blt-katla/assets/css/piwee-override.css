@@ -32,7 +32,7 @@ li {
 
 .post-container {
     overflow: hidden;
-    padding-bottom: 20px;
+    padding: 20px;
 }
 
 .post-container img {
@@ -714,8 +714,7 @@ section.content {
 }
 
 .post-below-widget-container {
-    padding: 0 !important;
-    margin: 0 !important;
+
 }
 
 .post-below-widget-container .single-widget {
@@ -747,8 +746,14 @@ section.content {
 }
 
 .most-shared-widget-row-item .most-shared-widget-col-item {
-    padding-left: 10px; !important;
-    padding-right: 10px; !important;
+    padding-left: 10px;
+!important;
+    padding-right: 10px;
+!important;
+}
+
+.most-shared-widget-row-item .most-shared-widget-col-item .column-img {
+    margin-bottom: 10px;
 }
 
 .most-shared-widget-row-item .column-sharecount {
@@ -786,7 +791,6 @@ section.content {
 .vote-widget-progress-bar {
     width: 100%;
     height: 100px;
-    overflow: hidden;
     position: relative;
 }
 
@@ -795,6 +799,7 @@ section.content {
     position: absolute;
     bottom: 0;
     background-color: #a5dff8;
+    overflow: visible !important;
 }
 
 .vote-widget-progress-bar .inner .vote-widget-txt-percent {
@@ -802,10 +807,12 @@ section.content {
     position: absolute;
     top: -30px;
     font-weight: bold;
-    left: 40%;
+    left: 50%;
+    margin-left: -17px;
     font-size: 1.2em;
 }
 
 .vote-widget-title {
     text-align: center;
+    font-size: 1.4em;
 }
