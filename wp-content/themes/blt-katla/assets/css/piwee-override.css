@@ -621,7 +621,7 @@ section.content {
     font-size: 0.7em;
 }
 
-.mobile-menu-post-type-opened {
+.menu-post-type-opened {
     position: fixed;
     top: 60px;
     right: 0px;
@@ -633,45 +633,56 @@ section.content {
     -moz-box-shadow: -1px 1px 3px 0px rgba(0, 0, 0, 0.75);
     box-shadow: -1px 1px 3px 0px rgba(0, 0, 0, 0.75);
     display: none;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
-.mobile-menu-post-type-opened .bar {
+.menu-post-type-opened .bar {
     height: 40px;
     padding: 5px;
 }
 
-.mobile-menu-post-type-opened .progress {
+.menu-post-type-opened .progress {
     margin: 5px 10px 0;
     height: 40px !important;
     border-radius: 0;
 }
 
-.mobile-menu-post-type-opened .progress .progress-bar {
+.menu-post-type-opened .progress .progress-bar {
     background-color: #94dcfb;
     padding: 0;
 }
 
-.mobile-menu-post-type-opened .bar-img img {
+.menu-post-type-opened .bar-img img {
     max-height: 50px;
 }
 
-.mobile-menu-post-type-opened .bar-progress {
+.menu-post-type-opened .bar-progress {
     height: 50px !important;
 }
 
-.mobile-menu-post-type-opened .bar-percent {
+.menu-post-type-opened .bar-percent {
     height: 50px !important;
 }
 
-.mobile-menu-post-type-opened .bar-percent span {
+.menu-post-type-opened .bar-percent span {
     color: #666666;
     margin-top: 15px !important;
     display: block;
 }
 
-.mobile-menu-post-type-opened .bar-item {
+.menu-post-type-opened .bar-item {
     margin: 0 !important;
     padding: 0 !important;
+}
+
+@media (min-width: 990px) {
+    .menu-post-type-opened {
+        position: fixed;
+        top: 70px;
+        right: 0;
+        width: 300px;
+    }
 }
 
 #site-footer {

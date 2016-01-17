@@ -3,10 +3,10 @@
 Plugin Name: PIWEE Specific Development
 Plugin URI: http://alexandrenguyen.fr
 Description: SPECIFIC DEVELOPMENT FOR PIWEE
-Version: 1.0
+Version: 2.0
 Author: Alexandre Nguyen
 Author URI: http://alexandrenguyen.fr
-License: Copyright 2014  Alexandre Nguyen  (email : alex.nr@hotmail.co.jp)
+License: Copyright 2016  Alexandre Nguyen  (email : alex.nr@hotmail.co.jp)
 
         This program is free software; you can redistribute it and/or modify
         it under the terms of the GNU General Public License, version 2, as

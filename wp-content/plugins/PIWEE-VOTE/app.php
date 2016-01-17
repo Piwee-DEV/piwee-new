@@ -3,10 +3,10 @@
 Plugin Name: PIWEE Vote Module
 Plugin URI: http://alexandrenguyen.fr
 Description: Vote module FOR PIWEE
-Version: 1.0
+Version: 2.0
 Author: Alexandre Nguyen
 Author URI: http://alexandrenguyen.fr
-License: Copyright 2014  Alexandre Nguyen  (email : alex.nr@hotmail.co.jp)
+License: Copyright 2016 Alexandre Nguyen  (email : alex.nr@hotmail.co.jp)
 
         This program is free software; you can redistribute it and/or modify
         it under the terms of the GNU General Public License, version 2, as
@@ -125,7 +125,7 @@ function registerTables() {
 }
 
 
-//frotend voting system
+//frontend voting system
 
 add_action("wp_ajax_nopriv_my_user_vote", "my_user_vote", 10, 3);
 add_action("wp_ajax_nopriv_get_vote_post_choice", "getVoteCountByPostAndChoice", 10, 3);
@@ -152,7 +152,6 @@ function vote($post_id, $choice_id) {
     global $wpdb;
     
     $wpdb->query("INSERT INTO wp_piwee_vote(post_id, vote_field_id, datetime) VALUES($post_id, $choice_id, '" . date("Y-m-d H:i:s") . "')");
-
 }
 
 function getVoteCountByPostAndChoice() {
@@ -167,7 +166,6 @@ function getVoteCountByPostAndChoice() {
     echo $entries;
 
     die();
-
 }
 
 add_action('wp_head', 'registerVotingJS');
@@ -194,7 +192,6 @@ function registerVotingJS(){
                         jQuery("#vote-display-ok").show("fast");
                         jQuery.cookie("piwee_vote_post_" + post_id, choice_id);
                     }
-
                  }
               });
     
@@ -213,9 +210,7 @@ function registerVotingJS(){
                  url : "<?php echo admin_url( 'admin-ajax.php' ) ?>",
                  data : { action: "get_vote_post_choice", post_id : post_id, choice_id: choice_id },
                  success: function(response) {
-                
                     jQuery("#count-vote-" + choice_id).html(response);
-
                  }
               });
 

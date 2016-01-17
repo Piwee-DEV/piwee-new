@@ -2,11 +2,11 @@ var GlobalSpecific = {};
 
 function openMobilePostType() {
 
-    $('.mobile-menu-post-type-opened').toggle();
+    $('.menu-post-type-opened').toggle();
 
     setTimeout(function () {
 
-        $('.mobile-menu-post-type-opened .progress .progress-bar').each(function () {
+        $('.menu-post-type-opened .progress .progress-bar').each(function () {
 
             var me = $(this);
             var perc = me.attr("data-percentage");
@@ -37,9 +37,7 @@ jQuery(document).ready(function () {
     responsiveControl();
 
     jQuery(window).resize(function () {
-
         responsiveControl();
-
     });
 
     if (jQuery(window).width() > 650) {
@@ -54,6 +52,8 @@ jQuery(document).ready(function () {
                 jQuery(".secondary-header").animate({top: "-70px"}, 200);
                 jQuery(".header-article").css("visibility", 'visible');
                 jQuery("#wpadminbar").show();
+
+                $('.menu-post-type-opened').hide();
             },
             zIndex: 999999
         });
