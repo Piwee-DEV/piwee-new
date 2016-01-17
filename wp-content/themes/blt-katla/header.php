@@ -264,6 +264,10 @@
             </div>
         </div>
 
+        <?php
+        $votes = getPostVoteCountAndPercent(get_the_ID());
+        ?>
+
         <div class="menu-post-type-opened">
             <div class="row bar">
                 <div class="col-xs-2 bar-item bar-img">
@@ -271,14 +275,16 @@
                 </div>
                 <div class="col-xs-8 bar-item bar-progress">
                     <div class="progress">
-                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="50"
-                             aria-valuemin="0" aria-valuemax="100" style="width: 0%" data-percentage="50">
-                            <span class="sr-only">40% Complete (success)</span>
+                        <div class="progress-bar progress-bar-success" role="progressbar"
+                             aria-valuenow="<?php echo $votes['Génie']['percent'] ?>"
+                             aria-valuemin="0" aria-valuemax="100" style="width: 0%"
+                             data-percentage="<?php echo $votes['Génie']['percent'] ?>">
+                            <span class="sr-only"><?php echo $votes['Génie']['percent'] ?>% Complete (success)</span>
                         </div>
                     </div>
                 </div>
                 <div class="col-xs-2 bar-item bar-percent">
-                    <span>50%</span>
+                    <span><?php echo $votes['Génie']['percent'] ?>%</span>
                 </div>
             </div>
 
@@ -288,14 +294,16 @@
                 </div>
                 <div class="col-xs-8 bar-item bar-progress">
                     <div class="progress">
-                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="20"
-                             aria-valuemin="0" aria-valuemax="100" style="width: 0%" data-percentage="20">
-                            <span class="sr-only">20% Complete (success)</span>
+                        <div class="progress-bar progress-bar-success" role="progressbar"
+                             aria-valuenow="<?php echo $votes['Fun']['percent'] ?>"
+                             aria-valuemin="0" aria-valuemax="100" style="width: 0%"
+                             data-percentage="<?php echo $votes['Fun']['percent'] ?>">
+                            <span class="sr-only"><?php echo $votes['Fun']['percent'] ?>% Complete (success)</span>
                         </div>
                     </div>
                 </div>
                 <div class="col-xs-2 bar-item bar-percent">
-                    <span>20%</span>
+                    <span><?php echo $votes['Fun']['percent'] ?>%</span>
                 </div>
             </div>
 
@@ -305,14 +313,16 @@
                 </div>
                 <div class="col-xs-8 bar-item bar-progress">
                     <div class="progress">
-                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="20"
-                             aria-valuemin="0" aria-valuemax="100" style="width: 0%" data-percentage="20">
-                            <span class="sr-only">20% Complete (success)</span>
+                        <div class="progress-bar progress-bar-success" role="progressbar"
+                             aria-valuenow="<?php echo $votes['Créatif']['percent'] ?>"
+                             aria-valuemin="0" aria-valuemax="100" style="width: 0%"
+                             data-percentage="<?php echo $votes['Créatif']['percent'] ?>">
+                            <span class="sr-only"><?php echo $votes['Créatif']['percent'] ?>% Complete (success)</span>
                         </div>
                     </div>
                 </div>
                 <div class="col-xs-2 bar-item bar-percent">
-                    <span>20%</span>
+                    <span><?php echo $votes['Créatif']['percent'] ?>%</span>
                 </div>
             </div>
 
@@ -322,14 +332,16 @@
                 </div>
                 <div class="col-xs-8 bar-item bar-progress">
                     <div class="progress">
-                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="10"
-                             aria-valuemin="0" aria-valuemax="100" style="width: 0%" data-percentage="10">
-                            <span class="sr-only">10% Complete (success)</span>
+                        <div class="progress-bar progress-bar-success" role="progressbar"
+                             aria-valuenow="<?php echo $votes['déjà vu']['percent'] ?>"
+                             aria-valuemin="0" aria-valuemax="100" style="width: 0%"
+                             data-percentage="<?php echo $votes['déjà vu']['percent'] ?>">
+                            <span class="sr-only"><?php echo $votes['déjà vu']['percent'] ?>% Complete (success)</span>
                         </div>
                     </div>
                 </div>
                 <div class="col-xs-2 bar-item bar-percent">
-                    <span>10%</span>
+                    <span><?php echo $votes['déjà vu']['percent'] ?>%</span>
                 </div>
             </div>
         </div>
@@ -394,12 +406,30 @@
 
                     <div class="secondary-header-post-type-container open-menu-post-type">
 
-                        <img src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icon-genie.png">
+                        <?php
+                        //Getting the #1 Vote entity
+                        $maxVoteEntity = getMaxVoteEntity(get_the_ID());
+
+                        $vote_icon = '';
+                        switch ($maxVoteEntity['name']) {
+                            case 'Génie':
+                                $vote_icon = get_template_directory_uri() . '/assets/img/piwee-icon/icon-genie.png';
+                            case 'déjà vu':
+                                $vote_icon = get_template_directory_uri() . '/assets/img/piwee-icon/icon-dejavu.png';
+                            case 'Fun':
+                                $vote_icon = get_template_directory_uri() . '/assets/img/piwee-icon/icon-fun.png';
+                            case 'Créatif':
+                                $vote_icon = get_template_directory_uri() . '/assets/img/piwee-icon/icon-creatif.png';
+                        }
+
+                        ?>
+
+                        <img src="<?php echo $vote_icon ?>">
 
                         <div>
-                            <span class="percent">70%</span>
+                            <span class="percent"><?php echo $maxVoteEntity['percent'] ?>%</span>
                             <br>
-                            <span class="description">Génie</span>
+                            <span class="description"><?php echo $maxVoteEntity['name'] ?></span>
                         </div>
 
                     </div>

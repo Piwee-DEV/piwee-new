@@ -35,6 +35,13 @@ class vote_horizontal_widget extends WP_Widget
 
         // This is where you run the code and display the output
 
+        $queried_object = get_queried_object();
+
+        if ( $queried_object ) {
+            $post_id = $queried_object->ID;
+            $votes = getPostVoteCountAndPercent($post_id);
+        }
+
         ?>
 
         <div class="vote-widget">
@@ -47,8 +54,8 @@ class vote_horizontal_widget extends WP_Widget
                         <div class="vote-widget-progress">
                             <div class="skill">
                                 <div class="vote-widget-progress-bar">
-                                    <div class="inner" data-progress="30%">
-                                        <span class="vote-widget-txt-percent">30%</span>
+                                    <div class="inner" data-progress="<?php echo $votes['Génie']['percent'] ?>%">
+                                        <span class="vote-widget-txt-percent"><?php echo $votes['Génie']['percent'] ?>%</span>
                                     </div>
                                 </div>
                             </div>
@@ -66,8 +73,8 @@ class vote_horizontal_widget extends WP_Widget
                         <div class="vote-widget-progress">
                             <div class="skill">
                                 <div class="vote-widget-progress-bar">
-                                    <div class="inner" data-progress="10%">
-                                        <span class="vote-widget-txt-percent">10%</span>
+                                    <div class="inner" data-progress="<?php echo $votes['Créatif']['percent'] ?>%">
+                                        <span class="vote-widget-txt-percent"><?php echo $votes['Créatif']['percent'] ?>%</span>
                                     </div>
                                 </div>
                             </div>
@@ -85,8 +92,8 @@ class vote_horizontal_widget extends WP_Widget
                         <div class="vote-widget-progress">
                             <div class="skill">
                                 <div class="vote-widget-progress-bar">
-                                    <div class="inner" data-progress="15%">
-                                        <span class="vote-widget-txt-percent">15%</span>
+                                    <div class="inner" data-progress="<?php echo $votes['Fun']['percent'] ?>%">
+                                        <span class="vote-widget-txt-percent"><?php echo $votes['Fun']['percent'] ?>%</span>
                                     </div>
                                 </div>
                             </div>
@@ -104,8 +111,8 @@ class vote_horizontal_widget extends WP_Widget
                         <div class="vote-widget-progress">
                             <div class="skill">
                                 <div class="vote-widget-progress-bar">
-                                    <div class="inner" data-progress="25%">
-                                        <span class="vote-widget-txt-percent">25%</span>
+                                    <div class="inner" data-progress="<?php echo $votes['déjà vu']['percent'] ?>%">
+                                        <span class="vote-widget-txt-percent"><?php echo $votes['déjà vu']['percent'] ?>%</span>
                                     </div>
                                 </div>
                             </div>
@@ -123,12 +130,12 @@ class vote_horizontal_widget extends WP_Widget
 
         <script>
 
-            $(window).scroll(function() {
+            $(window).scroll(function () {
                 var hT = $('.vote-widget').offset().top,
                     hH = $('.vote-widget').outerHeight(),
                     wH = $(window).height(),
                     wS = $(this).scrollTop();
-                if (wS > (hT+hH-wH)){
+                if (wS > (hT + hH - wH)) {
                     $('.vote-widget .inner').each(function () {
                         $(this).animate({
                             height: $(this).attr("data-progress")
