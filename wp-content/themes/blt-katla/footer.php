@@ -67,5 +67,7 @@
         }
     }(document, 'script', 'twitter-wjs');</script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.0/jquery.cookie.min.js"></script>
+
 </body>
 </html>

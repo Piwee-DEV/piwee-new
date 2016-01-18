@@ -37,7 +37,7 @@ class vote_horizontal_widget extends WP_Widget
 
         $queried_object = get_queried_object();
 
-        if ( $queried_object ) {
+        if ($queried_object) {
             $post_id = $queried_object->ID;
             $votes = getPostVoteCountAndPercent($post_id);
         }
@@ -55,13 +55,15 @@ class vote_horizontal_widget extends WP_Widget
                             <div class="skill">
                                 <div class="vote-widget-progress-bar">
                                     <div class="inner" data-progress="<?php echo $votes['Génie']['percent'] ?>%">
-                                        <span class="vote-widget-txt-percent"><?php echo $votes['Génie']['percent'] ?>%</span>
+                                        <span class="vote-widget-txt-percent"><?php echo $votes['Génie']['percent'] ?>
+                                            %</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="vote-widget-btn">
-                            <a class="btn-piwee" href="#">
+                            <a class="btn-piwee" href="#"
+                               onclick="PiweeVote(<?php echo $post_id; ?>, <?php echo getChoiceIdByName('Génie'); ?>); return false;">
                                 <img
                                     src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icone-piwee-vote-genie.png">
                             </a>
@@ -74,13 +76,15 @@ class vote_horizontal_widget extends WP_Widget
                             <div class="skill">
                                 <div class="vote-widget-progress-bar">
                                     <div class="inner" data-progress="<?php echo $votes['Créatif']['percent'] ?>%">
-                                        <span class="vote-widget-txt-percent"><?php echo $votes['Créatif']['percent'] ?>%</span>
+                                        <span class="vote-widget-txt-percent"><?php echo $votes['Créatif']['percent'] ?>
+                                            %</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="vote-widget-btn">
-                            <a class="btn-piwee" href="#">
+                            <a class="btn-piwee" href="#"
+                               onclick="PiweeVote(<?php echo $post_id; ?>, <?php echo getChoiceIdByName('Créatif'); ?>); return false;">
                                 <img
                                     src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icone-piwee-vote-creatif.png">
                             </a>
@@ -93,13 +97,15 @@ class vote_horizontal_widget extends WP_Widget
                             <div class="skill">
                                 <div class="vote-widget-progress-bar">
                                     <div class="inner" data-progress="<?php echo $votes['Fun']['percent'] ?>%">
-                                        <span class="vote-widget-txt-percent"><?php echo $votes['Fun']['percent'] ?>%</span>
+                                        <span class="vote-widget-txt-percent"><?php echo $votes['Fun']['percent'] ?>
+                                            %</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="vote-widget-btn">
-                            <a class="btn-piwee" href="#">
+                            <a class="btn-piwee" href="#"
+                               onclick="PiweeVote(<?php echo $post_id; ?>, <?php echo getChoiceIdByName('Fun'); ?>); return false;">
                                 <img
                                     src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icone-piwee-vote-fun.png">
                             </a>
@@ -112,19 +118,24 @@ class vote_horizontal_widget extends WP_Widget
                             <div class="skill">
                                 <div class="vote-widget-progress-bar">
                                     <div class="inner" data-progress="<?php echo $votes['déjà vu']['percent'] ?>%">
-                                        <span class="vote-widget-txt-percent"><?php echo $votes['déjà vu']['percent'] ?>%</span>
+                                        <span class="vote-widget-txt-percent"><?php echo $votes['déjà vu']['percent'] ?>
+                                            %</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="vote-widget-btn">
-                            <a class="btn-piwee" href="#">
+                            <a class="btn-piwee" href="#"
+                               onclick="PiweeVote(<?php echo $post_id; ?>, <?php echo getChoiceIdByName('déjà vu'); ?>); return false;">
                                 <img
                                     src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icone-piwee-vote-deja-vu.png">
                             </a>
                         </div>
                     </div>
                 </div>
+            </div>
+            <div id="vote-display-ok">
+                Votre vote a bien été prise en compte, merci !
             </div>
         </div>
 
@@ -136,12 +147,16 @@ class vote_horizontal_widget extends WP_Widget
                     wH = $(window).height(),
                     wS = $(this).scrollTop();
                 if (wS > (hT + hH - wH)) {
-                    $('.vote-widget .inner').each(function () {
-                        $(this).animate({
-                            height: $(this).attr("data-progress")
-                        }, 1500);
+                    setTimeout(function () {
 
-                    });
+                        $('.vote-widget .inner').each(function () {
+                            $(this).animate({
+                                height: $(this).attr("data-progress")
+                            }, 1500);
+
+                        });
+
+                    }, 600);
                 }
             });
 

@@ -172,12 +172,13 @@ function getVoteCountByPostAndChoice($choice_id = null, $post_id = null)
     return $entries;
 }
 
-function getPostVoteCountAndPercent($post_id) {
+function getPostVoteCountAndPercent($post_id)
+{
     $choices = getChoices();
     $votes = array();
 
     //get votes in an array
-    foreach($choices as $choice) {
+    foreach ($choices as $choice) {
         $count = getVoteCountByPostAndChoice($choice->id, $post_id);
         $votes[] = array('name' => $choice->name, 'count' => $count);
     }
@@ -205,13 +206,14 @@ function getPostVoteCountAndPercent($post_id) {
     return $formattedVotes;
 }
 
-function getMaxVoteEntity($post_id) {
+function getMaxVoteEntity($post_id)
+{
 
     $votes = getPostVoteCountAndPercent($post_id);
     $max = 0;
     $maxEntity = null;
-    foreach($votes as $key => $vote) {
-        if($vote['count'] > $max) {
+    foreach ($votes as $key => $vote) {
+        if ($vote['count'] > $max) {
             $max = $vote['count'];
             $maxEntity = $vote;
             $maxEntity['name'] = $key;
@@ -242,7 +244,6 @@ function registerVotingJS()
                         response = JSON.parse(response);
 
                         if (response.result == "ok") {
-                            LoadVoteCount(post_id, choice_id);
                             jQuery("#vote-display-ok").show("fast");
                             jQuery.cookie("piwee_vote_post_" + post_id, choice_id);
                         }
@@ -250,23 +251,6 @@ function registerVotingJS()
                 });
 
             }
-
-        }
-
-    </script>
-
-    <script type="text/javascript">
-
-        function LoadVoteCount(post_id, choice_id) {
-
-            jQuery.ajax({
-                type: "POST",
-                url: "<?php echo admin_url('admin-ajax.php') ?>",
-                data: {action: "get_vote_post_choice", post_id: post_id, choice_id: choice_id},
-                success: function (response) {
-                    jQuery("#count-vote-" + choice_id).html(response);
-                }
-            });
 
         }
 
