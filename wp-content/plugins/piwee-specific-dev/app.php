@@ -2,7 +2,7 @@
 /*
 Plugin Name: PIWEE Specific Development
 Plugin URI: http://alexandrenguyen.fr
-Description: SPECIFIC DEVELOPMENT FOR PIWEE
+Description: Specific Development plugin for PIWEE
 Version: 2.0
 Author: Alexandre Nguyen
 Author URI: http://alexandrenguyen.fr

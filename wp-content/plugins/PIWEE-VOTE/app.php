@@ -2,7 +2,7 @@
 /*
 Plugin Name: PIWEE Vote Module
 Plugin URI: http://alexandrenguyen.fr
-Description: Vote module FOR PIWEE
+Description: Vote module for PIWEE
 Version: 2.0
 Author: Alexandre Nguyen
 Author URI: http://alexandrenguyen.fr
