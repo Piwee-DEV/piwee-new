@@ -191,7 +191,10 @@ function getPostVoteCountAndPercent($post_id)
     }
 
     foreach ($votes as $key => $vote) {
-        $percent = round($vote['count'] * 100 / $total, 0);
+        $percent = 0;
+        if($total > 0) {
+            $percent = round($vote['count'] * 100 / $total, 0);
+        }
         $vote['percent'] = $percent;
         $votes[$key] = $vote;
     }
