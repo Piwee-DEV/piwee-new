@@ -26,10 +26,12 @@ li {
     background-color: #f8f6f7;
 }
 
-.container.home {
-    background-color: #f4f4f4;
-    padding-top: 15px;
-    box-shadow: 1px 1px 12px #555;
+@media (min-width: 990px) {
+    .container.home {
+        background-color: #f4f4f4;
+        padding-top: 15px;
+        box-shadow: 1px 1px 12px #555;
+    }
 }
 
 .flex-row {
@@ -252,8 +254,10 @@ li {
     font-size: 1.4em;
 }
 
-.article-mega-featured-img-container.big img {
-    height: 333px;
+@media (min-width: 990px) {
+    .article-mega-featured-img-container.big img {
+        height: 333px;
+    }
 }
 
 .article-mega-featured {
