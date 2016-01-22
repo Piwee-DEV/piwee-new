@@ -20,7 +20,7 @@ class Twitter implements ProviderInterface
 {
     const NAME = 'twitter';
     const SHARE_URL = 'https://twitter.com/intent/tweet?%s';
-    const API_URL = 'https://cdn.api.twitter.com/1/urls/count.json?url=%s';
+    const API_URL = 'http://opensharecount.com/count.json?url=%s';
 
     /**
      * {@inheritdoc}

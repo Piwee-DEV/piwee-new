@@ -6,7 +6,7 @@
 <?php $infographie_posts = query_posts(array('category__in' => array(1393), 'posts_per_page' => 4, 'orderby' => 'date', 'order' => 'DESC', 'post_status' => 'publish')); ?>
 <?php $citations_posts = query_posts(array('category__in' => array(1158), 'posts_per_page' => 4, 'orderby' => 'date', 'order' => 'DESC', 'post_status' => 'publish')); ?>
 
-    <div class="container">
+    <div class="container home">
 
         <div class="row flex-row">
 
@@ -15,7 +15,7 @@
                 <div class="article-mega-featured">
 
                     <a href="<?php echo get_permalink($most_recent_post[0]->ID) ?>">
-                        <div class="article-mega-featured-img-container">
+                        <div class="article-mega-featured-img-container big">
                             <?php echo get_the_post_thumbnail($most_recent_post[0]->ID, "attachment-large") ?>
                             <div class="article-mega-featured-title">
                                 <h2><?php echo $most_recent_post[0]->post_title; ?></h2>

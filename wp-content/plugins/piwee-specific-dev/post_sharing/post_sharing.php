@@ -22,6 +22,9 @@ function social_share_link($providerName, $url, $options = array())
 {
     global $socialShare;
 
+    if($providerName == "Twitter")
+    die($socialShare->getLink($providerName, $url, $options));
+
     return $socialShare->getLink($providerName, $url, $options);
 }
 
