@@ -137,8 +137,11 @@ function registerTables()
 
 //frontend voting system
 add_action("wp_ajax_nopriv_my_user_vote", "my_user_vote");
+add_action("wp_ajax_my_user_vote", "my_user_vote");
 add_action("wp_ajax_nopriv_get_vote_post_choice", "getVoteCountByPostAndChoice");
+add_action("wp_ajax_get_vote_post_choice", "getVoteCountByPostAndChoice");
 add_action("wp_ajax_nopriv_get_vote_count_and_percent", "getPostVoteCountAndPercentAjax");
+add_action("wp_ajax_get_vote_count_and_percent", "getPostVoteCountAndPercentAjax");
 
 function my_user_vote()
 {
