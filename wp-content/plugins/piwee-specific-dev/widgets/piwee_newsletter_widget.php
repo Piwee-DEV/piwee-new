@@ -79,26 +79,27 @@ class newsletter_widget extends WP_Widget
             </form>
 
             <p>Tous les samedi matin dans votre boîte et c'est tout</p>
-        </div>
 
-        <h4>Devenez Fan</h4>
+            <h4>Devenez Fan</h4>
 
-        <div class="fb-page" data-href="https://www.facebook.com/piwee.net" data-small-header="false"
-             data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
-            <div class="fb-xfbml-parse-ignore">
-                <blockquote cite="https://www.facebook.com/piwee.net"><a href="https://www.facebook.com/piwee.net">Piwee.net</a>
-                </blockquote>
+            <div class="fb-page" data-href="https://www.facebook.com/piwee.net" data-small-header="false"
+                 data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+                <div class="fb-xfbml-parse-ignore">
+                    <blockquote cite="https://www.facebook.com/piwee.net"><a href="https://www.facebook.com/piwee.net">Piwee.net</a>
+                    </blockquote>
+                </div>
             </div>
+            <div id="fb-root"></div>
+            <script>(function (d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0];
+                    if (d.getElementById(id)) return;
+                    js = d.createElement(s);
+                    js.id = id;
+                    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=1411359452474265";
+                    fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));</script>
+
         </div>
-        <div id="fb-root"></div>
-        <script>(function (d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id)) return;
-                js = d.createElement(s);
-                js.id = id;
-                js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=1411359452474265";
-                fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));</script>
 
         <?php
 

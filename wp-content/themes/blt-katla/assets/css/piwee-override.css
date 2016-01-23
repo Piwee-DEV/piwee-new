@@ -25,6 +25,22 @@ body, h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
 }
 
+.container .content-sidebar-wrap > div {
+    background-color: transparent;
+    padding: 20px;
+    margin-bottom: 0px;
+    border-radius: 0px;
+    border-bottom: none;
+}
+
+.content-sidebar-wrap > .single-widget {
+    background-color: white !important;
+    padding: 20px;
+    margin-bottom: 20px !important;
+    border-radius: 2px;
+    border-bottom: 2px solid #e8e8e8;
+}
+
 li {
     list-style-type: none;
 }
