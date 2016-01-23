@@ -141,13 +141,18 @@ class vote_horizontal_widget extends WP_Widget
 
         <script>
 
+            var voteProgressTimeout;
+
             $(window).scroll(function () {
+
+                clearTimeout(voteProgressTimeout);
+
                 var hT = $('.vote-widget').offset().top,
                     hH = $('.vote-widget').outerHeight(),
                     wH = $(window).height(),
                     wS = $(this).scrollTop();
                 if (wS > (hT + hH - wH)) {
-                    setTimeout(function () {
+                    voteProgressTimeout = setTimeout(function () {
 
                         $('.vote-widget .inner').each(function () {
                             $(this).animate({

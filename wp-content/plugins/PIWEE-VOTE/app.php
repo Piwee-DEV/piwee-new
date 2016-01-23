@@ -261,6 +261,7 @@ function registerVotingJS()
                             if (voteEntityKey == $(this).attr("data-name")) {
 
                                 $(this).find('.vote-widget-txt-percent').text(vote.percent + "%");
+                                $(this).attr('data-progress', vote.percent + "%");
 
                                 $(this).animate({
                                     height: vote.percent + "%"
