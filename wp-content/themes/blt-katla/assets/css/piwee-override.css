@@ -695,7 +695,7 @@ section.content {
     position: fixed;
     top: 60px;
     right: 0px;
-    z-index: 9999;
+    z-index: 9999999;
     background-color: white;
     width: 220px;
     opacity: 0.95;
