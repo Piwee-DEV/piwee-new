@@ -32,8 +32,8 @@ add_filter('the_content', 'filter_content_adsense');
 
 function register_piwee_adsense_page()
 {
-    add_menu_page('PIWEE ADSENSE', 'PIWEE ADSENSE', 'manage_options', 'piwee_adsense', 'piwee_adsense', plugins_url('images/logo-piwee.jpg', __FILE__), null);
-    add_dashboard_page('PIWEE ADSENSE', "PIWEE ADSENSE", 'read', 'piwee_adsense', 'piwee_adsense');
+    add_menu_page('PIWEE Adsense', 'PIWEE Adsense', 'manage_options', 'piwee_adsense', 'piwee_adsense', plugins_url('images/logo-piwee.jpg', __FILE__), null);
+    add_dashboard_page('PIWEE Adsense', "PIWEE Adsense", 'read', 'piwee_adsense', 'piwee_adsense');
 }
 
 function add_piwee_adsense_metabox_markup()
