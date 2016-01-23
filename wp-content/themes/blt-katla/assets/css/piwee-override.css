@@ -25,12 +25,12 @@ li {
 }
 
 #site {
-    background-color: #f8f6f7;
+    background-color: #f6f5f2;
 }
 
 @media (min-width: 990px) {
     .container.home {
-        background-color: #f4f4f4;
+        background-color: #e6e7e8;
         padding-top: 15px;
     }
 }
