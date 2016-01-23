@@ -206,6 +206,8 @@ function getPostVoteCountAndPercent($post_id)
         unset($formattedVotes[$vote['name']]['name']);
     }
 
+    $formattedVotes['total'] = $total;
+
     return $formattedVotes;
 }
 

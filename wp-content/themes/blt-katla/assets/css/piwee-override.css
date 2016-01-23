@@ -630,6 +630,12 @@ section.content {
     float: right;
 }
 
+.menu-post-type-opened .total-vote-count {
+    margin-bottom: 0 !important;
+    margin-top: 5px !important;
+    margin-left: -7px;
+}
+
 .mobile-header-post-type-container img {
     float: left;
     max-height: 45px;
@@ -882,3 +888,4 @@ section.content {
 .post.attachment {
     text-align: center;
 }
+

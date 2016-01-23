@@ -298,11 +298,10 @@ if (is_single()) {
             </div>
         </div>
 
-        <?php
-        $votes = getPostVoteCountAndPercent(get_the_ID());
-        ?>
+        <?php $votes = getPostVoteCountAndPercent(get_the_ID()); ?>
 
         <div class="menu-post-type-opened">
+            <p class="total-vote-count"><?php echo $votes['total'] ?> votes</p>
             <div class="row bar">
                 <div class="col-xs-2 bar-item bar-img">
                     <img src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icon-genie.png">
