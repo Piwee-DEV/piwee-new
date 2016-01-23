@@ -18,6 +18,7 @@
 
 body, h1, h2, h3, h4, h5, h6 {
     font-family: "Source Sans Pro", Helvetica, Arial, sans-serif !important;
+    font-weight: 600;
 }
 
 li {
@@ -93,6 +94,7 @@ li {
     font-weight: bold !important;
     font-size: 2.5em !important;
     margin-bottom: 0 !important;
+    text-transform: none !important;
 }
 
 @media (max-width: 990px) {
@@ -636,6 +638,13 @@ section.content {
 .mobile-header-post-type-container .menu-post-type-text {
     float: left;
     text-align: center;
+    margin-right: 3px;
+    text-transform: capitalize;
+}
+
+.mobile-header-post-type-container .menu-post-type-text span {
+    display: block;
+    text-align: center;
 }
 
 .mobile-header-post-type-container .menu-post-type-text {
@@ -867,4 +876,8 @@ section.content {
     text-align: center;
     margin-top: 20px;
     display: none;
+}
+
+.post.attachment {
+    text-align: center;
 }

@@ -1,3 +1,31 @@
+<?php
+
+if (is_single()) {
+
+    //Getting the #1 Vote entity
+    $maxVoteEntity = getMaxVoteEntity(get_the_ID());
+
+    $vote_icon = '';
+
+    switch ($maxVoteEntity['name']) {
+        case "Génie":
+            $vote_icon = get_template_directory_uri() . '/assets/img/piwee-icon/icon-genie.png';
+            break;
+        case "déjà vu":
+            $vote_icon = get_template_directory_uri() . '/assets/img/piwee-icon/icon-dejavu.png';
+            break;
+        case "Fun":
+            $vote_icon = get_template_directory_uri() . '/assets/img/piwee-icon/icon-fun.png';
+            break;
+        case "Créatif":
+            $vote_icon = get_template_directory_uri() . '/assets/img/piwee-icon/icon-creatif.png';
+            break;
+    }
+
+}
+
+?>
+
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -251,12 +279,18 @@
                         class="mobile-header-post-type-container <?php if (!is_single()): ?>hidden-xs hidden-sm <?php endif ?>">
 
                         <div class="open-menu-post-type">
-                            <div class="menu-post-type-text">
-                                <span class="percent">50%</span>
-                                <br>
-                                <span class="description">Génie</span>
-                            </div>
-                            <img src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icon-genie.png">
+
+                            <?php if ($maxVoteEntity): ?>
+
+                                <div class="menu-post-type-text">
+                                    <span class="percent"><?php echo $maxVoteEntity['percent'] ?>%</span>
+                                    <span class="description"><?php echo $maxVoteEntity['name'] ?></span>
+                                </div>
+
+                                <img src="<?php echo $vote_icon ?>">
+
+                            <?php endif ?>
+
                         </div>
 
                     </div>
@@ -406,31 +440,17 @@
 
                     <div class="secondary-header-post-type-container open-menu-post-type">
 
-                        <?php
-                        //Getting the #1 Vote entity
-                        $maxVoteEntity = getMaxVoteEntity(get_the_ID());
+                        <?php if ($maxVoteEntity): ?>
 
-                        $vote_icon = '';
-                        switch ($maxVoteEntity['name']) {
-                            case 'Génie':
-                                $vote_icon = get_template_directory_uri() . '/assets/img/piwee-icon/icon-genie.png';
-                            case 'déjà vu':
-                                $vote_icon = get_template_directory_uri() . '/assets/img/piwee-icon/icon-dejavu.png';
-                            case 'Fun':
-                                $vote_icon = get_template_directory_uri() . '/assets/img/piwee-icon/icon-fun.png';
-                            case 'Créatif':
-                                $vote_icon = get_template_directory_uri() . '/assets/img/piwee-icon/icon-creatif.png';
-                        }
+                            <img src="<?php echo $vote_icon ?>">
 
-                        ?>
+                            <div>
+                                <span class="percent"><?php echo $maxVoteEntity['percent'] ?>%</span>
+                                <br>
+                                <span class="description"><?php echo $maxVoteEntity['name'] ?></span>
+                            </div>
 
-                        <img src="<?php echo $vote_icon ?>">
-
-                        <div>
-                            <span class="percent"><?php echo $maxVoteEntity['percent'] ?>%</span>
-                            <br>
-                            <span class="description"><?php echo $maxVoteEntity['name'] ?></span>
-                        </div>
+                        <?php endif ?>
 
                     </div>
 
