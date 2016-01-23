@@ -53,6 +53,9 @@ class newsletter_widget extends WP_Widget
                 src='http://piwee.net/wp-content/plugins/wysija-newsletters/js/front-subscribers.js?ver=2.6.16'></script>
 
         <div class="widget_wysija_cont piwee-newsletter-widget">
+
+            <h4>Abonnez Vous</h4>
+
             <div id="msg-form-wysija-3" class="wysija-msg ajax"></div>
             <form id="form-wysija-3" method="post" action="#wysija" class="widget_wysija">
 
@@ -79,6 +82,8 @@ class newsletter_widget extends WP_Widget
             </form>
 
             <p>Tous les samedi matin dans votre boîte et c'est tout</p>
+
+            <hr>
 
             <h4>Devenez Fan</h4>
 
@@ -109,20 +114,7 @@ class newsletter_widget extends WP_Widget
     // Widget Backend
     public function form($instance)
     {
-        if (isset($instance['title'])) {
-            $title = $instance['title'];
-        } else {
-            $title = __('New title', 'campain_twitter_widget');
-        }
-        // Widget admin form
-        ?>
-        <p>
-            <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?></label>
-            <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>"
-                   name="<?php echo $this->get_field_name('title'); ?>" type="text"
-                   value="<?php echo esc_attr($title); ?>"/>
-        </p>
-        <?php
+
     }
 
     // Updating widget replacing old instances with new

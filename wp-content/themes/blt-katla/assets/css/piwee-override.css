@@ -937,6 +937,10 @@ section.content {
     font-weight: 300 !important;
 }
 
+.piwee-newsletter-widget h4 {
+    margin-bottom: 20px;
+}
+
 .piwee-newsletter-widget .wysija-input {
     float: left;
 }
