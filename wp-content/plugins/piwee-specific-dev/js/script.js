@@ -71,7 +71,7 @@ jQuery(document).ready(function () {
             postFixed: function () {
 
             },
-            zIndex: 999999
+            zIndex: 999998
         });
 
     }
