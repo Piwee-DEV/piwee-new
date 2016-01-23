@@ -54,7 +54,7 @@ class vote_horizontal_widget extends WP_Widget
                         <div class="vote-widget-progress">
                             <div class="skill">
                                 <div class="vote-widget-progress-bar">
-                                    <div class="inner" data-progress="<?php echo $votes['Génie']['percent'] ?>%">
+                                    <div class="inner" data-name="Génie" data-progress="<?php echo $votes['Génie']['percent'] ?>%">
                                         <span class="vote-widget-txt-percent"><?php echo $votes['Génie']['percent'] ?>
                                             %</span>
                                     </div>
@@ -75,7 +75,7 @@ class vote_horizontal_widget extends WP_Widget
                         <div class="vote-widget-progress">
                             <div class="skill">
                                 <div class="vote-widget-progress-bar">
-                                    <div class="inner" data-progress="<?php echo $votes['Créatif']['percent'] ?>%">
+                                    <div class="inner" data-name="Créatif" data-progress="<?php echo $votes['Créatif']['percent'] ?>%">
                                         <span class="vote-widget-txt-percent"><?php echo $votes['Créatif']['percent'] ?>
                                             %</span>
                                     </div>
@@ -96,7 +96,7 @@ class vote_horizontal_widget extends WP_Widget
                         <div class="vote-widget-progress">
                             <div class="skill">
                                 <div class="vote-widget-progress-bar">
-                                    <div class="inner" data-progress="<?php echo $votes['Fun']['percent'] ?>%">
+                                    <div class="inner" data-name="Fun" data-progress="<?php echo $votes['Fun']['percent'] ?>%">
                                         <span class="vote-widget-txt-percent"><?php echo $votes['Fun']['percent'] ?>
                                             %</span>
                                     </div>
@@ -117,7 +117,7 @@ class vote_horizontal_widget extends WP_Widget
                         <div class="vote-widget-progress">
                             <div class="skill">
                                 <div class="vote-widget-progress-bar">
-                                    <div class="inner" data-progress="<?php echo $votes['déjà vu']['percent'] ?>%">
+                                    <div class="inner" data-name="déjà vu" data-progress="<?php echo $votes['déjà vu']['percent'] ?>%">
                                         <span class="vote-widget-txt-percent"><?php echo $votes['déjà vu']['percent'] ?>
                                             %</span>
                                     </div>
@@ -135,7 +135,7 @@ class vote_horizontal_widget extends WP_Widget
                 </div>
             </div>
             <div id="vote-display-ok">
-                Votre vote a bien été prise en compte, merci !
+                Votre vote a bien été pris en compte, merci !
             </div>
         </div>
 
@@ -155,7 +155,6 @@ class vote_horizontal_widget extends WP_Widget
                             }, 1500);
 
                         });
-
                     }, 600);
                 }
             });

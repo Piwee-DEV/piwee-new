@@ -35,7 +35,6 @@ function register_vote_page()
 
 function vote_page()
 {
-
     global $wpdb;
 
     if (isset($_POST['name'])) { //add
@@ -137,13 +136,12 @@ function registerTables()
 
 
 //frontend voting system
-
-add_action("wp_ajax_nopriv_my_user_vote", "my_user_vote", 10, 3);
-add_action("wp_ajax_nopriv_get_vote_post_choice", "getVoteCountByPostAndChoice", 10, 3);
+add_action("wp_ajax_nopriv_my_user_vote", "my_user_vote");
+add_action("wp_ajax_nopriv_get_vote_post_choice", "getVoteCountByPostAndChoice");
+add_action("wp_ajax_nopriv_get_vote_count_and_percent", "getPostVoteCountAndPercentAjax");
 
 function my_user_vote()
 {
-
     $response = new stdClass;
 
     $choice_id = $_REQUEST['choice_id'];
@@ -192,7 +190,7 @@ function getPostVoteCountAndPercent($post_id)
 
     foreach ($votes as $key => $vote) {
         $percent = 0;
-        if($total > 0) {
+        if ($total > 0) {
             $percent = round($vote['count'] * 100 / $total, 0);
         }
         $vote['percent'] = $percent;
@@ -209,6 +207,14 @@ function getPostVoteCountAndPercent($post_id)
     $formattedVotes['total'] = $total;
 
     return $formattedVotes;
+}
+
+function getPostVoteCountAndPercentAjax()
+{
+    $response = getPostVoteCountAndPercent($_POST['post_id']);
+    $response = json_encode($response);
+    echo $response;
+    die();
 }
 
 function getMaxVoteEntity($post_id)
@@ -236,6 +242,37 @@ function registerVotingJS()
     ?>
     <script type="text/javascript">
 
+        function reloadVoteWidget(post_id) {
+
+            jQuery.ajax({
+                type: "POST",
+                url: "<?php echo admin_url('admin-ajax.php') ?>",
+                data: {action: "get_vote_count_and_percent", post_id: post_id},
+                success: function (response) {
+
+                    var votesEntities = JSON.parse(response);
+
+                    $('.vote-widget .inner').each(function () {
+
+                        for (var voteEntityKey in votesEntities) {
+
+                            var vote = votesEntities[voteEntityKey];
+
+                            if (voteEntityKey == $(this).attr("data-name")) {
+
+                                $(this).find('.vote-widget-txt-percent').text(vote.percent + "%");
+
+                                $(this).animate({
+                                    height: vote.percent + "%"
+                                }, 1500);
+                            }
+                        }
+
+                    });
+                }
+            });
+        }
+
         function PiweeVote(post_id, choice_id) {
 
             if (!(jQuery.cookie("piwee_vote_post_" + post_id) > 0)) {
@@ -251,10 +288,13 @@ function registerVotingJS()
                         if (response.result == "ok") {
                             jQuery("#vote-display-ok").show("fast");
                             jQuery.cookie("piwee_vote_post_" + post_id, choice_id);
+                            reloadVoteWidget(post_id);
                         }
                     }
                 });
-
+            }
+            else {
+                sweetAlert("Oops...", "Vous avez déjà voté sur cet article !", "error");
             }
 
         }
@@ -262,5 +302,3 @@ function registerVotingJS()
     </script>
     <?php
 }
-
-

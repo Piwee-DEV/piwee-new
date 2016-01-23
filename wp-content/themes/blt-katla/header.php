@@ -34,8 +34,10 @@ if (is_single()) {
     <link rel="profile" href="http://gmpg.org/xfn/11"/>
     <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>"/>
     <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/assets/css/piwee-override.css"/>
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/assets/css/sweetalert.css"/>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="<?php echo get_template_directory_uri() ?>/assets/js/sweetalert.min.js"></script>
     <!--[if lt IE 9]>
     <script src="<?php echo get_template_directory_uri(); ?>/assets/js/html5.js" type="text/javascript"></script>
     <![endif]-->
