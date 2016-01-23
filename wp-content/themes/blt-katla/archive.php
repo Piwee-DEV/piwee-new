@@ -13,8 +13,10 @@
 
                 <div class="row">
 
-                    <div class="col-md-12 title-section">
-                        <h3><?php echo $category[0]->name ?></h3>
+                    <div class="col-md-12">
+                        <div class="title-section">
+                            <h3><?php echo $category[0]->name ?></h3>
+                        </div>
                     </div>
 
                 </div>

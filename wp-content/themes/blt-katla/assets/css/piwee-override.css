@@ -253,6 +253,7 @@ li {
     margin-bottom: 15px;
     background-color: white;
     padding: 10px;
+    text-transform: capitalize;
 }
 
 .title-section h3 {
