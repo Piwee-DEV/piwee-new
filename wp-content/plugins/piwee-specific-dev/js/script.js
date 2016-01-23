@@ -58,6 +58,22 @@ jQuery(document).ready(function () {
             zIndex: 999999
         });
 
+        var marginTopNewsletterWidget = 0;
+        if(jQuery('.post-container') && jQuery('.post-container').length > 0) {
+            marginTopNewsletterWidget = $('.header-article').height() + 20;
+        }
+
+        jQuery(".widget_newsletter_widget").scrollToFixed({
+            marginTop: marginTopNewsletterWidget,
+            preFixed: function () {
+
+            },
+            postFixed: function () {
+
+            },
+            zIndex: 999999
+        });
+
     }
 
     jQuery(".img-pub-right").scrollToFixed({

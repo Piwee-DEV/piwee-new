@@ -6,7 +6,7 @@ class campain_fb_widget extends WP_Widget {
 	function __construct() {
 		parent::__construct(
 		// Base ID of your widget
-		'piwee_fb_widget', 
+		'campain_fb_widget',
 
 		// Widget name will appear in UI
 		__('Piwee Facebook Widget', 'campain_fb_widget'), 
@@ -50,8 +50,7 @@ class campain_fb_widget extends WP_Widget {
 
 		<?php else: ?>
 
-			<div class="fb-like-box" data-href="https://www.facebook.com/piwee.net" data-colorscheme="light" data-show-faces="true" data-header="true" data-stream="false" data-show-border="true"></div>
-
+			<div class="fb-page" data-href="https://www.facebook.com/piwee.net" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/piwee.net"><a href="https://www.facebook.com/piwee.net">Piwee.net</a></blockquote></div></div>
 			<div id="fb-root"></div>
 			<script>(function(d, s, id) {
 			  var js, fjs = d.getElementsByTagName(s)[0];

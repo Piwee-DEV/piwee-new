@@ -6,13 +6,13 @@ class campain_twitter_widget extends WP_Widget {
 	function __construct() {
 		parent::__construct(
 		// Base ID of your widget
-		'piwee_twitter_widget', 
+		'campain_twitter_widget',
 
 		// Widget name will appear in UI
-		__('Piwee Twitter Widget', 'campain_twitter_widget'), 
+		__('Piwee Twitter Widget', 'campain_twitter_widget'),
 
 		// Widget description
-		array( 'description' => __( 'Provide a twitter widget especially for PIWEE', 'campain_twitter_widget' ), ) 
+		array( 'description' => __( 'Provide a twitter widget especially for PIWEE', 'campain_twitter_widget' ), )
 		);
 	}
 

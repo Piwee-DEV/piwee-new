@@ -912,3 +912,32 @@ section.content {
 .notfound-text-container a {
     color: black;
 }
+
+.piwee-newsletter-widget {
+    margin-bottom: 20px;
+}
+
+.piwee-newsletter-widget p {
+    font-weight: 300 !important;
+}
+
+.piwee-newsletter-widget .wysija-input {
+    float: left;
+}
+
+.piwee-newsletter-widget .wysija-submit {
+    background-color: #d5ac3c;
+    color: white;
+    border: none;
+    margin-top: 5px !important;
+    height: 26px !important;
+}
+
+.piwee-newsletter-widget .formErrorContent {
+    margin-top: 30px;
+    margin-left: -5px;
+}
+
+.piwee-newsletter-widget .wysija-paragraph {
+    margin-bottom: 5px;
+}
