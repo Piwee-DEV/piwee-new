@@ -719,6 +719,8 @@ section.content {
 
 #site-footer {
     padding-bottom: 30px !important;
+    margin-bottom: 30px;
+    box-shadow: 0px 0px 5px #555;
 }
 
 @media (max-width: 990px) {
@@ -753,7 +755,7 @@ section.content {
     text-align: right;
     color: #666666;
     font-size: 0.8em;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .post-below-widget-container {
