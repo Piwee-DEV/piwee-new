@@ -118,11 +118,13 @@
 
                 <div class="row">
 
-                    <div class="col-md-12 title-section">
-                        <h3>PENSÉES ET PETITES PHRASES</h3>
+                    <div class="col-md-12">
+                        <div class="title-section">
+                            <h3>PENSÉES ET PETITES PHRASES</h3>
 
-                        <p>Tous les matins, une petite phrase pour vous inspirer et vous faire attaquer la journée avec
-                            le sourire</p>
+                            <p>Tous les matins, une petite phrase pour vous inspirer et vous faire attaquer la journée avec
+                                le sourire</p>
+                        </div>
                     </div>
 
                 </div>
@@ -147,11 +149,15 @@
 
                 <div class="row">
 
-                    <div class="col-md-12 title-section more-margin">
-                        <h3>MARKETING & COM</h3>
+                    <div class="col-md-12 more-margin">
+                        <div class="title-section">
 
-                        <p>Un street marketing créatif, un spot viral, une opération digitale amusante...<br>ça se passe
-                            ici (et on adore ça !)</p>
+                            <h3>MARKETING & COM</h3>
+
+                            <p>Un street marketing créatif, un spot viral, une opération digitale amusante...<br>ça se passe
+                                ici (et on adore ça !)</p>
+
+                        </div>
                     </div>
 
                 </div>
@@ -196,10 +202,12 @@
 
                 <div class="row">
 
-                    <div class="col-md-12 title-section more-margin">
-                        <h3>INFOGRAPHIES</h3>
+                    <div class="col-md-12 more-margin">
+                        <div class="title-section">
+                            <h3>INFOGRAPHIES</h3>
 
-                        <p>Plein de petites choses du quotidien expliquées avec des picto</p>
+                            <p>Plein de petites choses du quotidien expliquées avec des picto</p>
+                        </div>
                     </div>
 
                 </div>
