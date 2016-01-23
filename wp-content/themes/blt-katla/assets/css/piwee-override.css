@@ -16,6 +16,10 @@
     }
 }
 
+a:hover {
+    color: #d5ac3c !important;
+}
+
 body, h1, h2, h3, h4, h5, h6 {
     font-family: "Source Sans Pro", Helvetica, Arial, sans-serif !important;
     font-weight: 600;
@@ -889,3 +893,19 @@ section.content {
     text-align: center;
 }
 
+.container.not-found {
+    background-color: white;
+    padding: 10px;
+}
+
+.container.not-found .notfound-img {
+    margin-bottom: 20px;
+}
+
+.notfound-img-container {
+    text-align: center;
+}
+
+.notfound-text-container a {
+    color: black;
+}

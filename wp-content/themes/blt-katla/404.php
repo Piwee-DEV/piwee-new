@@ -1,23 +1,32 @@
 <?php get_header(); ?>
 
-<div id="site-content" class="clearfix">
-	
-	<div id="site-content-column"><?php
+    <div class="container not-found">
 
-			get_template_part( 'inc/template-parts/content', 'none' ); ?>
+        <div class="row">
 
-	</div><?php
+            <div class="col-md-7 col-md-offset-3">
 
-	# 	
-	# 	SIDEBAR
-	# 	========================================================================================
-	#   Load the sidebar if needed
-	# 	========================================================================================
-	# 		
-	if(in_array(blt_get_option('sidebar_layout', 'right'), array('left', 'right'), true)){
-		get_sidebar();
-	} ?>
+                <div class="notfound-img-container">
+                    <img src="<?php echo get_template_directory_uri() . '/assets/img/404.jpg' ?>" class="notfound-img">
+                </div>
 
-</div>
+                <div class="notfound-text-container">
+                    <h1>Arf...</h1>
+
+                    <p>Petite erreur. Cette page n'existe pas. Oui ça arrive, alors 3 solutions s'offrent à vous :</p>
+                    <p>
+                        <a href="<?php echo get_home_url() ?>">#1 Retourner sur Piwee</a>
+                        <br>
+                        <a href="<?php echo get_home_url() ?>">#2 Retourner sur Piwee</a>
+                        <br>
+                        <a href="<?php echo get_home_url() ?>">#3 Retourner sur Piwee</a>
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
 
 <?php get_footer(); ?>
