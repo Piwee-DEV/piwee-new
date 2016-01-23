@@ -32,8 +32,6 @@ li {
     .container.home {
         background-color: #f4f4f4;
         padding-top: 15px;
-        box-shadow: 0 0 0 4px rgba(132,138,140,0.1);
-        border: 1px solid #d8dcde;
     }
 }
 
