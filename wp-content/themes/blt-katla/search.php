@@ -39,7 +39,6 @@
                 get_template_part('inc/template-parts/content', 'none');
             }
 
-
             ?>
         </div>
 

@@ -16,7 +16,7 @@
     }
 }
 
-.post-container a {
+.post-container .post a {
     color: #d5ac3c !important;
     font-weight: bold !important;
 }
