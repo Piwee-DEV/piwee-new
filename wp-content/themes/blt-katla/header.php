@@ -9,16 +9,16 @@ if (is_single()) {
 
     switch ($maxVoteEntity['name']) {
         case "Génie":
-            $vote_icon = get_template_directory_uri() . '/assets/img/piwee-icon/icon-genie.png';
+            $vote_icon = get_template_directory_uri() . '/assets/img/piwee-icon/GENIE-flat-icons-piwee.png';
             break;
         case "déjà vu":
-            $vote_icon = get_template_directory_uri() . '/assets/img/piwee-icon/icon-dejavu.png';
+            $vote_icon = get_template_directory_uri() . '/assets/img/piwee-icon/DEJA-VU-flat-icons-piwee.png';
             break;
         case "Fun":
-            $vote_icon = get_template_directory_uri() . '/assets/img/piwee-icon/icon-fun.png';
+            $vote_icon = get_template_directory_uri() . '/assets/img/piwee-icon/FUN-flat-icons-piwee.png';
             break;
         case "Créatif":
-            $vote_icon = get_template_directory_uri() . '/assets/img/piwee-icon/icon-creatif.png';
+            $vote_icon = get_template_directory_uri() . '/assets/img/piwee-icon/CREATIF-flat-icons-piwee.png';
             break;
     }
 
@@ -408,9 +408,7 @@ if (is_single()) {
                 </div>
 
                 <div class="col-md-2">
-                    <div class="input-group">
-                        <input type="text" class="form-control custom-search-headband">
-                    </div>
+                    <?php get_search_form(); ?>
                 </div>
             </div>
         </div>

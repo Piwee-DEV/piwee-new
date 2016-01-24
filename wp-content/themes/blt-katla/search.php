@@ -1,56 +1,49 @@
 <?php get_header(); ?>
 
 <header class="site-content-header">
-	
-	<div class="container">
-		<h1 class="header-title"><?php printf( __( 'Search Results for: <span>%s</span>', 'bluthemes' ), get_search_query() ); ?></h1>
-	</div>
+
+    <div class="container">
+        <h1 class="header-title"><?php printf(__('Résultats de la recherche pour : <span>%s</span>', 'bluthemes'), get_search_query()); ?></h1>
+    </div>
 
 </header><!-- .page-header -->
 
-<div id="site-content" class="clearfix">
+<div id="container" class="clearfix">
 
-	<div id="site-content-column"><?php
+    <div id="row">
 
-		if(is_archive()){
-			blt_archive_title( '<h1 class="page-title">', '</h1>' );		
-		}
+        <div class="col-md-6 col-md-offset-3">
+            <?php
 
-		if(have_posts()){ 
+            if (is_archive()) {
+                blt_archive_title('<h1 class="page-title">', '</h1>');
+            }
 
-			while(have_posts()){ 
+            if (have_posts()) {
 
-				the_post(); 
-				get_template_part( 'inc/template-parts/content', get_post_format() );
-			}
+                while (have_posts()) {
 
-			// Previous/next page navigation.
-			the_posts_pagination(array(
-				'prev_text'          => __( 'Previous page', 'bluthemes' ),
-				'next_text'          => __( 'Next page', 'bluthemes' ),
-				'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'bluthemes' ) . ' </span>',
-			));
+                    the_post();
+                    get_template_part('inc/template-parts/content', get_post_format());
+                }
 
-		}else{ 
+                // Previous/next page navigation.
+                the_posts_pagination(array(
+                    'prev_text' => __('Page précédente', 'bluthemes'),
+                    'next_text' => __('Page suivante', 'bluthemes'),
+                    'before_page_number' => '<span class="meta-nav screen-reader-text">' . __('Page', 'bluthemes') . ' </span>',
+                ));
 
-			get_template_part( 'inc/template-parts/content', 'none' );
-		}
+            } else {
 
-
-		?> 
-	</div><?php
+                get_template_part('inc/template-parts/content', 'none');
+            }
 
 
-	# 	
-	# 	SIDEBAR
-	# 	========================================================================================
-	#   Load the sidebar if needed
-	# 	========================================================================================
-	# 		
-	if(in_array(blt_get_option('sidebar_layout', 'right'), array('left', 'right'), true)){
-		get_sidebar();
-	} ?>
+            ?>
+        </div>
 
+    </div>
 
 </div>
 

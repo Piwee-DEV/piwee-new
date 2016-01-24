@@ -16,8 +16,9 @@
     }
 }
 
-a:hover {
+.post-container a {
     color: #d5ac3c !important;
+    font-weight: bold !important;
 }
 
 body, h1, h2, h3, h4, h5, h6 {
@@ -220,7 +221,7 @@ li {
     background-color: white;
     position: absolute;
     left: 0px;
-    top: 79px;
+    top: 72px;
     width: 350%;
     height: 400px;
     color: #444;
@@ -960,4 +961,12 @@ section.content {
 
 .piwee-newsletter-widget .wysija-paragraph {
     margin-bottom: 5px;
+}
+
+.share-bar-widget {
+    text-align: center;
+}
+
+.share-bar-widget img {
+    max-height: 40px;
 }
