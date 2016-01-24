@@ -970,3 +970,35 @@ section.content {
 .share-bar-widget img {
     max-height: 40px;
 }
+
+.article-mega-featured .article-mega-featured-img-container.big .sharing-interactive {
+    bottom: inherit;
+    top: 20px;
+}
+
+.article-mega-featured .article-mega-featured-img-container.big .sharing-interactive {
+    color: white;
+    font-size: 1.2em;
+}
+
+
+.article-mega-featured .article-mega-featured-img-container .sharing-interactive {
+    bottom: inherit;
+    top: 10px;
+}
+
+.article-mega-featured .article-mega-featured-img-container .sharing-interactive {
+    color: white;
+    font-size: 1.0em;
+}
+
+
+.article-mega-featured.secondary .article-mega-featured-img-container .sharing-interactive {
+    bottom: inherit;
+    top: 10px;
+}
+
+.article-mega-featured.secondary .article-mega-featured-img-container .sharing-interactive {
+    color: white;
+    font-size: 1.0em;
+}

@@ -1,7 +1,21 @@
 <?php get_header(); ?>
 
-<?php $most_recent_post = query_posts(array('posts_per_page' => 1, 'orderby' => 'date', 'order' => 'DESC', 'post_status' => 'publish')); ?>
-<?php $recent_posts = query_posts(array('posts_per_page' => 8, 'offset' => 1, 'orderby' => 'date', 'order' => 'DESC', 'post_status' => 'publish', 'ignore_sticky_posts' => 1)); ?>
+<?php
+
+    $week = date('W.m.Y');
+
+    $most_shared_post_of_the_week_x_next = query_posts(
+        array(
+            'meta_key' => 'share_count_week_diff_' . $week,
+            'orderby' => 'share_count_week_diff_' . $week,
+            'order' => 'DESC',
+            'posts_per_page' => 3,
+            'ignore_sticky_posts' => 1
+        )
+    );
+
+?>
+<?php $recent_posts = query_posts(array('posts_per_page' => 8, 'orderby' => 'date', 'order' => 'DESC', 'post_status' => 'publish', 'ignore_sticky_posts' => 1)); ?>
 <?php $marketing_posts = query_posts(array('category__in' => array(211), 'posts_per_page' => 4, 'orderby' => 'date', 'order' => 'DESC', 'post_status' => 'publish')); ?>
 <?php $infographie_posts = query_posts(array('category__in' => array(1393), 'posts_per_page' => 4, 'orderby' => 'date', 'order' => 'DESC', 'post_status' => 'publish')); ?>
 <?php $citations_posts = query_posts(array('category__in' => array(1158), 'posts_per_page' => 4, 'orderby' => 'date', 'order' => 'DESC', 'post_status' => 'publish')); ?>
@@ -14,11 +28,14 @@
 
                 <div class="article-mega-featured">
 
-                    <a href="<?php echo get_permalink($most_recent_post[0]->ID) ?>">
+                    <a href="<?php echo get_permalink($most_shared_post_of_the_week_x_next[0]->ID) ?>">
                         <div class="article-mega-featured-img-container big">
-                            <?php echo get_the_post_thumbnail($most_recent_post[0]->ID, "attachment-large") ?>
+                            <?php echo get_the_post_thumbnail($most_shared_post_of_the_week_x_next[0]->ID, "attachment-large") ?>
+                            <div class="sharing-interactive">
+                                <?php if (function_exists("social_shares_button")) social_shares_button($most_shared_post_of_the_week_x_next[0]->ID); ?>
+                            </div>
                             <div class="article-mega-featured-title">
-                                <h2><?php echo $most_recent_post[0]->post_title; ?></h2>
+                                <h2><?php echo $most_shared_post_of_the_week_x_next[0]->post_title; ?></h2>
                             </div>
                         </div>
                     </a>
@@ -28,30 +45,38 @@
             </div>
 
 
-            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 hidden-xs hidden-sm article-mega-featured-secondary-container">
+            <div
+                class="col-xs-12 col-sm-12 col-md-4 col-lg-4 hidden-xs hidden-sm article-mega-featured-secondary-container">
 
                 <div class="article-mega-featured smaller">
 
-                    <a href="<?php echo get_permalink($recent_posts[1]->ID) ?>">
+                    <a href="<?php echo get_permalink($most_shared_post_of_the_week_x_next[1]->ID) ?>">
 
                         <div class="article-mega-featured-img-container">
-                            <?php echo get_the_post_thumbnail($recent_posts[1]->ID, "attachment-large") ?>
+                            <?php echo get_the_post_thumbnail($most_shared_post_of_the_week_x_next[1]->ID, "attachment-large") ?>
+                            <div class="sharing-interactive">
+                                <?php if (function_exists("social_shares_button")) social_shares_button($most_shared_post_of_the_week_x_next[1]->ID); ?>
+                            </div>
                             <div class="article-mega-featured-title">
-                                <h2><?php echo $recent_posts[1]->post_title; ?></h2>
+                                <h2><?php echo $most_shared_post_of_the_week_x_next[1]->post_title; ?></h2>
                             </div>
                         </div>
+
                     </a>
 
                 </div>
 
                 <div class="article-mega-featured smaller secondary">
 
-                    <a href="<?php echo get_permalink($recent_posts[2]->ID) ?>">
+                    <a href="<?php echo get_permalink($most_shared_post_of_the_week_x_next[2]->ID) ?>">
 
                         <div class="article-mega-featured-img-container">
-                            <?php echo get_the_post_thumbnail($recent_posts[2]->ID, "attachment-large") ?>
+                            <?php echo get_the_post_thumbnail($most_shared_post_of_the_week_x_next[2]->ID, "attachment-large") ?>
+                            <div class="sharing-interactive">
+                                <?php if (function_exists("social_shares_button")) social_shares_button($most_shared_post_of_the_week_x_next[2]->ID); ?>
+                            </div>
                             <div class="article-mega-featured-title">
-                                <h2><?php echo $recent_posts[2]->post_title; ?></h2>
+                                <h2><?php echo $most_shared_post_of_the_week_x_next[2]->post_title; ?></h2>
                             </div>
                         </div>
                     </a>
@@ -122,7 +147,8 @@
                         <div class="title-section">
                             <h3>PENSÉES ET PETITES PHRASES</h3>
 
-                            <p>Tous les matins, une petite phrase pour vous inspirer et vous faire attaquer la journée avec
+                            <p>Tous les matins, une petite phrase pour vous inspirer et vous faire attaquer la journée
+                                avec
                                 le sourire</p>
                         </div>
                     </div>
@@ -154,7 +180,8 @@
 
                             <h3>MARKETING & COM</h3>
 
-                            <p>Un street marketing créatif, un spot viral, une opération digitale amusante...<br>ça se passe
+                            <p>Un street marketing créatif, un spot viral, une opération digitale amusante...<br>ça se
+                                passe
                                 ici (et on adore ça !)</p>
 
                         </div>

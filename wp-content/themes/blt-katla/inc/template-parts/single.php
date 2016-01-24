@@ -19,7 +19,7 @@
             <div class="col-md-8 col-sm-4 col-xs-4">
                 <div class="share-container">
                     <div class="share-count">
-                        <span class="share-count-views">11K</span>
+                        <span class="share-count-views"><?php echo shorten_number_k(get_total_share_count(get_the_ID())['total_share_count']) ?></span>
                         <br>
                         Partages
                     </div>

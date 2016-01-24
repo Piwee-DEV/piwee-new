@@ -53,7 +53,7 @@ function get_total_share_count($post_id)
 }
 
 /**
- * Called bu AJAX
+ * Called by a back2front CURL
  */
 function refresh_share_count_in_db()
 {
@@ -62,6 +62,7 @@ function refresh_share_count_in_db()
     $networks = array("facebook", "linkedin", "google", "pinterest");
     $permalink = get_permalink($post_id);
     $month = date('m.Y');
+    $week = date('W.m.Y');
 
     foreach ($networks as $network) {
         $count += social_share_shares($network, $permalink);
@@ -75,10 +76,18 @@ function refresh_share_count_in_db()
     add_post_meta($post_id, 'total_share_count_month_' . $month, $count, true)
     || update_post_meta($post_id, 'total_share_count_month_' . $month, $count);
 
+    //Store in DB by week
+    add_post_meta($post_id, 'total_share_count_week_' . $week, $count, true)
+    || update_post_meta($post_id, 'total_share_count_week_' . $week, $count);
+
     //A "month diff" for the current month share diff
     $oneMonthAgo = date("m.Y", strtotime("-1 months"));
 
+    //A "week diff" for the current month share diff
+    $oneWeekAgo = date("W.m.Y", strtotime("-1 weeks"));
+
     $countOneMonthAgo = get_post_meta($post_id, 'total_share_count_month_' . $oneMonthAgo, true);
+    $countOneWeekAgo = get_post_meta($post_id, 'total_share_count_week_' . $oneWeekAgo, true);
 
     if ($countOneMonthAgo != null) {
 
@@ -86,6 +95,14 @@ function refresh_share_count_in_db()
 
         add_post_meta($post_id, 'share_count_month_diff_' . $month, $diff, true)
         || update_post_meta($post_id, 'share_count_month_diff_' . $month, $diff);
+    }
+
+    if ($countOneWeekAgo != null) {
+
+        $diff = $count - $countOneWeekAgo;
+
+        add_post_meta($post_id, 'share_count_week_diff_' . $week, $diff, true)
+        || update_post_meta($post_id, 'share_count_week_diff_' . $week, $diff);
     }
 
     echo $count;
