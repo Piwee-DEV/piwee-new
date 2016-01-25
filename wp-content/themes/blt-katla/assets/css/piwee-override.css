@@ -73,6 +73,14 @@ li {
         z-index: 5;
         position: relative;
     }
+
+    .container.archive {
+        background-color: #ebecec;
+        top: 15px;
+        padding-top: 15px;
+        z-index: 5;
+        position: relative;
+    }
 }
 
 .flex-row {

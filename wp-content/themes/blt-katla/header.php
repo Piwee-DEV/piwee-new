@@ -530,12 +530,12 @@ if (is_single()) {
                             <li class="item-menu-header"><a href="/category/marketing-2">MARKETING</a></li>
                             <li class="item-menu-header"><a href="/category/innovation">INNOVATION</a></li>
                             <li class="item-menu-header"><a href="/category/infographie">INFOGRAPHIES</a></li>
-                            <li class="item-menu-header"><a href="/tops">TOPS</a></li>
+                            <li class="item-menu-header"><a href="/category/compilations">TOPS</a></li>
                             <li class="item-menu-header"><a href="/category/digital-2/twitter">WE <i
                                         class="fa fa-heart"></i>
                                     TWITTER</a></li>
                             <li class="item-menu-header"><a href="/category/petites-pensees">PENSEES</a></li>
-                            <li class="item-menu-header"><a href="/random">RANDOM</a></li>
+                            <li class="item-menu-header"><a href="<?php echo get_the_guid(get_random_post()) ?>">RANDOM</a></li>
                             <li class="item-menu-header"><a href="/top10">TOP 10</a></li>
                         </ul>
                     </div>

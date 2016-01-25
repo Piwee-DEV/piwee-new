@@ -5,7 +5,7 @@
     $posts = query_posts(array('category__in' => array($category[0]->cat_ID), 'posts_per_page' => 10, 'orderby' => 'date', 'order' => 'DESC', 'post_status' => 'publish'));
 ?>
 
-    <div class="container">
+    <div class="container archive">
 
         <div class="row">
 
