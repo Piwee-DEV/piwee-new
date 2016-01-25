@@ -729,5 +729,5 @@ function get_random_post() {
     remove_all_filters('posts_orderby');
     $randomPosts = new WP_Query(array('orderby' => 'rand'));
 
-    return $randomPosts->the_post();;
+    return $randomPosts->posts[0];
 }
