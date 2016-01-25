@@ -1,45 +1,6 @@
-<?php
-
-//TODO : refactor this snippet
-
-$fullsite_campain_bg_image = get_option("campain_bg_image");
-$fullsite_campain_mobile_header = get_option("campain_mobile_header");
-$fullsite_campain_margin_top = get_option("campain_margin_top");
-$fullsite_campain_url = get_option("campain_url");
-$fullsite_campain_injected_code = get_option("campain_injected_code");
-$fullsite_campain_background_color = get_option("campain_background_color");
-
-$campain_bg_image = get_post_meta(get_the_ID(), "campain_bg_image", true);
-$campain_mobile_header = get_post_meta(get_the_ID(), "campain_mobile_header", true);
-$campain_margin_top = get_post_meta(get_the_ID(), "campain_margin_top", true);
-$campain_url = get_post_meta(get_the_ID(), "campain_url", true);
-$campain_injected_code = get_post_meta(get_the_ID(), "campain_injected_code", true);
-$campain_background_color = get_post_meta(get_the_ID(), "campain_background_color", true);
-
-//article
-if (!is_home() && is_single(get_the_ID()) && strlen($campain_bg_image) > 0 && strlen($campain_margin_top) > 0) {
-    $isCampain = true;
-    $display_video = false;
-} //fullsite
-else if ((is_home() || is_single(get_the_ID())) && strlen($fullsite_campain_bg_image) > 0 && strlen($fullsite_campain_margin_top) > 0) {
-    $isCampain = true;
-    $display_video = true;
-
-    $campain_bg_image = $fullsite_campain_bg_image;
-    $campain_mobile_header = $fullsite_campain_mobile_header;
-    $campain_margin_top = $fullsite_campain_margin_top;
-    $campain_url = $fullsite_campain_url;
-    $campain_injected_code = $fullsite_campain_injected_code;
-    $campain_background_color = $fullsite_campain_background_color;
-} else {
-    $isCampain = false;
-}
-
-?>
-
 <?php get_header(); ?>
 
-    <div class="container post" <?php if($isCampain) {echo ' style="background-color: #ebecec;"';} ?>>
+    <div class="container post">
 
         <div class="row">
 

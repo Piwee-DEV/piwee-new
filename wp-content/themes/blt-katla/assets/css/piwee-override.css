@@ -67,6 +67,8 @@ li {
     }
 
     .container.post {
+        background-color: #ebecec;
+        top: 15px;
         padding-top: 15px;
         z-index: 5;
         position: relative;
