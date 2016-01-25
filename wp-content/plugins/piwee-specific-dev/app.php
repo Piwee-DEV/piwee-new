@@ -711,6 +711,11 @@ function exam_plug_text_replace($content)
 add_filter('widget_text', 'exam_plug_text_replace');
 
 function shorten_number_k($number) {
+
+    if(!$number) {
+        return 0;
+    }
+
     if($number >= 1000) {
         return round($number/1000, 1) .  "K";   // NB: you will want to round this
     }

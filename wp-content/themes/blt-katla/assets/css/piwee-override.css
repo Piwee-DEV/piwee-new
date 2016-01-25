@@ -6,13 +6,20 @@
     }
 }
 
+#site-body {
+    padding-top: 20px;
+}
+
 @media (max-width: 990px) {
     #site-content {
         overflow: hidden !important;
     }
 
     #site-body {
-        padding-top: 80px !important;
+        padding-top: 30px !important;
+        background-color: #ebecec;
+        position: relative;
+        z-index: 5;
     }
 }
 
@@ -54,6 +61,14 @@ li {
     .container.home {
         background-color: #ebecec;
         padding-top: 15px;
+        z-index: 5;
+        position: relative;
+    }
+
+    .container.post {
+        padding-top: 15px;
+        z-index: 5;
+        position: relative;
     }
 }
 
@@ -188,6 +203,10 @@ li {
     margin-right: auto;
 }
 
+.piwee-logo img {
+    max-height: 75px;
+}
+
 .primary-menu {
     background-color: #F4F4F4 !important;
 }
@@ -211,9 +230,10 @@ li {
 }
 
 .secondary-menu {
-    margin-bottom: 20px !important;
     background-color: white !important;
     border-bottom: 2px solid #dddddd;
+    position: relative;
+    z-index: 5 !important;
 }
 
 .opened-menu-container {
@@ -226,7 +246,7 @@ li {
     height: 400px;
     color: #444;
     box-shadow: -5px 5px 5px #CCC;
-    z-index: 100;
+    z-index: 999999;
 }
 
 .opened-menu-container a {
@@ -287,6 +307,10 @@ li {
 @media (min-width: 990px) {
     .article-mega-featured-img-container.big img {
         height: 333px;
+    }
+
+    .article-mega-featured-img-container img {
+        height: 159px;
     }
 }
 
@@ -419,6 +443,8 @@ header {
 
 .desktop-header {
     height: 75px;
+    position: relative;
+    z-index: 6;
 }
 
 .mobile-header {
@@ -761,6 +787,8 @@ section.content {
     padding-bottom: 30px !important;
     margin-bottom: 30px;
     box-shadow: 0px 0px 5px #555;
+    position: relative;
+    z-index: 5;
 }
 
 @media (max-width: 990px) {
