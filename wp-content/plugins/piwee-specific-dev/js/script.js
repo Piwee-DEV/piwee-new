@@ -20,11 +20,11 @@ function openMobilePostType() {
                     current_perc += 1;
                     me.css('width', (current_perc) + '%');
                 }
-            }, 20);
+            }, 10);
 
         });
 
-    }, 300);
+    }, 100);
 }
 
 jQuery(document).ready(function () {

@@ -461,6 +461,10 @@ header {
     opacity: 0.95;
 }
 
+.mobile-header .container {
+    position: relative;
+}
+
 .mobile-header .mobile-header-col {
     padding: 0 !important;
     margin: 0 !important;
@@ -616,6 +620,10 @@ section.content {
     display: block;
 }
 
+.secondary-header .container {
+    position: relative;
+}
+
 .secondary-header-share-container {
     padding-top: 15px;
 }
@@ -720,8 +728,8 @@ section.content {
 }
 
 .menu-post-type-opened {
-    position: fixed;
-    top: 60px;
+    position: absolute;
+    top: 50px;
     right: 0px;
     z-index: 9999999;
     background-color: white;
@@ -777,7 +785,7 @@ section.content {
 
 @media (min-width: 990px) {
     .menu-post-type-opened {
-        position: fixed;
+        position: absolute;
         top: 70px;
         right: 0;
         width: 300px;
