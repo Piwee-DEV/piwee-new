@@ -11,12 +11,13 @@
 }
 
 @media (max-width: 990px) {
+
     #site-content {
         overflow: hidden !important;
     }
 
     #site-body {
-        padding-top: 30px !important;
+        padding-top: 80px !important;
         background-color: #ebecec;
         position: relative;
         z-index: 5;
