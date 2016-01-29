@@ -1017,7 +1017,18 @@ section.content {
 }
 
 .share-bar-widget img {
+    display: inline-block;
     max-height: 40px;
+}
+
+.share-bar-widget .native-btn {
+    display: inline-block;
+    position: relative;
+    top: 7px;
+}
+
+.share-bar-widget .native-btn > div,a {
+    display: inline-block;
 }
 
 .article-mega-featured .article-mega-featured-img-container.big .sharing-interactive {
