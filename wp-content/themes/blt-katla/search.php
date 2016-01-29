@@ -8,11 +8,11 @@
 
 </header><!-- .page-header -->
 
-<div id="container" class="clearfix">
+<div class="container search" class="clearfix">
 
     <div id="row">
 
-        <div class="col-md-6 col-md-offset-3">
+        <div class="col-md-12">
             <?php
 
             if (is_archive()) {

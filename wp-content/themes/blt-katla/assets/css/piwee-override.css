@@ -82,6 +82,14 @@ li {
         z-index: 5;
         position: relative;
     }
+
+    .container.search {
+        background-color: #ebecec;
+        top: 15px;
+        padding-top: 15px;
+        z-index: 5;
+        position: relative;
+    }
 }
 
 .flex-row {
@@ -809,7 +817,12 @@ section.content {
     box-shadow: 0px 0px 5px #555;
     position: relative;
     z-index: 5;
-    top: 30px;
+    top: 10px;
+}
+
+.container.footer {
+    padding: 0;
+    background-color: #ebecec;
 }
 
 @media (max-width: 990px) {
