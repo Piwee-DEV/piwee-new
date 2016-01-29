@@ -1080,3 +1080,7 @@ section.content {
         display: none !important;
     }
 }
+
+.pagination-container {
+    text-align: center;
+}

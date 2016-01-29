@@ -703,24 +703,38 @@ function exam_plug_text_replace($content)
 
 add_filter('widget_text', 'exam_plug_text_replace');
 
-function shorten_number_k($number) {
+function shorten_number_k($number)
+{
 
-    if(!$number) {
+    if (!$number) {
         return 0;
     }
 
-    if($number >= 1000) {
-        return round($number/1000, 1) .  "K";   // NB: you will want to round this
-    }
-    else {
+    if ($number >= 1000) {
+        return round($number / 1000, 1) . "K";   // NB: you will want to round this
+    } else {
         return $number;
     }
 }
 
-function get_random_post() {
+function get_random_post()
+{
 
     remove_all_filters('posts_orderby');
     $randomPosts = new WP_Query(array('orderby' => 'rand'));
 
     return $randomPosts->posts[0];
 }
+
+/**
+ * We only need to search posts !!
+ */
+function SearchFilter($query)
+{
+    if ($query->is_search) {
+        $query->set('post_type', 'post');
+    }
+    return $query;
+}
+
+add_filter('pre_get_posts', 'SearchFilter');
