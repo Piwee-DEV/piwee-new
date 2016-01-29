@@ -39,15 +39,13 @@ class piwee_share_bar_widget extends WP_Widget
             <img src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/flat-con-piwee-pinterest.png">
             <img src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/flat-con-piwee-mail.png">
 
-            <div class="native-btn">
+            <div class="native-btn hidden-xs hidden-sm">
                 <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/"
                      data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+                <a href="https://twitter.com/share" class="twitter-share-button"{count}>Tweet</a>
+                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
                 <script src="//platform.linkedin.com/in.js" type="text/javascript"> lang: fr_FR</script>
                 <script type="IN/Share" data-counter="right"></script>
-                <a data-pin-do="buttonPin" data-pin-count="beside"
-                   href="https://www.pinterest.com/pin/create/button/?url=https%3A%2F%2Fwww.flickr.com%2Fphotos%2Fkentbrew%2F6851755809%2F&media=https%3A%2F%2Ffarm8.staticflickr.com%2F7027%2F6851755809_df5b2051c9_z.jpg&description=Next%20stop%3A%20Pinterest"><img
-                        src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_20.png"/></a>
-                <script async defer src="//assets.pinterest.com/js/pinit.js"></script>
             </div>
 
         </div>
