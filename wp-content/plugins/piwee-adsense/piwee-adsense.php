@@ -27,8 +27,9 @@ require_once("phpQuery.php");
 
 add_action("admin_menu", "register_piwee_adsense_page");
 add_action("add_meta_boxes", "add_piwee_adsense_metabox");
-add_action("save_post", "validate_checkbox_piwee_adsense", 10, 3);
+add_action("save_post", "validate_checkbox_piwee_adsense");
 add_filter('the_content', 'filter_content_adsense');
+add_action('wp_enqueue_scripts', 'register_css_adsense_plugin');
 
 function register_piwee_adsense_page()
 {
@@ -53,7 +54,7 @@ function add_piwee_adsense_metabox_markup()
             for="adsense_bottom_article">Activer la publicité pour le bas de
             l'article</label></p>
 
-<?php
+    <?php
 }
 
 function add_piwee_adsense_metabox()
@@ -143,7 +144,7 @@ function piwee_adsense()
 
     </form>
 
-<?php
+    <?php
 }
 
 function filter_content_adsense($content)
@@ -160,7 +161,7 @@ function filter_content_adsense($content)
         $do_adsense_bottom_article = get_post_meta(get_the_ID(), "adsense_bottom_article", true);
 
         //adsense_below_image
-        if($do_adsense_below_image) {
+        if ($do_adsense_below_image) {
 
             $document = phpQuery::newDocumentHTML($content);
 
@@ -175,10 +176,16 @@ function filter_content_adsense($content)
         }
 
         //adsense_bottom_article
-        if($do_adsense_bottom_article) {
+        if ($do_adsense_bottom_article) {
             $content .= '<br><div id="article-adsense-bottom">' . $adsense_bottom_article . '</div><div id="article-adsense-bottom-mobile">' . $adsense_bottom_article_mobile . '</div>';
         }
     }
 
     return $content;
+}
+
+function register_css_adsense_plugin()
+{
+    wp_register_style('app-adsense-css', plugins_url('/css/piwee-adsense.css', __FILE__));
+    wp_enqueue_style('app-adsense-css');
 }

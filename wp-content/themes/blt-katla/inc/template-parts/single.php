@@ -19,7 +19,8 @@
             <div class="col-md-8 col-sm-4 col-xs-4">
                 <div class="share-container">
                     <div class="share-count">
-                        <span class="share-count-views"><?php echo shorten_number_k(get_total_share_count(get_the_ID())['total_share_count']) ?></span>
+                        <span
+                            class="share-count-views"><?php echo shorten_number_k(get_total_share_count(get_the_ID())['total_share_count']) ?></span>
                         <br>
                         Partages
                     </div>
@@ -46,7 +47,25 @@
     </div>
 
     <div class="post">
-        <?php the_content(); ?>
+
+        <?php
+
+        ob_start();
+        the_content();
+        $content = ob_get_clean();
+
+        if (mt_rand(0, 1) == 0) {
+            $content = str_replace("ca-pub-9594201080211682", "ca-pub-0031647560032028", $content);
+            $content = str_replace("9566298656", "5696989724", $content);
+            $content = str_replace("6678475853", "7394048928", $content);
+            $content = str_replace("7312035054", "2503493328", $content);
+            $content = str_replace("3357873053", "7980959322", $content);
+        }
+
+        echo $content;
+
+        ?>
+
     </div>
 
 </article>

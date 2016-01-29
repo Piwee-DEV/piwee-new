@@ -614,13 +614,6 @@ function categ_gen_button()
     <?php
 }
 
-function register_css_sharebtn_plugin()
-{
-
-    wp_register_style('app-sharebtn-css', plugins_url('/css/style.css', __FILE__));
-    wp_enqueue_style('app-sharebtn-css');
-}
-
 function register_script_sharebtn_plugin()
 {
     wp_register_script('scroll-to-fixed', plugins_url('/js/jquery-scrolltofixed.js', __FILE__));
