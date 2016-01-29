@@ -7,7 +7,7 @@
     $most_shared_post_of_the_week_x_next = query_posts(
         array(
             'meta_key' => 'share_count_week_diff_' . $week,
-            'orderby' => 'share_count_week_diff_' . $week,
+            'orderby' => 'meta_value_num',
             'order' => 'DESC',
             'posts_per_page' => 3,
             'ignore_sticky_posts' => 1

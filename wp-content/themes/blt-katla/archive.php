@@ -1,8 +1,27 @@
 <?php get_header(); ?>
 
 <?php
-    $category = get_the_category();
-    $posts = query_posts(array('category__in' => array($category[0]->cat_ID), 'posts_per_page' => 10, 'orderby' => 'date', 'order' => 'DESC', 'post_status' => 'publish'));
+    $permalink = $_SERVER["REQUEST_URI"];
+
+    if (strpos($permalink, 'top10') !== false) {
+
+        $title = 'Top 10';
+
+        $posts = query_posts(
+            array(
+                'meta_key' => 'total_share_count',
+                'orderby' => 'meta_value_num',
+                'order' => 'DESC',
+                'posts_per_page' => 10,
+                'ignore_sticky_posts' => 1
+            )
+        );
+    }
+    else {
+        $category = get_the_category();
+        $title = $category[0]->name;
+        $posts = query_posts(array('category__in' => array($category[0]->cat_ID), 'posts_per_page' => 10, 'orderby' => 'date', 'order' => 'DESC', 'post_status' => 'publish'));
+    }
 ?>
 
     <div class="container archive">
@@ -15,7 +34,7 @@
 
                     <div class="col-md-12">
                         <div class="title-section">
-                            <h3><?php echo $category[0]->name ?></h3>
+                            <h3><?php echo $title; ?></h3>
                         </div>
                     </div>
 

@@ -186,7 +186,7 @@ if (is_single()) {
     <a href="/"><i class="fa fa-rss"></i> Les Articles</a>
     <a href="/category/fait-maison"><i class="fa fa-paint-brush"></i> Nos Créa</a>
     <a href="/category/petites-pensees"><i class="fa fa-pencil"></i> Petites Pensées</a>
-    <a href="/top10"><i class="fa fa-trophy"></i> TOP 10</a>
+    <a href="/category/top10"><i class="fa fa-trophy"></i> TOP 10</a>
     <a href="/random"><i class="fa fa-random"></i> Random</a>
 </nav>
 
@@ -536,7 +536,7 @@ if (is_single()) {
                                     TWITTER</a></li>
                             <li class="item-menu-header"><a href="/category/petites-pensees">PENSEES</a></li>
                             <li class="item-menu-header"><a href="<?php echo get_the_guid(get_random_post()->ID) ?>">RANDOM</a></li>
-                            <li class="item-menu-header"><a href="/top10">TOP 10</a></li>
+                            <li class="item-menu-header"><a href="/category/top10">TOP 10</a></li>
                         </ul>
                     </div>
 

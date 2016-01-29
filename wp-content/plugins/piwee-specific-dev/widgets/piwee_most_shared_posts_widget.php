@@ -34,7 +34,7 @@ class most_shared_widget extends WP_Widget
         $most_shared_post = query_posts(
             array(
                 'meta_key' => 'total_share_count',
-                'orderby' => 'total_share_count',
+                'orderby' => 'meta_value_num',
                 'order' => 'DESC',
                 'posts_per_page' => 1,
                 'ignore_sticky_posts' => 1
@@ -44,7 +44,7 @@ class most_shared_widget extends WP_Widget
         $most_shared_post_x_next = query_posts(
             array(
                 'meta_key' => 'total_share_count',
-                'orderby' => 'total_share_count',
+                'orderby' => 'meta_value_num',
                 'order' => 'DESC',
                 'posts_per_page' => 2,
                 'offset' => 1,
@@ -55,7 +55,7 @@ class most_shared_widget extends WP_Widget
         $most_shared_post_of_the_month = query_posts(
             array(
                 'meta_key' => 'share_count_month_diff_' . $month,
-                'orderby' => 'share_count_month_diff_' . $month,
+                'orderby' => 'meta_value_num',
                 'order' => 'DESC',
                 'posts_per_page' => 1,
                 'ignore_sticky_posts' => 1
@@ -65,7 +65,7 @@ class most_shared_widget extends WP_Widget
         $most_shared_post_of_the_month_x_next = query_posts(
             array(
                 'meta_key' => 'share_count_month_diff_' . $month,
-                'orderby' => 'share_count_month_diff_' . $month,
+                'orderby' => 'meta_value_num',
                 'order' => 'DESC',
                 'posts_per_page' => 2,
                 'offset' => 1,
