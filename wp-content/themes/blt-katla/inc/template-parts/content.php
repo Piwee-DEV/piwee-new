@@ -1,66 +1,32 @@
-<?php $post_thumbnail_size = blt_has_sidebar() == 'none' ? 'hg' : 'lg'; ?>
+<?php
 
-<article <?php post_class('content-post'); ?>><?php
+    $post = get_post(get_the_ID());
+    $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'single-post-thumbnail');
 
-    #
-    #  DISPLAY POST STATUS
-    #  ========================================================================================
-    #
+?>
 
-    if (get_post_status() != 'publish') { ?>
-        <div class="label post-status"><?php echo get_post_status(); ?></div><?php
-    }
+<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 article-vignette">
+    <div class="article-vignette-inside-image"
+         style="background-image: url('<?php echo $image[0]; ?>')">
+        <a href="<?php echo get_permalink($post->ID); ?>" class="home-article-background-link">
+        </a>
 
-    $image_location = blt_get_option('image_location_on_blog_page', 'above');
-
-    if ($image_location == 'above' and has_post_thumbnail()) { ?>
-    <a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true"> <?php
-        the_post_thumbnail($post_thumbnail_size, array('alt' => get_the_title())); ?>
-        </a><?php
-    } ?>
-
-    <div class="content-body"><?php
-
-        if (is_sticky()) {
-            echo '<p class="label-wrap"><span class="label label-blt label-sticky"><i class="fa fa-star"></i>' . __('Featured Post', 'bluthemes') . '</span></p>';
-        } ?>
-
-        <h2 class="content-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-
-        <div class="content-meta">
-            <?php blt_get_post_meta() ?>
+        <div class="sharing-interactive" id="sharing-interactive-<?php echo $post->ID; ?>"
+             onmouseover="openSharePanelForID('<?php echo $post->ID; ?>')"
+             onmouseout="hideSharePanelForID('<?php echo $post->ID; ?>');">
+            <?php if (function_exists("social_shares_button")) social_shares_button($post->ID); ?>
+            <div id="post-share-box-<?php echo $post->ID; ?>" class="post-share-article">
+                <div class="fb-like" data-href="<?php echo get_permalink($post->ID); ?>"
+                     data-layout="button" data-action="like" data-show-faces="false"
+                     data-share="false"></div>
+                <a href="http://twitter.com/share" class="twitter-share-button"
+                   {count}>Tweet</a>
+            </div>
         </div>
-
-        <div class="content-text"><?php
-
-            if ($image_location == 'below' and has_post_thumbnail()) { ?>
-
-                <p>
-                <a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true"> <?php
-                    the_post_thumbnail($post_thumbnail_size, array('alt' => get_the_title())); ?>
-                </a>
-                </p><?php
-
-            }
-
-            switch (blt_get_option('show_content_or_excerpt', 'excerpt')) {
-
-                case 'title':
-                    // don't render anything
-                    break;
-
-                case 'content':
-                    the_content(__('Continue reading...', 'bluthemes'));
-                    break;
-
-                case 'excerpt':
-                default:
-                    the_excerpt();
-                    break;
-            } ?>
-
-        </div>
-
     </div>
-
-</article>
+    <a href="<?php echo get_permalink($post->ID); ?>">
+        <div class="article-vignette-inside-text">
+            <h4><?php echo $post->post_title; ?></h4>
+        </div>
+    </a>
+</div>

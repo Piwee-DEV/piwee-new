@@ -13,6 +13,7 @@
     <div id="row">
 
         <div class="col-md-12">
+
             <?php
 
             if (is_archive()) {
@@ -27,6 +28,25 @@
                     get_template_part('inc/template-parts/content', get_post_format());
                 }
 
+            } else {
+
+                get_template_part('inc/template-parts/content', 'none');
+            }
+
+            ?>
+        </div>
+
+    </div>
+
+
+    <div id="row">
+
+        <div class="col-md-6 col-md-offset-3">
+
+            <?php
+
+            if (have_posts()) {
+
                 // Previous/next page navigation.
                 the_posts_pagination(array(
                     'prev_text' => __('Page précédente', 'bluthemes'),
@@ -34,12 +54,10 @@
                     'before_page_number' => '<span class="meta-nav screen-reader-text">' . __('Page', 'bluthemes') . ' </span>',
                 ));
 
-            } else {
-
-                get_template_part('inc/template-parts/content', 'none');
             }
 
             ?>
+
         </div>
 
     </div>
