@@ -1,48 +1,46 @@
 <?php get_header(); ?>
 
+	<div class="container post">
 
-<div id="site-content" class="clearfix">
+		<div class="row">
 
-	<?php
+			<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
 
-		// Front Page - Top of container
-		if(is_front_page() and is_active_sidebar('home-top_of_container')){
-			dynamic_sidebar('home-top_of_container');
-		}
+				<div class="post-container">
 
-		// Page - Top of container
-		if(is_active_sidebar('page-top_of_container')){
-			dynamic_sidebar('page-top_of_container');
-		}
+					<?php
 
-	?>
+					if (have_posts()) {
 
-	<div id="site-content-column"><?php
+						while (have_posts()) {
+							the_post();
 
-		if(have_posts()){
+							get_template_part('inc/template-parts/single', get_post_format());
 
-			while(have_posts()){
+						}
 
-				the_post();
+					} ?>
 
-				get_template_part( 'inc/template-parts/page', get_post_format() );
+				</div>
+				
+			</div>
 
-			}
+			<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 hidden-xs hidden-sm">
+				<div id="primary-sidebar" class="primary-sidebar widget-area" role="complementary">
+					<aside id="site-content-sidebar">
+						<div class="content-sidebar-wrap">
+							<?php dynamic_sidebar('katla-right-post'); ?>
+						</div>
+					</aside>
+				</div>
+			</div>
 
-		 } ?>
+		</div>
 
-	</div><?php
+	</div>
 
-	#
-	# 	SIDEBAR
-	# 	========================================================================================
-	#   Load the sidebar if needed
-	# 	========================================================================================
-	#
-	if(in_array(blt_get_option('sidebar_layout', 'right'), array('left', 'right'), true) or in_array(get_field('blt_sidebar'), array('left', 'right'), true)){
-		get_sidebar();
-	} ?>
+<?php
 
-</div>
+get_footer();
 
-<?php get_footer(); ?>
+?>
