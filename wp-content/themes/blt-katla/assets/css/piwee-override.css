@@ -347,7 +347,7 @@ li {
         height: auto;
     }
 
-    .article-mega-featured-img-container .article-mega-featured-title {
+    .article-mega-featured-img-container.widget .article-mega-featured-title {
         font-size: 0.7em;
     }
 
@@ -1099,10 +1099,32 @@ section.content {
 @media (max-width: 990px) {
 
     .media-share-image {
-        display: none !important;
+        display: block !important;
     }
 }
 
 .pagination-container {
     text-align: center;
 }
+
+.post-container .attachment .single-title {
+    text-align: center;
+    font-size: 1.5em !important;
+    margin-bottom: 15px !important;
+}
+
+.post.attachment .nextprev .the-article {
+    padding-top: 15px;
+}
+
+.post.attachment .nextprev img {
+    max-height: 50px;
+}
+
+.post.attachment .nextprev .piwee-burger-icon {
+    max-height: 17px;
+    padding: 0;
+    margin: 0 !important;
+    margin-right: 5px !important;
+}
+

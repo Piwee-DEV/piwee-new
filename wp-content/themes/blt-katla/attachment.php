@@ -4,7 +4,7 @@
 
         <div class="row">
 
-            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
                 <div class="post-container">
 
@@ -33,16 +33,6 @@
 
                 </div>
 
-            </div>
-
-            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 hidden-xs hidden-sm">
-                <div id="primary-sidebar" class="primary-sidebar widget-area" role="complementary">
-                    <aside id="site-content-sidebar">
-                        <div class="content-sidebar-wrap">
-                            <?php dynamic_sidebar('katla-right-post'); ?>
-                        </div>
-                    </aside>
-                </div>
             </div>
 
         </div>
