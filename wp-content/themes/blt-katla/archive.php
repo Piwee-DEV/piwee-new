@@ -33,7 +33,7 @@
                 <div class="row">
 
                     <div class="col-md-12">
-                        <div class="title-section">
+                        <div class="title-section archive">
                             <h3><?php echo $title; ?></h3>
                         </div>
                     </div>

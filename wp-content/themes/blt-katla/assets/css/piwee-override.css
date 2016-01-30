@@ -326,7 +326,7 @@ li {
     padding: 10px;
 }
 
-.title-section h1, h2, h3, h4, h5, h6 {
+.archive.title-section {
     text-transform: capitalize;
 }
 

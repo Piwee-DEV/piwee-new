@@ -428,8 +428,11 @@ if (is_single()) {
                         <p class="total-vote-count"><?php echo $votes['total'] ?> votes</p>
                         <div class="row bar">
                             <div class="col-xs-2 bar-item bar-img">
-                                <img
-                                    src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icon-genie.png">
+                                <a href="#"
+                                   onclick="PiweeVote(<?php echo get_the_ID(); ?>, <?php echo getChoiceIdByName('Génie'); ?>); return false;">
+                                    <img
+                                        src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icon-genie.png">
+                                </a>
                             </div>
                             <div class="col-xs-8 bar-item bar-progress">
                                 <div class="progress">
@@ -449,8 +452,11 @@ if (is_single()) {
 
                         <div class="row bar">
                             <div class="col-xs-2 bar-item bar-img">
-                                <img
-                                    src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icon-fun.png">
+                                <a href="#"
+                                   onclick="PiweeVote(<?php echo get_the_ID(); ?>, <?php echo getChoiceIdByName('Fun'); ?>); return false;">
+                                    <img
+                                        src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icon-fun.png">
+                                </a>
                             </div>
                             <div class="col-xs-8 bar-item bar-progress">
                                 <div class="progress">
@@ -470,8 +476,11 @@ if (is_single()) {
 
                         <div class="row bar">
                             <div class="col-xs-2 bar-item bar-img">
-                                <img
-                                    src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icon-creatif.png">
+                                <a href="#"
+                                   onclick="PiweeVote(<?php echo get_the_ID(); ?>, <?php echo getChoiceIdByName('Créatif'); ?>); return false;">
+                                    <img
+                                        src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icon-creatif.png">
+                                </a>
                             </div>
                             <div class="col-xs-8 bar-item bar-progress">
                                 <div class="progress">
@@ -491,8 +500,11 @@ if (is_single()) {
 
                         <div class="row bar">
                             <div class="col-xs-2 bar-item bar-img">
-                                <img
-                                    src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icon-dejavu.png">
+                                <a href="#"
+                                   onclick="PiweeVote(<?php echo get_the_ID(); ?>, <?php echo getChoiceIdByName('déjà vu'); ?>); return false;">
+                                    <img
+                                        src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icon-dejavu.png">
+                                </a>
                             </div>
                             <div class="col-xs-8 bar-item bar-progress">
                                 <div class="progress">
@@ -535,7 +547,8 @@ if (is_single()) {
                                         class="fa fa-heart"></i>
                                     TWITTER</a></li>
                             <li class="item-menu-header"><a href="/category/petites-pensees">PENSEES</a></li>
-                            <li class="item-menu-header"><a href="<?php echo get_the_guid(get_random_post()->ID) ?>">RANDOM</a></li>
+                            <li class="item-menu-header"><a href="<?php echo get_the_guid(get_random_post()->ID) ?>">RANDOM</a>
+                            </li>
                             <li class="item-menu-header"><a href="/category/top10">TOP 10</a></li>
                         </ul>
                     </div>
@@ -601,7 +614,10 @@ if (is_single()) {
                 <p class="total-vote-count"><?php echo $votes['total'] ?> votes</p>
                 <div class="row bar">
                     <div class="col-xs-2 bar-item bar-img">
-                        <img src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icon-genie.png">
+                        <a href="#"
+                           onclick="PiweeVote(<?php echo get_the_ID(); ?>, <?php echo getChoiceIdByName('Génie'); ?>); return false;">
+                            <img src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icon-genie.png">
+                        </a>
                     </div>
                     <div class="col-xs-8 bar-item bar-progress">
                         <div class="progress">
@@ -621,7 +637,10 @@ if (is_single()) {
 
                 <div class="row bar">
                     <div class="col-xs-2 bar-item bar-img">
-                        <img src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icon-fun.png">
+                        <a href="#"
+                           onclick="PiweeVote(<?php echo get_the_ID(); ?>, <?php echo getChoiceIdByName('Fun'); ?>); return false;">
+                            <img src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icon-fun.png">
+                        </a>
                     </div>
                     <div class="col-xs-8 bar-item bar-progress">
                         <div class="progress">
@@ -640,7 +659,10 @@ if (is_single()) {
 
                 <div class="row bar">
                     <div class="col-xs-2 bar-item bar-img">
-                        <img src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icon-creatif.png">
+                        <a href="#"
+                           onclick="PiweeVote(<?php echo get_the_ID(); ?>, <?php echo getChoiceIdByName('Créatif'); ?>); return false;">
+                            <img src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icon-creatif.png">
+                        </a>
                     </div>
                     <div class="col-xs-8 bar-item bar-progress">
                         <div class="progress">
@@ -660,7 +682,10 @@ if (is_single()) {
 
                 <div class="row bar">
                     <div class="col-xs-2 bar-item bar-img">
-                        <img src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icon-dejavu.png">
+                        <a href="#"
+                           onclick="PiweeVote(<?php echo get_the_ID(); ?>, <?php echo getChoiceIdByName('déjà vu'); ?>); return false;">
+                            <img src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icon-dejavu.png">
+                        </a>
                     </div>
                     <div class="col-xs-8 bar-item bar-progress">
                         <div class="progress">
