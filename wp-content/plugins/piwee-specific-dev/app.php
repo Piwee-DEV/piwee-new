@@ -31,6 +31,7 @@ require_once("widgets/piwee_fb_comment_widget.php");
 require_once("widgets/piwee_most_shared_posts_widget.php");
 require_once("widgets/piwee_newsletter_widget.php");
 require_once("widgets/piwee_share_bar_widget.php");
+require_once("widgets/piwee_three_featured_widget.php");
 require_once("post_sharing/post_sharing.php");
 
 add_action('wp_enqueue_scripts', 'register_script_sharebtn_plugin', 99999);
