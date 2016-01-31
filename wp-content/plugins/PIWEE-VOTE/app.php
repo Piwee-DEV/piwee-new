@@ -365,6 +365,9 @@ function registerVotingJS()
 
                     var votesEntities = JSON.parse(response);
 
+                    $('.total-vote-count').text(votesEntities.total + ' votes');
+                    $('.vote-count').text('(' + votesEntities.total + ' votes)');
+
                     //Refresh widget below posts
                     $('.vote-widget .inner').each(function () {
 
@@ -420,7 +423,6 @@ function registerVotingJS()
 
                     var maxEntity = JSON.parse(response);
 
-                    $('.total-vote-count').text(maxEntity.count + ' votes');
                     $('.max-vote-entity .percent').text(maxEntity.percent + '%');
                     $('.max-vote-entity .description').text(maxEntity.name);
 

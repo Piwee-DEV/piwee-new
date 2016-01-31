@@ -42,7 +42,7 @@
                 </div>
             </div>
             <div class="footer-copyright">
-                Designé par Julien Fabro - Codé par Alexandre Nguyen
+                Designé par <a href="<?php get_home_url() ?>/author/julien.fabro" target="_blank">Julien Fabro</a> - Développé par <a href="http://alexandrenguyen.fr" target="_blank">Alexandre Nguyen</a>
             </div>
         </div>
 
