@@ -371,14 +371,22 @@ if (is_single()) {
                 </div>
                 <div class="col-md-3">
                     <div class="social-network-headband">
-                        <img
-                            src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icon-fb-gold.png">
-                        <img
-                            src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icon-twitter-gold.png">
-                        <img
-                            src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icon-instagram-gold.png">
-                        <img
-                            src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icon-rss-gold.png">
+                        <a href="https://www.facebook.com/piwee.net" target="_blank">
+                            <img
+                                src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icon-fb-gold.png">
+                        </a>
+                        <a href="https://twitter.com/piweeFR" target="_blank">
+                            <img
+                                src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icon-twitter-gold.png">
+                        </a>
+                        <a href="https://www.instagram.com/piweefr" target="_blank">
+                            <img
+                                src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icon-instagram-gold.png">
+                        </a>
+                        <a href="<?php get_home_url() ?>/feed" target="_blank">
+                            <img
+                                src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icon-rss-gold.png">
+                        </a>
                     </div>
                 </div>
             </div>
@@ -667,7 +675,8 @@ if (is_single()) {
                     <div class="col-xs-2 bar-item bar-img">
                         <a href="#"
                            onclick="PiweeVote(<?php echo get_the_ID(); ?>, <?php echo getChoiceIdByName('Créatif'); ?>); return false;">
-                            <img src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icon-creatif.png">
+                            <img
+                                src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icon-creatif.png">
                         </a>
                     </div>
                     <div class="col-xs-8 bar-item bar-progress">
