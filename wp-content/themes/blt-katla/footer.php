@@ -32,12 +32,22 @@
                     <strong>SUIVEZ NOUS SUR LES RESEAUX SOCIAUX</strong>
                     <div class="clear"></div>
                     <div class="social-network-headband">
-                        <img src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/FB_icon_piwee.png">
-                        <img
-                            src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/twitter_icon_piwee.png">
-                        <img
-                            src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/insta_icon_piwee.png">
-                        <img src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/mail_icon_piwee.png">
+                        <a href="https://www.facebook.com/piwee.net" target="_blank">
+                            <img
+                                src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/FB_icon_piwee.png">
+                        </a>
+                        <a href="https://twitter.com/piweeFR" target="_blank">
+                            <img
+                                src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/twitter_icon_piwee.png">
+                        </a>
+                        <a href="https://www.instagram.com/piweefr" target="_blank">
+                            <img
+                                src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/insta_icon_piwee.png">
+                        </a>
+                        <a href="<?php get_home_url() ?>/contact" target="_blank">
+                            <img
+                                src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/mail_icon_piwee.png">
+                        </a>
                     </div>
                 </div>
             </div>
