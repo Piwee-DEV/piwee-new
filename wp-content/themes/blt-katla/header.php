@@ -183,11 +183,49 @@ if (is_single()) {
 <body class="pushmenu-push">
 
 <nav class="pushmenu pushmenu-left">
-    <a href="/"><i class="fa fa-rss"></i> Les Articles</a>
-    <a href="/category/fait-maison"><i class="fa fa-paint-brush"></i> Nos Créa</a>
-    <a href="/category/petites-pensees"><i class="fa fa-pencil"></i> Petites Pensées</a>
-    <a href="/category/top10"><i class="fa fa-trophy"></i> TOP 10</a>
-    <a href="/random"><i class="fa fa-random"></i> Random</a>
+
+    <div class="part-search-menu">
+        <?php get_search_form(); ?>
+    </div>
+
+    <div class="part-1-menu">
+        <a href="/category/inspiration"">Art</a>
+        <a href="/category/marketing-2">Marketing</a>
+        <a href="/category/innovation">Innovation</a>
+        <a href="/category/infographie">Infographies</a>
+        <a href="/category/compilations">TOPS</a>
+    </div>
+
+    <div class="part-2-menu">
+        <a href="/category/digital-2/twitter">We <i class="fa fa-heart"></i> Twitter</a>
+        <a href="/category/petites-pensees">Pensées du jour</a>
+    </div>
+    <hr>
+    <div class="part-3-menu">
+        <a href="#">A propos</a>
+        <a href="#">L'équipe</a>
+        <a href="#">Nous contacter</a>
+        <a href="#">Publicité</a>
+    </div>
+    <hr>
+    <div class="social-network-pushmenu">
+        <a href="https://www.facebook.com/piwee.net" target="_blank">
+            <img
+                src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/FB_icon_piwee.png">
+        </a>
+        <a href="https://twitter.com/piweeFR" target="_blank">
+            <img
+                src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/twitter_icon_piwee.png">
+        </a>
+        <a href="https://www.instagram.com/piweefr" target="_blank">
+            <img
+                src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/insta_icon_piwee.png">
+        </a>
+        <a href="<?php get_home_url() ?>/contact" target="_blank">
+            <img
+                src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/mail_icon_piwee.png">
+        </a>
+    </div>
 </nav>
 
 <main id="site">
@@ -589,7 +627,7 @@ if (is_single()) {
                         <img
                             src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/twitter_icon_piwee.png">
                         <img
-                            src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/inta_icon_piwee.png">
+                            src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/insta_icon_piwee.png">
                         <img
                             src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/mail_icon_piwee.png">
                     </div>

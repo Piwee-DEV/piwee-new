@@ -596,33 +596,72 @@ header {
 }
 
 .pushmenu { /*this is the nav*/
-    background: #3c3933;
-    font-family: Arial, Helvetics, sans-serif;
+    background: #4b4c4d;
     width: 240px;
     height: 100%;
     top: 0;
     z-index: 1000;
     position: fixed;
+    padding: 10px;
+}
+
+.pushmenu hr {
+    color: #626263;
 }
 
 .pushmenu a {
-    display: block; /* drops the nav vertically*/
+    display: block;
     color: #fff;
-    font-size: 16px;
-    font-weight: bold;
-    text-decoration: none;
-    border-top: 1px solid #56544e;
-    border-bottom: 1px solid #312e2a;
-    padding: 14px;
 }
 
-.pushmenu a:hover {
-    background: #00A287;
+.pushmenu .part-search-menu {
+    margin-top: 10px;
 }
 
-.pushmenu a:active {
-    background: #454f5c;
-    color: #fff;
+.pushmenu .part-search-menu .input-group {
+    width: 100%;
+}
+
+.pushmenu .part-search-menu input[type=text] {
+    background-color: #999999 !important;
+    height: 30px !important;
+    border: none !important;
+    background-position: 96% 50% !important;
+    color: white;
+}
+
+.pushmenu .part-1-menu {
+    margin-top: 20px;
+}
+
+.pushmenu .part-1-menu a {
+    font-size: 1.4em;
+}
+
+.pushmenu .part-2-menu {
+    margin-top: 20px;
+}
+
+.pushmenu .part-2-menu a {
+    font-size: 1.4em;
+}
+
+.pushmenu .part-3-menu {
+    margin-top: 20px;
+}
+
+.pushmenu .part-3-menu a {
+    font-size: 1.0em;
+    color: #9b9b9b;
+}
+
+.pushmenu .social-network-pushmenu img {
+    max-height: 40px;
+    margin-right: 7px;
+}
+
+.pushmenu .social-network-pushmenu a {
+    display: inline-block;
 }
 
 .pushmenu-left {
