@@ -622,14 +622,22 @@ if (is_single()) {
                     <span class="secondary-header-share-text">Partagez cet article</span>
 
                     <div class="secondary-header-shareimg-container">
+                        <a href="http://www.facebook.com/sharer/sharer.php?u=<?php echo get_permalink() ?>"
+                           target="_blank">
                         <img
                             src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/FB_icon_piwee.png">
+                            </a>
+                        <a href="https://twitter.com/home?status=<?php echo get_the_title() . ' ' . get_permalink() ?>"
+                           target="_blank">
                         <img
                             src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/twitter_icon_piwee.png">
+                            </a>
                         <img
                             src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/insta_icon_piwee.png">
+                        <a href="mailto:?subject=<?php echo rawurlencode(get_the_title() . ' | Piwee.net') ?>&body=<?php echo rawurlencode(get_the_title() . ' ' . get_permalink()) ?>">
                         <img
                             src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/mail_icon_piwee.png">
+                            </a>
                     </div>
                 </div>
                 <div class="col-md-4 secondary-header-logo-container">

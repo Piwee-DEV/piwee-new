@@ -26,20 +26,40 @@
                         Partages
                     </div>
                     <div class="share-buttons">
-                        <img class="hidden-xs hidden-sm"
-                             src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/flat-con-piwee-fb-btn.png">
-                        <img class="hidden-xs hidden-sm"
-                             src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/flat-con-piwee-twitter-btn.png">
-                        <img class="hidden-xs hidden-sm"
-                             src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/flat-con-piwee-linkedin.png">
-                        <img class="hidden-xs hidden-sm"
-                             src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/flat-con-piwee-pinterest.png">
-                        <img class="hidden-xs hidden-sm"
-                             src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/flat-con-piwee-mail.png">
-                        <img class="hidden-md hidden-lg"
-                             src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/flat-con-piwee-fb.png">
-                        <img class="hidden-md hidden-lg"
-                             src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/flat-con-piwee-twitter.png">
+                        <a href="http://www.facebook.com/sharer/sharer.php?u=<?php echo get_permalink() ?>"
+                           target="_blank">
+                            <img class="hidden-xs hidden-sm"
+                                 src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/flat-icon-piwee-fb-btn.png">
+                        </a>
+                        <a href="https://twitter.com/home?status=<?php echo get_the_title() . ' ' . get_permalink() ?>"
+                           target="_blank">
+                            <img class="hidden-xs hidden-sm"
+                                 src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/flat-icon-piwee-twitter-btn.png">
+                        </a>
+                        <a href="https://www.linkedin.com/shareArticle?mini=true&url=<?php echo get_permalink() ?>&title=<?php echo get_the_title() . ' ' . get_permalink() ?>&summary=&source=Piwee.net"
+                           target="_blank">
+                            <img class="hidden-xs hidden-sm"
+                                 src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/flat-icon-piwee-linkedin.png">
+                        </a>
+                        <a href="https://pinterest.com/pin/create/button/?url=<?php echo get_permalink() ?>&description=<?php echo get_the_title() . ' ' . get_permalink() ?>"
+                           target="_blank">
+                            <img class="hidden-xs hidden-sm"
+                                 src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/flat-icon-piwee-pinterest.png">
+                        </a>
+                        <a href="mailto:?subject=<?php echo rawurlencode(get_the_title() . ' | Piwee.net') ?>&body=<?php echo rawurlencode(get_the_title() . ' ' . get_permalink()) ?>">
+                            <img class="hidden-xs hidden-sm"
+                                 src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/flat-icon-piwee-mail.png">
+                        </a>
+                        <a href="http://www.facebook.com/sharer/sharer.php?u=<?php echo get_permalink() ?>"
+                           target="_blank">
+                            <img class="hidden-md hidden-lg"
+                                 src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/flat-icon-piwee-fb.png">
+                        </a>
+                        <a href="https://twitter.com/home?status=<?php echo get_the_title() . ' ' . get_permalink() ?>"
+                           target="_blank">
+                            <img class="hidden-md hidden-lg"
+                                 src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/flat-icon-piwee-twitter.png">
+                        </a>
                     </div>
                 </div>
             </div>
