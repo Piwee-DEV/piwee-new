@@ -1187,3 +1187,7 @@ section.content {
     margin-right: 5px !important;
 }
 
+.katla-below-attachment-widget-wrapper {
+    margin-top: 20px;
+    text-align: center;
+}

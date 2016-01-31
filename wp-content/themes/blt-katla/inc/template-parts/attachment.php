@@ -32,6 +32,11 @@ $title = get_the_title($parent);
                         class="piwee-burger-icon">(Retour l'article)</a>
             </div>
         </div>
+
+        <div class="katla-below-attachment-widget-wrapper">
+            <?php dynamic_sidebar('katla-below-attachment') ?>
+        </div>
+
     </div>
 
 </article>

@@ -278,9 +278,14 @@ if (!function_exists('blt_theme_setup')) {
                 'after_title' => '</h3>',
             ));
 
+            register_sidebar($sidebar);
+
+            /**
+             * Custom sidebars
+             */
             register_sidebar(array(
                 'id' => 'katla-right-post',
-                'name' => __('Katla Right Post'),
+                'name' => __('Piwee - Droite du post'),
                 'description' => __('This sidebar is located on the right side of a post page'),
                 'before_widget' => $before_widget,
                 'after_widget' => $after_widget,
@@ -290,7 +295,7 @@ if (!function_exists('blt_theme_setup')) {
 
             register_sidebar(array(
                 'id' => 'katla-below-post',
-                'name' => __('Katla Below Post'),
+                'name' => __('Piwee - Sous le post'),
                 'description' => __('This sidebar is located after the post content'),
                 'before_widget' => $before_widget,
                 'after_widget' => $after_widget,
@@ -300,7 +305,7 @@ if (!function_exists('blt_theme_setup')) {
 
             register_sidebar(array(
                 'id' => 'katla-below-home',
-                'name' => __('Katla Below Home'),
+                'name' => __('Piwee - Sous la home'),
                 'description' => __('This sidebar is located after the home content'),
                 'before_widget' => $before_widget,
                 'after_widget' => $after_widget,
@@ -308,7 +313,15 @@ if (!function_exists('blt_theme_setup')) {
                 'after_title' => '</h3>',
             ));
 
-            register_sidebar($sidebar);
+            register_sidebar(array(
+                'id' => 'katla-below-attachment',
+                'name' => __('Piwee - Sous une image'),
+                'description' => __('This sidebar is located after the attachment content'),
+                'before_widget' => $before_widget,
+                'after_widget' => $after_widget,
+                'before_title' => '<h3 class="widget-head">',
+                'after_title' => '</h3>',
+            ));
         }
 
         #
