@@ -410,12 +410,12 @@ if (is_single()) {
 
                                 <?php if ($maxVoteEntity): ?>
 
-                                    <div class="menu-post-type-text">
+                                    <div class="menu-post-type-text max-vote-entity">
                                         <span class="percent"><?php echo $maxVoteEntity['percent'] ?>%</span>
                                         <span class="description"><?php echo $maxVoteEntity['name'] ?></span>
                                     </div>
 
-                                    <img src="<?php echo $vote_icon ?>">
+                                    <img src="<?php echo $vote_icon ?>" class="img-max-entity">
 
                                 <?php endif ?>
 
@@ -439,7 +439,8 @@ if (is_single()) {
                                     <div class="progress-bar progress-bar-success" role="progressbar"
                                          aria-valuenow="<?php echo $votes['Génie']['percent'] ?>"
                                          aria-valuemin="0" aria-valuemax="100" style="width: 0%"
-                                         data-percentage="<?php echo $votes['Génie']['percent'] ?>">
+                                         data-percentage="<?php echo $votes['Génie']['percent'] ?>"
+                                         data-name="Génie">
                                 <span class="sr-only"><?php echo $votes['Génie']['percent'] ?>
                                     % Complete (success)</span>
                                     </div>
@@ -463,7 +464,8 @@ if (is_single()) {
                                     <div class="progress-bar progress-bar-success" role="progressbar"
                                          aria-valuenow="<?php echo $votes['Fun']['percent'] ?>"
                                          aria-valuemin="0" aria-valuemax="100" style="width: 0%"
-                                         data-percentage="<?php echo $votes['Fun']['percent'] ?>">
+                                         data-percentage="<?php echo $votes['Fun']['percent'] ?>"
+                                         data-name="Fun">
                                         <span class="sr-only"><?php echo $votes['Fun']['percent'] ?>
                                             % Complete (success)</span>
                                     </div>
@@ -487,7 +489,8 @@ if (is_single()) {
                                     <div class="progress-bar progress-bar-success" role="progressbar"
                                          aria-valuenow="<?php echo $votes['Créatif']['percent'] ?>"
                                          aria-valuemin="0" aria-valuemax="100" style="width: 0%"
-                                         data-percentage="<?php echo $votes['Créatif']['percent'] ?>">
+                                         data-percentage="<?php echo $votes['Créatif']['percent'] ?>"
+                                         data-name="Créatif">
                                 <span class="sr-only"><?php echo $votes['Créatif']['percent'] ?>
                                     % Complete (success)</span>
                                     </div>
@@ -511,7 +514,8 @@ if (is_single()) {
                                     <div class="progress-bar progress-bar-success" role="progressbar"
                                          aria-valuenow="<?php echo $votes['déjà vu']['percent'] ?>"
                                          aria-valuemin="0" aria-valuemax="100" style="width: 0%"
-                                         data-percentage="<?php echo $votes['déjà vu']['percent'] ?>">
+                                         data-percentage="<?php echo $votes['déjà vu']['percent'] ?>"
+                                         data-name="déjà vu">
                                 <span class="sr-only"><?php echo $votes['déjà vu']['percent'] ?>
                                     % Complete (success)</span>
                                     </div>
@@ -594,9 +598,9 @@ if (is_single()) {
 
                         <?php if ($maxVoteEntity): ?>
 
-                            <img src="<?php echo $vote_icon ?>">
+                            <img src="<?php echo $vote_icon ?>" class="img-max-entity">
 
-                            <div>
+                            <div class="max-vote-entity">
                                 <span class="percent"><?php echo $maxVoteEntity['percent'] ?>%</span>
                                 <br>
                                 <span class="description"><?php echo $maxVoteEntity['name'] ?></span>
@@ -624,7 +628,8 @@ if (is_single()) {
                             <div class="progress-bar progress-bar-success" role="progressbar"
                                  aria-valuenow="<?php echo $votes['Génie']['percent'] ?>"
                                  aria-valuemin="0" aria-valuemax="100" style="width: 0%"
-                                 data-percentage="<?php echo $votes['Génie']['percent'] ?>">
+                                 data-percentage="<?php echo $votes['Génie']['percent'] ?>"
+                                 data-name="Génie">
                                 <span class="sr-only"><?php echo $votes['Génie']['percent'] ?>
                                     % Complete (success)</span>
                             </div>
@@ -647,7 +652,8 @@ if (is_single()) {
                             <div class="progress-bar progress-bar-success" role="progressbar"
                                  aria-valuenow="<?php echo $votes['Fun']['percent'] ?>"
                                  aria-valuemin="0" aria-valuemax="100" style="width: 0%"
-                                 data-percentage="<?php echo $votes['Fun']['percent'] ?>">
+                                 data-percentage="<?php echo $votes['Fun']['percent'] ?>"
+                                 data-name="Fun">
                                 <span class="sr-only"><?php echo $votes['Fun']['percent'] ?>% Complete (success)</span>
                             </div>
                         </div>
@@ -669,7 +675,8 @@ if (is_single()) {
                             <div class="progress-bar progress-bar-success" role="progressbar"
                                  aria-valuenow="<?php echo $votes['Créatif']['percent'] ?>"
                                  aria-valuemin="0" aria-valuemax="100" style="width: 0%"
-                                 data-percentage="<?php echo $votes['Créatif']['percent'] ?>">
+                                 data-percentage="<?php echo $votes['Créatif']['percent'] ?>"
+                                 data-name="Créatif">
                                 <span class="sr-only"><?php echo $votes['Créatif']['percent'] ?>
                                     % Complete (success)</span>
                             </div>
@@ -692,7 +699,8 @@ if (is_single()) {
                             <div class="progress-bar progress-bar-success" role="progressbar"
                                  aria-valuenow="<?php echo $votes['déjà vu']['percent'] ?>"
                                  aria-valuemin="0" aria-valuemax="100" style="width: 0%"
-                                 data-percentage="<?php echo $votes['déjà vu']['percent'] ?>">
+                                 data-percentage="<?php echo $votes['déjà vu']['percent'] ?>"
+                                 data-name="déjà vu">
                                 <span class="sr-only"><?php echo $votes['déjà vu']['percent'] ?>
                                     % Complete (success)</span>
                             </div>

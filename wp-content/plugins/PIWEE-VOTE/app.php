@@ -138,10 +138,33 @@ function registerTables()
 //frontend voting system
 add_action("wp_ajax_nopriv_my_user_vote", "my_user_vote");
 add_action("wp_ajax_my_user_vote", "my_user_vote");
+add_action("wp_ajax_nopriv_my_user_vote_update", "my_user_vote_update");
+add_action("wp_ajax_my_user_vote_update", "my_user_vote_update");
 add_action("wp_ajax_nopriv_get_vote_post_choice", "getVoteCountByPostAndChoice");
 add_action("wp_ajax_get_vote_post_choice", "getVoteCountByPostAndChoice");
 add_action("wp_ajax_nopriv_get_vote_count_and_percent", "getPostVoteCountAndPercentAjax");
 add_action("wp_ajax_get_vote_count_and_percent", "getPostVoteCountAndPercentAjax");
+add_action("wp_ajax_nopriv_get_max_vote_entity", "getMaxVoteEntityAjax");
+add_action("wp_ajax_get_max_vote_entity", "getMaxVoteEntityAjax");
+
+
+function my_user_vote_update()
+{
+
+    $response = new stdClass;
+
+    $choice_id = $_REQUEST['choice_id'];
+    $post_id = $_REQUEST['post_id'];
+    $choice_id_to_remove = $_REQUEST['choice_id_to_remove'];
+
+    vote($post_id, $choice_id, $choice_id_to_remove);
+
+    $response->result = "ok";
+
+    echo json_encode($response);
+
+    die();
+}
 
 function my_user_vote()
 {
@@ -159,9 +182,14 @@ function my_user_vote()
     die();
 }
 
-function vote($post_id, $choice_id)
+function vote($post_id, $choice_id, $choice_id_to_remove = null)
 {
     global $wpdb;
+
+    if ($choice_id_to_remove) {
+        $wpdb->query("DELETE FROM wp_piwee_vote WHERE post_id = " . $post_id . " AND vote_field_id = " . $choice_id_to_remove . " LIMIT 1");
+    }
+
     $wpdb->query("INSERT INTO wp_piwee_vote(post_id, vote_field_id, datetime) VALUES($post_id, $choice_id, '" . date("Y-m-d H:i:s") . "')");
 }
 
@@ -220,9 +248,19 @@ function getPostVoteCountAndPercentAjax()
     die();
 }
 
-function getMaxVoteEntity($post_id)
+function getMaxVoteEntityAjax()
 {
 
+    $post_id = $_REQUEST['post_id'];
+    $entity = getMaxVoteEntity($post_id);
+
+    echo json_encode($entity);
+
+    die;
+}
+
+function getMaxVoteEntity($post_id)
+{
     $votes = getPostVoteCountAndPercent($post_id);
     $max = 0;
     $maxEntity = null;
@@ -245,6 +283,11 @@ function registerVotingJS()
     ?>
     <script type="text/javascript">
 
+        var genieImg = '<?php echo get_template_directory_uri() . '/assets/img/piwee-icon/GENIE-flat-icons-piwee.png'; ?>';
+        var dejavuImg = '<?php echo get_template_directory_uri() . '/assets/img/piwee-icon/DEJA-VU-flat-icons-piwee.png'; ?>';
+        var funImg = '<?php echo get_template_directory_uri() . '/assets/img/piwee-icon/FUN-flat-icons-piwee.png'; ?>';
+        var creatifImg = '<?php echo get_template_directory_uri() . '/assets/img/piwee-icon/CREATIF-flat-icons-piwee.png'; ?>';
+
         function reloadVoteWidget(post_id) {
 
             jQuery.ajax({
@@ -255,6 +298,7 @@ function registerVotingJS()
 
                     var votesEntities = JSON.parse(response);
 
+                    //Refresh widget below posts
                     $('.vote-widget .inner').each(function () {
 
                         for (var voteEntityKey in votesEntities) {
@@ -273,14 +317,81 @@ function registerVotingJS()
                         }
 
                     });
+
+                    //Refresh header
+                    $('.progress-bar').each(function () {
+
+                        for (var voteEntityKey in votesEntities) {
+
+                            var vote = votesEntities[voteEntityKey];
+
+                            if (voteEntityKey == $(this).attr("data-name")) {
+
+                                $(this).attr('data-progress', vote.percent + "%");
+
+                                console.log($(this).parent().parent());
+
+                                $(this).parent().parent().parent().find('.bar-percent').html('<span>' + vote.percent + '%</span>');
+
+                                $(this).animate({
+                                    width: vote.percent + "%"
+                                }, 700);
+                            }
+                        }
+
+                    });
+
+                }
+            });
+
+            //Update total vote count and max vote
+            jQuery.ajax({
+                type: "POST",
+                url: "<?php echo admin_url('admin-ajax.php') ?>",
+                data: {action: "get_max_vote_entity", post_id: post_id},
+                success: function (response) {
+
+                    var maxEntity = JSON.parse(response);
+
+                    $('.total-vote-count').text(maxEntity.count + ' votes');
+                    $('.max-vote-entity .percent').text(maxEntity.percent + '%');
+                    $('.max-vote-entity .description').text(maxEntity.name);
+
+                    $('.img-max-entity').attr('src', getVoteIcon(maxEntity.name));
+
                 }
             });
         }
 
+        function getVoteIcon(name) {
+
+            var vote_icon = '';
+
+            switch (name) {
+                case "Génie":
+                    vote_icon = genieImg;
+                    break;
+                case "déjà vu":
+                    vote_icon = dejavuImg;
+                    break;
+                case "Fun":
+                    vote_icon = funImg;
+                    break;
+                case "Créatif":
+                    vote_icon = creatifImg;
+                    break;
+            }
+
+            return vote_icon;
+        }
+
         function PiweeVote(post_id, choice_id) {
 
-            if (!(jQuery.cookie("piwee_vote_post_" + post_id) > 0)) {
+            var voteCookie = jQuery.cookie("piwee_vote_post_" + post_id);
 
+            if (!(voteCookie > 0)) {
+
+                //This user never voted, we just add a vote
                 jQuery.ajax({
                     type: "POST",
                     url: "<?php echo admin_url('admin-ajax.php') ?>",
@@ -298,7 +409,28 @@ function registerVotingJS()
                 });
             }
             else {
-                sweetAlert("Oops...", "Vous avez déjà voté sur cet article !", "error");
+
+                //This use already voted, we update its vote
+                jQuery.ajax({
+                    type: "POST",
+                    url: "<?php echo admin_url('admin-ajax.php') ?>",
+                    data: {
+                        action: "my_user_vote_update",
+                        post_id: post_id,
+                        choice_id: choice_id,
+                        choice_id_to_remove: voteCookie
+                    },
+                    success: function (response) {
+
+                        response = JSON.parse(response);
+
+                        if (response.result == "ok") {
+                            jQuery("#vote-display-ok").show("fast");
+                            jQuery.cookie("piwee_vote_post_" + post_id, choice_id);
+                            reloadVoteWidget(post_id);
+                        }
+                    }
+                });
             }
 
         }

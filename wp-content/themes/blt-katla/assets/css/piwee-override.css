@@ -468,6 +468,12 @@ li {
     bottom: 5px;
 }
 
+@media(max-width: 990px) {
+    .fb-like {
+        bottom: 10px;
+    }
+}
+
 .btn-span-shares {
     color: #f5f5f5;
 }
