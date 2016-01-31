@@ -10,7 +10,8 @@
 
                     <?php
                     echo get_avatar(get_the_author_id());
-                    echo '<a href="#">' . get_the_author() . '</a><br>';
+                    the_author_posts_link();
+                    echo '<br>';
                     the_date();
                     ?>
 
