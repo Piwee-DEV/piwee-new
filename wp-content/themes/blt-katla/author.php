@@ -1,8 +1,9 @@
 <?php get_header(); ?>
 
 <?php
+$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 $title = $category[0]->name;
-$posts = query_posts(array('author' => get_the_author_ID(), 'posts_per_page' => 9, 'orderby' => 'date', 'order' => 'DESC', 'post_status' => 'publish'));
+$posts = query_posts(array('paged' => $paged, 'author' => get_the_author_ID(), 'posts_per_page' => 9, 'orderby' => 'date', 'order' => 'DESC', 'post_status' => 'publish'));
 ?>
 
     <div class="container author">
