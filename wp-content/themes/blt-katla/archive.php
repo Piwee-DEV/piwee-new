@@ -17,6 +17,10 @@
             )
         );
     }
+    else if ($vp = getVotePostsForCategory($permalink)) {
+        $title = $vp['title'];
+        $posts = $vp['posts'];
+    }
     else {
         $category = get_the_category();
         $title = $category[0]->name;

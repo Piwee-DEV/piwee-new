@@ -48,25 +48,7 @@
     </div>
 
     <div class="post">
-
-        <?php
-
-        ob_start();
-        the_content();
-        $content = ob_get_clean();
-
-        if (mt_rand(0, 1) == 0) {
-            $content = str_replace("ca-pub-9594201080211682", "ca-pub-0031647560032028", $content);
-            $content = str_replace("9566298656", "5696989724", $content);
-            $content = str_replace("6678475853", "7394048928", $content);
-            $content = str_replace("7312035054", "2503493328", $content);
-            $content = str_replace("3357873053", "7980959322", $content);
-        }
-
-        echo $content;
-
-        ?>
-
+        <?php the_content(); ?>
     </div>
 
 </article>

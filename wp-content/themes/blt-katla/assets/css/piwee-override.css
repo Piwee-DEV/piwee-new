@@ -1002,6 +1002,11 @@ section.content {
     margin-bottom: 25px;
 }
 
+.vote-widget-title .vote-count {
+    font-size: 0.8em;
+    color: #b7b7b7;
+}
+
 #vote-display-ok {
     text-align: center;
     margin-top: 20px;

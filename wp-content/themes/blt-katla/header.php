@@ -321,19 +321,19 @@ if (is_single()) {
                                     <h3 class="title-menu-section">ARTICLES</h3>
                                     <hr>
 
-                                    <a class="btn-piwee" href="/genie">
+                                    <a class="btn-piwee" href="/category/genie">
                                         <img
                                             src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icone-piwee-vote-genie.png">
                                     </a>
-                                    <a class="btn-piwee" href="/creatif">
+                                    <a class="btn-piwee" href="/category/creatif">
                                         <img
                                             src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icone-piwee-vote-creatif.png">
                                     </a>
-                                    <a class="btn-piwee" href="/deja-vu">
+                                    <a class="btn-piwee" href="/category/deja-vu">
                                         <img
                                             src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icone-piwee-vote-deja-vu.png">
                                     </a>
-                                    <a class="btn-piwee" href="/fun">
+                                    <a class="btn-piwee" href="/category/fun">
                                         <img
                                             src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icone-piwee-vote-fun.png">
                                     </a>

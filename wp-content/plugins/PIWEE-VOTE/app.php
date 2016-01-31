@@ -26,6 +26,26 @@ require_once "widgets/piwee_vote_horizontal_widget.php";
 
 register_activation_hook(__FILE__, 'registerTables');
 add_action('admin_menu', 'register_vote_page');
+add_filter('the_content', 'refreshMetataVoteCountFilter');
+
+//frontend voting system
+add_action("wp_ajax_nopriv_my_user_vote", "my_user_vote");
+add_action("wp_ajax_my_user_vote", "my_user_vote");
+add_action("wp_ajax_nopriv_my_user_vote_update", "my_user_vote_update");
+add_action("wp_ajax_my_user_vote_update", "my_user_vote_update");
+add_action("wp_ajax_nopriv_get_vote_count_and_percent", "getPostVoteCountAndPercentAjax");
+add_action("wp_ajax_get_vote_count_and_percent", "getPostVoteCountAndPercentAjax");
+add_action("wp_ajax_nopriv_get_max_vote_entity", "getMaxVoteEntityAjax");
+add_action("wp_ajax_get_max_vote_entity", "getMaxVoteEntityAjax");
+
+
+function refreshMetataVoteCountFilter($content)
+{
+    //Update count in DB
+    updateMetadataVoteCount(get_the_ID());
+
+    return $content;
+}
 
 
 function register_vote_page()
@@ -104,6 +124,45 @@ function getChoices()
     return $result;
 }
 
+function getVotePostsForCategory($permalink)
+{
+    $choices = getChoices();
+
+    $splittedPermalink = explode('/', $permalink);
+    $slug = $splittedPermalink[count($splittedPermalink) - 1];
+
+    if(strlen($slug) == 0) {
+        $slug = $splittedPermalink[count($splittedPermalink) - 2];
+    }
+
+    $category = get_category_by_slug($slug);
+
+    foreach ($choices as $choice) {
+
+        if (strtolower($category->name) == $choice->name || $category->name == $choice->name ) {
+
+            $title = $choice->name;
+
+            $posts = query_posts(
+                array(
+                    'meta_key' => 'vote_count_' . $choice->name,
+                    'orderby' => 'meta_value_num',
+                    'order' => 'DESC',
+                    'posts_per_page' => 10,
+                    'ignore_sticky_posts' => 1
+                )
+            );
+
+        }
+    }
+
+    if (!$posts) {
+        return null;
+    }
+
+    return array('title' => $title, 'posts' => $posts);
+}
+
 function getChoiceIdByName($field_name)
 {
 
@@ -134,23 +193,8 @@ function registerTables()
 
 }
 
-
-//frontend voting system
-add_action("wp_ajax_nopriv_my_user_vote", "my_user_vote");
-add_action("wp_ajax_my_user_vote", "my_user_vote");
-add_action("wp_ajax_nopriv_my_user_vote_update", "my_user_vote_update");
-add_action("wp_ajax_my_user_vote_update", "my_user_vote_update");
-add_action("wp_ajax_nopriv_get_vote_post_choice", "getVoteCountByPostAndChoice");
-add_action("wp_ajax_get_vote_post_choice", "getVoteCountByPostAndChoice");
-add_action("wp_ajax_nopriv_get_vote_count_and_percent", "getPostVoteCountAndPercentAjax");
-add_action("wp_ajax_get_vote_count_and_percent", "getPostVoteCountAndPercentAjax");
-add_action("wp_ajax_nopriv_get_max_vote_entity", "getMaxVoteEntityAjax");
-add_action("wp_ajax_get_max_vote_entity", "getMaxVoteEntityAjax");
-
-
 function my_user_vote_update()
 {
-
     $response = new stdClass;
 
     $choice_id = $_REQUEST['choice_id'];
@@ -191,6 +235,26 @@ function vote($post_id, $choice_id, $choice_id_to_remove = null)
     }
 
     $wpdb->query("INSERT INTO wp_piwee_vote(post_id, vote_field_id, datetime) VALUES($post_id, $choice_id, '" . date("Y-m-d H:i:s") . "')");
+
+    //Update count in DB
+    updateMetadataVoteCount($post_id);
+}
+
+function updateMetadataVoteCount($post_id)
+{
+    $votesCP = getPostVoteCountAndPercent($post_id);
+
+    foreach ($votesCP as $vname => $v) {
+
+        if ($vname == 'total') {
+            $val = $v;
+        } else {
+            $val = $v['count'];
+        }
+
+        add_post_meta($post_id, 'vote_count_' . $vname, $val, true)
+        || update_post_meta($post_id, 'vote_count_' . $vname, $val);
+    }
 }
 
 function getVoteCountByPostAndChoice($choice_id = null, $post_id = null)
@@ -215,10 +279,12 @@ function getPostVoteCountAndPercent($post_id)
     //calculate vote percent rate
     $total = 0;
 
+    //incrementing total
     foreach ($votes as $vote) {
         $total += $vote['count'];
     }
 
+    //calculate percent with the count and total
     foreach ($votes as $key => $vote) {
         $percent = 0;
         if ($total > 0) {
@@ -228,7 +294,7 @@ function getPostVoteCountAndPercent($post_id)
         $votes[$key] = $vote;
     }
 
-    //reformat array
+    //reformat array by setting the name as a key and not as a value
     $formattedVotes = array();
     foreach ($votes as $vote) {
         $formattedVotes[$vote['name']] = $vote;
@@ -242,7 +308,8 @@ function getPostVoteCountAndPercent($post_id)
 
 function getPostVoteCountAndPercentAjax()
 {
-    $response = getPostVoteCountAndPercent($_POST['post_id']);
+    $post_id = $_POST['post_id'];
+    $response = getPostVoteCountAndPercent($post_id);
     $response = json_encode($response);
     echo $response;
     die();
