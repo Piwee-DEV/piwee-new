@@ -707,11 +707,10 @@ function shorten_number_k($number)
 
 function get_random_post()
 {
+    global $wpdb;
+    $randomPost = $wpdb->get_var("SELECT guid FROM $wpdb->posts WHERE post_type = 'post' AND post_status = 'publish' ORDER BY RAND() LIMIT 1");
 
-    remove_all_filters('posts_orderby');
-    $randomPosts = new WP_Query(array('orderby' => 'rand'));
-
-    return $randomPosts->posts[0];
+    return $randomPost;
 }
 
 /**

@@ -597,7 +597,7 @@ if (is_single()) {
                                         class="fa fa-heart"></i>
                                     TWITTER</a></li>
                             <li class="item-menu-header"><a href="/category/petites-pensees">PENSEES</a></li>
-                            <li class="item-menu-header"><a href="<?php echo get_the_guid(get_random_post()->ID) ?>">RANDOM</a>
+                            <li class="item-menu-header"><a href="<?php echo get_random_post() ?>">RANDOM</a>
                             </li>
                             <li class="item-menu-header"><a href="/category/top10">TOP 10</a></li>
                         </ul>
