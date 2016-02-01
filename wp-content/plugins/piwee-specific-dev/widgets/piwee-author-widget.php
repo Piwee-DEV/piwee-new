@@ -43,8 +43,8 @@ class piwee_author_widget extends WP_Widget
                 </div>
                 <div class="col-md-10">
                     <div class="author-widget-text-wrapper">
-                        <h4><a href="<?php echo get_home_url() . '/author/' . get_the_author_meta('user_nicename') ?>">Par <?php the_author_meta('display_name') ?>
-                                <i class="fa fa-twitter"></i></a></h4>
+                        <h4><a href="<?php echo get_home_url() . '/author/' . get_the_author_meta('user_nicename') ?>">Par <?php the_author_meta('display_name') ?></a>
+                                <a href="https://twitter.com/<?php echo get_the_author_meta('twitter'); ?>" target="_blank"><i class="fa fa-twitter"></i></a></h4>
                         <p>
                             <?php the_author_meta('description') ?>
                         </p>
