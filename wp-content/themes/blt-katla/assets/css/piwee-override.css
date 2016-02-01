@@ -1184,3 +1184,11 @@ section.content {
     margin-top: 20px;
     text-align: center;
 }
+
+.author-widget-wrapper .author-widget-image-wrapper img {
+    border-radius: 50%;
+}
+
+.author-widget-wrapper .author-widget-text-wrapper .fa-twitter {
+    color: #32a8e2;
+}
