@@ -3,6 +3,8 @@
 <?php
     $permalink = $_SERVER["REQUEST_URI"];
 
+    $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+
     if (strpos($permalink, 'top10') !== false) {
 
         $title = 'Top 10';
@@ -13,7 +15,8 @@
                 'orderby' => 'meta_value_num',
                 'order' => 'DESC',
                 'posts_per_page' => 10,
-                'ignore_sticky_posts' => 1
+                'ignore_sticky_posts' => 1,
+                'paged' => $paged
             )
         );
     }
@@ -24,7 +27,7 @@
     else {
         $category = get_the_category();
         $title = $category[0]->name;
-        $posts = query_posts(array('category__in' => array($category[0]->cat_ID), 'posts_per_page' => 10, 'orderby' => 'date', 'order' => 'DESC', 'post_status' => 'publish'));
+        $posts = query_posts(array('paged' => $paged, 'category__in' => array($category[0]->cat_ID), 'posts_per_page' => 10, 'orderby' => 'date', 'order' => 'DESC', 'post_status' => 'publish'));
     }
 ?>
 
@@ -77,6 +80,29 @@
                         </div>
 
                     <?php endforeach ?>
+
+                </div>
+
+                <div id="row">
+
+                    <div class="col-md-12 pagination-container">
+
+                        <?php
+
+                        if (have_posts()) {
+
+                            // Previous/next page navigation.
+                            the_posts_pagination(array(
+                                'prev_text' => __('Page précédente', 'bluthemes'),
+                                'next_text' => __('Page suivante', 'bluthemes'),
+                                'before_page_number' => '<span class="meta-nav screen-reader-text">' . __('Page', 'bluthemes') . ' </span>',
+                            ));
+
+                        }
+
+                        ?>
+
+                    </div>
 
                 </div>
 
