@@ -22,8 +22,44 @@ $title = get_the_title($parent);
 
             </div>
             <div class="col-md-8">
-                <?php previous_image_link(null, '<img src="' . get_template_directory_uri() . '/assets/img/piwee-icon/precedent-button.png' . '">'); ?>
-                <?php next_image_link(null, '<img src="' . get_template_directory_uri() . '/assets/img/piwee-icon/suivant-button.png' . '">'); ?>
+
+                <?php
+
+                $attachments = array_values(get_children(array('post_parent' => $post->post_parent, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => 'ASC', 'orderby' => 'menu_order ID')));
+
+                ob_start();
+                previous_image_link(null, '<img src="' . get_template_directory_uri() . '/assets/img/piwee-icon/precedent-button.png' . '">');
+                $prevLnk = ob_get_contents();
+                ob_end_clean();
+
+                if (!$prevLnk) {
+
+                    $attachment_id = $attachments[count($attachments) - 1]->ID;
+                    $output = wp_get_attachment_link($attachment_id, null, true, false, '<img src="' . get_template_directory_uri() . '/assets/img/piwee-icon/precedent-button.png' . '">');
+
+                    echo $output;
+
+                } else {
+                    echo $prevLnk;
+                }
+
+                ob_start();
+                next_image_link(null, '<img src="' . get_template_directory_uri() . '/assets/img/piwee-icon/suivant-button.png' . '">');
+                $nextLnk = ob_get_contents();
+                ob_end_clean();
+
+                if (!$nextLnk) {
+
+                    $attachment_id = $attachments[0]->ID;
+                    $output = wp_get_attachment_link($attachment_id, null, true, false, '<img src="' . get_template_directory_uri() . '/assets/img/piwee-icon/suivant-button.png' . '">');
+
+                    echo $output;
+
+                } else {
+                    echo $nextLnk;
+                }
+
+                ?>
             </div>
             <div class="col-md-2 the-article">
                 <a href="<?php echo $link ?>">

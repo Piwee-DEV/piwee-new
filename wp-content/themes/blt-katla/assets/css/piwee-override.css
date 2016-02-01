@@ -1155,13 +1155,6 @@ section.content {
     font-size: 1.0em;
 }
 
-@media (max-width: 990px) {
-
-    .media-share-image {
-        display: block !important;
-    }
-}
-
 .pagination-container {
     text-align: center;
 }
