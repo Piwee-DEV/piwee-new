@@ -1,4 +1,5 @@
 @import url('http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900');
+@import url('http://fonts.googleapis.com/css?family=Amatic+SC:400,700');
 
 @media (max-width: 990px) {
     body {
@@ -123,13 +124,18 @@ li {
     max-width: 30px;
     float: left;
     margin-right: 10px;
+    display: inline-block;
 }
 
 .articles-headband span {
     color: white;
-    margin-top: 5px;
-    font-size: 1.3em;
-    font-weight: bold;
+    display: inline-block;
+    font-weight: 700;
+    margin-top: -15px;
+    font-family: "Amatic SC" !important;
+    font-size: 2.6em !important;
+    word-spacing: 3px;
+    margin-left: 4px;
 }
 
 .social-network-headband {
@@ -161,7 +167,7 @@ li {
 
 @media (max-width: 990px) {
     .single-title {
-        font-size: 1.3em !important;
+        font-size: 1.4em !important;
     }
 }
 
@@ -328,6 +334,12 @@ li {
     margin-bottom: 15px;
     background-color: white;
     padding: 10px;
+}
+
+.title-section h3 {
+    font-family: "Amatic SC" !important;
+    font-size: 2.6em !important;
+    word-spacing: 3px;
 }
 
 .archive.title-section {
@@ -701,6 +713,11 @@ section.content {
     height: 20px !important;
     border-radius: 20px !important;
     background-color: #EEEEEE !important;
+    border: none !important;
+}
+
+.custom-search-headband:focus {
+    border: 1px solid #CCCCCC !important;
 }
 
 .secondary-header {
@@ -1194,4 +1211,16 @@ section.content {
 
 .btn-total-share {
     font-weight: 600;
+}
+
+@media(max-width: 960px) {
+    .piwee-mobile-content-wrapper {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    #site-body {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
 }

@@ -34,14 +34,14 @@ class piwee_author_widget extends WP_Widget
 
         <div class="author-widget-wrapper">
             <div class="row">
-                <div class="col-md-2">
+                <div class="col-md-2 col-sm-2 col-xs-2">
                     <div class="author-widget-image-wrapper">
                         <a href="<?php echo get_home_url() . '/author/' . get_the_author_meta('user_nicename') ?>">
                             <?php echo get_avatar(get_the_author_meta('ID')); ?>
                         </a>
                     </div>
                 </div>
-                <div class="col-md-10">
+                <div class="col-md-10 col-sm-10 col-xs-10">
                     <div class="author-widget-text-wrapper">
                         <h4><a href="<?php echo get_home_url() . '/author/' . get_the_author_meta('user_nicename') ?>">Par <?php the_author_meta('display_name') ?></a>
                                 <a href="https://twitter.com/<?php echo get_the_author_meta('twitter'); ?>" target="_blank"><i class="fa fa-twitter"></i></a></h4>

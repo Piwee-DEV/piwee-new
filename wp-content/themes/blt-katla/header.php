@@ -403,7 +403,7 @@ if (is_single()) {
                 <div class="col-md-6">
                     <div class="piwee-logo">
                         <a href="<?php echo get_home_url() ?>">
-                            <img src="<?php echo get_template_directory_uri() ?>/assets/img/logo-piwee.png">
+                            <img src="<?php echo get_template_directory_uri() ?>/assets/img/logo-piwee-white.png">
                         </a>
                     </div>
                 </div>
@@ -442,13 +442,13 @@ if (is_single()) {
                             </a>
                         </div>
                     </div>
-                    <div class="col-xs-6 mobile-header-col-2 mobile-header-col">
+                    <div class="col-xs-5 mobile-header-col-2 mobile-header-col">
                         <a href="<?php echo get_home_url() ?>">
                             <img src="<?php echo get_template_directory_uri() ?>/assets/img/logo-piwee-mobile.png"
                                  class="piwee-mobile-icon">
                         </a>
                     </div>
-                    <div class="col-xs-3 mobile-header-col">
+                    <div class="col-xs-4 mobile-header-col">
                         <div
                             class="mobile-header-post-type-container <?php if (!is_single()): ?>hidden-xs hidden-sm <?php endif ?>">
 
