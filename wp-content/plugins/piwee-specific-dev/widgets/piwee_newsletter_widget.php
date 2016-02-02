@@ -54,7 +54,7 @@ class newsletter_widget extends WP_Widget
 
         <div class="widget_wysija_cont piwee-newsletter-widget">
 
-            <h4>Abonnez Vous</h4>
+            <h3 class="widget-head">Abonnez Vous</h3>
 
             <div id="msg-form-wysija-3" class="wysija-msg ajax"></div>
             <form id="form-wysija-3" method="post" action="#wysija" class="widget_wysija">
@@ -85,7 +85,7 @@ class newsletter_widget extends WP_Widget
 
             <hr>
 
-            <h4>Devenez Fan</h4>
+            <h3 class="widget-head">Devenez Fan</h3>
 
             <div class="fb-page" data-href="https://www.facebook.com/piwee.net" data-small-header="false"
                  data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">

@@ -1002,7 +1002,9 @@ section.content {
 
 .most-shared-widget-title {
     text-align: center;
-    font-size: 1.4em;
+    font-family: "Amatic SC" !important;
+    font-size: 2.6em !important;
+    word-spacing: 3px;
 }
 
 .most-shared-widget-sub-title {
@@ -1053,7 +1055,6 @@ section.content {
 
 .vote-widget-title {
     text-align: center;
-    font-size: 1.4em;
     margin-bottom: 25px;
 }
 
@@ -1223,4 +1224,10 @@ section.content {
         padding-left: 0 !important;
         padding-right: 0 !important;
     }
+}
+
+.widget-head {
+    font-family: "Amatic SC" !important;
+    font-size: 2.6em !important;
+    word-spacing: 3px;
 }

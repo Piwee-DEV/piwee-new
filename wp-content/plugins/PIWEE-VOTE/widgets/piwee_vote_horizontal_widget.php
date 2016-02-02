@@ -46,7 +46,7 @@ class vote_horizontal_widget extends WP_Widget
 
         <div class="vote-widget">
 
-            <h3 class="vote-widget-title">VOTRE AVIS <span class="vote-count">(<?php echo $votes['total'] ?> votes)</span></h3>
+            <h3 class="vote-widget-title widget-head">VOTRE AVIS <span class="vote-count">(<?php echo $votes['total'] ?> votes)</span></h3>
 
             <div class="row">
                 <div class="col-md-3 col-sm-3 col-xs-3">
