@@ -1,4 +1,4 @@
-@import url('http://fonts.googleapis.com/css?family=Source+Sans+Pro');
+@import url('http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900');
 
 @media (max-width: 990px) {
     body {
@@ -26,12 +26,10 @@
 
 .post-container .post a {
     color: #d5ac3c !important;
-    font-weight: bold !important;
 }
 
 body, h1, h2, h3, h4, h5, h6 {
     font-family: "Source Sans Pro", Helvetica, Arial, sans-serif !important;
-    font-weight: 600;
 }
 
 .container .content-sidebar-wrap > div {
@@ -155,15 +153,15 @@ li {
 }
 
 .single-title {
-    font-weight: bold !important;
-    font-size: 2.5em !important;
+    font-size: 2.0em !important;
     margin-bottom: 0 !important;
     text-transform: none !important;
+    font-weight: 700 !important;
 }
 
 @media (max-width: 990px) {
     .single-title {
-        font-size: 1.9em !important;
+        font-size: 1.3em !important;
     }
 }
 
@@ -217,7 +215,7 @@ li {
 }
 
 .share-buttons img {
-    max-height: 35px;
+    max-height: 30px;
 }
 
 .share-percent {
@@ -246,10 +244,9 @@ li {
 }
 
 .menu-header > .item-menu-header {
-    color: #dddddd;
     list-style-type: none;
-    font-size: 1.0em;
-    font-weight: bold;
+    font-size: 1.1em;
+    font-weight: 700;
     float: left;
     margin-right: 20px;
 }
@@ -258,10 +255,8 @@ li {
     color: #d5ac3c;
 }
 
-
-
 .item-menu-header a {
-    color: #dddddd;
+    color: #d3d2d2;
 }
 
 .secondary-menu {
@@ -325,7 +320,7 @@ li {
 }
 
 .article-vignette-inside-text h4 {
-    font-weight: 600 !important;
+    font-weight: 600;
 }
 
 .title-section {
@@ -363,6 +358,10 @@ li {
     .article-mega-featured-img-container img {
         height: 159px;
     }
+}
+
+.article-mega-featured-title h2 {
+    font-weight: 400;
 }
 
 .article-mega-featured {
@@ -1191,4 +1190,8 @@ section.content {
 
 .author-widget-wrapper .author-widget-text-wrapper .fa-twitter {
     color: #32a8e2;
+}
+
+.btn-total-share {
+    font-weight: 600;
 }

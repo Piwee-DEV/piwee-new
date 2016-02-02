@@ -596,7 +596,7 @@ function social_shares_button($post_id)
     ?>
 
     <div class="btn-total-share btn-small btn-custom-share-grid btn-total-share-<?php the_ID(); ?>">
-        <strong><?php echo $share_count['total_share_count'] ?> PARTAGES</strong>
+        <?php echo $share_count['total_share_count'] ?> PARTAGES
     </div>
 
     <?php
