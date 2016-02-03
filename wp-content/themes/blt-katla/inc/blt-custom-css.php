@@ -2,7 +2,7 @@
 
 function blt_custom_css(){ 
 
-	$theme_color = blt_get_option('theme_color', '#4CC2BF');
+	$theme_color = blt_get_option('theme_color', '#d5ac3c');
 	$theme_color_hover = adjustBrightness( $theme_color, -20);
 	$theme_color_light = adjustBrightness( $theme_color, 170);
 	$container_width = blt_get_option('container_width', 1050);
