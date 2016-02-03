@@ -1231,3 +1231,18 @@ section.content {
     font-size: 2.6em !important;
     word-spacing: 3px;
 }
+
+.sub-category-btn {
+    display: block;
+    float: right;
+    background-color: #505050;
+    color: white;
+    padding: 7px;
+    font-weight: 700;
+    font-size: 0.9em;
+}
+
+.sub-category-btn:hover, .sub-category-btn:active {
+    text-decoration: none;
+    color: white;
+}

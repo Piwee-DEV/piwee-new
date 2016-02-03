@@ -139,6 +139,14 @@
 
                 </div>
 
+                <div class="row">
+                    <div class="col-md-12">
+                        <a href="<?php get_home_url() ?>/category/recent" class="sub-category-btn">
+                            <i class="fa fa-chevron-right"></i> Tous les nouveaux articles
+                        </a>
+                    </div>
+                </div>
+
                 <hr>
 
                 <div class="row">
@@ -169,6 +177,14 @@
 
                     <?php endforeach ?>
 
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <a href="<?php get_home_url() ?>/category/petites-pensees" class="sub-category-btn">
+                            <i class="fa fa-chevron-right"></i> Toutes les pensées
+                        </a>
+                    </div>
                 </div>
 
                 <hr>
@@ -225,6 +241,14 @@
 
                 </div>
 
+                <div class="row">
+                    <div class="col-md-12">
+                        <a href="<?php get_home_url() ?>/category/marketing-2" class="sub-category-btn">
+                            <i class="fa fa-chevron-right"></i> La suite
+                        </a>
+                    </div>
+                </div>
+
                 <hr>
 
                 <div class="row">
@@ -273,6 +297,14 @@
 
                     <?php endforeach ?>
 
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <a href="<?php get_home_url() ?>/category/infographie" class="sub-category-btn">
+                            <i class="fa fa-chevron-right"></i> La suite
+                        </a>
+                    </div>
                 </div>
 
                 <div class="home-below-widget-container col-md-12">
