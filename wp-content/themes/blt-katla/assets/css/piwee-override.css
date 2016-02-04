@@ -17,6 +17,10 @@ a {
 
 @media (max-width: 990px) {
 
+    #site {
+        overflow: hidden;
+    }
+
     #site-content {
         overflow: hidden !important;
     }
@@ -511,6 +515,7 @@ li {
 header {
     background-color: #DEB84B;
     position: relative;
+    max-width: 100%;
 }
 
 .desktop-header {
