@@ -261,13 +261,17 @@ li {
 .menu-header > .item-menu-header {
     list-style-type: none;
     font-size: 1.1em;
-    font-weight: 700;
+    font-weight: 600;
     float: left;
     margin-right: 12px;
 }
 
 .menu-header > .item-menu-header > a:hover {
     color: white;
+}
+
+.menu-header > .item-menu-header > a:active {
+    text-decoration: none !important;
 }
 
 .item-menu-header a {

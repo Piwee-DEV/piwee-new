@@ -411,19 +411,19 @@ if (is_single()) {
                     <div class="social-network-headband">
                         <a href="https://www.facebook.com/piwee.net" target="_blank">
                             <img
-                                src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icon-fb-gold.png">
+                                src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icon-fb-white.png">
                         </a>
                         <a href="https://twitter.com/piweeFR" target="_blank">
                             <img
-                                src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icon-twitter-gold.png">
+                                src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icon-twitter-white.png">
                         </a>
                         <a href="https://www.instagram.com/piweefr" target="_blank">
                             <img
-                                src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icon-instagram-gold.png">
+                                src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icon-instagram-white.png">
                         </a>
                         <a href="<?php get_home_url() ?>/feed" target="_blank">
                             <img
-                                src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icon-rss-gold.png">
+                                src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icon-rss-white.png">
                         </a>
                     </div>
                 </div>
@@ -588,18 +588,18 @@ if (is_single()) {
 
                     <div class="collapse navbar-collapse" id="katla-sec-navbar">
                         <ul class="menu-header">
-                            <li class="item-menu-header"><a href="/category/inspiration">ART</a></li>
-                            <li class="item-menu-header"><a href="/category/marketing-2">MARKETING</a></li>
-                            <li class="item-menu-header"><a href="/category/innovation">INNOVATION</a></li>
-                            <li class="item-menu-header"><a href="/category/infographie">INFOGRAPHIES</a></li>
-                            <li class="item-menu-header"><a href="/category/compilations">TOPS</a></li>
-                            <li class="item-menu-header"><a href="/category/digital-2/twitter">WE <i
+                            <li class="item-menu-header"><a href="/category/inspiration">art</a></li>
+                            <li class="item-menu-header"><a href="/category/marketing-2">marketing</a></li>
+                            <li class="item-menu-header"><a href="/category/innovation">innovation</a></li>
+                            <li class="item-menu-header"><a href="/category/infographie">infographies</a></li>
+                            <li class="item-menu-header"><a href="/category/compilations">tops</a></li>
+                            <li class="item-menu-header"><a href="/category/digital-2/twitter">we <i
                                         class="fa fa-heart"></i>
-                                    TWITTER</a></li>
-                            <li class="item-menu-header"><a href="/category/petites-pensees">PENSEES</a></li>
-                            <li class="item-menu-header"><a href="<?php echo get_random_post() ?>">RANDOM</a>
+                                    twitter</a></li>
+                            <li class="item-menu-header"><a href="/category/petites-pensees">pensées</a></li>
+                            <li class="item-menu-header"><a href="<?php echo get_random_post() ?>">random</a>
                             </li>
-                            <li class="item-menu-header"><a href="/category/top10">TOP 10</a></li>
+                            <li class="item-menu-header"><a href="/category/top10">top 10</a></li>
                         </ul>
                     </div>
 
