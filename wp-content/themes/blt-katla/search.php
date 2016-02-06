@@ -1,12 +1,12 @@
 <?php get_header(); ?>
 
-<header class="site-content-header">
+<div class="site-content-header">
 
     <div class="container">
         <h1 class="header-title"><?php printf(__('Résultats de la recherche pour : <span>%s</span>', 'bluthemes'), get_search_query()); ?></h1>
     </div>
 
-</header><!-- .page-header -->
+</div><!-- .page-header -->
 
 <div class="container search" class="clearfix">
 
