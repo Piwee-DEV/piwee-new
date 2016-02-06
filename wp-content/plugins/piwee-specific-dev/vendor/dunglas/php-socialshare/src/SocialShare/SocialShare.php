@@ -86,29 +86,11 @@ class SocialShare
      *
      * @return int
      */
-    public function getShares($providerName, $url, $delayUpdate = false)
+    public function getShares($providerName, $url)
     {
         $this->checkProvider($providerName);
 
-        $id = $this->getId($providerName, $url);
-        $lifeTime = $this->providers[$providerName]['lifeTime'];
-        $now = new \DateTime();
-
-        $dataFromCache = $this->cache->fetch($id);
-        $shares = isset($dataFromCache[0]) ? $dataFromCache[0] : false;
-        $expired = isset($dataFromCache[1]) && $dataFromCache[1]->add($lifeTime) < $now;
-
-        if (!$delayUpdate && (false === $shares || $expired)) {
-            $shares = $this->providers[$providerName]['provider']->getShares($url);
-
-            $this->cache->save($id, array($shares, $now));
-        } else {
-            if ($delayUpdate && (false === $shares || $expired)) {
-                $this->toUpdate[$providerName][] = $url;
-            }
-
-            $shares = intval($shares);
-        }
+        $shares = $this->providers[$providerName]['provider']->getShares($url);
 
         return $shares;
     }
