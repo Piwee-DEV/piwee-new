@@ -1001,6 +1001,10 @@ section.content {
     padding: 0 !important;
 }
 
+#site-footer .footer-item li a {
+    color: black !important;
+}
+
 #site-footer .social-network-headband {
     float: left;
     padding-top: 10px;
