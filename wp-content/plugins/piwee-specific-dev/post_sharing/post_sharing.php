@@ -42,7 +42,7 @@ function get_total_share_count($post_id)
 
     $site_url = "http://" . $_SERVER['SERVER_NAME'];
 
-    shell_exec('curl --data "action=refresh_share_count_in_db&post_id=' . $post_id . '" ' . $site_url . '/wp-admin/admin-ajax.php > /dev/null 2>/dev/null &');
+    //shell_exec('curl --data "action=refresh_share_count_in_db&post_id=' . $post_id . '" ' . $site_url . '/wp-admin/admin-ajax.php > /dev/null 2>/dev/null &');
 
     return array('total_share_count' => $total_share_count,
         'total_share_count_month' => $total_share_count_month,
