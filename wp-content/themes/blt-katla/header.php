@@ -433,7 +433,7 @@ if (is_single()) {
         <div class="mobile-header hidden-lg hidden-md">
             <div class="container">
                 <div clas="row">
-                    <div class="col-xs-3 mobile-header-col">
+                    <div class="col-xs-4 mobile-header-col">
                         <div class="burger-button">
                             <a href="#" id="burger-button-lnk">
                                 <img
@@ -442,7 +442,7 @@ if (is_single()) {
                             </a>
                         </div>
                     </div>
-                    <div class="col-xs-5 mobile-header-col-2 mobile-header-col">
+                    <div class="col-xs-4 mobile-header-col-2 mobile-header-col">
                         <a href="<?php echo get_home_url() ?>">
                             <img src="<?php echo get_template_directory_uri() ?>/assets/img/logo-piwee-mobile.png"
                                  class="piwee-mobile-icon">

@@ -322,6 +322,16 @@ if (!function_exists('blt_theme_setup')) {
                 'before_title' => '<h3 class="widget-head">',
                 'after_title' => '</h3>',
             ));
+
+            register_sidebar(array(
+                'id' => 'katla-right-page',
+                'name' => __('Piwee - A droite d\'une page'),
+                'description' => __('This sidebar is on the right of a page'),
+                'before_widget' => $before_widget,
+                'after_widget' => $after_widget,
+                'before_title' => '<h3 class="widget-head">',
+                'after_title' => '</h3>',
+            ));
         }
 
         #

@@ -82,6 +82,14 @@ li {
         position: relative;
     }
 
+    .container.page {
+        background-color: #ebecec;
+        top: 15px;
+        padding-top: 15px;
+        z-index: 5;
+        position: relative;
+    }
+
     .container.archive {
         background-color: #ebecec;
         top: 15px;
@@ -115,9 +123,26 @@ li {
     align-items: stretch;
 }
 
-.post-container {
+.page-container {
     overflow: hidden;
+}
+
+.page-container .page-row {
+    margin-bottom: 10px;
+    background-color: white;
     padding: 20px;
+}
+
+.page-container .page-row .single-title {
+    text-align: center;
+    font-family: "Amatic SC" !important;
+    font-size: 2.7em !important;
+}
+
+@media (max-width: 990px) {
+    .page-container .page-row .single-title {
+        font-size: 2.0em !important;
+    }
 }
 
 .post-container img {
@@ -162,6 +187,7 @@ li {
 }
 
 .post-container {
+    overflow: hidden;
     background-color: white;
     padding-top: 20px;
     border-radius: 2px;
@@ -516,7 +542,7 @@ li {
     bottom: 5px;
 }
 
-@media(max-width: 990px) {
+@media (max-width: 990px) {
     .fb-like {
         bottom: 5px;
     }
@@ -627,8 +653,9 @@ header {
 
 .piwee-mobile-icon {
     max-height: 40px;
-    margin-top: 5px;
-    margin-left: 25px;
+    margin-top: 7px;
+    margin-left: auto;
+    margin-right: -25px;
 }
 
 .mobile-header-vote-container {
@@ -1176,7 +1203,7 @@ section.content {
     top: 7px;
 }
 
-.share-bar-widget .native-btn > div,a {
+.share-bar-widget .native-btn > div, a {
     display: inline-block;
 }
 
@@ -1252,7 +1279,7 @@ section.content {
     font-weight: 600;
 }
 
-@media(max-width: 960px) {
+@media (max-width: 960px) {
     .piwee-mobile-content-wrapper {
         padding-left: 0 !important;
         padding-right: 0 !important;

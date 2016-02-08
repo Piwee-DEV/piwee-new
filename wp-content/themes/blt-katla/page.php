@@ -1,12 +1,12 @@
 <?php get_header(); ?>
 
-	<div class="container post">
+	<div class="container page">
 
 		<div class="row">
 
 			<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 piwee-mobile-content-wrapper">
 
-				<div class="post-container">
+				<div class="page-container">
 
 					<?php
 
@@ -15,7 +15,7 @@
 						while (have_posts()) {
 							the_post();
 
-							get_template_part('inc/template-parts/single', get_post_format());
+							get_template_part('inc/template-parts/page', get_post_format());
 
 						}
 
@@ -29,7 +29,7 @@
 				<div id="primary-sidebar" class="primary-sidebar widget-area" role="complementary">
 					<aside id="site-content-sidebar">
 						<div class="content-sidebar-wrap">
-							<?php dynamic_sidebar('katla-right-post'); ?>
+							<?php dynamic_sidebar('katla-right-page'); ?>
 						</div>
 					</aside>
 				</div>
