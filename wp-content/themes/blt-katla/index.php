@@ -19,6 +19,7 @@
 <?php $marketing_posts = query_posts(array('category__in' => array(211), 'posts_per_page' => 4, 'orderby' => 'date', 'order' => 'DESC', 'post_status' => 'publish')); ?>
 <?php $infographie_posts = query_posts(array('category__in' => array(1393), 'posts_per_page' => 4, 'orderby' => 'date', 'order' => 'DESC', 'post_status' => 'publish')); ?>
 <?php $citations_posts = query_posts(array('category__in' => array(1158), 'posts_per_page' => 4, 'orderby' => 'date', 'order' => 'DESC', 'post_status' => 'publish')); ?>
+<?php $we_love_twitter_posts = query_posts(array('category__in' => array(359), 'posts_per_page' => 4, 'orderby' => 'date', 'order' => 'DESC', 'post_status' => 'publish')); ?>
 
     <div class="container home">
 
@@ -302,6 +303,64 @@
                 <div class="row">
                     <div class="col-md-12">
                         <a href="<?php get_home_url() ?>/category/infographie" class="sub-category-btn">
+                            <i class="fa fa-chevron-right"></i> La suite
+                        </a>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="row">
+
+                    <div class="col-md-12 more-margin">
+                        <div class="title-section">
+                            <h3>WE <i class="fa fa-heart" style="color: #e84c3d; font-size: 1.0em;"></i> TWITTER</h3>
+
+                            <p>On aime aussi les Community Managers et leurs réactions marrantes<br>mais aussi les twittos qui nous font rire tous les jours</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <?php foreach ($we_love_twitter_posts as $post): ?>
+
+                        <?php $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'single-post-thumbnail'); ?>
+
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 article-vignette">
+                            <div class="article-vignette-inside-image"
+                                 style="background-image: url('<?php echo $image[0]; ?>')">
+                                <a href="<?php echo get_permalink($post->ID); ?>" class="home-article-background-link">
+                                </a>
+
+                                <div class="sharing-interactive" id="sharing-interactive-<?php echo $post->ID; ?>"
+                                     onmouseover="openSharePanelForID('<?php echo $post->ID; ?>')"
+                                     onmouseout="hideSharePanelForID('<?php echo $post->ID; ?>');">
+                                    <?php if (function_exists("social_shares_button")) social_shares_button($post->ID); ?>
+                                    <div id="post-share-box-<?php echo $post->ID; ?>" class="post-share-article">
+                                        <div class="fb-like" data-href="<?php echo get_permalink($post->ID); ?>"
+                                             data-layout="button" data-action="like" data-show-faces="false"
+                                             data-share="false"></div>
+                                        <a href="http://twitter.com/share" class="twitter-share-button"
+                                           {count}>Tweet</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="<?php echo get_permalink($post->ID); ?>">
+                                <div class="article-vignette-inside-text">
+                                    <h4><?php echo $post->post_title; ?></h4>
+                                </div>
+                            </a>
+                        </div>
+
+                    <?php endforeach ?>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <a href="<?php get_home_url() ?>/digital-2/twitter" class="sub-category-btn">
                             <i class="fa fa-chevron-right"></i> La suite
                         </a>
                     </div>

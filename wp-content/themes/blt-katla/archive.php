@@ -1,34 +1,45 @@
 <?php get_header(); ?>
 
 <?php
-    $permalink = $_SERVER["REQUEST_URI"];
+$permalink = $_SERVER["REQUEST_URI"];
 
-    $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
-    if (strpos($permalink, 'top10') !== false) {
+if (strpos($permalink, 'top10') !== false) {
 
-        $title = 'Top 10';
+    $title = 'Top 10';
 
-        $posts = query_posts(
-            array(
-                'meta_key' => 'total_share_count',
-                'orderby' => 'meta_value_num',
-                'order' => 'DESC',
-                'posts_per_page' => 10,
-                'ignore_sticky_posts' => 1,
-                'paged' => $paged
-            )
-        );
-    }
-    else if ($vp = getVotePostsForCategory($permalink)) {
-        $title = $vp['title'];
-        $posts = $vp['posts'];
-    }
-    else {
-        $category = get_the_category();
-        $title = $category[0]->name;
-        $posts = query_posts(array('paged' => $paged, 'category__in' => array($category[0]->cat_ID), 'posts_per_page' => 10, 'orderby' => 'date', 'order' => 'DESC', 'post_status' => 'publish'));
-    }
+    $posts = query_posts(
+        array(
+            'meta_key' => 'total_share_count',
+            'orderby' => 'meta_value_num',
+            'order' => 'DESC',
+            'posts_per_page' => 10,
+            'ignore_sticky_posts' => 1,
+            'paged' => $paged
+        )
+    );
+} else if (strpos($permalink, 'recent') !== false) {
+
+    $title = 'Récemment';
+
+    $posts = query_posts(
+        array(
+            'orderby' => 'date',
+            'order' => 'DESC',
+            'posts_per_page' => 10,
+            'ignore_sticky_posts' => 1,
+            'paged' => $paged
+        )
+    );
+} else if ($vp = getVotePostsForCategory($permalink)) {
+    $title = $vp['title'];
+    $posts = $vp['posts'];
+} else {
+    $category = get_the_category();
+    $title = $category[0]->name;
+    $posts = query_posts(array('paged' => $paged, 'category__in' => array($category[0]->cat_ID), 'posts_per_page' => 10, 'orderby' => 'date', 'order' => 'DESC', 'post_status' => 'publish'));
+}
 ?>
 
     <div class="container archive">

@@ -68,6 +68,7 @@ class piwee_share_bar_widget extends WP_Widget
                             fjs.parentNode.insertBefore(js, fjs);
                         }
                     }(document, 'script', 'twitter-wjs');</script>
+                <script type="text/javascript" src="//newsharecounts.s3-us-west-2.amazonaws.com/nsc.js"></script><script type="text/javascript">window.newShareCountsAuto="smart";</script>
                 <script src="//platform.linkedin.com/in.js" type="text/javascript"> lang: fr_FR</script>
                 <script type="IN/Share" data-counter="right"></script>
             </div>
