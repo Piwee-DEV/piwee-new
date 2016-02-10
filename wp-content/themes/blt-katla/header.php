@@ -202,10 +202,10 @@ if (is_single()) {
     </div>
     <hr>
     <div class="part-3-menu">
-        <a href="#">A propos</a>
-        <a href="#">L'équipe</a>
-        <a href="#">Nous contacter</a>
-        <a href="#">Publicité</a>
+        <a href="/about">A propos</a>
+        <a href="/equipe">L'équipe</a>
+        <a href="/contacts">Nous contacter</a>
+        <a href="/annonceurs">Publicité</a>
     </div>
     <hr>
     <div class="social-network-pushmenu">
@@ -386,12 +386,12 @@ if (is_single()) {
                                     <h3 class="title-menu-section">PIWEE</h3>
                                     <hr>
 
-                                    <p class="piwee-title-menu-col3"><a href="/la-vie-du-blog">LA VIE DU
+                                    <p class="piwee-title-menu-col3"><a href="/category/vie-du-blog">LA VIE DU
                                             BLOG</a></p>
 
                                     <p class="piwee-title-menu-col3"><a href="/julienfabro">ABOUT</a></p>
 
-                                    <p class="piwee-title-menu-col3"><a href="/partenaires">PARTENAIRES</a>
+                                    <p class="piwee-title-menu-col3"><a href="/annonceurs">PARTENAIRES</a>
                                     </p>
                                 </div>
 
@@ -624,20 +624,23 @@ if (is_single()) {
                     <div class="secondary-header-shareimg-container">
                         <a href="http://www.facebook.com/sharer/sharer.php?u=<?php echo get_permalink() ?>"
                            target="_blank">
-                        <img
-                            src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/FB_icon_piwee.png">
-                            </a>
+                            <img
+                                src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/FB_icon_piwee.png">
+                        </a>
                         <a href="https://twitter.com/home?status=<?php echo get_the_title() . ' ' . get_permalink() ?>"
                            target="_blank">
-                        <img
-                            src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/twitter_icon_piwee.png">
-                            </a>
-                        <img
-                            src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/insta_icon_piwee.png">
+                            <img
+                                src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/twitter_icon_piwee.png">
+                        </a>
+                        <a href="https://www.linkedin.com/shareArticle?mini=true&url=<?php echo get_permalink() ?>&title=<?php echo get_the_title() . ' ' . get_permalink() ?>&summary=&source=Piwee.net"
+                           target="_blank">
+                            <img
+                                src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/linkedin_icon_piwee.png">
+                        </a>
                         <a href="mailto:?subject=<?php echo rawurlencode(get_the_title() . ' | Piwee.net') ?>&body=<?php echo rawurlencode(get_the_title() . ' ' . get_permalink()) ?>">
-                        <img
-                            src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/mail_icon_piwee.png">
-                            </a>
+                            <img
+                                src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/mail_icon_piwee.png">
+                        </a>
                     </div>
                 </div>
                 <div class="col-md-4 secondary-header-logo-container">

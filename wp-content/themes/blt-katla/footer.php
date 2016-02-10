@@ -16,9 +16,9 @@
                     <strong>EN SAVOIR PLUS</strong>
                     <ul>
                         <li><a href="/julienfabro">A propos</a></li>
-                        <li><a href="/about">L'équipe</a></li>
+                        <li><a href="/equipe">L'équipe</a></li>
                         <li><a href="/devenir-redacteur">Devenez rédacteur</a></li>
-                        <li><a href="/contact">Nous contacter</a></li>
+                        <li><a href="/contacts">Nous contacter</a></li>
                     </ul>
                 </div>
                 <div class="col-md-2 footer-item">
