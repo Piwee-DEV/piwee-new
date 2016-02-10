@@ -56,7 +56,7 @@ class piwee_share_bar_widget extends WP_Widget
             </a>
 
             <div class="native-btn hidden-xs hidden-sm">
-                <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/"
+                <div class="fb-like" data-href="<?php echo get_permalink() ?>"
                      data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
                 <a href="https://twitter.com/share" class="twitter-share-button" {count}>Tweet</a>
                 <script>!function (d, s, id) {
