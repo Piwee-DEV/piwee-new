@@ -730,3 +730,5 @@ function SearchFilter($query)
 }
 
 add_filter('pre_get_posts', 'SearchFilter');
+
+

@@ -15,6 +15,23 @@ a {
     padding-top: 20px;
 }
 
+
+.container img {
+    width: 100% !important;
+}
+
+.share-bar-widget img {
+    width: inherit !important;
+}
+
+.share-buttons img {
+    width: inherit !important;
+}
+
+.open-menu-post-type img {
+    width: inherit !important;
+}
+
 @media (max-width: 990px) {
 
     #site {
@@ -113,6 +130,7 @@ li {
         z-index: 5;
         position: relative;
     }
+
 }
 
 .flex-row {
@@ -1213,6 +1231,18 @@ section.content {
     display: inline-block;
 }
 
+.article-mega-featured {
+    width: 100%;
+}
+
+.article-mega-featured-img-container {
+    width: 100%;
+}
+
+.article-mega-featured a {
+    width: 100%;
+}
+
 .article-mega-featured .article-mega-featured-img-container.big .sharing-interactive {
     bottom: inherit;
     top: 20px;
@@ -1266,6 +1296,10 @@ section.content {
     padding: 0;
     margin: 0 !important;
     margin-right: 5px !important;
+}
+
+.post.attachment .the-article .piwee-burger-icon {
+    width: inherit !important;
 }
 
 .katla-below-attachment-widget-wrapper {

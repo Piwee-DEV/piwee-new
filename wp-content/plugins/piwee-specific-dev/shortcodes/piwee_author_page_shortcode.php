@@ -30,7 +30,7 @@ function piwee_author_list_handler($atts, $content = null)
                         <p class="author-description"><?php echo $user->description ?></p>
                         <div class="author-section-footer">
                             <div class="social-links">
-                                
+
                             </div>
                             <div class="articles-count"><?php echo count_user_posts($user->ID); ?> articles</div>
                         </div>
