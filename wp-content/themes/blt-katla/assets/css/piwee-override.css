@@ -676,10 +676,14 @@ header {
 }
 
 .piwee-mobile-icon {
-    max-height: 40px;
-    margin-top: 7px;
+    max-height: 45px;
+    margin-top: 8px;
     margin-left: auto;
     margin-right: -25px;
+}
+
+.mobile-header-col .piwee-mobile-icon {
+    width: inherit !important;
 }
 
 .mobile-header-vote-container {
