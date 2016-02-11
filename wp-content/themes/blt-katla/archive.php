@@ -36,7 +36,7 @@ if (strpos($permalink, 'top10') !== false) {
     $title = $vp['title'];
     $posts = $vp['posts'];
 } else {
-    $category = get_the_category();
+    $category = get_category(get_query_var('cat'));;
     $title = $category[0]->name;
     $posts = query_posts(array('paged' => $paged, 'category__in' => array($category[0]->cat_ID), 'posts_per_page' => 10, 'orderby' => 'date', 'order' => 'DESC', 'post_status' => 'publish'));
 }
