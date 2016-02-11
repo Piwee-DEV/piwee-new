@@ -1293,6 +1293,7 @@ section.content {
 
 .post.attachment .nextprev img {
     max-height: 50px;
+    width: inherit !important;
 }
 
 .post.attachment .nextprev .piwee-burger-icon {
@@ -1402,7 +1403,6 @@ section.content {
 .author-shortcode-container .author-avatar img {
     border-radius: 50%;
 }
-
 
 .author-shortcode-container .author-name {
     font-size: 1.6em;
