@@ -564,7 +564,7 @@ li {
 
 @media (max-width: 990px) {
     .fb-like {
-        bottom: 5px;
+        bottom: 10px;
     }
 }
 
@@ -661,6 +661,10 @@ header {
 .piwee-burger-icon {
     max-height: 15px;
     margin-bottom: 3px;
+}
+
+.burger-button .piwee-burger-icon {
+    width: inherit !important;
 }
 
 .burger-button {
