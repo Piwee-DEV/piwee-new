@@ -1351,3 +1351,56 @@ section.content {
     text-decoration: none;
     color: white;
 }
+
+.author-shortcode-row {
+    margin-bottom: 15px;
+}
+
+.author-shortcode-container .section-title {
+    font-family: "Amatic SC" !important;
+    font-size: 2.6em !important;
+    word-spacing: 3px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.author-shortcode-container .section-title span {
+    font-family: "Source Sans Pro";
+    font-size: 0.5em;
+    font-weight: 400;
+    font-style: italic;
+    color: #b4b4b4;
+}
+
+
+.author-shortcode-container .author-description {
+    color: #a5a5a5;
+}
+
+.author-shortcode-container .social-links {
+    float: left;
+}
+
+.author-shortcode-container .articles-count {
+    float: left;
+    margin-left: 10px;
+}
+
+.author-shortcode-container .articles-count a {
+    font-style: italic;
+    color: #B0B0B0;
+}
+
+.author-shortcode-container .social-links img {
+    max-width: 25px;
+}
+
+.author-shortcode-container .author-avatar img {
+    border-radius: 50%;
+}
+
+
+.author-shortcode-container .author-name {
+    font-size: 1.6em;
+    text-transform: capitalize;
+}
