@@ -27,7 +27,7 @@ if (strpos($permalink, 'top10') !== false) {
         array(
             'orderby' => 'date',
             'order' => 'DESC',
-            'posts_per_page' => 40,
+            'posts_per_page' => 10,
             'ignore_sticky_posts' => 1,
             'cat' => -1459
         )
