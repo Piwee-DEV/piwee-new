@@ -166,17 +166,21 @@
 
                 <div class="row citations-container">
 
-                    <?php foreach ($citations_posts as $post): ?>
+                    <div class="col-md-12">
 
-                        <?php $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'single-post-thumbnail'); ?>
+                        <?php foreach ($citations_posts as $post): ?>
 
-                        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 citation-col">
-                            <a href="<?php echo get_permalink($post->ID); ?>">
-                                <img src="<?php echo $image[0]; ?>">
-                            </a>
-                        </div>
+                            <?php $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'single-post-thumbnail'); ?>
 
-                    <?php endforeach ?>
+                            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 citation-col">
+                                <a href="<?php echo get_permalink($post->ID); ?>">
+                                    <img src="<?php echo $image[0]; ?>">
+                                </a>
+                            </div>
+
+                        <?php endforeach ?>
+                        
+                    </div>
 
                 </div>
 
