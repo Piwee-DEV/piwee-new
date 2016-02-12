@@ -166,7 +166,7 @@
 
                 <div class="row citations-container">
 
-                    <div class="col-md-12" style="padding:10px;">
+                    <div class="col-md-12" style="padding-left:10px;padding-right:10px;">
 
                         <?php foreach ($citations_posts as $post): ?>
 
