@@ -166,7 +166,7 @@
 
                 <div class="row citations-container">
 
-                    <div class="col-md-12">
+                    <div class="col-md-12" style="padding:10px;">
 
                         <?php foreach ($citations_posts as $post): ?>
 
@@ -179,7 +179,7 @@
                             </div>
 
                         <?php endforeach ?>
-                        
+
                     </div>
 
                 </div>
