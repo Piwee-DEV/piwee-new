@@ -14,7 +14,7 @@ if (strpos($permalink, 'top10') !== false) {
             'meta_key' => 'total_share_count',
             'orderby' => 'meta_value_num',
             'order' => 'DESC',
-            'posts_per_page' => 10,
+            'posts_per_page' => 40,
             'ignore_sticky_posts' => 1,
             'paged' => $paged
         )
@@ -101,7 +101,7 @@ if (strpos($permalink, 'top10') !== false) {
                         <?php
 
                         if (have_posts() && strpos($permalink, 'recent') === false) {
-                            
+
                             // Previous/next page navigation.
                             the_posts_pagination(array(
                                 'prev_text' => __('Page précédente', 'bluthemes'),
