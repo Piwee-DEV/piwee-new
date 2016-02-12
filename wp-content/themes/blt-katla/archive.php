@@ -29,7 +29,7 @@ if (strpos($permalink, 'top10') !== false) {
             'order' => 'DESC',
             'posts_per_page' => 10,
             'ignore_sticky_posts' => 1,
-            'paged' => $paged
+            'cat' => -1459
         )
     );
 } else if ($vp = getVotePostsForCategory($permalink)) {
