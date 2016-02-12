@@ -1412,3 +1412,11 @@ section.content {
     font-size: 1.6em;
     text-transform: capitalize;
 }
+
+.citations-container {
+    margin-bottom: 10px;
+}
+
+.citations-container .citation-col {
+    padding: 5px !important;
+}
