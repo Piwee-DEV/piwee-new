@@ -732,3 +732,13 @@ function SearchFilter($query)
 add_filter('pre_get_posts', 'SearchFilter');
 
 
+function excludeCategoryFromRSS($query) {
+
+    if ($query->is_feed) {
+        $query->set('cat','-1459');
+    }
+
+    return $query;
+}
+
+add_filter('pre_get_posts','excludeCategoryFromRSS');
