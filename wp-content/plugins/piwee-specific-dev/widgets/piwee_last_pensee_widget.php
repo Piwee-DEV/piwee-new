@@ -29,7 +29,7 @@ class piwee_last_pensee_widget extends WP_Widget
             echo $args['before_title'] . $title . $args['after_title'];
 
         // This is where you run the code and display the output
-        $citations_posts = query_posts(array('category__in' => array(1158), 'posts_per_page' => 1, 'orderby' => 'date', 'order' => 'DESC', 'post_status' => 'publish'));
+        $citations_posts = query_posts(array('category__in' => array(1459), 'posts_per_page' => 1, 'orderby' => 'date', 'order' => 'DESC', 'post_status' => 'publish'));
         $citation_post = $citations_posts[0];
 
         ?>
@@ -39,12 +39,6 @@ class piwee_last_pensee_widget extends WP_Widget
             <a href="<?php echo get_permalink($citation_post->ID) ?>">
                 <div class="article-mega-featured-img-container widget">
                     <?php echo get_the_post_thumbnail($citation_post->ID, "attachment-large") ?>
-                    <div class="sharing-interactive">
-                        <?php if (function_exists("social_shares_button")) social_shares_button($citation_post->ID); ?>
-                    </div>
-                    <div class="article-mega-featured-title">
-                        <h2><?php echo $citation_post->post_title; ?></h2>
-                    </div>
                 </div>
             </a>
 

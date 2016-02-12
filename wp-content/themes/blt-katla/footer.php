@@ -15,7 +15,7 @@
                 <div class="col-md-2 footer-item">
                     <strong>EN SAVOIR PLUS</strong>
                     <ul>
-                        <li><a href="/julienfabro">A propos</a></li>
+                        <li><a href="/about">A propos</a></li>
                         <li><a href="/equipe">L'équipe</a></li>
                         <li><a href="/devenir-redacteur">Devenez rédacteur</a></li>
                         <li><a href="/contacts">Nous contacter</a></li>
@@ -25,7 +25,7 @@
                     <strong>PUBLICITE</strong>
                     <ul>
                         <li><a href="/annoncez-sur-piwee">Annoncez chez Piwee</a></li>
-                        <li><a href="/chiffres">Les Chiffres</a></li>
+                        <li><a href="/about">Les Chiffres</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4 footer-item">

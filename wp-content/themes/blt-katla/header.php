@@ -274,15 +274,13 @@ if (is_single()) {
 
                                         <p><a href="/category/inspiration/sculpture">Sculpture</a></p>
 
-                                        <h4><a href="/category/pub"><i class="fa fa-tv"></i> PUB</a></h4>
+                                        <h4><a href="/category/publicite"><i class="fa fa-tv"></i> PUB</a></h4>
 
                                         <p><a href="/category/pub/panneau-pub">Panneau Pub</a></p>
 
-                                        <p><a href="/category/pub/print">Print</a></p>
+                                        <p><a href="/category/publicite/print-2/">Print</a></p>
 
-                                        <p><a href="/category/pub/spot-video">Spot vidéo</a></p>
-
-                                        <p><a href="/category/pub/tv-insolites">TV insolites</a></p>
+                                        <p><a href="/category/publicite/pub-tv">Spot vidéo</a></p>
 
                                     </div>
 
@@ -330,16 +328,14 @@ if (is_single()) {
                                         <p><a href="/category/digital-2/twitter/tweets-amusants">Tweets
                                                 marrants</a></p>
 
-                                        <p><a href="/category/digital-2/twitter/comptes-a-suivre">Les
+                                        <p><a href="/category/digital-2/twitter/les-comptes-a-suivre">Les
                                                 comptes à suivre</a></p>
 
                                         <h4><a href="/category/innovation"><i class="fa fa-cogs"></i>
                                                 INNOVATION</a></h4>
 
-                                        <h4><a href="/category/auto"><i class="fa fa-automobile"></i>
+                                        <h4><a href="/category/automobile-2"><i class="fa fa-automobile"></i>
                                                 AUTO</a></h4>
-
-                                        <p><a href="/category/auto/pub-marketing">Pub/marketing</a></p>
 
                                         <p><a href="/category/auto/essais">Essais</a></p>
 
@@ -389,7 +385,7 @@ if (is_single()) {
                                     <p class="piwee-title-menu-col3"><a href="/category/vie-du-blog">LA VIE DU
                                             BLOG</a></p>
 
-                                    <p class="piwee-title-menu-col3"><a href="/julienfabro">ABOUT</a></p>
+                                    <p class="piwee-title-menu-col3"><a href="/about">ABOUT</a></p>
 
                                     <p class="piwee-title-menu-col3"><a href="/annonceurs">PARTENAIRES</a>
                                     </p>

@@ -1422,3 +1422,7 @@ section.content {
 .citations-container .citation-col {
     padding: 5px !important;
 }
+
+.widget_piwee_last_pensee_widget {
+    padding: 0 !important;
+}
