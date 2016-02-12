@@ -39,6 +39,7 @@ if (is_single()) {
     <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/assets/css/piwee-override.css"/>
     <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/assets/css/sweetalert.css"/>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="http://piwee.net/wp-content/uploads/2013/11/favicon-piwee.jpg" type="image/x-icon"/>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="<?php echo get_template_directory_uri() ?>/assets/js/sweetalert.min.js"></script>
     <!--[if lt IE 9]>
