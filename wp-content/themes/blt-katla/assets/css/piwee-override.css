@@ -133,6 +133,10 @@ li {
 
 }
 
+.container.post .wp-smiley {
+    width: inherit !important;
+}
+
 .flex-row {
     display: -webkit-box;
     display: -webkit-flex;
