@@ -14,7 +14,7 @@ if (strpos($permalink, 'top10') !== false) {
             'meta_key' => 'total_share_count',
             'orderby' => 'meta_value_num',
             'order' => 'DESC',
-            'posts_per_page' => 40,
+            'posts_per_page' => 10,
             'ignore_sticky_posts' => 1,
             'paged' => $paged
         )
@@ -27,7 +27,7 @@ if (strpos($permalink, 'top10') !== false) {
         array(
             'orderby' => 'date',
             'order' => 'DESC',
-            'posts_per_page' => 10,
+            'posts_per_page' => 40,
             'ignore_sticky_posts' => 1,
             'cat' => -1459
         )
