@@ -439,7 +439,7 @@ li {
     }
 
     .article-mega-featured-img-container img {
-        height: 159px;
+        min-height: 159px;
     }
 }
 
@@ -453,6 +453,8 @@ li {
 
 .article-mega-featured.smaller {
     position: relative;
+    height: 159px;
+    overflow: hidden;
 }
 
 .article-mega-featured.smaller.secondary {
