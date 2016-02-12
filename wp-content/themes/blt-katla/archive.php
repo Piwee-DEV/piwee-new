@@ -100,8 +100,8 @@ if (strpos($permalink, 'top10') !== false) {
 
                         <?php
 
-                        if (have_posts()) {
-
+                        if (have_posts() && strpos($permalink, 'recent') === false) {
+                            
                             // Previous/next page navigation.
                             the_posts_pagination(array(
                                 'prev_text' => __('Page précédente', 'bluthemes'),
