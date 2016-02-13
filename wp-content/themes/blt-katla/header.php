@@ -45,6 +45,19 @@ if (is_single()) {
     <!--[if lt IE 9]>
     <script src="<?php echo get_template_directory_uri(); ?>/assets/js/html5.js" type="text/javascript"></script>
     <![endif]-->
+
+    <script type="text/javascript">
+        window._taboola = window._taboola || [];
+        _taboola.push({article: 'auto'});
+        !function (e, f, u) {
+            e.async = 1;
+            e.src = u;
+            f.parentNode.insertBefore(e, f);
+        }(document.createElement('script'),
+            document.getElementsByTagName('script')[0],
+            'http://cdn.taboola.com/libtrc/piwee/loader.js');
+    </script>
+
     <script>
         document.domain = "<?php echo $_SERVER["SERVER_NAME"]; ?>";
 

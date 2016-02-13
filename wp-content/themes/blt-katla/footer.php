@@ -65,6 +65,33 @@
 <?php wp_footer(); ?>
 
 <div id="fb-root"></div>
+
+<script type="text/javascript">
+    (function() {
+        window.MzPub = window.MzPub|| {};
+        MzPub.pub = MzPub.pub || {};
+        MzPub.pub.id = '4558421';
+        MzPub.pub.size = '320x50';
+        MzPub.pub.pub_size = ['320x480','300x250','100x320','320x100'];
+        MzPub.pub.ref = 'piwee.net';
+        MzPub.pub.tab_size = ['728x90','1024x150','150x500','1024x768','768x1024'];
+        MzPub.pub.mob_page = true;
+        MzPub.pub.publisher_click = '';
+        MzPub.pub.age = '18-64';
+        MzPub.pub.gender = 'm';
+        var elem = document.createElement('SCRIPT');
+        elem.src = 'http://storage.mozoo.com/publisher_scripts/mz_pubscript.js';
+        if(document.body) {
+            document.body.appendChild(elem);
+        }
+        else {
+            window.addEventListener('DOMContentLoaded', function() {
+                document.body.appendChild(elem);
+            });
+        }
+    })();
+</script>
+
 <script>(function (d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) return;
@@ -93,6 +120,11 @@
     ga('create', 'UA-37101533-3', 'auto');
     ga('send', 'pageview');
 
+</script>
+
+<script type="text/javascript">
+    window._taboola = window._taboola || [];
+    _taboola.push({flush: true});
 </script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.0/jquery.cookie.min.js"></script>
