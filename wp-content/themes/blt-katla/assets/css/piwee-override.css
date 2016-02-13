@@ -1455,6 +1455,7 @@ section.content {
 .content-category-footer .categories a img {
     display: inline-block;
     max-width: 30px !important;
+    margin-right: 3px;
 }
 
 .content-category-footer .categories {
