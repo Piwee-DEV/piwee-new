@@ -190,7 +190,7 @@ if (is_single()) {
     </div>
 
     <div class="part-1-menu">
-        <a href="/category/inspiration"">Art</a>
+        <a href="/category/inspiration">Art</a>
         <a href="/category/marketing-2">Marketing</a>
         <a href="/category/innovation">Innovation</a>
         <a href="/category/infographie">Infographies</a>
