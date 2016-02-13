@@ -99,6 +99,27 @@
     _taboola.push({flush: true});
 </script>
 
+<script type="text/javascript">
+    window._ttf = window._ttf || [];
+    _ttf.push({
+        pid          : 45012
+        ,lang        : "fr"
+        ,slot        : '.article .post-entry > p'
+        ,format      : "inread"
+        ,components  : { skip: {delay : 0}}
+        ,css         : "margin: 0px 0px 10px;"
+    });
+
+    (function (d) {
+        var js, s = d.getElementsByTagName('script')[0];
+        js = d.createElement('script');
+        js.async = true;
+        js.src = '//cdn.teads.tv/media/format.js';
+        s.parentNode.insertBefore(js, s);
+    })(window.document);
+</script>
+
+
 <!-- END ADVERTISING SCRIPTS -->
 
 
