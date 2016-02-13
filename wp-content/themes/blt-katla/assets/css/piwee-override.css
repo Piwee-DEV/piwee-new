@@ -1464,4 +1464,5 @@ section.content {
 
 .content-sidebar-wrap .single-widget.widget_text {
     padding: 0 !important;
+    background-color: transparent !important;
 }
