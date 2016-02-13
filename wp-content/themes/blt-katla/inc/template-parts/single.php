@@ -69,6 +69,45 @@
 
     <div class="post">
         <?php the_content(); ?>
+
+        <hr>
+
+        <div class="content-category-footer">
+
+            <?php
+            $post_category = get_the_category();
+
+            $parent_categories = get_ancestors($post_category[0]->term_id, 'category');
+
+            $all_categories = array();
+
+            foreach ($parent_categories as $categoryID) {
+                $all_categories[] = get_category($categoryID);
+            }
+
+            $all_categories[] = $post_category[0];
+
+            ?>
+
+            <p><span class="title">Plus d'articles sur la catégorie :</span> <span
+                    class="categories"><?php foreach ($all_categories as $key => $category) {
+
+                        if (function_exists('z_taxonomy_image_url')) $icon = z_taxonomy_image_url($category->term_id);
+
+                        echo '<a href="/category/' . $category->slug . '">';
+                        if ($icon) {
+                            echo '<img src="' . $icon . '">';
+                        }
+                        echo $category->name . '</a>';
+
+                        if ($key != count($all_categories) - 1) {
+                            echo ', ';
+                        }
+                    } ?></span>
+            </p>
+
+        </div>
+
     </div>
 
 </article>

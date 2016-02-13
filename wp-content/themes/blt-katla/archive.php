@@ -15,8 +15,7 @@ if (strpos($permalink, 'top10') !== false) {
             'orderby' => 'meta_value_num',
             'order' => 'DESC',
             'posts_per_page' => 10,
-            'ignore_sticky_posts' => 1,
-            'paged' => $paged
+            'ignore_sticky_posts' => 1
         )
     );
 } else if (strpos($permalink, 'recent') !== false) {
@@ -29,7 +28,8 @@ if (strpos($permalink, 'top10') !== false) {
             'order' => 'DESC',
             'posts_per_page' => 10,
             'ignore_sticky_posts' => 1,
-            'cat' => -1459
+            'cat' => -1459,
+            'paged' => $paged
         )
     );
 } else if ($vp = getVotePostsForCategory($permalink)) {
@@ -100,7 +100,7 @@ if (strpos($permalink, 'top10') !== false) {
 
                         <?php
 
-                        if (have_posts() && strpos($permalink, 'recent') === false) {
+                        if (have_posts() && strpos($permalink, 'top10') === false) {
 
                             // Previous/next page navigation.
                             the_posts_pagination(array(

@@ -1,5 +1,34 @@
 <?php get_header(); ?>
 
+
+<?php
+
+$permalink = $_SERVER["REQUEST_URI"];
+
+if (strpos($permalink, 'recent') !== false) {
+
+    $no404 = true;
+
+    $title = 'Récemment';
+
+    $posts = query_posts(
+        array(
+            'orderby' => 'date',
+            'order' => 'DESC',
+            'posts_per_page' => 10,
+            'ignore_sticky_posts' => 1,
+            'cat' => -1459,
+            'paged' => $paged
+        )
+    );
+
+    get_template_part('category');
+}
+
+if (!$no404):
+
+    ?>
+
     <div class="container not-found">
 
         <div class="row">
@@ -29,4 +58,7 @@
 
     </div>
 
-<?php get_footer(); ?>
+<?php
+    endif;
+    get_footer();
+?>

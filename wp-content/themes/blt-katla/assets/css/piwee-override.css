@@ -115,6 +115,14 @@ li {
         position: relative;
     }
 
+    .container.category {
+        background-color: #ebecec;
+        top: 15px;
+        padding-top: 15px;
+        z-index: 5;
+        position: relative;
+    }
+
     .container.author {
         background-color: #ebecec;
         top: 15px;
@@ -1429,4 +1437,26 @@ section.content {
 
 .widget_piwee_last_pensee_widget {
     padding: 0 !important;
+}
+
+.content-category-footer {
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.content-category-footer .title {
+    color: #b8b8b8;
+}
+
+.content-category-footer .categories a {
+    color: black !important;
+}
+
+.content-category-footer .categories a img {
+    display: inline-block;
+    max-width: 30px !important;
+}
+
+.content-category-footer .categories {
+    text-transform: capitalize;
 }
