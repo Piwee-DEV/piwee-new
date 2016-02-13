@@ -978,6 +978,10 @@ section.content {
     padding: 0;
 }
 
+.menu-post-type-opened .bar-img a {
+    cursor: pointer;
+}
+
 .menu-post-type-opened .bar-img img {
     max-height: 50px;
     width: inherit !important;
