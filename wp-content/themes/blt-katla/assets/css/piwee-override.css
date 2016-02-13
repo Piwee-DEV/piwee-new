@@ -1462,6 +1462,6 @@ section.content {
     text-transform: capitalize;
 }
 
-.single-widget.widget_text {
+.content-sidebar-wrap .single-widget.widget_text {
     padding: 0 !important;
 }
