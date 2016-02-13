@@ -980,6 +980,7 @@ section.content {
 
 .menu-post-type-opened .bar-img img {
     max-height: 50px;
+    width: inherit !important;
 }
 
 .menu-post-type-opened .bar-progress {
