@@ -46,6 +46,10 @@ if (is_single()) {
     <script src="<?php echo get_template_directory_uri(); ?>/assets/js/html5.js" type="text/javascript"></script>
     <![endif]-->
 
+    <!-- ADVERTISING SCRIPTS -->
+
+    <script type="text/javascript" src="http://ads.ayads.co/ajs.php?zid=3405"></script>
+
     <script type="text/javascript">
         window._taboola = window._taboola || [];
         _taboola.push({article: 'auto'});
@@ -57,6 +61,9 @@ if (is_single()) {
             document.getElementsByTagName('script')[0],
             'http://cdn.taboola.com/libtrc/piwee/loader.js');
     </script>
+
+    <!-- END ADVERTISING SCRIPTS -->
+
 
     <script>
         document.domain = "<?php echo $_SERVER["SERVER_NAME"]; ?>";
@@ -73,6 +80,7 @@ if (is_single()) {
             });
         });
     </script>
+
     <?php wp_head(); ?>
 
 

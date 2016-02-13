@@ -66,6 +66,8 @@
 
 <div id="fb-root"></div>
 
+<!-- ADVERTISING SCRIPTS -->
+
 <script type="text/javascript">
     (function() {
         window.MzPub = window.MzPub|| {};
@@ -91,6 +93,14 @@
         }
     })();
 </script>
+
+<script type="text/javascript">
+    window._taboola = window._taboola || [];
+    _taboola.push({flush: true});
+</script>
+
+<!-- END ADVERTISING SCRIPTS -->
+
 
 <script>(function (d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
@@ -120,11 +130,6 @@
     ga('create', 'UA-37101533-3', 'auto');
     ga('send', 'pageview');
 
-</script>
-
-<script type="text/javascript">
-    window._taboola = window._taboola || [];
-    _taboola.push({flush: true});
 </script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.0/jquery.cookie.min.js"></script>
