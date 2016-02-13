@@ -29,6 +29,32 @@ function openMobilePostType() {
 
 jQuery(document).ready(function () {
 
+    /**
+     * Hiding widget_text if ADBLOCK is enabled...
+     */
+
+    // Function called if AdBlock is detected
+    function adBlockDetected() {
+        $(document).find(".widget_text").each(function() {
+            $(this).hide();
+        });
+    }
+
+    // Recommended audit because AdBlock lock the file 'fuckadblock.js'
+    // If the file is not called, the variable does not exist 'fuckAdBlock'
+    // This means that AdBlock is present
+    if(typeof fuckAdBlock === 'undefined') {
+        adBlockDetected();
+    } else {
+        fuckAdBlock.onDetected(adBlockDetected);
+        fuckAdBlock.onNotDetected(adBlockNotDetected);
+        // and|or
+        fuckAdBlock.on(true, adBlockDetected);
+        fuckAdBlock.on(false, adBlockNotDetected);
+        // and|or
+        fuckAdBlock.on(true, adBlockDetected).onNotDetected(adBlockNotDetected);
+    }
+
     $('.open-menu-post-type').on('touchstart click',function (e){
         e.preventDefault();
         openMobilePostType();

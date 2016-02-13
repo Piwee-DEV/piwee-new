@@ -44,6 +44,9 @@ add_action('admin_enqueue_scripts', 'register_script_colorpicker', 99999);
 add_action('admin_enqueue_scripts', 'register_script_admin', 99999);
 add_action('admin_menu', 'register_campagne_page');
 
+wp_register_script('fuckadblock', plugins_url('/js/fuckadblock.js', __FILE__));
+wp_enqueue_script('fuckadblock');
+
 
 function register_campagne_page()
 {
