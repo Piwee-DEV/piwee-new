@@ -24,7 +24,7 @@
                 <div class="col-md-2 footer-item">
                     <strong>PUBLICITE</strong>
                     <ul>
-                        <li><a href="/annoncez-sur-piwee">Annoncez chez Piwee</a></li>
+                        <li><a href="/annonceurs">Annoncez chez Piwee</a></li>
                         <li><a href="/about">Les Chiffres</a></li>
                     </ul>
                 </div>
