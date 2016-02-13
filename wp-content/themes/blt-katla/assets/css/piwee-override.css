@@ -1461,8 +1461,3 @@ section.content {
 .content-category-footer .categories {
     text-transform: capitalize;
 }
-
-.content-sidebar-wrap .single-widget.widget_text .textwidget {
-    padding: 0 !important;
-    background-color: transparent !important;
-}
