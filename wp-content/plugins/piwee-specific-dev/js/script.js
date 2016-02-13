@@ -137,11 +137,15 @@ jQuery.sharedCount = function (url, fn) {
 };
 
 function openSharePanelForID(post_id) {
-    jQuery("#post-share-box-" + post_id).show();
+    if (jQuery(window).width() > 650) {
+        jQuery("#post-share-box-" + post_id).show();
+    }
 }
 
 function hideSharePanelForID(post_id) {
-    jQuery("#post-share-box-" + post_id).hide();
+    if (jQuery(window).width() > 650) {
+        jQuery("#post-share-box-" + post_id).hide();
+    }
 }
 
 function updateShareCountForPost(post_id, share_count) {
