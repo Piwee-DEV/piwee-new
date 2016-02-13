@@ -47,12 +47,7 @@ jQuery(document).ready(function () {
         adBlockDetected();
     } else {
         fuckAdBlock.onDetected(adBlockDetected);
-        fuckAdBlock.onNotDetected(adBlockNotDetected);
-        // and|or
         fuckAdBlock.on(true, adBlockDetected);
-        fuckAdBlock.on(false, adBlockNotDetected);
-        // and|or
-        fuckAdBlock.on(true, adBlockDetected).onNotDetected(adBlockNotDetected);
     }
 
     $('.open-menu-post-type').on('touchstart click',function (e){
