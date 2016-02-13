@@ -1461,3 +1461,7 @@ section.content {
 .content-category-footer .categories {
     text-transform: capitalize;
 }
+
+.single-widget.widget_text {
+    padding: 0 !important;
+}
