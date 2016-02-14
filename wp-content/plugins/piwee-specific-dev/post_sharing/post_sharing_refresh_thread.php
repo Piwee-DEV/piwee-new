@@ -19,7 +19,7 @@ class Post_sharing_refresh_thread extends Thread
     public function run()
     {
         $count = 0;
-        $networks = array("facebook", "linkedin", "google", "pinterest");
+        $networks = array("facebook", "linkedin", "google", "pinterest", "twitter");
         $permalink = get_permalink($this->post_id);
         $month = date('m.Y');
 
