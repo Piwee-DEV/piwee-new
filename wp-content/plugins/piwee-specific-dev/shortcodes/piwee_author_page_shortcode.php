@@ -47,7 +47,7 @@ function piwee_author_list_handler($atts, $content = null)
 
     <?php
 
-    $users = get_users();
+    $users = get_users('orderby=post_count&order=DESC');
 
     foreach ($users as $user):
 
@@ -113,7 +113,7 @@ function piwee_author_list_handler($atts, $content = null)
                 </div>
             </div>
             <div class="col-md-10">
-                <a href="<?php echo get_home_url() . '/author/' . get_the_author_meta('user_nicename', $user->ID) ?>">
+                <a href="<?php echo get_the_author_meta('url', $user->ID) ?>">
                     <h1 class="author-name"><?php echo $user->display_name ?></h1>
                 </a>
                 <p class="author-description"><?php echo $user->description ?></p>
@@ -126,13 +126,21 @@ function piwee_author_list_handler($atts, $content = null)
                         </a>
                     </div>
                     <div class="articles-count">
-                        <a href="<?php echo get_home_url() . '/author/' . get_the_author_meta('user_nicename', $user->ID) ?>">
-                            <?php echo count_user_posts($user->ID); ?> articles
+                        <a href="https://github.com/alexzhxin">
+                            <span id="line-of-code"><?php echo time(); ?></span> lignes de code
                         </a>
                     </div>
                 </div>
             </div>
         </div>
+
+        <script>
+            $(document).ready(function() {
+                setInterval(function() {
+                    $("#line-of-code").text(Math.round(Date.now() / 1000));
+                }, 1000);
+            });
+        </script>
 
     </div>
 

@@ -364,7 +364,7 @@
 
                 <div class="row">
                     <div class="col-md-12">
-                        <a href="<?php get_home_url() ?>/digital-2/twitter" class="sub-category-btn">
+                        <a href="<?php get_home_url() ?>/category/digital-2/twitter" class="sub-category-btn">
                             <i class="fa fa-chevron-right"></i> La suite
                         </a>
                     </div>
