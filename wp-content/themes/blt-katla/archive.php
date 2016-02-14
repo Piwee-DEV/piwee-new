@@ -36,9 +36,9 @@ if (strpos($permalink, 'top10') !== false) {
     $title = $vp['title'];
     $posts = $vp['posts'];
 } else {
-    $category = get_category(get_query_var('cat'));;
+    $category = get_category(get_query_var('cat'));
     $title = $category->name;
-    $posts = query_posts(array('paged' => $paged, 'category__in' => array($category->cat_ID), 'posts_per_page' => 10, 'orderby' => 'date', 'order' => 'DESC', 'post_status' => 'publish'));
+    $posts = query_posts(array('paged' => $paged, 'category__in' => getCategoryIdsArrayFromParent($category->cat_ID), 'posts_per_page' => 10, 'orderby' => 'date', 'order' => 'DESC', 'post_status' => 'publish'));
 }
 ?>
 

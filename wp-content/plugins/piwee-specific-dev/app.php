@@ -745,3 +745,16 @@ function excludeCategoryFromRSS($query) {
 }
 
 add_filter('pre_get_posts','excludeCategoryFromRSS');
+
+function getCategoryIdsArrayFromParent($parentId) {
+    $child_categories = get_categories(array('child_of' => $parentId));
+
+    $all_categories_ids = array();
+    $all_categories_ids[] = $parentId;
+
+    foreach($child_categories as $cat) {
+        $all_categories_ids[] = $cat->cat_ID;
+    }
+
+    return $all_categories_ids;
+}
