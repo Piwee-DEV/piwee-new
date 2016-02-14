@@ -198,7 +198,7 @@ if (is_single()) {
 
     ?>
 
-    <?php echo $campain_onclick_script; ?>
+    <?php if($campain_onclick_script) echo $campain_onclick_script; ?>
 
 </head>
 

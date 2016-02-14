@@ -14,12 +14,23 @@
         )
     );
 
+    $recent_posts = query_posts(array('cat' => -1459, 'posts_per_page' => 8, 'orderby' => 'date', 'order' => 'DESC', 'post_status' => 'publish', 'ignore_sticky_posts' => 1));
+    $marketing_posts = query_posts(array('category__in' => array(211), 'posts_per_page' => 4, 'orderby' => 'date', 'order' => 'DESC', 'post_status' => 'publish'));
+    $infographie_posts = query_posts(array('category__in' => array(1393), 'posts_per_page' => 4, 'orderby' => 'date', 'order' => 'DESC', 'post_status' => 'publish'));
+    $citations_posts = query_posts(array('category__in' => array(1459), 'posts_per_page' => 3, 'orderby' => 'date', 'order' => 'DESC', 'post_status' => 'publish'));
+    $we_love_twitter_posts = query_posts(array('category__in' => array(359), 'posts_per_page' => 4, 'orderby' => 'date', 'order' => 'DESC', 'post_status' => 'publish'));
+
+    //Get the first sticky post if there is
+    $sticky_query = query_posts(array(
+        'posts_per_page' => 1,
+        'post__in' => get_option('sticky_posts'),
+        'ignore_sticky_posts' => 1
+    ));
+    $sticky_post = $sticky_query[0];
+
+    $first_big_post = $sticky_post ? $sticky_post : $most_shared_post_of_the_week_x_next[0];
+
 ?>
-<?php $recent_posts = query_posts(array('cat' => -1459, 'posts_per_page' => 8, 'orderby' => 'date', 'order' => 'DESC', 'post_status' => 'publish', 'ignore_sticky_posts' => 1)); ?>
-<?php $marketing_posts = query_posts(array('category__in' => array(211), 'posts_per_page' => 4, 'orderby' => 'date', 'order' => 'DESC', 'post_status' => 'publish')); ?>
-<?php $infographie_posts = query_posts(array('category__in' => array(1393), 'posts_per_page' => 4, 'orderby' => 'date', 'order' => 'DESC', 'post_status' => 'publish')); ?>
-<?php $citations_posts = query_posts(array('category__in' => array(1459), 'posts_per_page' => 3, 'orderby' => 'date', 'order' => 'DESC', 'post_status' => 'publish')); ?>
-<?php $we_love_twitter_posts = query_posts(array('category__in' => array(359), 'posts_per_page' => 4, 'orderby' => 'date', 'order' => 'DESC', 'post_status' => 'publish')); ?>
 
     <div class="container home">
 
@@ -29,14 +40,14 @@
 
                 <div class="article-mega-featured">
 
-                    <a href="<?php echo get_permalink($most_shared_post_of_the_week_x_next[0]->ID) ?>">
+                    <a href="<?php echo get_permalink($first_big_post->ID) ?>">
                         <div class="article-mega-featured-img-container big">
-                            <?php echo get_the_post_thumbnail($most_shared_post_of_the_week_x_next[0]->ID, "attachment-large") ?>
+                            <?php echo get_the_post_thumbnail($first_big_post->ID, "attachment-large") ?>
                             <div class="sharing-interactive">
-                                <?php if (function_exists("social_shares_button")) social_shares_button($most_shared_post_of_the_week_x_next[0]->ID); ?>
+                                <?php if (function_exists("social_shares_button")) social_shares_button($first_big_post->ID); ?>
                             </div>
                             <div class="article-mega-featured-title">
-                                <h2><?php echo $most_shared_post_of_the_week_x_next[0]->post_title; ?></h2>
+                                <h2><?php echo $first_big_post->post_title; ?></h2>
                             </div>
                         </div>
                     </a>
@@ -320,7 +331,8 @@
                         <div class="title-section">
                             <h3>WE <i class="fa fa-heart" style="color: #e84c3d; font-size: 1.0em;"></i> TWITTER</h3>
 
-                            <p>On aime aussi les Community Managers et leurs réactions marrantes<br>mais aussi les twittos qui nous font rire tous les jours</p>
+                            <p>On aime aussi les Community Managers et leurs réactions marrantes<br>mais aussi les
+                                twittos qui nous font rire tous les jours</p>
                         </div>
                     </div>
 

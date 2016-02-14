@@ -978,7 +978,7 @@ if (!function_exists('redirect_non_admin_users')) {
         }
     }
 
-    add_action('admin_init', 'redirect_non_admin_users');
+    //add_action('admin_init', 'redirect_non_admin_users');
 }
 
 

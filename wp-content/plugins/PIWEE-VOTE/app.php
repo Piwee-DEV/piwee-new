@@ -267,43 +267,49 @@ function getVoteCountByPostAndChoice($choice_id = null, $post_id = null)
 
 function getPostVoteCountAndPercent($post_id)
 {
-    $choices = getChoices();
-    $votes = array();
+    if($post_id) {
 
-    //get votes in an array
-    foreach ($choices as $choice) {
-        $count = getVoteCountByPostAndChoice($choice->id, $post_id);
-        $votes[] = array('name' => $choice->name, 'count' => $count);
-    }
+        $choices = getChoices();
+        $votes = array();
 
-    //calculate vote percent rate
-    $total = 0;
-
-    //incrementing total
-    foreach ($votes as $vote) {
-        $total += $vote['count'];
-    }
-
-    //calculate percent with the count and total
-    foreach ($votes as $key => $vote) {
-        $percent = 0;
-        if ($total > 0) {
-            $percent = round($vote['count'] * 100 / $total, 0);
+        //get votes in an array
+        foreach ($choices as $choice) {
+            $count = getVoteCountByPostAndChoice($choice->id, $post_id);
+            $votes[] = array('name' => $choice->name, 'count' => $count);
         }
-        $vote['percent'] = $percent;
-        $votes[$key] = $vote;
+
+        //calculate vote percent rate
+        $total = 0;
+
+        //incrementing total
+        foreach ($votes as $vote) {
+            $total += $vote['count'];
+        }
+
+        //calculate percent with the count and total
+        foreach ($votes as $key => $vote) {
+            $percent = 0;
+            if ($total > 0) {
+                $percent = round($vote['count'] * 100 / $total, 0);
+            }
+            $vote['percent'] = $percent;
+            $votes[$key] = $vote;
+        }
+
+        //reformat array by setting the name as a key and not as a value
+        $formattedVotes = array();
+        foreach ($votes as $vote) {
+            $formattedVotes[$vote['name']] = $vote;
+            unset($formattedVotes[$vote['name']]['name']);
+        }
+
+        $formattedVotes['total'] = $total;
+
+        return $formattedVotes;
     }
-
-    //reformat array by setting the name as a key and not as a value
-    $formattedVotes = array();
-    foreach ($votes as $vote) {
-        $formattedVotes[$vote['name']] = $vote;
-        unset($formattedVotes[$vote['name']]['name']);
+    else {
+        return false;
     }
-
-    $formattedVotes['total'] = $total;
-
-    return $formattedVotes;
 }
 
 function getPostVoteCountAndPercentAjax()
