@@ -29,7 +29,11 @@ function social_share_shares($providerName, $url)
 {
     global $socialShare;
 
-    return $socialShare->getShares($providerName, $url);
+    $shares = $socialShare->getShares($providerName, $url);
+
+    $socialShare->update();
+
+    return $shares;
 }
 
 function get_total_share_count($post_id)
