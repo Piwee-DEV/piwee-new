@@ -31,7 +31,7 @@ function social_share_shares($providerName, $url)
 
     $shares = $socialShare->getShares($providerName, $url);
 
-    $socialShare->update();
+    //$socialShare->update();
 
     return $shares;
 }
