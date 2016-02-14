@@ -14,11 +14,6 @@
         )
     );
 
-    $recent_posts = query_posts(array('cat' => -1459, 'posts_per_page' => 8, 'orderby' => 'date', 'order' => 'DESC', 'post_status' => 'publish', 'ignore_sticky_posts' => 1));
-    $marketing_posts = query_posts(array('category__in' => array(211), 'posts_per_page' => 4, 'orderby' => 'date', 'order' => 'DESC', 'post_status' => 'publish'));
-    $infographie_posts = query_posts(array('category__in' => array(1393), 'posts_per_page' => 4, 'orderby' => 'date', 'order' => 'DESC', 'post_status' => 'publish'));
-    $citations_posts = query_posts(array('category__in' => array(1459), 'posts_per_page' => 3, 'orderby' => 'date', 'order' => 'DESC', 'post_status' => 'publish'));
-    $we_love_twitter_posts = query_posts(array('category__in' => array(359), 'posts_per_page' => 4, 'orderby' => 'date', 'order' => 'DESC', 'post_status' => 'publish'));
 
     //Get the first sticky post if there is
     $sticky_query = query_posts(array(
@@ -29,6 +24,17 @@
     $sticky_post = $sticky_query[0];
 
     $first_big_post = $sticky_post ? $sticky_post : $most_shared_post_of_the_week_x_next[0];
+
+    $recent_posts_offset = 0;
+    if(count($sticky_post) > 0) {
+        $recent_posts_offset = 1;
+    }
+
+    $recent_posts = query_posts(array('offset' => $recent_posts_offset, 'cat' => -1459, 'posts_per_page' => 8, 'orderby' => 'date', 'order' => 'DESC', 'post_status' => 'publish', 'ignore_sticky_posts' => 1));
+    $marketing_posts = query_posts(array('category__in' => array(211), 'posts_per_page' => 4, 'orderby' => 'date', 'order' => 'DESC', 'post_status' => 'publish'));
+    $infographie_posts = query_posts(array('category__in' => array(1393), 'posts_per_page' => 4, 'orderby' => 'date', 'order' => 'DESC', 'post_status' => 'publish'));
+    $citations_posts = query_posts(array('category__in' => array(1459), 'posts_per_page' => 3, 'orderby' => 'date', 'order' => 'DESC', 'post_status' => 'publish'));
+    $we_love_twitter_posts = query_posts(array('category__in' => array(359), 'posts_per_page' => 4, 'orderby' => 'date', 'order' => 'DESC', 'post_status' => 'publish'));
 
 ?>
 
