@@ -20,7 +20,7 @@ class Facebook implements ProviderInterface
 {
     const NAME = 'facebook';
     const SHARE_URL = 'https://www.facebook.com/sharer/sharer.php?u=%s';
-    const API_URL = 'https://graph.facebook.com/?id=%s';
+    const API_URL = 'https://graph.facebook.com/?access_token=121141068273691|40153cf2865c015383d1e9ccfcea1add&id=%s';
 
     /**
      * {@inheritdoc}
@@ -43,13 +43,10 @@ class Facebook implements ProviderInterface
      */
     public function getShares($url)
     {
-        $data = json_decode(file_get_contents(sprintf(self::API_URL, urlencode($url))));
+        $data = json_decode(file_get_contents(sprintf(self::API_URL, urlencode($url))), true);
 
-        if (isset($data->likes)) {
-            return intval($data->likes);
-        }
-        if (isset($data->shares)) {
-            return intval($data->shares);
+        if (isset($data["share"])) {
+            return intval($data["share"]["share_count"]);
         }
 
         return 0;

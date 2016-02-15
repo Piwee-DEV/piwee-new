@@ -79,7 +79,7 @@ function refresh_share_count_in_db()
 {
     $post_id = $_POST['post_id'];
     $count = 0;
-    $networks = array( "linkedin", "google", "pinterest", "twitter");
+    $networks = array("facebook", "linkedin", "google", "pinterest", "twitter");
     $permalink = get_permalink($post_id);
     $month = date('m.Y');
     $week = date('W.m.Y');

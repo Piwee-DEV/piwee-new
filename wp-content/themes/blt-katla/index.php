@@ -30,7 +30,7 @@
         $recent_posts_offset = 1;
     }
 
-    $recent_posts = query_posts(array('offset' => $recent_posts_offset, 'cat' => -1459, 'posts_per_page' => 8, 'orderby' => 'date', 'order' => 'DESC', 'post_status' => 'publish', 'ignore_sticky_posts' => 1));
+    $recent_posts = query_posts(array('offset' => 0, 'cat' => -1459, 'posts_per_page' => 8, 'orderby' => 'date', 'order' => 'DESC', 'post_status' => 'publish', 'ignore_sticky_posts' => 1));
     $marketing_posts = query_posts(array('category__in' => getCategoryIdsArrayFromParent(211), 'posts_per_page' => 4, 'orderby' => 'date', 'order' => 'DESC', 'post_status' => 'publish'));
     $infographie_posts = query_posts(array('category__in' => getCategoryIdsArrayFromParent(1393), 'posts_per_page' => 4, 'orderby' => 'date', 'order' => 'DESC', 'post_status' => 'publish'));
     $citations_posts = query_posts(array('category__in' => getCategoryIdsArrayFromParent(1459), 'posts_per_page' => 3, 'orderby' => 'date', 'order' => 'DESC', 'post_status' => 'publish'));
