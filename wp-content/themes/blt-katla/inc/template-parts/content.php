@@ -9,6 +9,7 @@
     <div class="article-vignette-inside-image"
          style="background-image: url('<?php echo $image[0]; ?>')">
         <a href="<?php echo get_permalink($post->ID); ?>" class="home-article-background-link">
+
         </a>
 
         <div class="sharing-interactive" id="sharing-interactive-<?php echo $post->ID; ?>"

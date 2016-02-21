@@ -10,9 +10,7 @@
 
 <div class="container search" class="clearfix">
 
-    <div id="row">
-
-        <div class="col-md-12">
+    <div class="row">
 
             <?php
 
@@ -34,12 +32,11 @@
             }
 
             ?>
-        </div>
 
     </div>
 
 
-    <div id="row">
+    <div class="row">
 
         <div class="col-md-12 pagination-container">
 
