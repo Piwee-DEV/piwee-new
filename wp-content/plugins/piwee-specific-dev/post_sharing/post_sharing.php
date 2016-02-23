@@ -31,8 +31,6 @@ function social_share_shares($providerName, $url)
 
     $shares = $socialShare->getShares($providerName, $url);
 
-    //$socialShare->update();
-
     return $shares;
 }
 
@@ -43,10 +41,6 @@ function get_total_share_count($post_id)
     $total_share_count = get_post_meta($post_id, 'total_share_count', true);
     $total_share_count_month = get_post_meta($post_id, 'total_share_count_month_' . $month, true);
     $share_count_month_diff = get_post_meta($post_id, 'share_count_month_diff_' . $month, true);
-
-    $site_url = "http://" . $_SERVER['SERVER_NAME'];
-
-    shell_exec('curl --data "action=refresh_share_count_in_db&post_id=' . $post_id . '" ' . $site_url . '/wp-admin/admin-ajax.php > /dev/null 2>/dev/null &');
 
     return array('total_share_count' => $total_share_count,
         'total_share_count_month' => $total_share_count_month,
