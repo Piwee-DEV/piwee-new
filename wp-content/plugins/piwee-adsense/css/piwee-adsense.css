@@ -1,3 +1,19 @@
+#article-adsense-fimage {
+    display: block;
+}
+
+#article-adsense-fimage-mobile {
+    display: none;
+}
+
+#article-adsense-bottom {
+    display: block;
+}
+
+#article-adsense-bottom-mobile {
+    display: none;
+}
+
 @media (max-width: 990px) {
 
     #article-adsense-fimage {
@@ -15,20 +31,4 @@
     #article-adsense-bottom-mobile {
         display: block;
     }
-}
-
-#article-adsense-fimage {
-    display: block;
-}
-
-#article-adsense-fimage-mobile {
-    display: none;
-}
-
-#article-adsense-bottom {
-    display: block;
-}
-
-#article-adsense-bottom-mobile {
-    display: none;
 }
