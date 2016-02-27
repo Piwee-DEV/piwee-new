@@ -557,12 +557,7 @@ License URI:
 /* =====================================
 	SIDEBAR LAYOUT
 ===================================== */
-	
-	body.sidebar-left #site-content-sidebar{
-		float: left;    
-		margin-left: 0;
-    	margin-right: 20px;
-	}
+
 	body.sidebar-left #site-content-column{
 		float: right;
 	}
@@ -705,7 +700,6 @@ License URI:
 		@media (min-width: 992px){
 
 			#site-content-sidebar{
-				float: left;
 				position: static;
 			}
 		}

@@ -27,7 +27,7 @@ include_once( get_template_directory() . '/inc/acf/acf.php' );
 
 // Create options pages
 if( function_exists('acf_add_options_page') ) {
-    
+
     acf_add_options_page(array(
         'page_title'    => 'Theme Settings',
         'menu_title'    => BLT_THEME_NAME. ' Settings',
@@ -35,7 +35,7 @@ if( function_exists('acf_add_options_page') ) {
         'capability'    => 'edit_theme_options',
         'redirect'      => false
     ));
-    
+
     acf_add_options_sub_page(array(
         'page_title'    => 'Purchase Key',
         'capability'    => 'edit_theme_options',

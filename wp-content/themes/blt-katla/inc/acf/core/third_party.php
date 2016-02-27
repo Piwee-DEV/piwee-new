@@ -54,16 +54,16 @@ class acf_third_party {
 	*/
 	
 	function admin_head_tabify() {
-		
+
 		// remove ACF from the tabs
 		add_filter('tabify_posttypes',			array($this, 'tabify_posttypes'));
-		
-		
+
+
 		// add acf metaboxes to list
 		add_action('tabify_add_meta_boxes',		array($this, 'tabify_add_meta_boxes'));
-		
+
 	}
-	
+
 	
 	/*
 	*  tabify_posttypes
