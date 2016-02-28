@@ -167,10 +167,10 @@ function filter_content_adsense($content)
             $document = phpQuery::newDocumentHTML($content);
 
             //if there is an image in the first p, insert adsense after the first <p>
-            $firstI = $document->find("p:first img");
+            $firstI = $document->find(".post p:first img");
 
             if ($firstI->length > 0) {
-                $document->find("p:first")->after('<div id="article-adsense-fimage">' . $adsense_below_image . '</div><div id="article-adsense-fimage-mobile">' . $adsense_below_image_mobile . '</div><br>');
+                $document->find(".post p:first")->after('<div id="article-adsense-fimage">' . $adsense_below_image . '</div><div id="article-adsense-fimage-mobile">' . $adsense_below_image_mobile . '</div><br>');
             }
 
             $content = $document->html();

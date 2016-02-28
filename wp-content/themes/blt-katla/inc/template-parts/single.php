@@ -75,17 +75,13 @@
 
             <div class="row">
 
-                <div class="col-md-2 logo">
-
-                    <img src="<?php echo $brand['brandLogo'] ?>">
-
+                <div class="col-md-1 logo">
+                    <img src="<?php echo $brand['brandLogo'] ?>" class="brand-logo">
                 </div>
 
-                <div class="col-md-10 text">
-
+                <div class="col-md-11 text">
                     <p class="brandName">Présenté par : <a href="<?php echo $brand['brandUrl'] ?>"><?php echo $brand['brandName'] ?></a></p>
-                    <p class="brandDescription"><?php echo $brand['brandDescription'] ?></p>
-
+                    <p class="brandDescription"><?php echo stripslashes($brand['brandDescription']); ?></p>
                 </div>
 
             </div>
