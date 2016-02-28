@@ -96,17 +96,7 @@ jQuery(document).ready(function () {
         });
 
     }
-
-    jQuery(".img-pub-right").scrollToFixed({
-        preFixed: function () {
-
-        },
-        postFixed: function () {
-
-        },
-        zIndex: 999999
-    });
-
+    
 });
 
 jQuery.sharedCount = function (url, fn) {
