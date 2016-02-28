@@ -240,7 +240,7 @@ li {
 
 .header-article {
     margin-top: 15px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .author-container a {
@@ -1465,4 +1465,29 @@ section.content {
 
 .content-category-footer .categories {
     text-transform: capitalize;
+}
+
+.brand-header-container {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-top: 1px dashed #dddddd;
+    padding-top: 20px;
+}
+
+.brand-header-container .logo {
+    padding-right: 0px;
+}
+
+.brand-header-container .text p {
+    line-height: 10px;
+}
+
+.brand-header-container .text .brandName {
+    font-weight: 700;
+}
+
+.brand-header-container .text .brandDescription {
+    color: #CCCCCC;
+    line-height: 1.0em;
+    font-size: 0.9em;
 }

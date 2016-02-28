@@ -67,6 +67,33 @@
 
     </div>
 
+    <?php $brand = get_brand_for_post(get_the_ID()); ?>
+
+    <?php if ($brand): ?>
+
+        <div class="brand-header-container">
+
+            <div class="row">
+
+                <div class="col-md-2 logo">
+
+                    <img src="<?php echo $brand['brandLogo'] ?>">
+
+                </div>
+
+                <div class="col-md-10 text">
+
+                    <p class="brandName">Présenté par : <a href="<?php echo $brand['brandUrl'] ?>"><?php echo $brand['brandName'] ?></a></p>
+                    <p class="brandDescription"><?php echo $brand['brandDescription'] ?></p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    <?php endif; ?>
+
     <div class="post">
         <?php the_content(); ?>
 
