@@ -231,7 +231,7 @@ function add_piwee_brand_metabox_markup()
 
 function add_piwee_brand_metabox()
 {
-    add_meta_box("piwee-adsense-meta-box", "PIWEE Brand", "add_piwee_brand_metabox_markup", "post", "side", "high", null);
+    add_meta_box("piwee-brand-meta-box", "PIWEE Brand", "add_piwee_brand_metabox_markup", "post", "side", "high", null);
 }
 
 function validate_form_piwee_brand()
