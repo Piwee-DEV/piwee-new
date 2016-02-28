@@ -52,7 +52,7 @@ function get_piwee_brands()
 
     $brands = array();
 
-    foreach($options as $option) {
+    foreach ($options as $option) {
         $brands[] = json_decode($option->option_value, true);
     }
 
@@ -74,24 +74,27 @@ function add_brand_postmeta($postId, $brandSlug)
     || update_post_meta($postId, WPPOSTMETA_SLUG_BRAND, $brand['brandSlug']);
 }
 
-function delete_brand($brandSlug) {
+function delete_brand($brandSlug)
+{
 
     delete_brand_slug_for_post($brandSlug);
     delete_option(WPOPTION_NAME_BRAND . '_' . $brandSlug);
 }
 
-function get_brand_for_post($postId) {
+function get_brand_for_post($postId)
+{
 
     $brandSlug = get_post_meta($postId, WPPOSTMETA_SLUG_BRAND, true);
 
-    if(!$brandSlug) {
+    if (!$brandSlug) {
         return null;
     }
 
     return get_piwee_brand_by_slug($brandSlug);
 }
 
-function delete_brand_slug_for_post($brandSlug, $postId = null) {
+function delete_brand_slug_for_post($brandSlug, $postId = null)
+{
 
     delete_metadata('post', $postId, WPPOSTMETA_SLUG_BRAND, $brandSlug, true);
 }
@@ -99,7 +102,15 @@ function delete_brand_slug_for_post($brandSlug, $postId = null) {
 function brand_page()
 {
 
-    if ($_POST) {
+    if (isset($_GET)) {
+
+        if (isset($_GET['brandSlug'])) {
+
+            $editBrand = get_piwee_brand_by_slug($_GET['brandSlug']);
+        }
+    }
+
+    if (isset($_POST)) {
 
         if ($_POST['action'] == 'add_brand') {
 
@@ -112,9 +123,7 @@ function brand_page()
             $wp_option_value = encode_brand_wp_option_to_json($brandName, $brandDescription, $brandUrl, $brandLogo, $brandSlug);
 
             add_option(WPOPTION_NAME_BRAND . '_' . $brandSlug, $wp_option_value) || update_option(WPOPTION_NAME_BRAND . '_' . $brandSlug, $wp_option_value);
-        }
-
-        else if($_POST['action'] == 'delete_brand') {
+        } else if ($_POST['action'] == 'delete_brand') {
 
             delete_brand($_POST['brandSlug']);
         }
@@ -126,18 +135,33 @@ function brand_page()
     ?>
 
     <div>
-        <h1>Ajouter une marque</h1>
+        <?php if (!isset($editBrand)): ?>
+            <h1>Ajouter une marque</h1>
+        <?php endif; ?>
+
+        <?php if (isset($editBrand)): ?>
+            <h1>Editer la marque <?php echo $editBrand['brandName'] ?></h1>
+        <?php endif; ?>
 
         <form action="#" method="POST">
-            <input type="text" name="brandName" placeholder="Nom de la marque" required>
+            <input type="text" name="brandName" placeholder="Nom de la marque" <?php if (isset($editBrand)) {
+                echo 'value="' . $editBrand['brandName'] . '"';
+            } ?> required>
             <br>
-            <input type="text" name="brandUrl" placeholder="URL de la marque" required>
+            <input type="text" name="brandUrl" placeholder="URL de la marque" <?php if (isset($editBrand)) {
+                echo 'value="' . $editBrand['brandUrl'] . '"';
+            } ?> required>
             <br>
-            <textarea name="brandDescription" placeholder="Description de la marque" rows="10" cols="50" required></textarea>
+            <textarea name="brandDescription" placeholder="Description de la marque" rows="10" cols="50"
+                      required><?php if (isset($editBrand)) {
+                    echo $editBrand['brandDescription'];
+                } ?></textarea>
             <br>
             <div class="uploader">
                 <input class="button" name="_wpse_82857_button" id="_wpse_82857_button" value="Logo de la marque"/>
-                <input type="text" name="brandLogo" id="_wpse_82857" required/>
+                <input type="text" name="brandLogo" id="_wpse_82857" <?php if (isset($editBrand)) {
+                    echo 'value="' . $editBrand['brandLogo'] . '"';
+                } ?> required/>
             </div>
             <input type="hidden" name="action" value="add_brand">
             <br><br>
@@ -187,20 +211,24 @@ function brand_page()
                 <td>X</td>
             </tr>
 
-            <?php foreach($allBrands as $brand): ?>
-            <tr>
-                <td><?php echo $brand['brandName'] ?></td>
-                <td><?php echo $brand['brandDescription'] ?></td>
-                <td><?php echo $brand['brandSlug'] ?></td>
-                <td><img src="<?php echo $brand['brandLogo'] ?>" style="max-width: 100px;"></td>
-                <td>
-                    <form action="#" method="POST">
-                        <input type="hidden" name="brandSlug" value="<?php echo $brand['brandSlug'] ?>">
-                        <input type="hidden" name="action" value="delete_brand">
-                        <input type="submit" onclick="return confirm('ATTENTION : TOUS VOS ARTICLES SERONT DESASSIGNES DE CETTE MARQUE ! CONTINUER ?')" value="DELETE">
-                    </form>
-                </td>
-            </tr>
+            <?php foreach ($allBrands as $brand): ?>
+                <tr>
+                    <td><?php echo $brand['brandName'] ?></td>
+                    <td><?php echo $brand['brandDescription'] ?></td>
+                    <td><?php echo $brand['brandSlug'] ?></td>
+                    <td><img src="<?php echo $brand['brandLogo'] ?>" style="max-width: 100px;"></td>
+                    <td>
+                        <a href="?brandSlug=<?php echo $brand['brandSlug'] ?>&page=brand_page" class="button">EDIT</a>
+                        <form action="#" method="POST">
+                            <input type="hidden" name="brandSlug" value="<?php echo $brand['brandSlug'] ?>">
+                            <input type="hidden" name="action" value="delete_brand">
+                            <input type="submit"
+                                   class="button"
+                                   onclick="return confirm('ATTENTION : TOUS VOS ARTICLES SERONT DESASSIGNES DE CETTE MARQUE ! CONTINUER ?')"
+                                   value="DELETE">
+                        </form>
+                    </td>
+                </tr>
             <?php endforeach; ?>
         </table>
 
@@ -220,8 +248,11 @@ function add_piwee_brand_metabox_markup()
         <label for="piwee_brand">Choisir une marque</label>
         <select id="piwee_brand" name="brandSlug">
             <option value="-1">Aucune marque</option>
-            <?php foreach($piwee_brand_list as $brand): ?>
-                <option value="<?php echo $brand['brandSlug'] ?>" <?php if($piwee_brand['brandSlug'] == $brand['brandSlug']) {echo 'selected';} ?>><?php echo $brand['brandName'] ?></option>
+            <?php foreach ($piwee_brand_list as $brand): ?>
+                <option
+                    value="<?php echo $brand['brandSlug'] ?>" <?php if ($piwee_brand['brandSlug'] == $brand['brandSlug']) {
+                    echo 'selected';
+                } ?>><?php echo $brand['brandName'] ?></option>
             <?php endforeach; ?>
         </select>
     </p>
@@ -238,10 +269,9 @@ function validate_form_piwee_brand()
 {
     $brandSlug = $_POST['brandSlug'];
 
-    if($brandSlug == -1) {
+    if ($brandSlug == -1) {
         delete_brand_slug_for_post(WPPOSTMETA_SLUG_BRAND, get_the_ID());
-    }
-    else {
+    } else {
         add_post_meta(get_the_ID(), WPPOSTMETA_SLUG_BRAND, $brandSlug, true)
         || update_post_meta(get_the_ID(), WPPOSTMETA_SLUG_BRAND, $brandSlug);
     }
