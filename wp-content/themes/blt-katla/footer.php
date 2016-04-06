@@ -68,7 +68,7 @@
 
 <!-- ADVERTISING SCRIPTS -->
 
-<script id='aksdk' type='text/javascript'>
+<script id='aksdk' type='text/javascript' data-cfasync='true'>
     function adikteev_no_ad(formats) {
         if (formats.indexOf && (formats.indexOf("m-story-mobile") >= 0 || formats.indexOf("m-story-max-mobile") >= 0 || formats.indexOf("m-gallery-mobile") >= 0)) {
             window.MzPub = window.MzPub|| {};
@@ -93,7 +93,6 @@
             }
         }
     }
-
     (function(e,t){
         t=t||{};var n=document.createElement('script');
         var r='https:'==window.location.protocol?'https://':'http://';

@@ -823,13 +823,27 @@ if (is_single()) {
                         document.write ("'></scr"+"ipt>");
                         //]]>--></script>
                 </div>
+
+                <?php
+
+                    if(mt_rand(0, 1) == 0) {
+                        $adh['idclient'] = 'ca-pub-9594201080211682';
+                        $adh['slotid'] = '3357873053';
+                    }
+                    else {
+                        $adh['idclient'] = 'ca-pub-0031647560032028';
+                        $adh['slotid'] = '1640978927';
+                    }
+
+                ?>
+
                 <div class="hidden-lg hidden-md" style="margin-top:60px;margin-bottom:10px;">
                     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
                     <!-- Responsive article -->
                     <ins class="adsbygoogle"
                          style="display:block"
-                         data-ad-client="ca-pub-9594201080211682"
-                         data-ad-slot="3357873053"
+                         data-ad-client="<?php echo $adh['idclient']; ?>"
+                         data-ad-slot="<?php echo $adh['slotid']; ?>"
                          data-ad-format="auto"></ins>
                     <script>
                         (adsbygoogle = window.adsbygoogle || []).push({});
