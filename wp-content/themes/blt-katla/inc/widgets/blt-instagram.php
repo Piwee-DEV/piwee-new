@@ -116,7 +116,7 @@ class blt_instagram extends WP_Widget{
 
 					// If there's no error message, then set the cache up, if there is an error, then delete it.
 					if($user and $posts and !isset($posts->meta->error_message) and !isset($user->meta->error_message)){
-				        set_transient( 'blt_instagram', array('posts' => $posts_data, 'user' => $user_data), (int)$instance['caching_time'] * 60);
+				        //set_transient( 'blt_instagram', array('posts' => $posts_data, 'user' => $user_data), (int)$instance['caching_time'] * 60);
 					}else{ delete_transient( 'blt_instagram' ); }
 
 		    	}else{

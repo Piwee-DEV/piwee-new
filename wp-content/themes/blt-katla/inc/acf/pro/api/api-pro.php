@@ -203,7 +203,7 @@ function acf_pro_get_remote_info() {
         
         
 	// update transient
-	set_transient('acf_pro_get_remote_info', $info, $timeout );
+	//set_transient('acf_pro_get_remote_info', $info, $timeout );
 	
 	
 	// return

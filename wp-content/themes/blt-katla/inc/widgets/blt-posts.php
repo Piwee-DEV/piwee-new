@@ -313,7 +313,7 @@ class blt_posts extends WP_Widget{
 							}
 						}
 				    	
-				        set_transient( 'blt_posts_'.md5($q), $post_ids, 60 * 30 ); // 30 mins
+				        //set_transient( 'blt_posts_'.md5($q), $post_ids, 60 * 30 ); // 30 mins
 				    }
 			
 				$query_args['post__in'] = $post_ids;

@@ -858,7 +858,7 @@ if (!function_exists('blt_add_view')) {
             if ($visited === false) {
 
                 //store the unique key for 12 hours if it does not exist
-                set_transient($key, 1, 3600 * 12);
+                //set_transient($key, 1, 3600 * 12);
 
                 # Get view count
                 $count = get_post_meta($post_id, 'blt_post_views', true);
@@ -927,7 +927,7 @@ if (!function_exists('blt_get_option')) {
             $options[$field_key] = $field_object;
             // $options[$field_key] = $field_object['value'];
 
-            set_transient('blt_options', $options, 3600 * 24); // 24 hours
+            //set_transient('blt_options', $options, 3600 * 24); // 24 hours
         }
 
         if (isset($options[$field_key])) {

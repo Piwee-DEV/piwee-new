@@ -165,7 +165,7 @@ global $wpdb;
 					$post_ids[] = $value->ID;
 				}
 	        	
-	        	set_transient( 'blt_posts_'.md5($q), $post_ids, 60 * 30 ); // 30 mins
+	        	//set_transient( 'blt_posts_'.md5($q), $post_ids, 60 * 30 ); // 30 mins
 	    	
 			}
 	    }
