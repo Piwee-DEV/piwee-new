@@ -15,7 +15,6 @@ a {
     padding-top: 20px;
 }
 
-
 .container img {
     width: 100% !important;
 }
@@ -30,6 +29,11 @@ a {
 
 .open-menu-post-type img {
     width: inherit !important;
+}
+
+.share-bar-widget .native-btn > div,
+.share-bar-widget .native-btn > a {
+    display: inline-block;
 }
 
 @media (max-width: 990px) {
