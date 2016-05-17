@@ -31,6 +31,10 @@ a {
     width: inherit !important;
 }
 
+.media-share-image img {
+    width: auto !important;
+}
+
 .share-bar-widget .native-btn > div,
 .share-bar-widget .native-btn > a {
     display: inline-block;
