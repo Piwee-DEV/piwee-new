@@ -68,43 +68,12 @@
 
 <!-- ADVERTISING SCRIPTS -->
 
-<script id='aksdk' type='text/javascript' data-cfasync='true'>
-    function adikteev_no_ad(formats) {
-        if (formats.indexOf && (formats.indexOf("m-story-mobile") >= 0 || formats.indexOf("m-story-max-mobile") >= 0 || formats.indexOf("m-gallery-mobile") >= 0)) {
-            window.MzPub = window.MzPub|| {};
-            MzPub.pub = MzPub.pub || {};
-            MzPub.pub.id = '4558421';
-            MzPub.pub.size = '320x50';
-            MzPub.pub.pub_size = ['320x480','300x250','100x320','320x100'];
-            MzPub.pub.ref = 'piwee.net';
-            MzPub.pub.tab_size = ['728x90','1024x150','150x500','1024x768','768x1024'];
-            MzPub.pub.mob_page = true;
-            MzPub.pub.publisher_click = '';
-            MzPub.pub.age = '18-64';
-            MzPub.pub.gender = 'm';
-            var elem = document.createElement('SCRIPT');
-            elem.src = 'http://storage.mozoo.com/publisher_scripts/mz_pubscript.js';
-            if(document.body) {
-                document.body.appendChild(elem);
-            } else {
-                window.addEventListener('DOMContentLoaded', function() {
-                    document.body.appendChild(elem);
-                });
-            }
-        }
-    }
-    (function(e,t){
-        t=t||{};var n=document.createElement('script');
-        var r='https:'==window.location.protocol?'https://':'http://';
-        n.src=r+'cdn.adikteev.com/lib/v3/aksdk.moment?t='+((new Date).getTime()/1e3/3600).toFixed();
-        n.type='text/javascript';n.async='true';
-        n.onload=n.onreadystatechange=function(){
-            var n=this.readyState;if(n&&n!='complete'&&n!='loaded')return;
-            try{top.AKSdk.init(e,t) }catch(r){}
-        };
-        try{ var i=top.document.getElementsByTagName('script')[0];i.parentNode.insertBefore(n,i); }catch(e){};
-    })({desktop:'sYMu7jz1yovpvi-ONrOLKRKi-pFZOCT6n7Ium2Sby9Y=', mobile:'wI_SDAg0KmFhBMSbdRRtsxq-3P9tdVFrndF8ykXdVOE='}, {noad_callback: adikteev_no_ad});
+<script>
+    var unruly = window.unruly || {};
+    unruly.native = unruly.native || {};
+    unruly.native.siteId = 1005784;
 </script>
+<script src="//video.unrulymedia.com/native/native-loader.js"></script>
 
 <script type="text/javascript">
     window._taboola = window._taboola || [];
