@@ -433,7 +433,7 @@ function campains_page()
         <form action="/wp-admin/admin.php" method="GET">
 
             <?php $posts_array = get_posts(array(
-                'posts_per_page' => 99999,
+                'posts_per_page' => 500,
                 'offset' => 0,
                 'category' => '',
                 'orderby' => 'post_date',
