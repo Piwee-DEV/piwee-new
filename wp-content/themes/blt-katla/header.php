@@ -801,6 +801,10 @@ if (is_single()) {
 
             <div id="campain_bg" class="campain_bg"></div>
 
+            <div class="container" style="margin-top:10px;">
+                
+            </div>
+
             <?php echo stripslashes($campain_injected_code); ?>
 
             <?php if ($display_video): ?>
@@ -818,4 +822,4 @@ if (is_single()) {
             <?php endif; ?>
 
 
-            <div id="site-body" style="margin-top: 15px;">
+            <div id="site-body">
