@@ -800,36 +800,7 @@ if (is_single()) {
             <?php endif ?>
 
             <div id="campain_bg" class="campain_bg"></div>
-
-            <div class="container" style="margin-top:10px;">
-
-                <?php
-
-                    if(mt_rand(0, 1) == 0) {
-                        $adh['idclient'] = 'ca-pub-9594201080211682';
-                        $adh['slotid'] = '3357873053';
-                    }
-                    else {
-                        $adh['idclient'] = 'ca-pub-0031647560032028';
-                        $adh['slotid'] = '6471980923';
-                    }
-
-                ?>
-
-                <div class="hidden-lg hidden-md" style="margin-top:60px;margin-bottom:10px;">
-                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                    <!-- Responsive article -->
-                    <ins class="adsbygoogle"
-                         style="display:block"
-                         data-ad-client="<?php echo $adh['idclient']; ?>"
-                         data-ad-slot="<?php echo $adh['slotid']; ?>"
-                         data-ad-format="auto"></ins>
-                    <script>
-                        (adsbygoogle = window.adsbygoogle || []).push({});
-                    </script>
-                </div>
-            </div>
-
+            
             <?php echo stripslashes($campain_injected_code); ?>
 
             <?php if ($display_video): ?>
