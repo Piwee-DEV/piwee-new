@@ -1356,6 +1356,11 @@ section.content {
 }
 
 @media (max-width: 960px) {
+
+    #site-body-parent {
+        padding-top: 50px !important;
+    }
+    
     .piwee-mobile-content-wrapper {
         padding-left: 0 !important;
         padding-right: 0 !important;
