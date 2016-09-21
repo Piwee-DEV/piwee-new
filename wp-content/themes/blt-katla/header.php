@@ -802,26 +802,31 @@ if (is_single()) {
             <div id="campain_bg" class="campain_bg"></div>
 
             <div class="container" style="margin-top:10px;">
-                <div class="hidden-sm hidden-xs">
-                    <script type='text/javascript'>
-                        <!--//<![CDATA[
-                        document.MAX_ct0 ='';
-                        var m3_u = (location.protocol=='https:'?'https://cas.criteo.com/delivery/ajs.php?':'http://cas.criteo.com/delivery/ajs.php?');
-                        var m3_r = Math.floor(Math.random()*99999999999);
-                        document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
-                        document.write ("zoneid=386812");document.write("&amp;nodis=1");
-                        document.write ('&amp;cb=' + m3_r);
-                        if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
-                        document.write (document.charset ? '&amp;charset='+document.charset : (document.characterSet ? '&amp;charset='+document.characterSet : ''));
-                        document.write ("&amp;loc=" + escape(window.location).substring(0,1600));
-                        if (document.context) document.write ("&context=" + escape(document.context));
-                        if ((typeof(document.MAX_ct0) != 'undefined') && (document.MAX_ct0.substring(0,4) == 'http')) {
-                            document.write ("&amp;ct0=" + escape(document.MAX_ct0));
-                        }
-                        if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
 
-                        document.write ("'></scr"+"ipt>");
-                        //]]>--></script>
+                <?php
+
+                    if(mt_rand(0, 1) == 0) {
+                        $adh['idclient'] = 'ca-pub-9594201080211682';
+                        $adh['slotid'] = '3357873053';
+                    }
+                    else {
+                        $adh['idclient'] = 'ca-pub-0031647560032028';
+                        $adh['slotid'] = '6471980923';
+                    }
+
+                ?>
+
+                <div class="hidden-lg hidden-md" style="margin-top:60px;margin-bottom:10px;">
+                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- Responsive article -->
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="<?php echo $adh['idclient']; ?>"
+                         data-ad-slot="<?php echo $adh['slotid']; ?>"
+                         data-ad-format="auto"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
                 </div>
             </div>
 
