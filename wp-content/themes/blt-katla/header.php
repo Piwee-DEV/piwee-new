@@ -796,7 +796,7 @@ if (is_single()) {
     <div id="site-body-parent"
          style="background-image:url('<?php echo $campain_bg_image ?>'); background-repeat: no-repeat; background-position: 50% 0;background-color: <?php echo $campain_background_color ?>">
         <?php else: ?>
-        <div id="site-body-parent">
+        <div id="site-body-parent" <?php if($isCampain) echo ' style="padding-top:0;"' ?>>
             <?php endif ?>
 
             <div id="campain_bg" class="campain_bg"></div>
