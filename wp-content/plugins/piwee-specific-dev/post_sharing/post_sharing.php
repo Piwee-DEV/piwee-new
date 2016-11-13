@@ -317,16 +317,14 @@ function get_most_shared_posts_of_the_week($limit)
     }
     catch(Exception $e) {}
 
-    $post_ids = array();
+    $posts = array();
 
     if($response) {
         foreach($response['hits']['hits'] as $elem) {
             $post_id = $elem['_id'];
-            $post_ids[] = $post_id;
+            $posts[] = get_post($post_id);
         }
     }
-
-    $posts = get_posts(array('post__in' => $post_ids));
 
     return $posts;
 }
@@ -357,16 +355,14 @@ function get_most_shared_posts_of_the_month($limit)
     }
     catch(Exception $e) {}
 
-    $post_ids = array();
+    $posts = array();
 
     if($response) {
         foreach($response['hits']['hits'] as $elem) {
             $post_id = $elem['_id'];
-            $post_ids[] = $post_id;
+            $posts[] = get_post($post_id);
         }
     }
-
-    $posts = get_posts(array('post__in' => $post_ids));
 
     return $posts;
 }
@@ -393,16 +389,14 @@ function get_most_shared_posts_of_all_time($limit)
     }
     catch(Exception $e) {}
 
-    $post_ids = array();
+    $posts = array();
 
     if($response) {
         foreach($response['hits']['hits'] as $elem) {
             $post_id = $elem['_id'];
-            $post_ids[] = $post_id;
+            $posts[] = get_post($post_id);
         }
     }
-
-    $posts = get_posts(array('post__in' => $post_ids));
 
     return $posts;
 }
