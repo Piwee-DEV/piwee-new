@@ -43,15 +43,31 @@ add_action('wp_enqueue_scripts', 'register_script_sharebtn_plugin', 99999);
 add_action('admin_enqueue_scripts', 'register_script_colorpicker', 99999);
 add_action('admin_enqueue_scripts', 'register_script_admin', 99999);
 add_action('admin_menu', 'register_campagne_page');
+add_action('admin_menu', 'register_refresh_share_count_page');
 
 wp_register_script('fuckadblock', plugins_url('/js/fuckadblock.js', __FILE__));
 wp_enqueue_script('fuckadblock');
+
+
+function register_refresh_share_count_page()
+{
+    add_menu_page('Refresh share count', 'Refresh share count', 'manage_options', 'refresh_share_count_page', 'refresh_share_count_page', plugins_url('images/logo-piwee.jpg', __FILE__), null);
+}
 
 
 function register_campagne_page()
 {
     add_menu_page('PIWEE Campagne', 'PIWEE Campagne', 'manage_options', 'campains_page', 'campains_page', plugins_url('images/logo-piwee.jpg', __FILE__), null);
     add_dashboard_page('Campagne par post', "Campagnes PIWEE", 'read', 'campains_page_post', 'campains_page_post');
+}
+
+function refresh_share_count_page() {
+
+    $updated_posts = refresh_share_count_in_db_recent_posts();
+
+    echo 'Refreshed share counts for theses posts :<br><br>';
+
+    var_dump($updated_posts);
 }
 
 function campains_page_post()

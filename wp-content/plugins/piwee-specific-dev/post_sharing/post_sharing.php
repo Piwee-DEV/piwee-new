@@ -251,3 +251,18 @@ function get_total_share_count($post_id)
         'total_share_count_month' => $total_share_count_month,
         'share_count_month_diff' => $share_count_month_diff);
 }
+
+
+/**
+ * Refresh share counts for recent posts
+ */
+function refresh_share_count_in_db_recent_posts()
+{
+    $posts = query_posts(array('posts_per_page' => 1000, 'orderby' => 'date', 'order' => 'DESC', 'post_status' => 'publish'));
+
+    foreach($posts as $post) {
+        refresh_share_count_in_db($post->ID);
+    }
+
+    return $posts;
+}
