@@ -47,13 +47,14 @@ function social_share_shares($providerName, $url)
 /**
  * Create the index in ES if it does not exists
  */
-function init_es_index_if_not_exists() {
+function init_es_index_if_not_exists()
+{
 
     global $client;
 
     $exists = $client->indices()->exists(['index' => ES_INDEX_NAME]);
 
-    if(!$exists) {
+    if (!$exists) {
 
         $params = [
             'index' => ES_INDEX_NAME,
@@ -129,12 +130,13 @@ function refresh_share_count_in_db($post_id)
  * @param $key
  * @param $value
  */
-function update_or_create_share_count($post_id, $key, $value) {
+function update_or_create_share_count($post_id, $key, $value)
+{
 
     global $client;
     global $current_loaded_post_for_update;
 
-    if(!$current_loaded_post_for_update) {
+    if (!$current_loaded_post_for_update) {
 
         $params = [
             'index' => ES_INDEX_NAME,
@@ -146,7 +148,7 @@ function update_or_create_share_count($post_id, $key, $value) {
 
         $post = [];
 
-        if($exists) {
+        if ($exists) {
             $post = $client->getSource($params);
         }
 
@@ -162,7 +164,8 @@ function update_or_create_share_count($post_id, $key, $value) {
  * Update the current $current_loaded_post_for_update to ES
  * @param $post_id
  */
-function commit_update_or_create_share_count($post_id) {
+function commit_update_or_create_share_count($post_id)
+{
 
     global $client;
     global $current_loaded_post_for_update;
@@ -188,7 +191,8 @@ function commit_update_or_create_share_count($post_id) {
  * @param $key
  * @return null
  */
-function get_post_share_count($post_id) {
+function get_post_share_count($post_id)
+{
 
     global $client;
 
@@ -200,7 +204,7 @@ function get_post_share_count($post_id) {
 
     $exists = $client->exists($params);
 
-    if($exists) {
+    if ($exists) {
         $post = $client->getSource($params);
         return $post;
     }
@@ -228,22 +232,22 @@ function get_total_share_count($post_id)
 
     $exists = $client->exists($params);
 
-    if($exists) {
+    if ($exists) {
         $post = $client->getSource($params);
     }
 
     $total_share_count = null;
-    if($post && isset($post['total_share_count'])) {
+    if ($post && isset($post['total_share_count'])) {
         $total_share_count = $post['total_share_count'];
     }
 
     $total_share_count_month = null;
-    if($post && isset($post['total_share_count_month_' . $month])) {
+    if ($post && isset($post['total_share_count_month_' . $month])) {
         $total_share_count_month = $post['total_share_count_month_' . $month];
     }
 
     $share_count_month_diff = null;
-    if($post && isset($post['share_count_month_diff_' . $month])) {
+    if ($post && isset($post['share_count_month_diff_' . $month])) {
         $share_count_month_diff = $post['share_count_month_diff_' . $month];
     }
 
@@ -260,14 +264,15 @@ function refresh_share_count_in_db_recent_posts()
 {
     $posts = query_posts(array('posts_per_page' => 1000, 'orderby' => 'date', 'order' => 'DESC', 'post_status' => 'publish'));
 
-    foreach($posts as $post) {
+    foreach ($posts as $post) {
         refresh_share_count_in_db($post->ID);
     }
 
     return $posts;
 }
 
-function migrate_post_share_count() {
+function migrate_post_share_count()
+{
 
     ini_set('memory_limit', '-1');
 
@@ -281,9 +286,46 @@ function migrate_post_share_count() {
 
     echo 'results count : ' . count($all) . PHP_EOL;
 
-    foreach($all as $a) {
+    foreach ($all as $a) {
         update_or_create_share_count($a['post_id'], $a['meta_key'], $a['meta_value']);
         commit_update_or_create_share_count($a['post_id']);
         echo 'update post ' . $a['post_id'] . ' forkey ' . $a['meta_key'] . ' forvalue' . $a['meta_value'] . PHP_EOL;
     }
+}
+
+function get_most_shared_posts_of_the_week($limit)
+{
+    global $client;
+
+    $week = date('W.m.Y');
+
+    $params = [
+        'index' => ES_INDEX_NAME,
+        'type' => ES_TYPE_NAME,
+        'size' => $limit,
+        'body' => [
+            'sort' => [
+                ['share_count_week_diff_' . $week => ['order' => 'desc']]
+                //['total_share_count' => ['order' => 'desc']]
+            ]
+        ]
+    ];
+
+    try {
+        $response = $client->search($params);
+    }
+    catch(Exception $e) {}
+
+    $post_ids = array();
+
+    if($response) {
+        foreach($response['hits']['hits'] as $elem) {
+            $post_id = $elem['_id'];
+            $post_ids[] = $post_id;
+        }
+    }
+
+    $posts = get_posts(array('post__in' => $post_ids));
+
+    return $posts;
 }

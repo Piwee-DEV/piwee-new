@@ -2,18 +2,8 @@
 
 <?php
 
-    $week = date('W.m.Y');
 
-    $most_shared_post_of_the_week_x_next = query_posts(
-        array(
-            'meta_key' => 'share_count_week_diff_' . $week,
-            'orderby' => 'meta_value_num',
-            'order' => 'DESC',
-            'posts_per_page' => 3,
-            'ignore_sticky_posts' => 1
-        )
-    );
-
+    $most_shared_post_of_the_week_x_next = get_most_shared_posts_of_the_week(3);
 
     //Get the first sticky post if there is
     $sticky_query = query_posts(array(
