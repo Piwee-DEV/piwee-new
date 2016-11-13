@@ -43,8 +43,8 @@ add_action('wp_enqueue_scripts', 'register_script_sharebtn_plugin', 99999);
 add_action('admin_enqueue_scripts', 'register_script_colorpicker', 99999);
 add_action('admin_enqueue_scripts', 'register_script_admin', 99999);
 add_action('admin_menu', 'register_campagne_page');
-add_action('admin_menu', 'register_refresh_share_count_page');
-add_action('admin_menu', 'register_share_count_migration_page');
+//add_action('admin_menu', 'register_refresh_share_count_page');
+//add_action('admin_menu', 'register_share_count_migration_page');
 
 wp_register_script('fuckadblock', plugins_url('/js/fuckadblock.js', __FILE__));
 wp_enqueue_script('fuckadblock');
