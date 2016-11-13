@@ -283,6 +283,7 @@ function migrate_post_share_count() {
 
     foreach($all as $a) {
         update_or_create_share_count($a['post_id'], $a['meta_key'], $a['meta_value']);
+        commit_update_or_create_share_count($a['post_id']);
         echo 'update post ' . $a['post_id'] . ' forkey ' . $a['meta_key'] . ' forvalue' . $a['meta_value'] . PHP_EOL;
     }
 }
