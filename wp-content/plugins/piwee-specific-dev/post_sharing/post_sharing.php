@@ -86,40 +86,47 @@ function refresh_share_count_in_db($post_id)
         $count += social_share_shares($network, $permalink);
     }
 
-    //Update in DB
-    update_or_create_share_count($post_id, 'total_share_count', $count);
+    $count = $count ? $count : 0;
 
-    //Store in DB by month
-    update_or_create_share_count($post_id, 'total_share_count_month_' . $month, $count);
+    //We don't update anything in ES if we have 0 shares.
+    if($count && $count > 0) {
 
-    //Store in DB by week
-    update_or_create_share_count($post_id, 'total_share_count_week_' . $week, $count);
 
-    //A "month diff" for the current month share diff
-    $oneMonthAgo = date("m.Y", strtotime("-1 months"));
+        //Update in DB
+        update_or_create_share_count($post_id, 'total_share_count', $count);
 
-    //A "week diff" for the current month share diff
-    $oneWeekAgo = date("W.m.Y", strtotime("-1 weeks"));
+        //Store in DB by month
+        update_or_create_share_count($post_id, 'total_share_count_month_' . $month, $count);
 
-    $shareCountData = get_post_share_count($post_id);
-    $countOneMonthAgo = $shareCountData['total_share_count_month_' . $oneMonthAgo];
-    $countOneWeekAgo = $shareCountData['total_share_count_week_' . $oneWeekAgo];
+        //Store in DB by week
+        update_or_create_share_count($post_id, 'total_share_count_week_' . $week, $count);
 
-    if ($countOneMonthAgo != null) {
+        //A "month diff" for the current month share diff
+        $oneMonthAgo = date("m.Y", strtotime("-1 months"));
 
-        $diff = $count - $countOneMonthAgo;
+        //A "week diff" for the current month share diff
+        $oneWeekAgo = date("W.m.Y", strtotime("-1 weeks"));
 
-        update_or_create_share_count($post_id, 'share_count_month_diff_' . $month, $diff);
+        $shareCountData = get_post_share_count($post_id);
+        $countOneMonthAgo = $shareCountData['total_share_count_month_' . $oneMonthAgo];
+        $countOneWeekAgo = $shareCountData['total_share_count_week_' . $oneWeekAgo];
+
+        if ($countOneMonthAgo != null) {
+
+            $diff = $count - $countOneMonthAgo;
+
+            update_or_create_share_count($post_id, 'share_count_month_diff_' . $month, $diff);
+        }
+
+        if ($countOneWeekAgo != null) {
+
+            $diff = $count - $countOneWeekAgo;
+
+            update_or_create_share_count($post_id, 'share_count_week_diff_' . $week, $diff);
+        }
+
+        commit_update_or_create_share_count($post_id);
     }
-
-    if ($countOneWeekAgo != null) {
-
-        $diff = $count - $countOneWeekAgo;
-
-        update_or_create_share_count($post_id, 'share_count_week_diff_' . $week, $diff);
-    }
-
-    commit_update_or_create_share_count($post_id);
 }
 
 /**
@@ -132,7 +139,6 @@ function refresh_share_count_in_db($post_id)
  */
 function update_or_create_share_count($post_id, $key, $value)
 {
-
     global $client;
     global $current_loaded_post_for_update;
 
