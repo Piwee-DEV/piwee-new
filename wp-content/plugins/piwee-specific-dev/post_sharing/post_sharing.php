@@ -274,7 +274,7 @@ function migrate_post_share_count() {
     $pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
     $bdd = new PDO('mysql:host=192.168.0.1;dbname=piweeold;charset=utf8', 'root', 'piwee123', $pdo_options);
 
-    $query = $bdd->prepare("select * from wp_postmeta where meta_key like '%share_%'");
+    $query = $bdd->prepare("select * from wp_postmeta where meta_key like '%share_%' order by meta_id DESC");
     $query->execute();
 
     $all = $query->fetchAll();
