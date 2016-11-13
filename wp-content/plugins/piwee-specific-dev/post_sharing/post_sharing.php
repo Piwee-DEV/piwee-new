@@ -266,3 +266,23 @@ function refresh_share_count_in_db_recent_posts()
 
     return $posts;
 }
+
+function migrate_post_share_count() {
+
+    ini_set('memory_limit', '-1');
+
+    $pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
+    $bdd = new PDO('mysql:host=192.168.0.1;dbname=piwee_old;charset=utf8', 'root', 'piwee123', $pdo_options);
+
+    $query = $bdd->prepare("select * from wp_postmeta where meta_key like '%share_%'");
+    $query->execute();
+
+    $all = $query->fetchAll();
+
+    echo 'results count : ' . count($all) . PHP_EOL;
+
+    foreach($all as $a) {
+        update_or_create_share_count($a['post_id'], $a['meta_key'], $a['meta_value']);
+        echo 'update post ' . $a['post_id'] . ' forkey ' . $a['meta_key'] . ' forvalue' . $a['meta_value'] . PHP_EOL;
+    }
+}

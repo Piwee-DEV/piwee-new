@@ -44,6 +44,7 @@ add_action('admin_enqueue_scripts', 'register_script_colorpicker', 99999);
 add_action('admin_enqueue_scripts', 'register_script_admin', 99999);
 add_action('admin_menu', 'register_campagne_page');
 add_action('admin_menu', 'register_refresh_share_count_page');
+add_action('admin_menu', 'register_share_count_migration_page');
 
 wp_register_script('fuckadblock', plugins_url('/js/fuckadblock.js', __FILE__));
 wp_enqueue_script('fuckadblock');
@@ -54,6 +55,14 @@ function register_refresh_share_count_page()
     add_menu_page('Refresh share count', 'Refresh share count', 'manage_options', 'refresh_share_count_page', 'refresh_share_count_page', plugins_url('images/logo-piwee.jpg', __FILE__), null);
 }
 
+function register_share_count_migration_page()
+{
+    add_menu_page('Migrate share count', 'Migrate share count', 'manage_options', 'share_count_migration_page', 'share_count_migration_page', plugins_url('images/logo-piwee.jpg', __FILE__), null);
+}
+
+function share_count_migration_page() {
+    migrate_post_share_count();
+}
 
 function register_campagne_page()
 {
@@ -65,9 +74,7 @@ function refresh_share_count_page() {
 
     $updated_posts = refresh_share_count_in_db_recent_posts();
 
-    echo 'Refreshed share counts for theses posts :<br><br>';
-
-    var_dump($updated_posts);
+    echo 'Refreshed share counts for ' . count($updated_posts) . ' posts<br><br>';
 }
 
 function campains_page_post()
