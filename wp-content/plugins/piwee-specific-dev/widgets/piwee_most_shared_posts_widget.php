@@ -29,49 +29,18 @@ class most_shared_widget extends WP_Widget
             echo $args['before_title'] . $title . $args['after_title'];
 
 
-        $month = date('m.Y');
+        $most_shared_posts = get_most_shared_posts_of_all_time(3);
 
-        $most_shared_post = query_posts(
-            array(
-                'meta_key' => 'total_share_count',
-                'orderby' => 'meta_value_num',
-                'order' => 'DESC',
-                'posts_per_page' => 1,
-                'ignore_sticky_posts' => 1
-            )
-        );
+        $most_shared_post = array(array_shift($most_shared_posts));
 
-        $most_shared_post_x_next = query_posts(
-            array(
-                'meta_key' => 'total_share_count',
-                'orderby' => 'meta_value_num',
-                'order' => 'DESC',
-                'posts_per_page' => 2,
-                'offset' => 1,
-                'ignore_sticky_posts' => 1
-            )
-        );
+        $most_shared_post_x_next = $most_shared_posts;
 
-        $most_shared_post_of_the_month = query_posts(
-            array(
-                'meta_key' => 'share_count_month_diff_' . $month,
-                'orderby' => 'meta_value_num',
-                'order' => 'DESC',
-                'posts_per_page' => 1,
-                'ignore_sticky_posts' => 1
-            )
-        );
+        $most_shared_post_of_the_months = get_most_shared_posts_of_the_month(3);
 
-        $most_shared_post_of_the_month_x_next = query_posts(
-            array(
-                'meta_key' => 'share_count_month_diff_' . $month,
-                'orderby' => 'meta_value_num',
-                'order' => 'DESC',
-                'posts_per_page' => 2,
-                'offset' => 1,
-                'ignore_sticky_posts' => 1
-            )
-        );
+        $most_shared_post_of_the_month = array(array_shift($most_shared_post_of_the_months));
+
+        $most_shared_post_of_the_month_x_next = $most_shared_post_of_the_months;
+
 
         // This is where you run the code and display the output
 

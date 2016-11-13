@@ -303,10 +303,87 @@ function get_most_shared_posts_of_the_week($limit)
         'index' => ES_INDEX_NAME,
         'type' => ES_TYPE_NAME,
         'size' => $limit,
+        'from' => 0,
         'body' => [
             'sort' => [
                 ['share_count_week_diff_' . $week => ['order' => 'desc']]
                 //['total_share_count' => ['order' => 'desc']]
+            ]
+        ]
+    ];
+
+    try {
+        $response = $client->search($params);
+    }
+    catch(Exception $e) {}
+
+    $post_ids = array();
+
+    if($response) {
+        foreach($response['hits']['hits'] as $elem) {
+            $post_id = $elem['_id'];
+            $post_ids[] = $post_id;
+        }
+    }
+
+    $posts = get_posts(array('post__in' => $post_ids));
+
+    return $posts;
+}
+
+
+
+function get_most_shared_posts_of_the_month($limit)
+{
+    global $client;
+
+    $month = date('m.Y');
+
+    $params = [
+        'index' => ES_INDEX_NAME,
+        'type' => ES_TYPE_NAME,
+        'size' => $limit,
+        'from' => 0,
+        'body' => [
+            'sort' => [
+                ['share_count_month_diff_' . $month => ['order' => 'desc']]
+                //['total_share_count' => ['order' => 'desc']]
+            ]
+        ]
+    ];
+
+    try {
+        $response = $client->search($params);
+    }
+    catch(Exception $e) {}
+
+    $post_ids = array();
+
+    if($response) {
+        foreach($response['hits']['hits'] as $elem) {
+            $post_id = $elem['_id'];
+            $post_ids[] = $post_id;
+        }
+    }
+
+    $posts = get_posts(array('post__in' => $post_ids));
+
+    return $posts;
+}
+
+
+function get_most_shared_posts_of_all_time($limit)
+{
+    global $client;
+
+    $params = [
+        'index' => ES_INDEX_NAME,
+        'type' => ES_TYPE_NAME,
+        'size' => $limit,
+        'from' => 0,
+        'body' => [
+            'sort' => [
+                ['total_share_count' => ['order' => 'desc']]
             ]
         ]
     ];
