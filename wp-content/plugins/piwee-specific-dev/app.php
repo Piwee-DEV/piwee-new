@@ -598,7 +598,13 @@ function social_shares_span()
 function social_shares_button($post_id)
 {
 
-    $share_count = get_total_share_count($post_id);
+    if(!$post_id) {
+        $post_id = the_ID();
+    }
+
+    if($post_id) {
+        $share_count = get_total_share_count($post_id);
+    }
 
     ?>
 
@@ -762,8 +768,7 @@ function getCategoryIdsArrayFromParent($parentId) {
 function refreshPostShareCountAsync($content) {
 
     if(is_single()) {
-        $site_url = "http://" . $_SERVER['SERVER_NAME'];
-        shell_exec('curl --data "action=refresh_share_count_in_db&post_id=' . get_the_ID() . '" ' . $site_url . '/wp-admin/admin-ajax.php > /dev/null 2>/dev/null &');
+        refresh_share_count_in_db(get_the_ID());
     }
 
     return $content;
