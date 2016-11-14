@@ -373,7 +373,7 @@ function get_most_shared_posts_of_the_month($limit)
             $post_id = $elem['_id'];
             $post = get_post($post_id);
             if($post->post_type == 'attachment') {
-              $post = get_post(wp_get_post_parent_id($post_id->ID));
+              $post = get_post($post->post_parent);
             }
             $posts[] = $post;
         }
@@ -411,7 +411,7 @@ function get_most_shared_posts_of_all_time($limit)
             $post_id = $elem['_id'];
             $post = get_post($post_id);
             if($post->post_type == 'attachment') {
-              $post = get_post(wp_get_post_parent_id($post_id->ID));
+              $post = get_post($post->post_parent);
             }
             $posts[] = $post;
         }
