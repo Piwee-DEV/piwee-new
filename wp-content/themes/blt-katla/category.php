@@ -9,15 +9,8 @@ if (strpos($permalink, 'top10') !== false) {
 
     $title = 'Top 10';
 
-    $posts = query_posts(
-        array(
-            'meta_key' => 'total_share_count',
-            'orderby' => 'meta_value_num',
-            'order' => 'DESC',
-            'posts_per_page' => 10,
-            'ignore_sticky_posts' => 1
-        )
-    );
+    $posts = get_most_shared_posts_of_all_time(10);
+    
 } else if (strpos($permalink, 'recent') !== false) {
 
     $title = 'Récemment';
