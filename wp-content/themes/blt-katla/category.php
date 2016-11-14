@@ -10,7 +10,7 @@ if (strpos($permalink, 'top10') !== false) {
     $title = 'Top 10';
 
     $posts = get_most_shared_posts_of_all_time(10);
-    
+
 } else if (strpos($permalink, 'recent') !== false) {
 
     $title = 'Récemment';
