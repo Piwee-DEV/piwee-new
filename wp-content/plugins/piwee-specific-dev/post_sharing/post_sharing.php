@@ -329,7 +329,11 @@ function get_most_shared_posts_of_the_week($limit)
     if($response) {
         foreach($response['hits']['hits'] as $elem) {
             $post_id = $elem['_id'];
-            $posts[] = get_post($post_id);
+            $post = get_post($post_id);
+            if($post->post_type == 'attachment') {
+              $post = get_post_field('post_parent', $post_id->ID);
+            }
+            $posts[] = $post;
         }
     }
 
@@ -367,7 +371,11 @@ function get_most_shared_posts_of_the_month($limit)
     if($response) {
         foreach($response['hits']['hits'] as $elem) {
             $post_id = $elem['_id'];
-            $posts[] = get_post($post_id);
+            $post = get_post($post_id);
+            if($post->post_type == 'attachment') {
+              $post = get_post_field('post_parent', $post_id->ID);
+            }
+            $posts[] = $post;
         }
     }
 
@@ -401,7 +409,11 @@ function get_most_shared_posts_of_all_time($limit)
     if($response) {
         foreach($response['hits']['hits'] as $elem) {
             $post_id = $elem['_id'];
-            $posts[] = get_post($post_id);
+            $post = get_post($post_id);
+            if($post->post_type == 'attachment') {
+              $post = get_post_field('post_parent', $post_id->ID);
+            }
+            $posts[] = $post;
         }
     }
 
