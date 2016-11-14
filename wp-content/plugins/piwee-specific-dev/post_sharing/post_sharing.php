@@ -331,7 +331,7 @@ function get_most_shared_posts_of_the_week($limit)
             $post_id = $elem['_id'];
             $post = get_post($post_id);
             if($post->post_type == 'attachment') {
-              $post = get_post(wp_get_post_parent_id($post_id->ID));
+              $post = get_post($post->post_parent);
             }
             $posts[] = $post;
         }
