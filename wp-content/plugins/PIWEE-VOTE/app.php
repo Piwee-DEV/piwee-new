@@ -144,7 +144,7 @@ function getVotePostsForCategory($permalink)
                     'meta_key' => 'vote_count_' . $choice->name,
                     'orderby' => 'meta_value_num',
                     'order' => 'DESC',
-                    'posts_per_page' => 30,
+                    'posts_per_page' => 10,
                     'ignore_sticky_posts' => 1
                 )
             );
