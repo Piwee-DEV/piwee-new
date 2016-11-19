@@ -132,7 +132,7 @@ function getVotePostsForCategory($permalink)
     $slug = $splittedPermalink[count($splittedPermalink) - 1];
 
     if(strpos($permalink, "/page/") > 0) {
-        $slug = $splittedPermalink[count($splittedPermalink) - 4];
+        $slug = $splittedPermalink[count($splittedPermalink) - 3];
     }
 
     $category = get_category_by_slug($slug);
