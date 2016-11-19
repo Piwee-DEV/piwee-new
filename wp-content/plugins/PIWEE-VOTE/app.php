@@ -22,7 +22,10 @@ License: Copyright 2016 Alexandre Nguyen  (email : alex.nr@hotmail.co.jp)
         Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-require_once "widgets/piwee_vote_horizontal_widget.php";
+//Load composer plugins
+require_once("vendor/autoload.php");
+
+require_once("widgets/piwee_vote_horizontal_widget.php");
 
 register_activation_hook(__FILE__, 'registerTables');
 add_action('admin_menu', 'register_vote_page');
@@ -260,7 +263,7 @@ function updateMetadataVoteCount($post_id)
 function getVoteCountByPostAndChoice($choice_id = null, $post_id = null)
 {
     global $wpdb;
-    $entries = $wpdb->query("SELECT * FROM wp_piwee_vote WHERE post_id = " . $post_id . " AND vote_field_id = " . $choice_id);
+    $entries = $wpdb->query("SELECT id FROM wp_piwee_vote WHERE post_id = " . $post_id . " AND vote_field_id = " . $choice_id);
 
     return $entries;
 }

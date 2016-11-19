@@ -841,6 +841,7 @@ if (!function_exists('blt_add_view')) {
     function blt_add_view()
     {
 
+        /*
         $post_id = $_POST['post_id'];
 
         if (is_numeric($post_id) and !current_user_can('administrator')) {
@@ -877,7 +878,8 @@ if (!function_exists('blt_add_view')) {
 
                 }
             }
-        }
+        }*/
+
         wp_die();
     }
 }

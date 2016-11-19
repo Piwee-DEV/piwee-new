@@ -121,8 +121,8 @@ if( isset($_POST['blt_post_upload_form_submitted'] ) and wp_verify_nonce($_POST[
 					if($attachment_id){
 
 						// add post meta
-						add_post_meta($attachment_id, 'blt_post_files_source_name', sanitize_text_field($_POST['blt_post_files_source_name'][$i]), false);
-						add_post_meta($attachment_id, 'blt_post_files_source_url', sanitize_text_field($_POST['blt_post_files_source_url'][$i]), false);
+						//add_post_meta($attachment_id, 'blt_post_files_source_name', sanitize_text_field($_POST['blt_post_files_source_name'][$i]), false);
+						//add_post_meta($attachment_id, 'blt_post_files_source_url', sanitize_text_field($_POST['blt_post_files_source_url'][$i]), false);
 						$attachment_ids[] = $attachment_id;
 					}
 
@@ -345,7 +345,7 @@ function blt_vote_post(){
 
 					$upvotes = 1;
 
-					add_post_meta( $post_id, 'blt_upvotes', $upvotes, true );
+					//add_post_meta( $post_id, 'blt_upvotes', $upvotes, true );
 					
 				}else{
 
@@ -361,7 +361,7 @@ function blt_vote_post(){
 
 					$downvotes = 1;
 
-					add_post_meta( $post_id, 'blt_downvotes', $downvotes, true );
+					//add_post_meta( $post_id, 'blt_downvotes', $downvotes, true );
 
 				}else{
 
@@ -427,7 +427,7 @@ function blt_vote_post(){
 
 						$upvotes = 1;
 
-						add_post_meta( $post_id, 'blt_upvotes', $upvotes, true );
+						//add_post_meta( $post_id, 'blt_upvotes', $upvotes, true );
 					}else{
 
 						$upvotes++;
@@ -447,7 +447,7 @@ function blt_vote_post(){
 
 						$downvotes = 1;
 
-						add_post_meta( $post_id, 'blt_downvotes', 1, true );
+						//add_post_meta( $post_id, 'blt_downvotes', 1, true );
 					}else{
 
 						$downvotes++;
@@ -530,7 +530,7 @@ function blt_update_score($post_id, $upvotes = 0, $downvotes = 0){
 
 
 	if($score == ''){
-		add_post_meta( $post_id, 'blt_score', $total_score, true );
+		//add_post_meta( $post_id, 'blt_score', $total_score, true );
 	}else{
 		update_post_meta( $post_id, 'blt_score', $total_score);		
 	}

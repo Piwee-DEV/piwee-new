@@ -1,6 +1,6 @@
 {
     "require": {
         "dunglas/php-socialshare": "^1.0",
-	"elasticsearch/elasticsearch": "~5.0"
+	    "elasticsearch/elasticsearch": "~5.0"
     }
 }
