@@ -26,7 +26,6 @@ require_once("widgets/piwee_vote_horizontal_widget.php");
 
 register_activation_hook(__FILE__, 'registerTables');
 add_action('admin_menu', 'register_vote_page');
-add_filter('the_content', 'refreshMetataVoteCountFilter');
 
 //frontend voting system
 add_action("wp_ajax_nopriv_my_user_vote", "my_user_vote");
@@ -37,15 +36,6 @@ add_action("wp_ajax_nopriv_get_vote_count_and_percent", "getPostVoteCountAndPerc
 add_action("wp_ajax_get_vote_count_and_percent", "getPostVoteCountAndPercentAjax");
 add_action("wp_ajax_nopriv_get_max_vote_entity", "getMaxVoteEntityAjax");
 add_action("wp_ajax_get_max_vote_entity", "getMaxVoteEntityAjax");
-
-
-function refreshMetataVoteCountFilter($content)
-{
-    //Update count in DB
-    updateMetadataVoteCount(get_the_ID());
-
-    return $content;
-}
 
 
 function register_vote_page()
@@ -126,6 +116,8 @@ function getChoices()
 
 function getVotePostsForCategory($permalink)
 {
+    global $wpdb;
+
     $choices = getChoices();
 
     $splittedPermalink = explode('/', $permalink);
@@ -139,15 +131,14 @@ function getVotePostsForCategory($permalink)
 
             $title = $choice->name;
 
-            $posts = query_posts(
-                array(
-                    'meta_key' => 'vote_count_' . $choice->name,
-                    'orderby' => 'meta_value_num',
-                    'order' => 'DESC',
-                    'posts_per_page' => 10,
-                    'ignore_sticky_posts' => 1
-                )
-            );
+            $post_ids_results = $wpdb->get_results("SELECT post_id FROM wp_piwee_vote WHERE vote_field_id = " . $choice->id . " GROUP BY post_id ORDER BY COUNT(*) DESC LIMIT 10;");
+
+            $posts = array();
+
+            foreach($post_ids_results as $post_ids_result) {
+                $post = get_post($post_ids_result->post_id);
+                $posts[] = $post;
+            }
 
         }
     }
@@ -161,7 +152,6 @@ function getVotePostsForCategory($permalink)
 
 function getChoiceIdByName($field_name)
 {
-
     global $wpdb;
     $result = $wpdb->get_row("SELECT * FROM  wp_piwee_vote_field WHERE name = '" . $field_name . "'");
 
@@ -170,7 +160,6 @@ function getChoiceIdByName($field_name)
 
 function registerTables()
 {
-
     global $wpdb;
 
     $wpdb->query("CREATE TABLE IF NOT EXISTS `wp_piwee_vote` (
@@ -231,26 +220,6 @@ function vote($post_id, $choice_id, $choice_id_to_remove = null)
     }
 
     $wpdb->query("INSERT INTO wp_piwee_vote(post_id, vote_field_id, datetime) VALUES($post_id, $choice_id, '" . date("Y-m-d H:i:s") . "')");
-
-    //Update count in DB
-    updateMetadataVoteCount($post_id);
-}
-
-function updateMetadataVoteCount($post_id)
-{
-    $votesCP = getPostVoteCountAndPercent($post_id);
-
-    foreach ($votesCP as $vname => $v) {
-
-        if ($vname == 'total') {
-            $val = $v;
-        } else {
-            $val = $v['count'];
-        }
-
-        add_post_meta($post_id, 'vote_count_' . $vname, $val, true)
-        || update_post_meta($post_id, 'vote_count_' . $vname, $val);
-    }
 }
 
 function getVoteCountByPostAndChoice($choice_id = null, $post_id = null)
