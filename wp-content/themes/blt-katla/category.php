@@ -93,7 +93,7 @@ if (strpos($permalink, 'top10') !== false) {
 
                         <?php
 
-                        if (have_posts() && strpos($permalink, 'top10') === false) {
+                        if (have_posts() && strpos($permalink, 'top10') === false && !isCategoryAVoteCategory(get_the_permalink())) {
 
                             // Previous/next page navigation.
                             the_posts_pagination(array(

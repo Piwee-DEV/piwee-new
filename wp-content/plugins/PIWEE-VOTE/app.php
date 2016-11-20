@@ -100,18 +100,37 @@ function deleteVoteChoice($id)
 
 function addVoteChoice($name)
 {
-
     global $wpdb;
     $wpdb->query($wpdb->prepare("INSERT INTO wp_piwee_vote_field(name) VALUES(%s)", array($name)));
 }
 
 function getChoices()
 {
-
     global $wpdb;
     $result = $wpdb->get_results("SELECT * FROM  wp_piwee_vote_field");
 
     return $result;
+}
+
+function isCategoryAVoteCategory($permalink) {
+
+    $choices = getChoices();
+
+    $splittedPermalink = explode('/', $permalink);
+    $slug = $splittedPermalink[2];
+
+    $category = get_category_by_slug($slug);
+
+    foreach ($choices as $choice) {
+
+        if (strtolower($category->name) == $choice->name || $category->name == $choice->name) {
+            return true;
+            break;
+        }
+    }
+
+    return false;
+
 }
 
 function getVotePostsForCategory($permalink)
@@ -131,7 +150,7 @@ function getVotePostsForCategory($permalink)
 
             $title = $choice->name;
 
-            $post_ids_results = $wpdb->get_results("SELECT post_id FROM wp_piwee_vote WHERE vote_field_id = " . $choice->id . " GROUP BY post_id ORDER BY COUNT(*) DESC LIMIT 10;");
+            $post_ids_results = $wpdb->get_results("SELECT post_id FROM wp_piwee_vote WHERE vote_field_id = " . $choice->id . " GROUP BY post_id ORDER BY COUNT(*) DESC LIMIT 20;");
 
             $posts = array();
 
