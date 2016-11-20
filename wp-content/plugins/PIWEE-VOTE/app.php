@@ -123,8 +123,8 @@ function isCategoryAVoteCategory($permalink) {
 
     foreach ($choices as $choice) {
 
-        if (unaccent(strtolower($category->name)) == unaccent($choice->name)
-            || unaccent($category->name) == unaccent($choice->name)) {
+        if (unaccent(strtoupper($category->name)) == unaccent(strtoupper($choice->name))
+            || unaccent(strtoupper($category->name)) == unaccent(strtoupper($choice->name))) {
             return true;
             break;
         }
@@ -150,9 +150,9 @@ function getVotePostsForCategory($permalink)
     $category = get_category_by_slug($slug);
 
     foreach ($choices as $choice) {
-
-        if (unaccent(strtolower($category->name)) == unaccent($choice->name)
-            || unaccent($category->name) == unaccent($choice->name)) {
+        
+        if (unaccent(strtoupper($category->name)) == unaccent(strtoupper($choice->name))
+            || unaccent(strtoupper($category->name)) == unaccent(strtoupper($choice->name))) {
 
             $title = $choice->name;
 
