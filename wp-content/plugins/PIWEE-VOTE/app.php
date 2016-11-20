@@ -123,7 +123,8 @@ function isCategoryAVoteCategory($permalink) {
 
     foreach ($choices as $choice) {
 
-        if (strtolower($category->name) == $choice->name || $category->name == $choice->name) {
+        if (unaccent(strtolower($category->name)) == unaccent($choice->name)
+            || unaccent($category->name) == unaccent($choice->name)) {
             return true;
             break;
         }
@@ -131,6 +132,10 @@ function isCategoryAVoteCategory($permalink) {
 
     return false;
 
+}
+
+function unaccent($string) {
+    return iconv('UTF-8', 'ASCII//TRANSLIT', $string);
 }
 
 function getVotePostsForCategory($permalink)
@@ -146,7 +151,8 @@ function getVotePostsForCategory($permalink)
 
     foreach ($choices as $choice) {
 
-        if (strtolower($category->name) == $choice->name || $category->name == $choice->name ) {
+        if (unaccent(strtolower($category->name)) == unaccent($choice->name)
+            || unaccent($category->name) == unaccent($choice->name)) {
 
             $title = $choice->name;
 
