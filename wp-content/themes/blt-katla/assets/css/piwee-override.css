@@ -216,7 +216,7 @@ li {
 
 .social-network-headband {
     float: right;
-    padding-top: 25px;
+    padding-top: 10px;
 }
 
 .social-network-headband img {
@@ -364,8 +364,7 @@ li {
 .secondary-menu {
     background: rgba(0, 0, 0, 0.15) !important;
     position: relative;
-    z-index: 5 !important;
-    text-align: center;
+    z-index: 6 !important;
 }
 
 .opened-menu-container {
@@ -373,12 +372,13 @@ li {
     background-color: white;
     position: absolute;
     left: 0px;
-    top: 72px;
+    top: 32px;
     width: 350%;
     height: 400px;
     color: #444;
     box-shadow: -5px 5px 5px #CCC;
-    z-index: 999999;
+    z-index: 999999999999;
+    padding: 10px;
 }
 
 .opened-menu-container a {
@@ -527,10 +527,6 @@ li {
     color: #d5ac3c;
 }
 
-.opened-menu-container {
-    padding: 10px;
-}
-
 .opened-menu-container hr {
     padding: 0;
     margin: 0;
@@ -611,6 +607,7 @@ li {
 
 header {
     width: 100%;
+    z-index: 6;
     background-color: #da6f7c;
     filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1, startColorstr=#da6f7c, endColorstr=#c9a157);
     background-image: -moz-linear-gradient(left, #da6f7c 63%, #c9a157 50%, #7595d3 0%);
@@ -837,8 +834,9 @@ section.content {
 .custom-search-headband {
     height: 20px !important;
     border-radius: 20px !important;
-    border: none !important;
-    background-color: #efcbb9 !important;
+    border: 1px solid white !important;
+    background-color: transparent !important;
+    color: white !important;
 }
 
 .search .custom-search-headband {
@@ -1366,6 +1364,10 @@ section.content {
     font-weight: 600;
 }
 
+#site-body-parent {
+    padding-top: 20px;
+}
+
 @media (max-width: 960px) {
 
     #site-body-parent {
@@ -1543,4 +1545,33 @@ section.content {
 
 .right-subtitle-header img {
     max-width: 30px;
+}
+
+.right-subtitle-header-shop {
+    display: block;
+    float: right;
+    margin-right: 20px;
+    color: white;
+}
+
+.right-subtitle-header-search {
+    display: block;
+    float: right;
+    color: white;
+}
+
+.header-search-bar {
+    float: right;
+    display: none;
+    margin-top: 4px;
+}
+
+.social-network-headband-icons {
+    text-align: right;
+}
+
+.social-network-headband-links a {
+    color: white;
+    display: inline-block;
+    margin-left: 5px;
 }

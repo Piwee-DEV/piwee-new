@@ -255,163 +255,8 @@ if (is_single()) {
     <header>
         <div class="container desktop-header hidden-sm hidden-xs">
             <div class="navbar-inner row">
-                <div class="col-md-3 articles-headband-col">
+                <div class="col-md-3">
 
-                    <div class="opened-menu-container">
-                        <div class="row">
-
-                            <div class="col-md-8">
-
-                                <div class="row">
-
-                                    <div class="col-md-12">
-
-                                        <h3 class="title-menu-section">CATEGORIES</h3>
-                                        <hr>
-
-                                    </div>
-
-                                </div>
-
-                                <div class="row">
-
-                                    <div class="col-md-4">
-
-                                        <h4><a href="/category/inspiration"><i
-                                                    class="fa fa-paint-brush"></i> ART</a></h4>
-
-                                        <p><a href="/category/inspiration/photographie">Photographie</a></a>
-                                        </p>
-
-                                        <p><a href="/category/inspiration/peinture">Peinture</a></p>
-
-                                        <p><a href="/category/inspiration/dessin">Dessin</a></p>
-
-                                        <p><a href="/category/inspiration/design">Design</a></p>
-
-                                        <p><a href="/category/inspiration/sculpture">Sculpture</a></p>
-
-                                        <h4><a href="/category/publicite"><i class="fa fa-tv"></i> PUB</a></h4>
-
-                                        <p><a href="/category/pub/panneau-pub">Panneau Pub</a></p>
-
-                                        <p><a href="/category/publicite/print-2/">Print</a></p>
-
-                                        <p><a href="/category/publicite/pub-tv">Spot vidéo</a></p>
-
-                                    </div>
-
-                                    <div class="col-md-4">
-
-                                        <h4><a href="/category/marketing-2"><i class="fa fa-bullhorn"></i>
-                                                MARKETING</a></h4>
-
-                                        <p><a href="/category/marketing-2/operation-marketing">Opération
-                                                Marketing</a></p>
-
-                                        <p><a href="/category/marketing-2/street-marketing-2">Street
-                                                Marketing</a></p>
-
-                                        <p>
-                                            <a href="/category/marketing-2/sensibilisation">Sensibilisation</a>
-                                        </p>
-
-                                        <p><a href="/category/marketing-2/pop-up-store">Pop-up Store</a></p>
-
-                                        <h4><a href="/category/digital-2"><i
-                                                    class="fa fa-mouse-pointer"></i> DIGITAL</a></h4>
-
-                                        <p><a href="/category/digital-2/operation-socialmedia">Opération
-                                                Social Media</a></p>
-
-                                        <p><a href="/category/digital-2/twitter">Twitter</a></p>
-
-                                        <p><a href="/category/digital-2/facebook">Facebook</a></p>
-
-                                        <p><a href="/category/digital-2/instagram">Instagram</a></p>
-
-                                        <p><a href="/category/digital-2/web-digital-2">Web</a></p>
-
-                                    </div>
-
-                                    <div class="col-md-4">
-
-                                        <h4><a href="/category/digital-2/twitter"><i
-                                                    class="fa fa-twitter"></i> WE <3 TWITTER</a></h4>
-
-                                        <p><a href="/category/digital-2/twitter/cm">Community managers</a>
-                                        </p>
-
-                                        <p><a href="/category/digital-2/twitter/tweets-amusants">Tweets
-                                                marrants</a></p>
-
-                                        <p><a href="/category/digital-2/twitter/les-comptes-a-suivre">Les
-                                                comptes à suivre</a></p>
-
-                                        <h4><a href="/category/innovation"><i class="fa fa-cogs"></i>
-                                                INNOVATION</a></h4>
-
-                                        <h4><a href="/category/automobile-2"><i class="fa fa-automobile"></i>
-                                                AUTO</a></h4>
-
-                                        <p><a href="/category/auto/essais">Essais</a></p>
-
-                                        <h4><a href="/category/gadget"><i class="fa fa-mobile"></i>
-                                                GADGET</a></h4>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div class="col-md-2">
-
-                                <div class="row">
-
-                                    <h3 class="title-menu-section">ARTICLES</h3>
-                                    <hr>
-
-                                    <a class="btn-piwee" href="/category/genie">
-                                        <img
-                                            src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icone-piwee-vote-genie.png">
-                                    </a>
-                                    <a class="btn-piwee" href="/category/creatif">
-                                        <img
-                                            src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icone-piwee-vote-creatif.png">
-                                    </a>
-                                    <a class="btn-piwee" href="/category/deja-vu">
-                                        <img
-                                            src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icone-piwee-vote-deja-vu.png">
-                                    </a>
-                                    <a class="btn-piwee" href="/category/fun">
-                                        <img
-                                            src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icone-piwee-vote-fun.png">
-                                    </a>
-                                </div>
-
-                            </div>
-
-                            <div class="col-md-2">
-
-                                <div class="row">
-
-                                    <h3 class="title-menu-section">PIWEE</h3>
-                                    <hr>
-
-                                    <p class="piwee-title-menu-col3"><a href="/category/vie-du-blog">LA VIE DU
-                                            BLOG</a></p>
-
-                                    <p class="piwee-title-menu-col3"><a href="/about">ABOUT</a></p>
-
-                                    <p class="piwee-title-menu-col3"><a href="/annonceurs">PARTENAIRES</a>
-                                    </p>
-                                </div>
-
-                            </div>
-
-                        </div>
-                    </div>
                 </div>
                 <div class="col-md-6">
                     <div class="piwee-logo">
@@ -423,28 +268,32 @@ if (is_single()) {
                 <div class="col-md-3">
                     <div class="social-network-headband">
 
-                        <div>
+                        <div class="social-network-headband-links">
 
-                            <a href>Vie du blog</a> <a href>Annonceurs</a> <a href>À Propos</a>
+                            <a href="/category/vie-du-blog">Vie du blog</a> <a href="/annonceurs">Annonceurs</a> <a href="/about">À Propos</a>
 
                         </div>
 
-                        <a href="https://www.facebook.com/piwee.net" target="_blank">
-                            <img
-                                src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icon-fb-white.png">
-                        </a>
-                        <a href="https://twitter.com/piweeFR" target="_blank">
-                            <img
-                                src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icon-twitter-white.png">
-                        </a>
-                        <a href="https://www.instagram.com/piweefr" target="_blank">
-                            <img
-                                src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icon-instagram-white.png">
-                        </a>
-                        <a href="<?php get_home_url() ?>/feed" target="_blank">
-                            <img
-                                src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icon-rss-white.png">
-                        </a>
+                        <div class="social-network-headband-icons">
+
+                            <a href="https://www.facebook.com/piwee.net" target="_blank">
+                                <img
+                                    src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icon-fb-white.png">
+                            </a>
+                            <a href="https://twitter.com/piweeFR" target="_blank">
+                                <img
+                                    src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icon-twitter-white.png">
+                            </a>
+                            <a href="https://www.instagram.com/piweefr" target="_blank">
+                                <img
+                                    src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icon-instagram-white.png">
+                            </a>
+                            <a href="<?php get_home_url() ?>/feed" target="_blank">
+                                <img
+                                    src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icon-rss-white.png">
+                            </a>
+
+                        </div>
                     </div>
                 </div>
             </div>
@@ -604,26 +453,187 @@ if (is_single()) {
 
                     <div class="col-md-4 articles-headband-col">
                         <span class="left-subtitle-header"><i class="fa fa-bars"></i> IDÉES / CONCEPTS</span>
+
+                        <div class="opened-menu-container">
+                            <div class="row">
+
+                                <div class="col-md-8">
+
+                                    <div class="row">
+
+                                        <div class="col-md-12">
+
+                                            <h3 class="title-menu-section">CATEGORIES</h3>
+                                            <hr>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row">
+
+                                        <div class="col-md-4">
+
+                                            <h4><a href="/category/inspiration"><i
+                                                        class="fa fa-paint-brush"></i> ART</a></h4>
+
+                                            <p><a href="/category/inspiration/photographie">Photographie</a></a>
+                                            </p>
+
+                                            <p><a href="/category/inspiration/peinture">Peinture</a></p>
+
+                                            <p><a href="/category/inspiration/dessin">Dessin</a></p>
+
+                                            <p><a href="/category/inspiration/design">Design</a></p>
+
+                                            <p><a href="/category/inspiration/sculpture">Sculpture</a></p>
+
+                                            <h4><a href="/category/publicite"><i class="fa fa-tv"></i> PUB</a></h4>
+
+                                            <p><a href="/category/pub/panneau-pub">Panneau Pub</a></p>
+
+                                            <p><a href="/category/publicite/print-2/">Print</a></p>
+
+                                            <p><a href="/category/publicite/pub-tv">Spot vidéo</a></p>
+
+                                        </div>
+
+                                        <div class="col-md-4">
+
+                                            <h4><a href="/category/marketing-2"><i class="fa fa-bullhorn"></i>
+                                                    MARKETING</a></h4>
+
+                                            <p><a href="/category/marketing-2/operation-marketing">Opération
+                                                    Marketing</a></p>
+
+                                            <p><a href="/category/marketing-2/street-marketing-2">Street
+                                                    Marketing</a></p>
+
+                                            <p>
+                                                <a href="/category/marketing-2/sensibilisation">Sensibilisation</a>
+                                            </p>
+
+                                            <p><a href="/category/marketing-2/pop-up-store">Pop-up Store</a></p>
+
+                                            <h4><a href="/category/digital-2"><i
+                                                        class="fa fa-mouse-pointer"></i> DIGITAL</a></h4>
+
+                                            <p><a href="/category/digital-2/operation-socialmedia">Opération
+                                                    Social Media</a></p>
+
+                                            <p><a href="/category/digital-2/twitter">Twitter</a></p>
+
+                                            <p><a href="/category/digital-2/facebook">Facebook</a></p>
+
+                                            <p><a href="/category/digital-2/instagram">Instagram</a></p>
+
+                                            <p><a href="/category/digital-2/web-digital-2">Web</a></p>
+
+                                        </div>
+
+                                        <div class="col-md-4">
+
+                                            <h4><a href="/category/digital-2/twitter"><i
+                                                        class="fa fa-twitter"></i> WE <3 TWITTER</a></h4>
+
+                                            <p><a href="/category/digital-2/twitter/cm">Community managers</a>
+                                            </p>
+
+                                            <p><a href="/category/digital-2/twitter/tweets-amusants">Tweets
+                                                    marrants</a></p>
+
+                                            <p><a href="/category/digital-2/twitter/les-comptes-a-suivre">Les
+                                                    comptes à suivre</a></p>
+
+                                            <h4><a href="/category/innovation"><i class="fa fa-cogs"></i>
+                                                    INNOVATION</a></h4>
+
+                                            <h4><a href="/category/automobile-2"><i class="fa fa-automobile"></i>
+                                                    AUTO</a></h4>
+
+                                            <p><a href="/category/auto/essais">Essais</a></p>
+
+                                            <h4><a href="/category/gadget"><i class="fa fa-mobile"></i>
+                                                    GADGET</a></h4>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="col-md-2">
+
+                                    <div class="row">
+
+                                        <h3 class="title-menu-section">ARTICLES</h3>
+                                        <hr>
+
+                                        <a class="btn-piwee" href="/category/genie">
+                                            <img
+                                                src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icone-piwee-vote-genie.png">
+                                        </a>
+                                        <a class="btn-piwee" href="/category/creatif">
+                                            <img
+                                                src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icone-piwee-vote-creatif.png">
+                                        </a>
+                                        <a class="btn-piwee" href="/category/deja-vu">
+                                            <img
+                                                src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icone-piwee-vote-deja-vu.png">
+                                        </a>
+                                        <a class="btn-piwee" href="/category/fun">
+                                            <img
+                                                src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icone-piwee-vote-fun.png">
+                                        </a>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-md-2">
+
+                                    <div class="row">
+
+                                        <h3 class="title-menu-section">PIWEE</h3>
+                                        <hr>
+
+                                        <p class="piwee-title-menu-col3"><a href="/category/vie-du-blog">LA VIE DU
+                                                BLOG</a></p>
+
+                                        <p class="piwee-title-menu-col3"><a href="/about">ABOUT</a></p>
+
+                                        <p class="piwee-title-menu-col3"><a href="/annonceurs">PARTENAIRES</a>
+                                        </p>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
                     </div>
 
-                    <div class="col-md-4">
+                    <div class="col-md-4" style="text-align: center">
                         <span class="subtitle-header">- Inspiration & Créativité -</span>
                     </div>
 
                     <div class="col-md-4">
 
-                        <span class="right-subtitle-header">
-                            <span>
-                                <img src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/shirt.png"> SHOP
-                            </span>
-                            <span>
-                                <i class="fa fa-search"></i>
-                            </span>
-                        </span>
-
-                        <div class="header-search-bar hidden">
+                        <div class="header-search-bar">
                             <?php get_search_form(); ?>
                         </div>
+
+                        <span class="right-subtitle-header">
+
+                            <a href="#" class="right-subtitle-header-search" onclick="jQuery('.header-search-bar').show();jQuery('.right-subtitle-header-search').hide();return false;">
+                                <i class="fa fa-search"></i>
+                            </a>
+
+                            <a href="http://piwee-shop.wiltee.com/" class="right-subtitle-header-shop" rel="nofollow">
+                                <i class="fa fa-shopping-basket"></i> SHOP
+                            </a>
+
+                        </span>
+
                     </div>
 
                 </div>
