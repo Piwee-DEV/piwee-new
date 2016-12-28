@@ -256,11 +256,6 @@ if (is_single()) {
         <div class="container desktop-header hidden-sm hidden-xs">
             <div class="navbar-inner row">
                 <div class="col-md-3 articles-headband-col">
-                    <div class="articles-headband">
-                        <img
-                            src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/options-icon.png">
-                        <span>LES ARTICLES</span>
-                    </div>
 
                     <div class="opened-menu-container">
                         <div class="row">
@@ -427,6 +422,13 @@ if (is_single()) {
                 </div>
                 <div class="col-md-3">
                     <div class="social-network-headband">
+
+                        <div>
+
+                            <a href>Vie du blog</a> <a href>Annonceurs</a> <a href>À Propos</a>
+
+                        </div>
+
                         <a href="https://www.facebook.com/piwee.net" target="_blank">
                             <img
                                 src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icon-fb-white.png">
@@ -596,40 +598,39 @@ if (is_single()) {
             </div>
         </div>
 
-    </header>
+        <div class="secondary-menu hidden-sm hidden-xs">
+            <div class="container">
+                <div class="row">
 
-    <div class="secondary-menu hidden-sm hidden-xs">
-        <div class="container">
-            <div class="row">
+                    <div class="col-md-4 articles-headband-col">
+                        <span class="left-subtitle-header"><i class="fa fa-bars"></i> IDÉES / CONCEPTS</span>
+                    </div>
 
-                <div class="col-md-10">
+                    <div class="col-md-4">
+                        <span class="subtitle-header">- Inspiration & Créativité -</span>
+                    </div>
 
-                    <div class="collapse navbar-collapse" id="katla-sec-navbar">
-                        <ul class="menu-header">
-                            <li class="item-menu-header"><a href="/category/inspiration">art</a></li>
-                            <li class="item-menu-header"><a href="/category/marketing-2">marketing</a></li>
-                            <li class="item-menu-header"><a href="/category/innovation">innovation</a></li>
-                            <li class="item-menu-header"><a href="/category/infographie">infographies</a></li>
-                            <li class="item-menu-header"><a href="/category/compilations">tops</a></li>
-                            <li class="item-menu-header"><a href="/category/digital-2/twitter">we <i
-                                        class="fa fa-heart"></i>
-                                    twitter</a></li>
-                            <li class="item-menu-header"><a href="/category/petites-pensees">pensées</a></li>
-                            <li class="item-menu-header"><a href="<?php echo get_random_post() ?>">random</a>
-                            </li>
-                            <li class="item-menu-header"><a href="/category/top10">top 10</a></li>
-                        </ul>
+                    <div class="col-md-4">
+
+                        <span class="right-subtitle-header">
+                            <span>
+                                <img src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/shirt.png"> SHOP
+                            </span>
+                            <span>
+                                <i class="fa fa-search"></i>
+                            </span>
+                        </span>
+
+                        <div class="header-search-bar hidden">
+                            <?php get_search_form(); ?>
+                        </div>
                     </div>
 
                 </div>
-
-                <div class="col-md-2">
-                    <?php get_search_form(); ?>
-                </div>
-
             </div>
         </div>
-    </div>
+
+    </header>
 
     <div class="secondary-header hidden-sm hidden-xs">
 

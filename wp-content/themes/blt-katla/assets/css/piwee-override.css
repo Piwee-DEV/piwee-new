@@ -1,5 +1,6 @@
 @import url('http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900');
 @import url('http://fonts.googleapis.com/css?family=Amatic+SC:400,700');
+@import url('http://fonts.googleapis.com/css?family=Grand+Hotel:200,300,400,600,700,900');
 
 @media (max-width: 990px) {
     body {
@@ -320,6 +321,7 @@ li {
 
 .piwee-logo img {
     max-height: 75px;
+    margin-left: 10px;
 }
 
 .primary-menu {
@@ -360,10 +362,10 @@ li {
 }
 
 .secondary-menu {
-    background: linear-gradient(60deg, #e4c476 30%, #eb9f8a) !important;
-    border-bottom: 2px solid #dddddd;
+    background: rgba(0, 0, 0, 0.15) !important;
     position: relative;
     z-index: 5 !important;
+    text-align: center;
 }
 
 .opened-menu-container {
@@ -388,7 +390,7 @@ li {
 }
 
 .articles-headband-col {
-    height: 75px;
+
 }
 
 .articles-headband-col:hover .opened-menu-container {
@@ -608,9 +610,15 @@ li {
 }
 
 header {
-    position: relative;
-    max-width: 100%;
-    background: linear-gradient(60deg, #dcb556 30%, #e8876d)
+    width: 100%;
+    background-color: #da6f7c;
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1, startColorstr=#da6f7c, endColorstr=#c9a157);
+    background-image: -moz-linear-gradient(left, #da6f7c 63%, #c9a157 50%, #7595d3 0%);
+    background-image: linear-gradient(left, #da6f7c 63%, #c9a157 50%, #7595d3 0%);
+    background-image: -webkit-linear-gradient(left, #da6f7c 63%, #c9a157 50%, #7595d3 0%);
+    background-image: -o-linear-gradient(left, #da6f7c 63%, #c9a157 50%, #7595d3 0%);
+    background-image: -ms-linear-gradient(left, #da6f7c 63%, #c9a157 50%, #7595d3 0%);
+    background-image: -webkit-gradient(linear, left bottom, right bottom, color-stop(63%, #da6f7c), color-stop(50%, #c9a157), color-stop(0%, #7595d3));
 }
 
 .desktop-header {
@@ -1416,7 +1424,6 @@ section.content {
     color: #b4b4b4;
 }
 
-
 .author-shortcode-container .author-description {
     color: #a5a5a5;
 }
@@ -1514,4 +1521,26 @@ section.content {
     line-height: 25px !important;
     color: #444 !important;
     font-weight: 300;
+}
+
+.subtitle-header {
+    font-family: "Grand Hotel";
+    font-size: 1.5em;
+    color: white;
+}
+
+.left-subtitle-header {
+    color: white;
+    font-family: "Amatic SC";
+    font-size: 1.7em;
+}
+
+.right-subtitle-header {
+    color: white;
+    font-family: "Amatic SC";
+    font-size: 1.7em;
+}
+
+.right-subtitle-header img {
+    max-width: 30px;
 }
