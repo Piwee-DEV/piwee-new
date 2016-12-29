@@ -629,7 +629,7 @@ if (is_single()) {
                             </a>
 
                             <a href="http://piwee-shop.wiltee.com/" class="right-subtitle-header-shop" rel="nofollow">
-                                <i class="fa fa-shopping-basket"></i> SHOP
+                                <img src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icone-piwee-shop.png"> SHOP
                             </a>
 
                         </span>
