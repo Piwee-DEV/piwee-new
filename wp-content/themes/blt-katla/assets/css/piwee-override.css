@@ -618,6 +618,10 @@ header {
     background-image: -webkit-gradient(linear, left bottom, right bottom, color-stop(63%, #da6f7c), color-stop(50%, #c9a157), color-stop(0%, #7595d3));
 }
 
+.desktop-header a:hover {
+    color: white !important;
+}
+
 .desktop-header {
     height: 75px;
     position: relative;
@@ -1527,7 +1531,7 @@ section.content {
 
 .subtitle-header {
     font-family: "Grand Hotel";
-    font-size: 1.5em;
+    font-size: 1.8em;
     color: white;
 }
 
@@ -1545,6 +1549,14 @@ section.content {
 
 .right-subtitle-header img {
     max-width: 30px;
+}
+
+.right-subtitle-header-search:hover {
+    color: white !important;
+}
+
+.right-subtitle-header-shop:hover {
+    color: white !important;
 }
 
 .right-subtitle-header-shop {
@@ -1575,3 +1587,4 @@ section.content {
     display: inline-block;
     margin-left: 5px;
 }
+
