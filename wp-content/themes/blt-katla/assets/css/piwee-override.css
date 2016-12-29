@@ -353,6 +353,7 @@ li {
 
 .menu-header > .item-menu-header > a:active {
     text-decoration: none !important;
+    color: white !important;
 }
 
 .item-menu-header a {
