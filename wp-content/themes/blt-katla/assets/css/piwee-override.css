@@ -335,10 +335,16 @@ li {
 
 .menu-header > .item-menu-header {
     list-style-type: none;
-    font-size: 1.2em;
-    font-weight: 700;
+    font-size: 1.0em;
+    font-weight: 300;
     float: left;
     margin-right: 12px;
+    color: white;
+}
+
+.item-menu-header.dot {
+    padding-top: 8px;
+    font-size: 5px;
 }
 
 .menu-header > .item-menu-header > a:hover {
@@ -352,13 +358,8 @@ li {
 .item-menu-header a {
     color: white;
     display: block;
-    border-radius: 5px;
     padding-left: 5px;
     padding-right: 5px;
-}
-
-.item-menu-header a:hover {
-    background-color: #f0dbb6;
 }
 
 .secondary-menu {
@@ -1586,5 +1587,10 @@ section.content {
     color: white;
     display: inline-block;
     margin-left: 5px;
+}
+
+.third-menu {
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 

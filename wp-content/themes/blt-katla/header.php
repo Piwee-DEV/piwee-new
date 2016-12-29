@@ -640,6 +640,42 @@ if (is_single()) {
             </div>
         </div>
 
+        <div class="third-menu hidden-sm hidden-xs">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-12">
+
+                        <div class="collapse navbar-collapse" id="katla-sec-navbar">
+                            <ul class="menu-header">
+                                <li class="item-menu-header first">EN BREF &nbsp;&nbsp;&nbsp;&nbsp;></li>
+                                <li class="item-menu-header"><a href="/category/inspiration">art</a></li>
+                                <li class="item-menu-header dot"><i class="fa fa-circle"></i></li>
+                                <li class="item-menu-header"><a href="/category/marketing-2">marketing</a></li>
+                                <li class="item-menu-header dot"><i class="fa fa-circle"></i></li>
+                                <li class="item-menu-header"><a href="/category/innovation">innovation</a></li>
+                                <li class="item-menu-header dot"><i class="fa fa-circle"></i></li>
+                                <li class="item-menu-header"><a href="/category/infographie">infographies</a></li>
+                                <li class="item-menu-header dot"><i class="fa fa-circle"></i></li>
+                                <li class="item-menu-header"><a href="/category/digital-2/twitter">we <i
+                                            class="fa fa-heart"></i>
+                                        twitter</a></li>
+                                <li class="item-menu-header dot"><i class="fa fa-circle"></i></li>
+                                <li class="item-menu-header"><a href="/category/petites-pensees">pensées</a></li>
+                                <li class="item-menu-header dot"><i class="fa fa-circle"></i></li>
+                                <li class="item-menu-header"><a href="<?php echo get_random_post() ?>">random</a>
+                                </li>
+                                <li class="item-menu-header dot"><i class="fa fa-circle"></i></li>
+                                <li class="item-menu-header"><a href="/category/top10">top 10 des plus partagés</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
     </header>
 
     <div class="secondary-header hidden-sm hidden-xs">
