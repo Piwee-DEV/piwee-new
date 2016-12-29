@@ -609,14 +609,7 @@ li {
 header {
     width: 100%;
     z-index: 6;
-    background-color: #da6f7c;
-    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1, startColorstr=#da6f7c, endColorstr=#c9a157);
-    background-image: -moz-linear-gradient(left, #da6f7c 63%, #c9a157 50%, #7595d3 0%);
-    background-image: linear-gradient(left, #da6f7c 63%, #c9a157 50%, #7595d3 0%);
-    background-image: -webkit-linear-gradient(left, #da6f7c 63%, #c9a157 50%, #7595d3 0%);
-    background-image: -o-linear-gradient(left, #da6f7c 63%, #c9a157 50%, #7595d3 0%);
-    background-image: -ms-linear-gradient(left, #da6f7c 63%, #c9a157 50%, #7595d3 0%);
-    background-image: -webkit-gradient(linear, left bottom, right bottom, color-stop(63%, #da6f7c), color-stop(50%, #c9a157), color-stop(0%, #7595d3));
+    background-image: url('../img/degrade-piwee-V2.png');
 }
 
 .desktop-header a:hover {
