@@ -611,6 +611,7 @@ header {
     width: 100%;
     z-index: 6;
     background-image: url('../img/degrade-piwee-V2.png');
+    background-size: cover;
 }
 
 .desktop-header a:hover {
