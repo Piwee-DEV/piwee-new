@@ -97,6 +97,10 @@ li {
 
 @media (min-width: 990px) {
 
+    .max-vote-entity {
+        padding-top: 5px !important;
+    }
+
     .open-menu-post-type {
         float: left !important;
     }
@@ -110,7 +114,7 @@ li {
     }
 
     .img-max-entity {
-        margin-top: 5px;
+        margin-top: 2px;
         max-height: 50px !important;
     }
 
