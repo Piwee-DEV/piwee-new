@@ -96,6 +96,24 @@ li {
 }
 
 @media (min-width: 990px) {
+
+    .open-menu-post-type {
+        float: left !important;
+    }
+
+    .menu-post-type-opened {
+        position: absolute !important;
+        bottom: 68px !important;
+        right: 0 !important;
+        top: auto !important;
+        width: 300px !important;
+    }
+
+    .img-max-entity {
+        margin-top: 5px;
+        max-height: 50px !important;
+    }
+
     .container.home {
         background-color: #ebecec;
         top: 15px;
@@ -847,9 +865,9 @@ section.content {
     border: 1px solid #CCCCCC !important;
 }
 
-.secondary-header {
+.secondary-footer {
     position: fixed;
-    top: -70px;
+    bottom: -70px;
     width: 100%;
     height: 70px;
     background-color: white;
@@ -859,68 +877,76 @@ section.content {
     box-shadow: 0 3px 2px -2px #CCCCCC;
 }
 
-.secondary-header .container {
+.secondary-footer .progress {
+    border-radius: 0;
+    height: 5px;
+    margin: 0;
+}
+
+.secondary-footer .progress .progress-bar {
+    background-color: #ddb855;
+}
+
+.secondary-footer .container {
     position: relative;
 }
 
-.secondary-header-share-container {
-    padding-top: 15px;
+.secondary-footer-share-container {
+    padding-top: 9px;
 }
 
-.secondary-header-shareimg-container {
-    float: left;
+.secondary-footer-shareimg-container {
+    float: right;
     margin-top: 3px;
 }
 
-.secondary-header-shareimg-container img {
+.secondary-footer-shareimg-container img {
     max-width: 35px;
     margin-left: 2px;
     transition: all .2s ease-in-out;
 }
 
-.secondary-header-shareimg-container img:hover {
+.secondary-footer-shareimg-container img:hover {
     transform: scale(1.2);
 }
 
-.secondary-header-share-text {
-    float: left;
+.secondary-footer-share-text {
+    float: right;
     display: block;
-    width: 80px;
+    width: 70px;
     font-weight: bold;
 }
 
-.secondary-header-logo-container {
-    text-align: center;
-    padding-top: 5px;
+.secondary-footer-logo-container {
+    padding-top: 10px;
 }
 
-.secondary-header-logo-container img {
+.secondary-footer-logo-container img {
     max-width: 250px;
 }
 
-.secondary-header-post-type-container {
+.secondary-footer-post-type-container {
     float: right;
-    padding-top: 4px;
 }
 
-.secondary-header-post-type-container img {
+.secondary-footer-post-type-container img {
     float: left;
     max-height: 60px;
     margin-right: 5px;
 }
 
-.secondary-header-post-type-container div {
+.secondary-footer-post-type-container div {
     float: left;
     padding-top: 8px;
     text-align: center;
 }
 
-.secondary-header-post-type-container div .percent {
+.secondary-footer-post-type-container div .percent {
     font-weight: bold;
     font-size: 1.2em;
 }
 
-.secondary-header-post-type-container div .description {
+.secondary-footer-post-type-container div .description {
     color: #b1b0b0;
 }
 
@@ -1025,15 +1051,6 @@ section.content {
 .menu-post-type-opened .bar-item {
     margin: 0 !important;
     padding: 0 !important;
-}
-
-@media (min-width: 990px) {
-    .menu-post-type-opened {
-        position: absolute;
-        top: 70px;
-        right: 0;
-        width: 300px;
-    }
 }
 
 #site-footer {
@@ -1587,5 +1604,61 @@ section.content {
 .third-menu {
     padding-top: 5px;
     padding-bottom: 5px;
+}
+
+.estimated-reading-title-container {
+    padding-top: 10px;
+}
+
+.estimated-reading-title-container span {
+    display: block;
+}
+
+.estimated-reading-time {
+    font-weight: bold;
+}
+
+.post-title {
+    font-weight: 300;
+    color: #444;
+}
+
+.secondary-footer-col {
+    border-right: 1px solid #e7e7e7;
+    height: 55px;
+    margin-top: 7px;
+}
+
+.bubble-speech {
+    position: relative;
+    padding: 15px;
+    margin: 1em 0 3em;
+    color: #000;
+    background: #96dcf9;
+    border-radius: 5px;
+}
+
+/* creates triangle */
+.bubble-speech:after {
+    content: "";
+    display: block; /* reduce the damage in FF3.0 */
+    position: absolute;
+    bottom: -15px;
+    left: 50px;
+    width: 0;
+    border-width: 15px 15px 0;
+    border-style: solid;
+    border-color: #96dcf9 transparent;
+}
+
+.open-menu-post-type-popover {
+    text-align: center;
+    position: absolute;
+    background-color: #96dcf9;
+    bottom: 20px;
+    color: white;
+    width: 180px;
+    font-weight: bold;
+    display: none;
 }
 

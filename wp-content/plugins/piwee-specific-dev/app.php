@@ -655,9 +655,11 @@ function categ_gen_button()
 function register_script_sharebtn_plugin()
 {
     wp_register_script('scroll-to-fixed', plugins_url('/js/jquery-scrolltofixed.js', __FILE__));
+    wp_register_script('scrollgress', plugins_url('/js/scrollgress.js', __FILE__));
     wp_register_script('app-sharebtn-script', plugins_url('/js/script.js', __FILE__));
 
     wp_enqueue_script('scroll-to-fixed');
+    wp_enqueue_script('scrollgress');
     wp_enqueue_script('app-sharebtn-script');
 }
 

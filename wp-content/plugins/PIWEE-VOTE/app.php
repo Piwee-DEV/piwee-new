@@ -325,6 +325,7 @@ function getMaxVoteEntityAjax()
 function getMaxVoteEntity($post_id)
 {
     $votes = getPostVoteCountAndPercent($post_id);
+
     $max = 0;
     $maxEntity = null;
     foreach ($votes as $key => $vote) {
@@ -334,7 +335,6 @@ function getMaxVoteEntity($post_id)
             $maxEntity['name'] = $key;
         }
     }
-
     return $maxEntity;
 }
 

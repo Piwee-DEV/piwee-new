@@ -2,6 +2,216 @@
 
 </div>
 
+<?php
+
+if (is_single()) {
+
+    //Getting the #1 Vote entity
+    $maxVoteEntity = getMaxVoteEntity(get_the_ID());
+
+    $vote_icon = '';
+
+    switch ($maxVoteEntity['name']) {
+        case "Génie":
+            $vote_icon = get_template_directory_uri() . '/assets/img/piwee-icon/GENIE-flat-icons-piwee.png';
+            break;
+        case "déjà vu":
+            $vote_icon = get_template_directory_uri() . '/assets/img/piwee-icon/DEJA-VU-flat-icons-piwee.png';
+            break;
+        case "Fun":
+            $vote_icon = get_template_directory_uri() . '/assets/img/piwee-icon/FUN-flat-icons-piwee.png';
+            break;
+        case "Créatif":
+            $vote_icon = get_template_directory_uri() . '/assets/img/piwee-icon/CREATIF-flat-icons-piwee.png';
+            break;
+    }
+
+}
+
+?>
+
+<?php $votes = getPostVoteCountAndPercent(get_the_ID()); ?>
+
+
+<div class="secondary-footer hidden-sm hidden-xs">
+
+    <div class="progress">
+        <div class="progress-bar progress-bar-reading" role="progressbar" aria-valuenow="0"
+             aria-valuemin="0" aria-valuemax="100" style="width:0%">
+        </div>
+    </div>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-2 secondary-footer-logo-container secondary-footer-col">
+                <a href="<?php echo get_home_url() ?>">
+                    <img
+                        src="<?php echo get_template_directory_uri() ?>/assets/img/logo-piwee-white-header.png">
+                </a>
+            </div>
+
+            <div class="col-md-5 estimated-reading-title-container secondary-footer-col">
+                <span class="estimated-reading-time"><?php post_read_time(); ?></span>
+                <span class="post-title"><?php echo the_title() ?></span>
+            </div>
+
+            <div class="col-md-2 secondary-footer-col">
+
+                <div class="menu-post-type-opened">
+                    <p class="total-vote-count"><?php echo $votes['total'] ?> votes</p>
+                    <div class="row bar">
+                        <div class="col-xs-2 bar-item bar-img">
+                            <a href="#"
+                               onclick="PiweeVote(<?php echo get_the_ID(); ?>, <?php echo getChoiceIdByName('Génie'); ?>); return false;">
+                                <img src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icon-genie.png">
+                            </a>
+                        </div>
+                        <div class="col-xs-8 bar-item bar-progress">
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-success" role="progressbar"
+                                     aria-valuenow="<?php echo $votes['Génie']['percent'] ?>"
+                                     aria-valuemin="0" aria-valuemax="100" style="width: 0%"
+                                     data-percentage="<?php echo $votes['Génie']['percent'] ?>"
+                                     data-name="Génie">
+                                <span class="sr-only"><?php echo $votes['Génie']['percent'] ?>
+                                    % Complete (success)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-2 bar-item bar-percent">
+                            <span><?php echo $votes['Génie']['percent'] ?>%</span>
+                        </div>
+                    </div>
+
+                    <div class="row bar">
+                        <div class="col-xs-2 bar-item bar-img">
+                            <a href="#"
+                               onclick="PiweeVote(<?php echo get_the_ID(); ?>, <?php echo getChoiceIdByName('Fun'); ?>); return false;">
+                                <img src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icon-fun.png">
+                            </a>
+                        </div>
+                        <div class="col-xs-8 bar-item bar-progress">
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-success" role="progressbar"
+                                     aria-valuenow="<?php echo $votes['Fun']['percent'] ?>"
+                                     aria-valuemin="0" aria-valuemax="100" style="width: 0%"
+                                     data-percentage="<?php echo $votes['Fun']['percent'] ?>"
+                                     data-name="Fun">
+                                    <span class="sr-only"><?php echo $votes['Fun']['percent'] ?>% Complete (success)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-2 bar-item bar-percent">
+                            <span><?php echo $votes['Fun']['percent'] ?>%</span>
+                        </div>
+                    </div>
+
+                    <div class="row bar">
+                        <div class="col-xs-2 bar-item bar-img">
+                            <a href="#"
+                               onclick="PiweeVote(<?php echo get_the_ID(); ?>, <?php echo getChoiceIdByName('Créatif'); ?>); return false;">
+                                <img
+                                    src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icon-creatif.png">
+                            </a>
+                        </div>
+                        <div class="col-xs-8 bar-item bar-progress">
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-success" role="progressbar"
+                                     aria-valuenow="<?php echo $votes['Créatif']['percent'] ?>"
+                                     aria-valuemin="0" aria-valuemax="100" style="width: 0%"
+                                     data-percentage="<?php echo $votes['Créatif']['percent'] ?>"
+                                     data-name="Créatif">
+                                <span class="sr-only"><?php echo $votes['Créatif']['percent'] ?>
+                                    % Complete (success)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-2 bar-item bar-percent">
+                            <span><?php echo $votes['Créatif']['percent'] ?>%</span>
+                        </div>
+                    </div>
+
+                    <div class="row bar">
+                        <div class="col-xs-2 bar-item bar-img">
+                            <a href="#"
+                               onclick="PiweeVote(<?php echo get_the_ID(); ?>, <?php echo getChoiceIdByName('déjà vu'); ?>); return false;">
+                                <img src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icon-dejavu.png">
+                            </a>
+                        </div>
+                        <div class="col-xs-8 bar-item bar-progress">
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-success" role="progressbar"
+                                     aria-valuenow="<?php echo $votes['déjà vu']['percent'] ?>"
+                                     aria-valuemin="0" aria-valuemax="100" style="width: 0%"
+                                     data-percentage="<?php echo $votes['déjà vu']['percent'] ?>"
+                                     data-name="déjà vu">
+                                <span class="sr-only"><?php echo $votes['déjà vu']['percent'] ?>
+                                    % Complete (success)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-2 bar-item bar-percent">
+                            <span><?php echo $votes['déjà vu']['percent'] ?>%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="open-menu-post-type-popover bubble-speech">
+                    N'oublie pas de voter !
+                </div>
+
+                <div class="secondary-footer-post-type-container open-menu-post-type">
+
+                    <?php if ($maxVoteEntity): ?>
+
+                        <img src="<?php echo $vote_icon ?>" class="img-max-entity">
+
+                        <div class="max-vote-entity">
+                            <span class="percent"><?php echo $maxVoteEntity['percent'] ?>%</span>
+                            <br>
+                            <span class="description"><?php echo $maxVoteEntity['name'] ?></span>
+                        </div>
+
+                    <?php endif ?>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-3 secondary-footer-share-container secondary-footer-col">
+
+                <div class="secondary-footer-shareimg-container">
+                    <a href="http://www.facebook.com/sharer/sharer.php?u=<?php echo get_permalink() ?>"
+                       target="_blank">
+                        <img
+                            src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/FB_icon_piwee.png">
+                    </a>
+                    <a href="https://twitter.com/home?status=<?php echo get_the_title() . ' ' . get_permalink() ?>"
+                       target="_blank">
+                        <img
+                            src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/twitter_icon_piwee.png">
+                    </a>
+                    <a href="https://www.linkedin.com/shareArticle?mini=true&url=<?php echo get_permalink() ?>&title=<?php echo get_the_title() . ' ' . get_permalink() ?>&summary=&source=Piwee.net"
+                       target="_blank">
+                        <img
+                            src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/linkedin_icon_piwee.png">
+                    </a>
+                    <a href="mailto:?subject=<?php echo rawurlencode(get_the_title() . ' | Piwee.net') ?>&body=<?php echo rawurlencode(get_the_title() . ' ' . get_permalink()) ?>">
+                        <img
+                            src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/mail_icon_piwee.png">
+                    </a>
+                </div>
+
+                <span class="secondary-footer-share-text">Partagez cet article</span>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
 <div class="container footer">
 
     <footer id="site-footer">

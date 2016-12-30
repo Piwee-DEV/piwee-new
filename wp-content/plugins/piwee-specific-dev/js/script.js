@@ -1,8 +1,9 @@
 var GlobalSpecific = {};
 
-function openMobilePostType() {
+function openPostType() {
 
     $('.menu-post-type-opened').toggle();
+    $('.open-menu-post-type-popover').hide();
 
     setTimeout(function () {
 
@@ -29,6 +30,22 @@ function openMobilePostType() {
 
 jQuery(document).ready(function () {
 
+    jQuery('.post-container').scrollgress({
+        onProgress: function(percentScrolled) {
+
+            if(percentScrolled > 80) {
+                jQuery('.open-menu-post-type-popover').fadeIn();
+            }
+            else {
+                jQuery('.open-menu-post-type-popover').fadeOut();
+            }
+
+            jQuery('.secondary-footer .progress .progress-bar-reading').css({
+                width: percentScrolled + '%'
+            });
+        }
+    });
+
     /**
      * Hiding widget_text if ADBLOCK is enabled...
      */
@@ -52,7 +69,7 @@ jQuery(document).ready(function () {
 
     $('.open-menu-post-type').on('touchstart click',function (e){
         e.preventDefault();
-        openMobilePostType();
+        openPostType();
     });
 
     responsiveControl();
@@ -65,13 +82,14 @@ jQuery(document).ready(function () {
 
         jQuery(".header-article").scrollToFixed({
             preFixed: function () {
-                jQuery(".secondary-header").animate({top: "0px"}, 200);
                 jQuery(".header-article").css('visibility', 'hidden');
+                jQuery(".secondary-footer").animate({bottom: "0px"}, 200);
                 jQuery("#wpadminbar").hide();
             },
             postFixed: function () {
-                jQuery(".secondary-header").animate({top: "-70px"}, 200);
                 jQuery(".header-article").css("visibility", 'visible');
+                jQuery(".secondary-footer").animate({bottom: "-70px"}, 200);
+                jQuery('.open-menu-post-type-popover').fadeOut();
                 jQuery("#wpadminbar").show();
 
                 $('.menu-post-type-opened').hide();
