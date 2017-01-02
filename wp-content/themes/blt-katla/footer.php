@@ -4,7 +4,7 @@
 
 <?php
 
-if (is_single()) {
+if (get_the_ID()) {
 
     //Getting the #1 Vote entity
     $maxVoteEntity = getMaxVoteEntity(get_the_ID());
