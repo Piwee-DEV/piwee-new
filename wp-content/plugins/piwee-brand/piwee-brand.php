@@ -29,19 +29,48 @@ define("WPPOSTMETA_SLUG_BRAND", "piwee_brand_slug");
 
 add_action("add_meta_boxes", "add_piwee_brand_metabox");
 add_action("save_post", "validate_form_piwee_brand");
+add_action("category_add_form_fields", "category_add_brand");
+add_action('category_edit_form_fields','category_add_brand');
+add_action('edit_category','save_extra_taxonomy_fields');
 
 function register_brand_page()
 {
     add_menu_page('PIWEE Brand', 'PIWEE Brand', 'manage_options', 'brand_page', 'brand_page', plugins_url('images/logo-piwee.jpg', __FILE__), null);
 }
 
-function encode_brand_wp_option_to_json($brandName, $brandDescription, $brandUrl, $brandLogo, $brandSlug)
+function category_add_brand($tag) {
+
+    $piwee_brand = get_brand_for_category($tag->term_id);
+    $piwee_brand_list = get_piwee_brands();
+
+    ?>
+
+    <div class="form-field">
+        <label for="term_meta[cat_icon]">Marque</label>
+        <select id="piwee_brand" name="brandSlug">
+            <option value="-1">Aucune marque</option>
+            <?php foreach ($piwee_brand_list as $brand): ?>
+                <option
+                    value="<?php echo $brand['brandSlug'] ?>" <?php if ($piwee_brand['brandSlug'] == $brand['brandSlug']) {
+                    echo 'selected';
+                } ?>><?php echo $brand['brandName'] ?></option>
+            <?php endforeach; ?>
+        </select>
+        <p class="description">Marque sponsorisant la catégorie</p>
+    </div>
+
+    <?php
+}
+
+function encode_brand_wp_option_to_json($brandName, $brandDescription, $brandUrl, $brandLogo, $brandSlug, $brandHeaderImage, $brandSidebar)
 {
     $brandArray = array('brandName' => $brandName,
         'brandDescription' => $brandDescription,
         'brandUrl' => $brandUrl,
         'brandLogo' => $brandLogo,
-        'brandSlug' => $brandSlug);
+        'brandSlug' => $brandSlug,
+        'brandHeaderImage' => $brandHeaderImage,
+        'brandSidebar' => $brandSidebar);
     return json_encode($brandArray);
 }
 
@@ -83,8 +112,19 @@ function delete_brand($brandSlug)
 
 function get_brand_for_post($postId)
 {
-
     $brandSlug = get_post_meta($postId, WPPOSTMETA_SLUG_BRAND, true);
+
+    if (!$brandSlug) {
+        return null;
+    }
+
+    return get_piwee_brand_by_slug($brandSlug);
+}
+
+
+function get_brand_for_category($tagId)
+{
+    $brandSlug = get_term_meta($tagId, WPPOSTMETA_SLUG_BRAND, true);
 
     if (!$brandSlug) {
         return null;
@@ -112,19 +152,28 @@ function brand_page()
 
     if (isset($_POST)) {
 
-        if ($_POST['action'] == 'add_brand') {
+        if ($_POST['action'] == 'add_or_update_brand') {
 
             $brandName = $_POST['brandName'];
             $brandDescription = $_POST['brandDescription'];
             $brandUrl = $_POST['brandUrl'];
             $brandLogo = $_POST['brandLogo'];
+            $brandHeaderImage = $_POST['brandHeaderImage'];
+            $brandSidebar = $_POST['brandSidebar'];
             $brandSlug = sanitize_title($brandName);
 
-            $wp_option_value = encode_brand_wp_option_to_json($brandName, $brandDescription, $brandUrl, $brandLogo, $brandSlug);
+            $wp_option_value = encode_brand_wp_option_to_json($brandName, $brandDescription, $brandUrl, $brandLogo, $brandSlug, $brandHeaderImage, $brandSidebar);
 
-            add_option(WPOPTION_NAME_BRAND . '_' . $brandSlug, $wp_option_value) || update_option(WPOPTION_NAME_BRAND . '_' . $brandSlug, $wp_option_value);
+            if(!get_option(WPOPTION_NAME_BRAND . '_' . $brandSlug)) {
+                add_option(WPOPTION_NAME_BRAND . '_' . $brandSlug, $wp_option_value);
+            }
+            else{
+                update_option(WPOPTION_NAME_BRAND . '_' . $brandSlug, $wp_option_value);
+            }
+
+            $editBrand = get_piwee_brand_by_slug($_GET['brandSlug']);
+
         } else if ($_POST['action'] == 'delete_brand') {
-
             delete_brand($_POST['brandSlug']);
         }
 
@@ -140,21 +189,21 @@ function brand_page()
         <?php endif; ?>
 
         <?php if (isset($editBrand)): ?>
-            <h1>Editer la marque <?php echo $editBrand['brandName'] ?></h1>
+            <h1>Editer la marque <?php echo stripslashes($editBrand['brandName']) ?></h1>
         <?php endif; ?>
 
         <form action="#" method="POST">
             <input type="text" name="brandName" placeholder="Nom de la marque" <?php if (isset($editBrand)) {
-                echo 'value="' . $editBrand['brandName'] . '"';
+                echo 'value="' . stripslashes($editBrand['brandName']) . '"';
             } ?> required>
             <br>
             <input type="text" name="brandUrl" placeholder="URL de la marque" <?php if (isset($editBrand)) {
-                echo 'value="' . $editBrand['brandUrl'] . '"';
+                echo 'value="' . stripslashes($editBrand['brandUrl']) . '"';
             } ?> required>
             <br>
             <textarea name="brandDescription" placeholder="Description de la marque" rows="10" cols="50"
                       required><?php if (isset($editBrand)) {
-                    echo $editBrand['brandDescription'];
+                    echo stripslashes($editBrand['brandDescription']);
                 } ?></textarea>
             <br>
             <div class="uploader">
@@ -163,7 +212,25 @@ function brand_page()
                     echo 'value="' . $editBrand['brandLogo'] . '"';
                 } ?> required/>
             </div>
-            <input type="hidden" name="action" value="add_brand">
+            <div class="uploader">
+                <input class="button" name="_wpse_82858_button" id="_wpse_82858_button" value="Image sous header"/>
+                <input type="text" name="brandHeaderImage" id="_wpse_82858" <?php if (isset($editBrand)) {
+                    echo 'value="' . $editBrand['brandHeaderImage'] . '"';
+                } ?>/>
+            </div>
+            <br>
+            <?php if(class_exists('CustomSidebars')): ?>
+            <label>Sidebar</label>
+            <div>
+                <select name="brandSidebar">
+                    <option value="-1">Aucune</option>
+                    <?php foreach(CustomSidebars::get_custom_sidebars() as $sidebar): ?>
+                        <option value="<?php echo $sidebar['id'] ?>" <?php if($editBrand['brandSidebar'] == $sidebar['id']) {echo 'selected';} ?>><?php echo $sidebar['name'] ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+            <?php endif; ?>
+            <input type="hidden" name="action" value="add_or_update_brand">
             <br><br>
             <input type="submit" class="button-primary">
         </form>
@@ -186,7 +253,6 @@ function brand_page()
                     } else {
                         return _orig_send_attachment.apply(this, [props, attachment]);
                     }
-                    ;
                 }
 
                 wp.media.editor.open(button);
@@ -274,5 +340,17 @@ function validate_form_piwee_brand()
     } else {
         add_post_meta(get_the_ID(), WPPOSTMETA_SLUG_BRAND, $brandSlug, true)
         || update_post_meta(get_the_ID(), WPPOSTMETA_SLUG_BRAND, $brandSlug);
+    }
+}
+
+function save_extra_taxonomy_fields($term_id) {
+
+    $brandSlug = $_POST['brandSlug'];
+
+    if ($brandSlug == -1) {
+        delete_brand_slug_for_post(WPPOSTMETA_SLUG_BRAND, $term_id);
+    } else {
+        add_term_meta($term_id, WPPOSTMETA_SLUG_BRAND, $brandSlug, true)
+        || update_term_meta($term_id, WPPOSTMETA_SLUG_BRAND, $brandSlug);
     }
 }
