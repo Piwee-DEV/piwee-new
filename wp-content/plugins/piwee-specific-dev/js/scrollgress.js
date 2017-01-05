@@ -58,8 +58,10 @@ DO NOT ATTEMPT TO UPDATE IT. TY
     		// and round the result to two decimal places
     		var percentScrolled = ((amountScrolled / (heightToScroll - windowHeight)) * 100).toFixed(2);
 
-            plugin.settings.onProgress(percentScrolled);
+            //Reverse the percent that is scrolled ! Because our bar is on the right and it's a bar that is intended to hide the background color.
+            var reversedPercentScrolled = 100 - percentScrolled;
 
+            plugin.settings.onProgress(percentScrolled, reversedPercentScrolled);
         });
         
         s.success.call(this);

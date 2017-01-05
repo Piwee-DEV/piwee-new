@@ -887,8 +887,23 @@ section.content {
     margin: 0;
 }
 
-.secondary-footer .progress .progress-bar {
-    background-color: #ddb855;
+.secondary-footer .progress-reading {
+    background-color: #da6f7c;
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1, startColorstr=#da6f7c, endColorstr=#c9a157);
+    background-image: -moz-linear-gradient(left, #da6f7c 63%, #c9a157 50%, #7595d3 0%);
+    background-image: linear-gradient(left, #da6f7c 63%, #c9a157 50%, #7595d3 0%);
+    background-image: -webkit-linear-gradient(left, #da6f7c 63%, #c9a157 50%, #7595d3 0%);
+    background-image: -o-linear-gradient(left, #da6f7c 63%, #c9a157 50%, #7595d3 0%);
+    background-image: -ms-linear-gradient(left, #da6f7c 63%, #c9a157 50%, #7595d3 0%);
+    background-image: -webkit-gradient(linear, left bottom, right bottom, color-stop(63%, #da6f7c), color-stop(50%, #c9a157), color-stop(0%, #7595d3));
+}
+
+.secondary-footer .progress-reading .progress-bar-reading {
+    float: right;
+    border: none;
+    background-color: #ebeef1;
+    -webkit-box-shadow: none;
+    box-shadow: none;
 }
 
 .secondary-footer .container {
@@ -962,6 +977,35 @@ section.content {
     margin-bottom: 0 !important;
     margin-top: 5px !important;
     margin-left: -7px;
+}
+
+.mobile-header .progress {
+    border-radius: 0;
+    height: 5px;
+    margin: 5px 0 0;
+}
+
+.mobile-header .progress-reading {
+    background-color: #da6f7c;
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1, startColorstr=#da6f7c, endColorstr=#c9a157);
+    background-image: -moz-linear-gradient(left, #da6f7c 63%, #c9a157 50%, #7595d3 0%);
+    background-image: linear-gradient(left, #da6f7c 63%, #c9a157 50%, #7595d3 0%);
+    background-image: -webkit-linear-gradient(left, #da6f7c 63%, #c9a157 50%, #7595d3 0%);
+    background-image: -o-linear-gradient(left, #da6f7c 63%, #c9a157 50%, #7595d3 0%);
+    background-image: -ms-linear-gradient(left, #da6f7c 63%, #c9a157 50%, #7595d3 0%);
+    background-image: -webkit-gradient(linear, left bottom, right bottom, color-stop(63%, #da6f7c), color-stop(50%, #c9a157), color-stop(0%, #7595d3));
+}
+
+.mobile-header .progress-reading .progress-bar-reading {
+    float: right;
+    border: none;
+    background-color: #ebeef1;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.mobile-header-post-type-container {
+    position: relative;
 }
 
 .mobile-header-post-type-container img {
@@ -1623,6 +1667,7 @@ section.content {
 }
 
 .post-title {
+    font-size: 0.8em;
     font-weight: 300;
     color: #444;
 }
@@ -1656,14 +1701,33 @@ section.content {
 }
 
 .open-menu-post-type-popover {
+    padding-top: 9px;
     text-align: center;
     position: absolute;
-    background-color: #96dcf9;
-    bottom: 20px;
+    bottom: 70px;
+    left: 30px;
     color: white;
     width: 180px;
     font-weight: bold;
     display: none;
+    width: 200px;
+    height: 52px;
+    background: url('../img/dont-forget-bar.png') no-repeat;
+}
+
+.mobile-header .open-menu-post-type-popover {
+    padding-top: 22px;
+    text-align: center;
+    position: absolute;
+    top: 50px;
+    left: -110px;
+    color: white;
+    width: 180px;
+    font-weight: bold;
+    display: none;
+    width: 200px;
+    height: 52px;
+    background: url('../img/dont-forget-bar-reversed.png') no-repeat;
 }
 
 .brandHeaderImageContainer {
@@ -1679,5 +1743,38 @@ section.content {
     font-size: 0.5em;
     color: #d5ac3c;
     font-weight: 300;
+}
+
+.article-vignette-branding {
+    display: block;
+    position: absolute;
+    top: 10px;
+    left: -2px;
+    color: black;
+    background-color: white;
+    padding: 5px 10px;
+    border-radius: 2px 0px 0px 2px;
+    font-weight: bold;
+    font-size: 0.9em;
+    -webkit-box-shadow: -1px 1px 5px 0px rgba(0,0,0,0.25);
+    -moz-box-shadow: -1px 1px 5px 0px rgba(0,0,0,0.25);
+    box-shadow: -1px 1px 5px 0px rgba(0,0,0,0.25);
+}
+
+.article-vignette-branding img {
+    max-width: 25px;
+    margin-right: 3px;
+    display: block;
+    float: left;
+}
+
+.article-vignette-branding .brandName {
+    color: #d5ac3c;
+}
+
+.article-vignette-branding .brandPresentedBy {
+    padding-top: 3px;
+    display: block;
+    float: left;
 }
 

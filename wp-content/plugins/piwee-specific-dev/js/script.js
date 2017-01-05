@@ -30,18 +30,49 @@ function openPostType() {
 
 jQuery(document).ready(function () {
 
-    jQuery('.post-container').scrollgress({
-        onProgress: function(percentScrolled) {
+    jQuery('.open-menu-post-type-popover').click(function () {
+        jQuery('.open-menu-post-type-popover').fadeOut();
+    });
 
-            if(percentScrolled > 80) {
+    var shakeTimeout;
+    var canShake = true;
+
+    jQuery('.post-container').scrollgress({
+        onProgress: function (percentScrolled, reversedPercentScrolled) {
+
+            if (percentScrolled > 80) {
+
                 jQuery('.open-menu-post-type-popover').fadeIn();
+
+                if(canShake) {
+
+                    canShake = false;
+
+                    if(shakeTimeout !== null) {
+                        clearTimeout(shakeTimeout);
+                    }
+
+                    shakeTimeout = setTimeout(function() {
+                        jQuery('.open-menu-post-type-popover').effect('shake', {direction: 'up', distance: '3', times: 1}, 500, function() {
+                            setTimeout(function() {
+                                jQuery('.open-menu-post-type-popover').effect('shake', {direction: 'up', distance: '3', times: 1}, 500, function() {
+                                });
+                            }, 2000);
+                        });
+                    }, 200);
+                }
             }
             else {
+                canShake = true;
                 jQuery('.open-menu-post-type-popover').fadeOut();
             }
 
             jQuery('.secondary-footer .progress .progress-bar-reading').css({
-                width: percentScrolled + '%'
+                width: reversedPercentScrolled + '%'
+            });
+
+            jQuery('.mobile-header .progress .progress-bar-reading').css({
+                width: reversedPercentScrolled + '%'
             });
         }
     });
@@ -52,7 +83,7 @@ jQuery(document).ready(function () {
 
     // Function called if AdBlock is detected
     function adBlockDetected() {
-        $(document).find(".widget_text").each(function() {
+        $(document).find(".widget_text").each(function () {
             $(this).hide();
         });
     }
@@ -60,14 +91,14 @@ jQuery(document).ready(function () {
     // Recommended audit because AdBlock lock the file 'fuckadblock.js'
     // If the file is not called, the variable does not exist 'fuckAdBlock'
     // This means that AdBlock is present
-    if(typeof fuckAdBlock === 'undefined') {
+    if (typeof fuckAdBlock === 'undefined') {
         adBlockDetected();
     } else {
         fuckAdBlock.onDetected(adBlockDetected);
         fuckAdBlock.on(true, adBlockDetected);
     }
 
-    $('.open-menu-post-type').on('touchstart click',function (e){
+    $('.open-menu-post-type').on('touchstart click', function (e) {
         e.preventDefault();
         openPostType();
     });
@@ -98,7 +129,7 @@ jQuery(document).ready(function () {
         });
 
         var marginTopNewsletterWidget = 0;
-        if(jQuery('.post-container') && jQuery('.post-container').length > 0) {
+        if (jQuery('.post-container') && jQuery('.post-container').length > 0) {
             marginTopNewsletterWidget = $('.header-article').height() + 20;
         }
 

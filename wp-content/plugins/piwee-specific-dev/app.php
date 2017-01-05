@@ -39,15 +39,9 @@ require_once("shortcodes/piwee_author_page_shortcode.php");
 
 require_once("post_sharing/post_sharing.php");
 
-add_action('wp_enqueue_scripts', 'register_script_sharebtn_plugin', 99999);
-add_action('admin_enqueue_scripts', 'register_script_colorpicker', 99999);
-add_action('admin_enqueue_scripts', 'register_script_admin', 99999);
+add_action('wp_enqueue_scripts', 'register_scripts_piwee', 99999);
+add_action('admin_enqueue_scripts', 'register_script_admin_piwee', 99999);
 add_action('admin_menu', 'register_campagne_page');
-//add_action('admin_menu', 'register_refresh_share_count_page');
-//add_action('admin_menu', 'register_share_count_migration_page');
-
-wp_register_script('fuckadblock', plugins_url('/js/fuckadblock.js', __FILE__));
-wp_enqueue_script('fuckadblock');
 
 
 function register_refresh_share_count_page()
@@ -652,31 +646,29 @@ function categ_gen_button()
     <?php
 }
 
-function register_script_sharebtn_plugin()
+function register_scripts_piwee()
 {
+    wp_register_script('jquery-ui', plugins_url('/js/jquery-ui.js', __FILE__));
     wp_register_script('scroll-to-fixed', plugins_url('/js/jquery-scrolltofixed.js', __FILE__));
     wp_register_script('scrollgress', plugins_url('/js/scrollgress.js', __FILE__));
     wp_register_script('app-sharebtn-script', plugins_url('/js/script.js', __FILE__));
+    wp_register_script('fuckadblock', plugins_url('/js/fuckadblock.js', __FILE__));
 
+    wp_enqueue_script('jquery-ui');
     wp_enqueue_script('scroll-to-fixed');
     wp_enqueue_script('scrollgress');
     wp_enqueue_script('app-sharebtn-script');
+    wp_enqueue_script('fuckadblock');
 }
 
-function register_script_colorpicker()
-{
+function register_script_admin_piwee() {
 
     wp_register_script('color-picker', plugins_url('/js/jqColorPicker.min.js', __FILE__));
-    wp_enqueue_script('color-picker');
-}
-
-function register_script_admin()
-{
-
     wp_register_script('admin-script', plugins_url('/js/admin_script.js', __FILE__));
+
+    wp_enqueue_script('color-picker');
     wp_enqueue_script('admin-script');
 }
-
 
 function file_get_content_fromurl($url, $params = array(), $method = "GET")
 {

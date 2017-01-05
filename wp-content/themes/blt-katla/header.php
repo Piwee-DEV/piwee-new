@@ -301,6 +301,7 @@ if (is_single()) {
         </div>
 
         <div class="mobile-header hidden-lg hidden-md">
+
             <div class="container">
                 <div clas="row">
                     <div class="col-xs-4 mobile-header-col">
@@ -324,7 +325,7 @@ if (is_single()) {
 
                             <div class="open-menu-post-type">
 
-                                <?php if ($maxVoteEntity): ?>
+                                <?php if (!$maxVoteEntity): ?>
 
                                     <div class="menu-post-type-text max-vote-entity">
                                         <span class="percent"><?php echo $maxVoteEntity['percent'] ?>%</span>
@@ -332,6 +333,14 @@ if (is_single()) {
                                     </div>
 
                                     <img src="<?php echo $vote_icon ?>" class="img-max-entity">
+
+                                <?php else: ?>
+
+                                    <img src="<?php echo get_template_directory_uri() ?>/assets/img/button-vote.png" class="img-max-entity" style="position: relative;left: 7px;">
+
+                                    <div class="open-menu-post-type-popover">
+                                        N'oublie pas de voter !
+                                    </div>
 
                                 <?php endif ?>
 
@@ -447,6 +456,13 @@ if (is_single()) {
                 </div>
 
             </div>
+
+            <div class="progress progress-reading">
+                <div class="progress-bar progress-bar-reading" role="progressbar" aria-valuenow="0"
+                     aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                </div>
+            </div>
+
         </div>
 
         <div class="secondary-menu hidden-sm hidden-xs">
