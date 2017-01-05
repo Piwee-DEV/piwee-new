@@ -198,7 +198,7 @@ if (is_single()) {
 
     ?>
 
-    <?php if($campain_onclick_script) echo $campain_onclick_script; ?>
+    <?php if ($campain_onclick_script) echo $campain_onclick_script; ?>
 
 </head>
 
@@ -270,7 +270,8 @@ if (is_single()) {
 
                         <div class="social-network-headband-links">
 
-                            <a href="/category/vie-du-blog">Vie du blog</a> <a href="/annonceurs">Annonceurs</a> <a href="/about">À Propos</a>
+                            <a href="/category/vie-du-blog">Vie du blog</a> <a href="/annonceurs">Annonceurs</a> <a
+                                href="/about">À Propos</a>
 
                         </div>
 
@@ -625,12 +626,15 @@ if (is_single()) {
 
                         <span class="right-subtitle-header">
 
-                            <a href="#" class="right-subtitle-header-search" onclick="jQuery('.header-search-bar').show();jQuery('.right-subtitle-header-search').hide();return false;">
+                            <a href="#" class="right-subtitle-header-search"
+                               onclick="jQuery('.header-search-bar').show();jQuery('.right-subtitle-header-search').hide();return false;">
                                 <i class="fa fa-search"></i>
                             </a>
 
                             <a href="http://piwee-shop.wiltee.com/" class="right-subtitle-header-shop" rel="nofollow">
-                                <img src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icone-piwee-shop.png"> SHOP
+                                <img
+                                    src="<?php echo get_template_directory_uri() ?>/assets/img/piwee-icon/icone-piwee-shop.png">
+                                SHOP
                             </a>
 
                         </span>
@@ -688,21 +692,61 @@ if (is_single()) {
 
             <div id="campain_bg" class="campain_bg"></div>
 
-            <?php echo stripslashes($campain_injected_code); ?>
+            <?php $brand = get_brand_for_post_or_category(get_the_ID()); ?>
 
-            <?php if ($display_video): ?>
+            <?php if (!isset($brand) && !isset($campain_injected_code)): ?>
 
-                <?php //HELPER TO DISPLAY VIDEO ! ?>
+                <?php
+
+                if (mt_rand(0, 1) == 0) {
+                    $adh['idclient'] = 'ca-pub-9594201080211682';
+                    $adh['slotid'] = '1797432652';
+                } else {
+                    $adh['idclient'] = 'ca-pub-0031647560032028';
+                    $adh['slotid'] = '1640978927';
+                }
+
+                ?>
+
+                <div class="hidden-lg hidden-md" style="margin-top:60px;margin-bottom:10px;">
+                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- Responsive article -->
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="<?php echo $adh['idclient']; ?>"
+                         data-ad-slot="<?php echo $adh['slotid']; ?>"
+                         data-ad-format="auto"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
 
             <?php endif; ?>
 
-            <?php if ($isCampain): ?>
+        </div>
 
-                <a href="<?php echo $campain_url ?>" target="_blank">
-                    <img src="<?php echo $campain_mobile_header ?>" id="campain_mobile_header">
-                </a>
+        <?php
+            if(isset($brand['brandHeaderImage'])) {
+                echo '<div class="brandHeaderImageContainer"><img src="' . $brand['brandHeaderImage'] . '"></div>';
+            }
+            else if(isset($campain_injected_code)) {
+                echo stripslashes($campain_injected_code);
+            }
+        ?>
 
-            <?php endif; ?>
+        <?php if ($display_video): ?>
+
+            <?php //HELPER TO DISPLAY VIDEO ! ?>
+
+        <?php endif; ?>
+
+        <?php if ($isCampain): ?>
+
+            <a href="<?php echo $campain_url ?>" target="_blank">
+                <img src="<?php echo $campain_mobile_header ?>" id="campain_mobile_header">
+            </a>
+
+        <?php endif; ?>
 
 
-            <div id="site-body">
+        <div id="site-body">

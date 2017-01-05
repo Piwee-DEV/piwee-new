@@ -1666,3 +1666,7 @@ section.content {
     display: none;
 }
 
+.brandHeaderImageContainer {
+    text-align: center;
+}
+

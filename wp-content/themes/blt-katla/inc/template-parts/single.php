@@ -67,7 +67,7 @@
 
     </div>
 
-    <?php $brand = get_brand_for_post(get_the_ID()); ?>
+    <?php $brand = get_brand_for_post_or_category(get_the_ID()); ?>
 
     <?php if ($brand): ?>
 

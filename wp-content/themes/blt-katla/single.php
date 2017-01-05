@@ -39,7 +39,16 @@
                 <div id="primary-sidebar" class="primary-sidebar widget-area" role="complementary">
                     <aside id="site-content-sidebar">
                         <div class="content-sidebar-wrap">
-                            <?php dynamic_sidebar('katla-right-post'); ?>
+                            <?php
+                            $brand = get_brand_for_post_or_category(get_the_ID());
+
+                            if (isset($brand['brandSidebar'])) {
+                                dynamic_sidebar($brand['brandSidebar']);
+                            } else {
+                                dynamic_sidebar('katla-right-post');
+                            }
+
+                            ?>
                         </div>
                     </aside>
                 </div>

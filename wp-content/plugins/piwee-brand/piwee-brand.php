@@ -30,15 +30,16 @@ define("WPPOSTMETA_SLUG_BRAND", "piwee_brand_slug");
 add_action("add_meta_boxes", "add_piwee_brand_metabox");
 add_action("save_post", "validate_form_piwee_brand");
 add_action("category_add_form_fields", "category_add_brand");
-add_action('category_edit_form_fields','category_add_brand');
-add_action('edit_category','save_extra_taxonomy_fields');
+add_action('category_edit_form_fields', 'category_add_brand');
+add_action('edit_category', 'save_extra_taxonomy_fields');
 
 function register_brand_page()
 {
     add_menu_page('PIWEE Brand', 'PIWEE Brand', 'manage_options', 'brand_page', 'brand_page', plugins_url('images/logo-piwee.jpg', __FILE__), null);
 }
 
-function category_add_brand($tag) {
+function category_add_brand($tag)
+{
 
     $piwee_brand = get_brand_for_category($tag->term_id);
     $piwee_brand_list = get_piwee_brands();
@@ -105,8 +106,8 @@ function add_brand_postmeta($postId, $brandSlug)
 
 function delete_brand($brandSlug)
 {
-
     delete_brand_slug_for_post($brandSlug);
+    delete_brand_slug_for_category($brandSlug);
     delete_option(WPOPTION_NAME_BRAND . '_' . $brandSlug);
 }
 
@@ -135,8 +136,12 @@ function get_brand_for_category($tagId)
 
 function delete_brand_slug_for_post($brandSlug, $postId = null)
 {
-
     delete_metadata('post', $postId, WPPOSTMETA_SLUG_BRAND, $brandSlug, true);
+}
+
+function delete_brand_slug_for_category($brandSlug, $categoryId = null)
+{
+    delete_metadata('term', $categoryId, WPPOSTMETA_SLUG_BRAND, $brandSlug, true);
 }
 
 function brand_page()
@@ -164,10 +169,9 @@ function brand_page()
 
             $wp_option_value = encode_brand_wp_option_to_json($brandName, $brandDescription, $brandUrl, $brandLogo, $brandSlug, $brandHeaderImage, $brandSidebar);
 
-            if(!get_option(WPOPTION_NAME_BRAND . '_' . $brandSlug)) {
+            if (!get_option(WPOPTION_NAME_BRAND . '_' . $brandSlug)) {
                 add_option(WPOPTION_NAME_BRAND . '_' . $brandSlug, $wp_option_value);
-            }
-            else{
+            } else {
                 update_option(WPOPTION_NAME_BRAND . '_' . $brandSlug, $wp_option_value);
             }
 
@@ -219,16 +223,19 @@ function brand_page()
                 } ?>/>
             </div>
             <br>
-            <?php if(class_exists('CustomSidebars')): ?>
-            <label>Sidebar</label>
-            <div>
-                <select name="brandSidebar">
-                    <option value="-1">Aucune</option>
-                    <?php foreach(CustomSidebars::get_custom_sidebars() as $sidebar): ?>
-                        <option value="<?php echo $sidebar['id'] ?>" <?php if($editBrand['brandSidebar'] == $sidebar['id']) {echo 'selected';} ?>><?php echo $sidebar['name'] ?></option>
-                    <?php endforeach; ?>
-                </select>
-            </div>
+            <?php if (class_exists('CustomSidebars')): ?>
+                <label>Sidebar</label>
+                <div>
+                    <select name="brandSidebar">
+                        <option value="-1">Aucune</option>
+                        <?php foreach (CustomSidebars::get_custom_sidebars() as $sidebar): ?>
+                            <option
+                                value="<?php echo $sidebar['id'] ?>" <?php if ($editBrand['brandSidebar'] == $sidebar['id']) {
+                                echo 'selected';
+                            } ?>><?php echo $sidebar['name'] ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
             <?php endif; ?>
             <input type="hidden" name="action" value="add_or_update_brand">
             <br><br>
@@ -303,6 +310,47 @@ function brand_page()
     <?php
 }
 
+function get_brand_for_post_or_category($post_id)
+{
+    $brand = get_brand_for_post($post_id);
+
+    if (!$brand) {
+
+        $category = get_the_category($post_id);
+
+        $parent_categories = get_category_parents_ids($category[0]->term_id);
+
+        foreach ($parent_categories as $parent_category) {
+
+            $brand = get_brand_for_category($parent_category->term_id);
+
+            if (isset($brand)) {
+                break;
+            }
+        }
+    }
+
+    return $brand;
+}
+
+function get_category_parents_ids($id, $visited = array())
+{
+    $parents = array();
+    $parent = get_term($id, 'category');
+
+    if (is_wp_error($parent))
+        return $parent;
+
+    $parents[] = $parent;
+
+    if ($parent->parent && ($parent->parent != $parent->term_id) && !in_array($parent->parent, $visited)) {
+        $visited[] = $parent->parent;
+        $parents = array_merge($parents, get_category_parents_ids($parent->parent));
+    }
+
+    return $parents;
+}
+
 function add_piwee_brand_metabox_markup()
 {
     $piwee_brand = get_brand_for_post(get_the_ID());
@@ -343,12 +391,13 @@ function validate_form_piwee_brand()
     }
 }
 
-function save_extra_taxonomy_fields($term_id) {
+function save_extra_taxonomy_fields($term_id)
+{
 
     $brandSlug = $_POST['brandSlug'];
 
     if ($brandSlug == -1) {
-        delete_brand_slug_for_post(WPPOSTMETA_SLUG_BRAND, $term_id);
+        delete_brand_slug_for_category(WPPOSTMETA_SLUG_BRAND, $term_id);
     } else {
         add_term_meta($term_id, WPPOSTMETA_SLUG_BRAND, $brandSlug, true)
         || update_term_meta($term_id, WPPOSTMETA_SLUG_BRAND, $brandSlug);
