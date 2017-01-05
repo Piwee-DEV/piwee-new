@@ -1670,3 +1670,14 @@ section.content {
     text-align: center;
 }
 
+.menuHeaderBrandLogo {
+    max-width: 40px;
+}
+
+.menuHeaderBrandBy {
+    font-family: "Source Sans Pro",Helvetica,Arial,sans-serif;
+    font-size: 0.5em;
+    color: #d5ac3c;
+    font-weight: 300;
+}
+

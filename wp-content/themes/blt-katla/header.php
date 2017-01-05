@@ -477,7 +477,7 @@ if (is_single()) {
                                         <div class="col-md-4">
 
                                             <h4><a href="/category/inspiration"><i
-                                                        class="fa fa-paint-brush"></i> ART</a></h4>
+                                                        class="fa fa-paint-brush"></i> ART <?php $brand = get_brand_for_category(213); if(isset($brand)) {echo '<span class="menuHeaderBrandBy">by</span> <img class="menuHeaderBrandLogo" src="' . $brand['brandLogo'] . '">';} ?></a></h4>
 
                                             <p><a href="/category/inspiration/photographie">Photographie</a></a>
                                             </p>
@@ -490,7 +490,7 @@ if (is_single()) {
 
                                             <p><a href="/category/inspiration/sculpture">Sculpture</a></p>
 
-                                            <h4><a href="/category/publicite"><i class="fa fa-tv"></i> PUB</a></h4>
+                                            <h4><a href="/category/publicite"><i class="fa fa-tv"></i> PUB <?php $brand = get_brand_for_category(8); if(isset($brand)) {echo '<span class="menuHeaderBrandBy">by</span> <img class="menuHeaderBrandLogo" src="' . $brand['brandLogo'] . '">';} ?></a></h4>
 
                                             <p><a href="/category/pub/panneau-pub">Panneau Pub</a></p>
 
@@ -503,7 +503,7 @@ if (is_single()) {
                                         <div class="col-md-4">
 
                                             <h4><a href="/category/marketing-2"><i class="fa fa-bullhorn"></i>
-                                                    MARKETING</a></h4>
+                                                    MARKETING <?php $brand = get_brand_for_category(211); if(isset($brand)) {echo '<span class="menuHeaderBrandBy">by</span> <img class="menuHeaderBrandLogo" src="' . $brand['brandLogo'] . '">';} ?></a></h4>
 
                                             <p><a href="/category/marketing-2/operation-marketing">Opération
                                                     Marketing</a></p>
@@ -518,7 +518,7 @@ if (is_single()) {
                                             <p><a href="/category/marketing-2/pop-up-store">Pop-up Store</a></p>
 
                                             <h4><a href="/category/digital-2"><i
-                                                        class="fa fa-mouse-pointer"></i> DIGITAL</a></h4>
+                                                        class="fa fa-mouse-pointer"></i> DIGITAL <?php $brand = get_brand_for_category(212); if(isset($brand)) {echo '<span class="menuHeaderBrandBy">by</span> <img class="menuHeaderBrandLogo" src="' . $brand['brandLogo'] . '">';} ?></a></h4>
 
                                             <p><a href="/category/digital-2/operation-socialmedia">Opération
                                                     Social Media</a></p>
@@ -536,7 +536,7 @@ if (is_single()) {
                                         <div class="col-md-4">
 
                                             <h4><a href="/category/digital-2/twitter"><i
-                                                        class="fa fa-twitter"></i> WE <3 TWITTER</a></h4>
+                                                        class="fa fa-twitter"></i> WE <3 TWITTER <?php $brand = get_brand_for_category(359); if(isset($brand)) {echo '<span class="menuHeaderBrandBy">by</span> <img class="menuHeaderBrandLogo" src="' . $brand['brandLogo'] . '">';} ?></a></h4>
 
                                             <p><a href="/category/digital-2/twitter/cm">Community managers</a>
                                             </p>
@@ -548,15 +548,15 @@ if (is_single()) {
                                                     comptes à suivre</a></p>
 
                                             <h4><a href="/category/innovation"><i class="fa fa-cogs"></i>
-                                                    INNOVATION</a></h4>
+                                                    INNOVATION <?php $brand = get_brand_for_category(515); if(isset($brand)) {echo '<span class="menuHeaderBrandBy">by</span> <img class="menuHeaderBrandLogo" src="' . $brand['brandLogo'] . '">';} ?></a></h4>
 
                                             <h4><a href="/category/automobile-2"><i class="fa fa-automobile"></i>
-                                                    AUTO</a></h4>
+                                                    AUTO <?php $brand = get_brand_for_category(216); if(isset($brand)) {echo '<span class="menuHeaderBrandBy">by</span> <img class="menuHeaderBrandLogo" src="' . $brand['brandLogo'] . '">';} ?></a></h4>
 
                                             <p><a href="/category/auto/essais">Essais</a></p>
 
                                             <h4><a href="/category/gadget"><i class="fa fa-mobile"></i>
-                                                    GADGET</a></h4>
+                                                    GADGET <?php $brand = get_brand_for_category(1201); if(isset($brand)) {echo '<span class="menuHeaderBrandBy">by</span> <img class="menuHeaderBrandLogo" src="' . $brand['brandLogo'] . '">';} ?></a></h4>
 
                                         </div>
 
