@@ -30,7 +30,6 @@ add_action("add_meta_boxes", "add_piwee_adsense_metabox");
 add_action("save_post", "validate_checkbox_piwee_adsense");
 add_filter('the_content', 'filter_content_adsense');
 add_action('wp_enqueue_scripts', 'register_css_adsense_plugin');
-add_filter('widget_text', 'exam_plug_text_replace');
 
 function register_piwee_adsense_page()
 {
@@ -180,28 +179,6 @@ function filter_content_adsense($content)
         if ($do_adsense_bottom_article) {
             $content .= '<br><div id="article-adsense-bottom">' . $adsense_bottom_article . '</div><div id="article-adsense-bottom-mobile">' . $adsense_bottom_article_mobile . '</div>';
         }
-    }
-
-
-    if (mt_rand(0, 1) == 0) {
-        $content = str_replace("ca-pub-9594201080211682", "ca-pub-0031647560032028", $content);
-        $content = str_replace("9566298656", "5696989724", $content);
-        $content = str_replace("6678475853", "7394048928", $content);
-        $content = str_replace("7312035054", "2503493328", $content);
-        $content = str_replace("3357873053", "2848181328", $content);
-    }
-
-
-    return $content;
-}
-
-function exam_plug_text_replace($content)
-{
-
-    if (mt_rand(0, 1) == 0) {
-        $content = str_replace("ca-pub-9594201080211682", "ca-pub-0031647560032028", $content);
-        $content = str_replace("6678475853", "8208510525", $content);
-        $content = str_replace("3357873053", "2848181328", $content);
     }
 
     return $content;

@@ -554,8 +554,7 @@ if (is_single()) {
                                             <h4><a href="/category/digital-2/twitter"><i
                                                         class="fa fa-twitter"></i> WE <3 TWITTER <?php $brand = get_brand_for_category(359); if(isset($brand)) {echo '<span class="menuHeaderBrandBy">by</span> <img class="menuHeaderBrandLogo" src="' . $brand['brandLogo'] . '">';} ?></a></h4>
 
-                                            <p><a href="/category/digital-2/twitter/cm">Community managers</a>
-                                            </p>
+                                            <p><a href="/category/digital-2/twitter/cm">Community managers</a></p>
 
                                             <p><a href="/category/digital-2/twitter/tweets-amusants">Tweets
                                                     marrants</a></p>
@@ -566,13 +565,17 @@ if (is_single()) {
                                             <h4><a href="/category/innovation"><i class="fa fa-cogs"></i>
                                                     INNOVATION <?php $brand = get_brand_for_category(515); if(isset($brand)) {echo '<span class="menuHeaderBrandBy">by</span> <img class="menuHeaderBrandLogo" src="' . $brand['brandLogo'] . '">';} ?></a></h4>
 
-                                            <h4><a href="/category/automobile-2"><i class="fa fa-automobile"></i>
-                                                    AUTO <?php $brand = get_brand_for_category(216); if(isset($brand)) {echo '<span class="menuHeaderBrandBy">by</span> <img class="menuHeaderBrandLogo" src="' . $brand['brandLogo'] . '">';} ?></a></h4>
+                                            <h4><a href="/category/social-media"><i class="fa fa-share-alt"></i>
+                                                    SOCIAL MEDIA <?php $brand = get_brand_for_category(1510); if(isset($brand)) {echo '<span class="menuHeaderBrandBy">by</span> <img class="menuHeaderBrandLogo" src="' . $brand['brandLogo'] . '">';} ?></a></h4>
 
-                                            <p><a href="/category/auto/essais">Essais</a></p>
+                                            <p><a href="/category/digital-2/facebook">Facebook</a></p>
 
-                                            <h4><a href="/category/gadget"><i class="fa fa-mobile"></i>
-                                                    GADGET <?php $brand = get_brand_for_category(1201); if(isset($brand)) {echo '<span class="menuHeaderBrandBy">by</span> <img class="menuHeaderBrandLogo" src="' . $brand['brandLogo'] . '">';} ?></a></h4>
+                                            <p><a href="/category/digital-2/instagram">Instagram</a></p>
+
+                                            <p><a href="/category/digital-2/operation-socialmedia">Opération
+                                                    Social Media</a></p>
+
+                                            <p><a href="/category/digital-2/twitter/cm">Community managers</a></p>
 
                                         </div>
 
@@ -714,13 +717,8 @@ if (is_single()) {
 
                 <?php
 
-                if (mt_rand(0, 1) == 0) {
-                    $adh['idclient'] = 'ca-pub-9594201080211682';
-                    $adh['slotid'] = '1797432652';
-                } else {
-                    $adh['idclient'] = 'ca-pub-0031647560032028';
-                    $adh['slotid'] = '1640978927';
-                }
+                $adh['idclient'] = 'ca-pub-9594201080211682';
+                $adh['slotid'] = '1797432652';
 
                 ?>
 

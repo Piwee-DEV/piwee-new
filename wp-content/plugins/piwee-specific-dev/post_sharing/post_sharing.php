@@ -111,14 +111,23 @@ function refresh_share_count_in_db($post_id)
         $countOneMonthAgo = $shareCountData['total_share_count_month_' . $oneMonthAgo];
         $countOneWeekAgo = $shareCountData['total_share_count_week_' . $oneWeekAgo];
 
-        if ($countOneMonthAgo != null) {
+        if(!$countOneMonthAgo) {
+            $countOneMonthAgo = 0;
+        }
+
+        if(!$countOneWeekAgo) {
+            $countOneWeekAgo = 0;
+        }
+
+
+        if ($countOneMonthAgo) {
 
             $diff = $count - $countOneMonthAgo;
 
             update_or_create_share_count($post_id, 'share_count_month_diff_' . $month, $diff);
         }
 
-        if ($countOneWeekAgo != null) {
+        if ($countOneWeekAgo) {
 
             $diff = $count - $countOneWeekAgo;
 
@@ -314,7 +323,6 @@ function get_most_shared_posts_of_the_week($limit)
         'body' => [
             'sort' => [
                 ['share_count_week_diff_' . $week => ['order' => 'desc']]
-                //['total_share_count' => ['order' => 'desc']]
             ]
         ]
     ];
@@ -322,7 +330,23 @@ function get_most_shared_posts_of_the_week($limit)
     try {
         $response = $client->search($params);
     }
-    catch(Exception $e) {}
+    catch(Exception $e) {
+
+        //Fallback : if no share_count_week_diff_ has been found, we sort by total_share_count
+        $params = [
+            'index' => ES_INDEX_NAME,
+            'type' => ES_TYPE_NAME,
+            'size' => $limit,
+            'from' => 0,
+            'body' => [
+                'sort' => [
+                    ['total_share_count' => ['order' => 'desc']]
+                ]
+            ]
+        ];
+
+        $response = $client->search($params);
+    }
 
     $posts = array();
 
@@ -356,7 +380,6 @@ function get_most_shared_posts_of_the_month($limit)
         'body' => [
             'sort' => [
                 ['share_count_month_diff_' . $month => ['order' => 'desc']]
-                //['total_share_count' => ['order' => 'desc']]
             ]
         ]
     ];
@@ -364,7 +387,23 @@ function get_most_shared_posts_of_the_month($limit)
     try {
         $response = $client->search($params);
     }
-    catch(Exception $e) {}
+    catch(Exception $e) {
+
+        //Fallback : if no share_count_month_diff_ has been found, we sort by total_share_count
+        $params = [
+            'index' => ES_INDEX_NAME,
+            'type' => ES_TYPE_NAME,
+            'size' => $limit,
+            'from' => 0,
+            'body' => [
+                'sort' => [
+                    ['total_share_count' => ['order' => 'desc']]
+                ]
+            ]
+        ];
+
+        $response = $client->search($params);
+    }
 
     $posts = array();
 
@@ -402,7 +441,9 @@ function get_most_shared_posts_of_all_time($limit)
     try {
         $response = $client->search($params);
     }
-    catch(Exception $e) {}
+    catch(Exception $e) {
+        echo $e;
+    }
 
     $posts = array();
 
