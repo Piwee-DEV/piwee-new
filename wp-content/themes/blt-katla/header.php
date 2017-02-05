@@ -741,7 +741,7 @@ if (is_single()) {
 
         <?php
             if(isset($brand['brandHeaderImage'])) {
-                echo '<div class="brandHeaderImageContainer"><img src="' . $brand['brandHeaderImage'] . '"></div>';
+                echo '<div class="brandHeaderImageContainer"><a href="' . $brand['brandUrl'] . '"><img src="' . $brand['brandHeaderImage'] . '"></a></div>';
             }
             else if(isset($campain_injected_code)) {
                 echo stripslashes($campain_injected_code);
